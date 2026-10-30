@@ -23,7 +23,7 @@
    "outbound": [],
    "state": {
     "kind": "motion",
-    "time": 6.662004,
+    "time": 6.139547,
     "duration": 6.966666666666667,
     "playing": true,
     "record": "shelton-coria",
@@ -32,7 +32,7 @@
    "subject": {
     "meshes": 12,
     "skinned": 2,
-    "diffFraction": 0.0227,
+    "diffFraction": 0.0246,
     "canvas": [
      400,
      194,
@@ -42,7 +42,7 @@
    },
    "video": {
     "readyState": 4,
-    "currentTime": 7,
+    "currentTime": 6.92,
     "paused": false,
     "error": null,
     "visible": true
@@ -65,7 +65,1555 @@
    "play": "Pause"
   },
   "file": "shelton-coria-400x560.png",
-  "ms": 9324
+  "ms": 9614
+ },
+ {
+  "id": "shelton-coria",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-coria&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 6.966666666666667,
+    "duration": 6.966666666666667,
+    "playing": false,
+    "record": "shelton-coria",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 12,
+    "skinned": 2,
+    "diffFraction": 0.0223,
+    "canvas": [
+     430,
+     194,
+     430,
+     194
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 7,
+    "paused": true,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    430,
+    194
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Play"
+  },
+  "file": "shelton-coria-430x560.png",
+  "ms": 9208
+ },
+ {
+  "id": "shelton-serve",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.966666666666667,
+    "duration": 5.966666666666667,
+    "playing": false,
+    "record": "shelton-serve",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 6,
+    "skinned": 1,
+    "diffFraction": 0.0231,
+    "canvas": [
+     400,
+     194,
+     400,
+     194
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 6,
+    "paused": true,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    400,
+    194
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Play"
+  },
+  "file": "shelton-serve-400x560.png",
+  "ms": 8839
+ },
+ {
+  "id": "shelton-serve",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.966666666666667,
+    "duration": 5.966666666666667,
+    "playing": false,
+    "record": "shelton-serve",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 6,
+    "skinned": 1,
+    "diffFraction": 0.0215,
+    "canvas": [
+     430,
+     194,
+     430,
+     194
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 6,
+    "paused": true,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    430,
+    194
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Play"
+  },
+  "file": "shelton-serve-430x560.png",
+  "ms": 8814
+ },
+ {
+  "id": "shelton-atp",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-atp&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.6,
+    "duration": 5.6,
+    "playing": false,
+    "record": "shelton-atp",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 1,
+    "skinned": 1,
+    "diffFraction": 0.0202,
+    "canvas": [
+     400,
+     194,
+     400,
+     194
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 5.63,
+    "paused": true,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    400,
+    194
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Play"
+  },
+  "file": "shelton-atp-400x560.png",
+  "ms": 8256
+ },
+ {
+  "id": "shelton-atp",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-atp&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.6,
+    "duration": 5.6,
+    "playing": false,
+    "record": "shelton-atp",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 1,
+    "skinned": 1,
+    "diffFraction": 0.022,
+    "canvas": [
+     430,
+     229,
+     430,
+     229
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 5.63,
+    "paused": true,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    430,
+    229
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Play"
+  },
+  "file": "shelton-atp-430x560.png",
+  "ms": 8292
+ },
+ {
+  "id": "ucla-point8",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=ucla-point8&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 7.684901,
+    "duration": 8.966666666666667,
+    "playing": true,
+    "record": "ucla-point8",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 4,
+    "skinned": 1,
+    "diffFraction": 0.0157,
+    "canvas": [
+     400,
+     158,
+     400,
+     158
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 7.9,
+    "paused": false,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    400,
+    158
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "ucla-point8-400x560.png",
+  "ms": 8460
+ },
+ {
+  "id": "ucla-point8",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=ucla-point8&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 7.554031,
+    "duration": 8.966666666666667,
+    "playing": true,
+    "record": "ucla-point8",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 4,
+    "skinned": 1,
+    "diffFraction": 0.0168,
+    "canvas": [
+     430,
+     193,
+     430,
+     193
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 7.87,
+    "paused": false,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    430,
+    193
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "ucla-point8-430x560.png",
+  "ms": 8554
+ },
+ {
+  "id": "shelton-long-rally",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-long-rally&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 7.477311,
+    "duration": 13.766666666666667,
+    "playing": true,
+    "record": "shelton-long-rally",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 1,
+    "skinned": 1,
+    "diffFraction": 0.0207,
+    "canvas": [
+     400,
+     194,
+     400,
+     194
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 7.64,
+    "paused": false,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    400,
+    194
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "shelton-long-rally-400x560.png",
+  "ms": 8347
+ },
+ {
+  "id": "shelton-long-rally",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-long-rally&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 7.768661,
+    "duration": 13.766666666666667,
+    "playing": true,
+    "record": "shelton-long-rally",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 1,
+    "skinned": 1,
+    "diffFraction": 0.024,
+    "canvas": [
+     430,
+     229,
+     430,
+     229
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 8.06,
+    "paused": false,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    430,
+    229
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "shelton-long-rally-430x560.png",
+  "ms": 8637
+ },
+ {
+  "id": "shelton-rally",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-rally&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.966666666666667,
+    "duration": 5.966666666666667,
+    "playing": false,
+    "record": "shelton-rally",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 1,
+    "skinned": 1,
+    "diffFraction": 0.0193,
+    "canvas": [
+     400,
+     194,
+     400,
+     194
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 6,
+    "paused": true,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    400,
+    194
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Play"
+  },
+  "file": "shelton-rally-400x560.png",
+  "ms": 8446
+ },
+ {
+  "id": "shelton-rally",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-rally&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.966666666666667,
+    "duration": 5.966666666666667,
+    "playing": false,
+    "record": "shelton-rally",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 1,
+    "skinned": 1,
+    "diffFraction": 0.021,
+    "canvas": [
+     430,
+     229,
+     430,
+     229
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 6,
+    "paused": true,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    430,
+    229
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Play"
+  },
+  "file": "shelton-rally-430x560.png",
+  "ms": 8295
+ },
+ {
+  "id": "shelton-wide",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-wide&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.966666666666667,
+    "duration": 5.966666666666667,
+    "playing": false,
+    "record": "shelton-wide",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 1,
+    "skinned": 1,
+    "diffFraction": 0.0214,
+    "canvas": [
+     400,
+     194,
+     400,
+     194
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 6,
+    "paused": true,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    400,
+    194
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Play"
+  },
+  "file": "shelton-wide-400x560.png",
+  "ms": 8294
+ },
+ {
+  "id": "shelton-wide",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-wide&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.966666666666667,
+    "duration": 5.966666666666667,
+    "playing": false,
+    "record": "shelton-wide",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 1,
+    "skinned": 1,
+    "diffFraction": 0.0234,
+    "canvas": [
+     430,
+     229,
+     430,
+     229
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 6,
+    "paused": true,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    430,
+    229
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Play"
+  },
+  "file": "shelton-wide-430x560.png",
+  "ms": 8447
+ },
+ {
+  "id": "ezone-racket-detail",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&camera=racket&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.966666666666667,
+    "duration": 5.966666666666667,
+    "playing": false,
+    "record": "shelton-serve",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 6,
+    "skinned": 1,
+    "diffFraction": 0.0221,
+    "canvas": [
+     400,
+     381,
+     400,
+     381
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    400,
+    381
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "racket",
+   "rotate": "false",
+   "play": "Replay"
+  },
+  "file": "ezone-racket-detail-400x560.png",
+  "ms": 8298
+ },
+ {
+  "id": "ezone-racket-detail",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&camera=racket&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.966666666666667,
+    "duration": 5.966666666666667,
+    "playing": false,
+    "record": "shelton-serve",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 6,
+    "skinned": 1,
+    "diffFraction": 0.0206,
+    "canvas": [
+     430,
+     381,
+     430,
+     381
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    430,
+    381
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "racket",
+   "rotate": "false",
+   "play": "Replay"
+  },
+  "file": "ezone-racket-detail-430x560.png",
+  "ms": 8257
+ },
+ {
+  "id": "outfit-match",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&pipeline=1&stage=3&appearance=1&camera=front&head=none&outfit=match&racket=ezone&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.740939,
+    "duration": 5.966666666666667,
+    "playing": true,
+    "record": "shelton-serve",
+    "ready": true,
+    "stage": 3
+   },
+   "subject": {
+    "meshes": 7,
+    "skinned": 2,
+    "diffFraction": 0.0248,
+    "canvas": [
+     400,
+     152,
+     400,
+     152
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 5.93,
+    "paused": false,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    400,
+    152
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "front",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "outfit-match-400x560.png",
+  "ms": 8777
+ },
+ {
+  "id": "outfit-match",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&pipeline=1&stage=3&appearance=1&camera=front&head=none&outfit=match&racket=ezone&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.66671,
+    "duration": 5.966666666666667,
+    "playing": true,
+    "record": "shelton-serve",
+    "ready": true,
+    "stage": 3
+   },
+   "subject": {
+    "meshes": 7,
+    "skinned": 2,
+    "diffFraction": 0.023,
+    "canvas": [
+     430,
+     152,
+     430,
+     152
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 6,
+    "paused": false,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    430,
+    152
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "front",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "outfit-match-430x560.png",
+  "ms": 8692
+ },
+ {
+  "id": "outfit-training",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&pipeline=1&stage=3&appearance=1&camera=front&head=none&outfit=training&racket=ezone&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.800133,
+    "duration": 5.966666666666667,
+    "playing": true,
+    "record": "shelton-serve",
+    "ready": true,
+    "stage": 3
+   },
+   "subject": {
+    "meshes": 7,
+    "skinned": 2,
+    "diffFraction": 0.0254,
+    "canvas": [
+     400,
+     152,
+     400,
+     152
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 6,
+    "paused": false,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    400,
+    152
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "front",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "outfit-training-400x560.png",
+  "ms": 8895
+ },
+ {
+  "id": "outfit-training",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&pipeline=1&stage=3&appearance=1&camera=front&head=none&outfit=training&racket=ezone&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.80235,
+    "duration": 5.966666666666667,
+    "playing": true,
+    "record": "shelton-serve",
+    "ready": true,
+    "stage": 3
+   },
+   "subject": {
+    "meshes": 7,
+    "skinned": 2,
+    "diffFraction": 0.0236,
+    "canvas": [
+     430,
+     152,
+     430,
+     152
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 6,
+    "paused": false,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    430,
+    152
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "front",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "outfit-training-430x560.png",
+  "ms": 8711
+ },
+ {
+  "id": "outfit-warmup",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&pipeline=1&stage=3&appearance=1&camera=front&head=none&outfit=warmup&racket=ezone&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.840146,
+    "duration": 5.966666666666667,
+    "playing": true,
+    "record": "shelton-serve",
+    "ready": true,
+    "stage": 3
+   },
+   "subject": {
+    "meshes": 7,
+    "skinned": 2,
+    "diffFraction": 0.0247,
+    "canvas": [
+     400,
+     152,
+     400,
+     152
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 6,
+    "paused": false,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    400,
+    152
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "front",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "outfit-warmup-400x560.png",
+  "ms": 8910
+ },
+ {
+  "id": "outfit-warmup",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&pipeline=1&stage=3&appearance=1&camera=front&head=none&outfit=warmup&racket=ezone&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.901835,
+    "duration": 5.966666666666667,
+    "playing": true,
+    "record": "shelton-serve",
+    "ready": true,
+    "stage": 3
+   },
+   "subject": {
+    "meshes": 7,
+    "skinned": 2,
+    "diffFraction": 0.0226,
+    "canvas": [
+     430,
+     152,
+     430,
+     152
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 6,
+    "paused": false,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    430,
+    152
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "front",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "outfit-warmup-430x560.png",
+  "ms": 8708
+ },
+ {
+  "id": "racket-ezone",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&pipeline=1&stage=3&appearance=1&camera=racket&head=none&outfit=match&racket=ezone&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.966666666666667,
+    "duration": 5.966666666666667,
+    "playing": false,
+    "record": "shelton-serve",
+    "ready": true,
+    "stage": 3
+   },
+   "subject": {
+    "meshes": 7,
+    "skinned": 2,
+    "diffFraction": 0.0177,
+    "canvas": [
+     400,
+     318,
+     400,
+     318
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    400,
+    318
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "racket",
+   "rotate": "false",
+   "play": "Replay"
+  },
+  "file": "racket-ezone-400x560.png",
+  "ms": 8292
+ },
+ {
+  "id": "racket-ezone",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&pipeline=1&stage=3&appearance=1&camera=racket&head=none&outfit=match&racket=ezone&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.966666666666667,
+    "duration": 5.966666666666667,
+    "playing": false,
+    "record": "shelton-serve",
+    "ready": true,
+    "stage": 3
+   },
+   "subject": {
+    "meshes": 7,
+    "skinned": 2,
+    "diffFraction": 0.0165,
+    "canvas": [
+     430,
+     318,
+     430,
+     318
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    430,
+    318
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "racket",
+   "rotate": "false",
+   "play": "Replay"
+  },
+  "file": "racket-ezone-430x560.png",
+  "ms": 8352
  },
  {
   "id": "racket-aero",
@@ -91,7 +1639,7 @@
    "outbound": [],
    "state": {
     "kind": "motion",
-    "time": 5.953100000000007,
+    "time": 5.796400000000016,
     "duration": 5.966666666666667,
     "playing": true,
     "record": "shelton-serve",
@@ -101,7 +1649,7 @@
    "subject": {
     "meshes": 11,
     "skinned": 2,
-    "diffFraction": 0.0181,
+    "diffFraction": 0.0146,
     "canvas": [
      400,
      318,
@@ -128,6 +1676,1367 @@
    "play": "Pause"
   },
   "file": "racket-aero-400x560.png",
-  "ms": 8302
+  "ms": 8197
+ },
+ {
+  "id": "racket-aero",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&pipeline=1&stage=3&appearance=1&camera=racket&head=none&outfit=match&racket=aero&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.639900000000014,
+    "duration": 5.966666666666667,
+    "playing": true,
+    "record": "shelton-serve",
+    "ready": true,
+    "stage": 3
+   },
+   "subject": {
+    "meshes": 11,
+    "skinned": 2,
+    "diffFraction": 0.0103,
+    "canvas": [
+     430,
+     318,
+     430,
+     318
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    430,
+    318
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "racket",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "racket-aero-430x560.png",
+  "ms": 8151
+ },
+ {
+  "id": "racket-vcore",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&pipeline=1&stage=3&appearance=1&camera=racket&head=none&outfit=match&racket=vcore&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.946400000000017,
+    "duration": 5.966666666666667,
+    "playing": true,
+    "record": "shelton-serve",
+    "ready": true,
+    "stage": 3
+   },
+   "subject": {
+    "meshes": 11,
+    "skinned": 2,
+    "diffFraction": 0.0176,
+    "canvas": [
+     400,
+     318,
+     400,
+     318
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    400,
+    318
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "racket",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "racket-vcore-400x560.png",
+  "ms": 8140
+ },
+ {
+  "id": "racket-vcore",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&pipeline=1&stage=3&appearance=1&camera=racket&head=none&outfit=match&racket=vcore&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.966666666666667,
+    "duration": 5.966666666666667,
+    "playing": false,
+    "record": "shelton-serve",
+    "ready": true,
+    "stage": 3
+   },
+   "subject": {
+    "meshes": 11,
+    "skinned": 2,
+    "diffFraction": 0.0168,
+    "canvas": [
+     430,
+     318,
+     430,
+     318
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    430,
+    318
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "racket",
+   "rotate": "false",
+   "play": "Replay"
+  },
+  "file": "racket-vcore-430x560.png",
+  "ms": 8220
+ },
+ {
+  "id": "racket-blade",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&pipeline=1&stage=3&appearance=1&camera=racket&head=none&outfit=match&racket=blade&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.966666666666667,
+    "duration": 5.966666666666667,
+    "playing": false,
+    "record": "shelton-serve",
+    "ready": true,
+    "stage": 3
+   },
+   "subject": {
+    "meshes": 11,
+    "skinned": 2,
+    "diffFraction": 0.0177,
+    "canvas": [
+     400,
+     318,
+     400,
+     318
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    400,
+    318
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "racket",
+   "rotate": "false",
+   "play": "Replay"
+  },
+  "file": "racket-blade-400x560.png",
+  "ms": 8139
+ },
+ {
+  "id": "racket-blade",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&pipeline=1&stage=3&appearance=1&camera=racket&head=none&outfit=match&racket=blade&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.859900000000013,
+    "duration": 5.966666666666667,
+    "playing": true,
+    "record": "shelton-serve",
+    "ready": true,
+    "stage": 3
+   },
+   "subject": {
+    "meshes": 11,
+    "skinned": 2,
+    "diffFraction": 0.014,
+    "canvas": [
+     430,
+     318,
+     430,
+     318
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    430,
+    318
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "racket",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "racket-blade-430x560.png",
+  "ms": 8215
+ },
+ {
+  "id": "pipeline-shelton-serve",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&pipeline=1&stage=0&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.966666666666667,
+    "duration": 5.966666666666667,
+    "playing": false,
+    "record": "shelton-serve",
+    "ready": true,
+    "stage": 0
+   },
+   "subject": {
+    "meshes": 6,
+    "skinned": 1,
+    "diffFraction": 0.0197,
+    "canvas": [
+     400,
+     166,
+     400,
+     166
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 6,
+    "paused": true,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    400,
+    166
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Play"
+  },
+  "file": "pipeline-shelton-serve-400x560.png",
+  "ms": 9167
+ },
+ {
+  "id": "pipeline-shelton-serve",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&pipeline=1&stage=0&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.966666666666667,
+    "duration": 5.966666666666667,
+    "playing": false,
+    "record": "shelton-serve",
+    "ready": true,
+    "stage": 0
+   },
+   "subject": {
+    "meshes": 6,
+    "skinned": 1,
+    "diffFraction": 0.0183,
+    "canvas": [
+     430,
+     166,
+     430,
+     166
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 6,
+    "paused": true,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    430,
+    166
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Play"
+  },
+  "file": "pipeline-shelton-serve-430x560.png",
+  "ms": 8503
+ },
+ {
+  "id": "pipeline-ucla-point8",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=ucla-point8&pipeline=1&stage=0&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 8.428551,
+    "duration": 8.966666666666667,
+    "playing": true,
+    "record": "ucla-point8",
+    "ready": true,
+    "stage": 0
+   },
+   "subject": {
+    "meshes": 6,
+    "skinned": 1,
+    "diffFraction": 0.0155,
+    "canvas": [
+     400,
+     166,
+     400,
+     166
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 9,
+    "paused": false,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    400,
+    166
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "pipeline-ucla-point8-400x560.png",
+  "ms": 9994
+ },
+ {
+  "id": "pipeline-ucla-point8",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=ucla-point8&pipeline=1&stage=0&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 7.269875,
+    "duration": 8.966666666666667,
+    "playing": true,
+    "record": "ucla-point8",
+    "ready": true,
+    "stage": 0
+   },
+   "subject": {
+    "meshes": 6,
+    "skinned": 1,
+    "diffFraction": 0.0138,
+    "canvas": [
+     430,
+     166,
+     430,
+     166
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 7.51,
+    "paused": false,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    430,
+    166
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "pipeline-ucla-point8-430x560.png",
+  "ms": 8466
+ },
+ {
+  "id": "pipeline-shelton-atp",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-atp&pipeline=1&stage=0&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.6,
+    "duration": 5.6,
+    "playing": false,
+    "record": "shelton-atp",
+    "ready": true,
+    "stage": 0
+   },
+   "subject": {
+    "meshes": 6,
+    "skinned": 1,
+    "diffFraction": 0.018,
+    "canvas": [
+     400,
+     166,
+     400,
+     166
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 5.63,
+    "paused": true,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    400,
+    166
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Play"
+  },
+  "file": "pipeline-shelton-atp-400x560.png",
+  "ms": 8403
+ },
+ {
+  "id": "pipeline-shelton-atp",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-atp&pipeline=1&stage=0&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.6,
+    "duration": 5.6,
+    "playing": false,
+    "record": "shelton-atp",
+    "ready": true,
+    "stage": 0
+   },
+   "subject": {
+    "meshes": 6,
+    "skinned": 1,
+    "diffFraction": 0.0168,
+    "canvas": [
+     430,
+     166,
+     430,
+     166
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 5.63,
+    "paused": true,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    430,
+    166
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Play"
+  },
+  "file": "pipeline-shelton-atp-430x560.png",
+  "ms": 8465
+ },
+ {
+  "id": "hawkeye-QS033",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=hawkeye&match=QS033&point=QS033-1-6-5&camera=court&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "hawkeye",
+    "time": 5.186799999999997,
+    "duration": 22.473,
+    "playing": true,
+    "record": "QS033-1-6-5",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 30,
+    "skinned": 2,
+    "diffFraction": 0.3541,
+    "canvas": [
+     400,
+     390,
+     400,
+     390
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    400,
+    390
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "broadcast",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "hawkeye-QS033-400x560.png",
+  "ms": 8685
+ },
+ {
+  "id": "hawkeye-QS033",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=hawkeye&match=QS033&point=QS033-1-6-5&camera=court&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "hawkeye",
+    "time": 6.843299999999996,
+    "duration": 22.473,
+    "playing": true,
+    "record": "QS033-1-6-5",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 31,
+    "skinned": 2,
+    "diffFraction": 0.3666,
+    "canvas": [
+     430,
+     390,
+     430,
+     390
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    430,
+    390
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "broadcast",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "hawkeye-QS033-430x560.png",
+  "ms": 8616
+ },
+ {
+  "id": "btc-6f1044da7a51",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=btc&match=btc-6f1044da7a51&point=video-8&camera=court&footage=1&autoplay=1&embed=1",
+  "pass": false,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": false,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "swingvision",
+    "time": 3.329999999999984,
+    "duration": 3.329999999999984,
+    "playing": false,
+    "record": "video-8",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 6,
+    "skinned": 0,
+    "diffFraction": 0.0007,
+    "canvas": [
+     400,
+     236,
+     400,
+     236
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 5.53,
+    "paused": true,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    400,
+    236
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "broadcast",
+   "rotate": "false",
+   "play": "Play"
+  },
+  "file": "btc-6f1044da7a51-400x560.png",
+  "ms": 8091
+ },
+ {
+  "id": "btc-6f1044da7a51",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=btc&match=btc-6f1044da7a51&point=video-8&camera=court&footage=1&autoplay=1&embed=1",
+  "pass": false,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": false,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "swingvision",
+    "time": 3.329999999999984,
+    "duration": 3.329999999999984,
+    "playing": false,
+    "record": "video-8",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 6,
+    "skinned": 0,
+    "diffFraction": 0.0007,
+    "canvas": [
+     430,
+     236,
+     430,
+     236
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 5.53,
+    "paused": true,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    430,
+    236
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "broadcast",
+   "rotate": "false",
+   "play": "Play"
+  },
+  "file": "btc-6f1044da7a51-430x560.png",
+  "ms": 8172
+ },
+ {
+  "id": "alias-court",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-coria&camera=court&footage=0&autoplay=1&embed=1",
+  "pass": false,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": false,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 6.519999999999992,
+    "duration": 6.966666666666667,
+    "playing": true,
+    "record": "shelton-coria",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 12,
+    "skinned": 2,
+    "diffFraction": 0.0015,
+    "canvas": [
+     400,
+     381,
+     400,
+     381
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    400,
+    381
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "broadcast",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "alias-court-400x560.png",
+  "ms": 8607
+ },
+ {
+  "id": "alias-court",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-coria&camera=court&footage=0&autoplay=1&embed=1",
+  "pass": false,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": false,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 6.966666666666667,
+    "duration": 6.966666666666667,
+    "playing": false,
+    "record": "shelton-coria",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 12,
+    "skinned": 2,
+    "diffFraction": 0.0014,
+    "canvas": [
+     430,
+     381,
+     430,
+     381
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    430,
+    381
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "broadcast",
+   "rotate": "false",
+   "play": "Replay"
+  },
+  "file": "alias-court-430x560.png",
+  "ms": 8590
+ },
+ {
+  "id": "alias-free",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-coria&camera=free&footage=0&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 0,
+    "duration": 6.966666666666667,
+    "playing": false,
+    "record": "shelton-coria",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 12,
+    "skinned": 2,
+    "diffFraction": 0.0529,
+    "canvas": [
+     400,
+     381,
+     400,
+     381
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    400,
+    381
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "front",
+   "rotate": "true",
+   "play": "Play"
+  },
+  "file": "alias-free-400x560.png",
+  "ms": 8327
+ },
+ {
+  "id": "alias-free",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-coria&camera=free&footage=0&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 0,
+    "duration": 6.966666666666667,
+    "playing": false,
+    "record": "shelton-coria",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 12,
+    "skinned": 2,
+    "diffFraction": 0.0492,
+    "canvas": [
+     430,
+     381,
+     430,
+     381
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    430,
+    381
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "front",
+   "rotate": "true",
+   "play": "Play"
+  },
+  "file": "alias-free-430x560.png",
+  "ms": 8327
+ },
+ {
+  "id": "alias-top",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-coria&camera=top&footage=0&embed=1",
+  "pass": false,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": false,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 0,
+    "duration": 6.966666666666667,
+    "playing": false,
+    "record": "shelton-coria",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 12,
+    "skinned": 2,
+    "diffFraction": 0.0005,
+    "canvas": [
+     400,
+     381,
+     400,
+     381
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    400,
+    381
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "top",
+   "rotate": "false",
+   "play": "Play"
+  },
+  "file": "alias-top-400x560.png",
+  "ms": 8264
+ },
+ {
+  "id": "alias-top",
+  "size": "430x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-coria&camera=top&footage=0&embed=1",
+  "pass": false,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": false,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 0,
+    "duration": 6.966666666666667,
+    "playing": false,
+    "record": "shelton-coria",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 12,
+    "skinned": 2,
+    "diffFraction": 0.0004,
+    "canvas": [
+     430,
+     381,
+     430,
+     381
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    430,
+    381
+   ],
+   "scroll": [
+    430,
+    560,
+    430,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "top",
+   "rotate": "false",
+   "play": "Play"
+  },
+  "file": "alias-top-430x560.png",
+  "ms": 8229
  }
 ]

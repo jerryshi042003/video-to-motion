@@ -39,7 +39,8 @@ def yt(vid, start, end, cap, clip=None):
     """The actual footage excerpt, played here (the channels block YouTube embeds). Credit links to the video at the timestamp."""
     url = f"https://www.youtube.com/watch?v={vid}&t={start}s"
     if clip:
-        return (f'<figure class="vid src-vid"><video class="auto" src="{e(clip)}" muted loop playsinline preload="none" disablepictureinpicture></video>'
+        poster = "media/refs/clips/" + Path(clip).stem + ".jpg"
+        return (f'<figure class="vid src-vid"><video class="auto" src="{e(clip)}" poster="{e(poster)}" muted loop playsinline preload="none" disablepictureinpicture></video>'
                 f'<figcaption class="cap"><a href="{e(url)}" target="_blank" rel="noopener">{cap} · YouTube</a></figcaption></figure>')
     n = vid.replace("-", "_", 1) if vid.startswith("-") else vid
     return (f'<figure class="yt"><a href="{e(url)}" target="_blank" rel="noopener"><img src="media/refs/yt-{e(n)}.jpg" loading="lazy" alt="">'
