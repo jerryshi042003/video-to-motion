@@ -1,0 +1,9 @@
+{
+  "origin": "Source video frame at local2s; no AI generation",
+  "source": "https://www.youtube.com/watch?v=IfvdZNHfmb4",
+  "sourceStartSeconds": 24,
+  "inputFile": "ben-shelton-rally-24-30-exact180.mp4",
+  "inputSha256": "08655a98f3a5f38289f33c10e3e181f00aeee97684be7ab1411ddbecaf9741e6",
+  "preview": "960px wide30fps silent comparison excerpt; inference input was1080p30fps",
+  "purpose": "Source-to-result analytical comparison"
+}

@@ -1,0 +1,10 @@
+{
+  "origin": "Source video frame at local2s; no AI generation",
+  "source": "https://www.youtube.com/watch?v=tQdVQu-CQwQ",
+  "sourceStartSeconds": 16.366666666666667,
+  "inputFile": "atp-broadcast/shelton-atp-16-22.mp4",
+  "inputSha256": "a5e0d75a3f1cee39198444e13275fc931c5b5293e25ec9d26534bb61bf975075",
+  "preview": "960px wide30fps silent comparison excerpt; inference input was1080p30fps",
+  "purpose": "Source-to-result analytical comparison",
+  "sourceFrameStart": 11
+}

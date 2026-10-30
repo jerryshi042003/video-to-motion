@@ -1,0 +1,121 @@
+[
+  {
+    "id": "alcaraz-a",
+    "player": "Carlos Alcaraz (near player in black, video 'Alcaraz vs Perricard')",
+    "hand": "right",
+    "metadata": "alcaraz-a.json",
+    "diagnostic": false
+  },
+  {
+    "id": "alcaraz-b",
+    "player": "Carlos Alcaraz (near player in black, video 'Alcaraz vs Perricard')",
+    "hand": "right",
+    "metadata": "alcaraz-b.json",
+    "diagnostic": false
+  },
+  {
+    "id": "alcaraz-hfr",
+    "player": "Carlos Alcaraz (Indian Wells 2023 practice)",
+    "hand": "right",
+    "metadata": "alcaraz-hfr.json",
+    "diagnostic": true
+  },
+  {
+    "id": "alcaraz-serve",
+    "player": "Giovanni Mpetshi Perricard (video 'Alcaraz vs Perricard'; near player is the 6 ft 8 server in teal, mislabelled Alcaraz in the batch)",
+    "hand": "right",
+    "metadata": "alcaraz-serve.json",
+    "diagnostic": false
+  },
+  {
+    "id": "cabolli-return",
+    "player": "Flavio Cobolli (batch label; near player with pink racket and yellow shorts, not independently verified)",
+    "hand": "right",
+    "metadata": "cabolli-return.json",
+    "diagnostic": false
+  },
+  {
+    "id": "cobolli-b1",
+    "player": "Flavio Cobolli (batch label; pink racket, yellow shorts)",
+    "hand": "right",
+    "metadata": "cobolli-b1.json",
+    "diagnostic": false
+  },
+  {
+    "id": "cobolli-b2",
+    "player": "Flavio Cobolli (batch label; pink racket, yellow shorts)",
+    "hand": "right",
+    "metadata": "cobolli-b2.json",
+    "diagnostic": false
+  },
+  {
+    "id": "cobolli-c1",
+    "player": "Flavio Cobolli (batch label; pink racket, yellow shorts)",
+    "hand": "right",
+    "metadata": "cobolli-c1.json",
+    "diagnostic": false
+  },
+  {
+    "id": "cobolli-c2",
+    "player": "Flavio Cobolli (batch label; pink racket, yellow shorts)",
+    "hand": "right",
+    "metadata": "cobolli-c2.json",
+    "diagnostic": false
+  },
+  {
+    "id": "djokovic-iw-a",
+    "player": "Novak Djokovic (2024 Indian Wells practice match)",
+    "hand": "right",
+    "metadata": "djokovic-iw-a.json",
+    "diagnostic": false
+  },
+  {
+    "id": "djokovic-iw-c",
+    "player": "Novak Djokovic (2024 Indian Wells practice match)",
+    "hand": "right",
+    "metadata": "djokovic-iw-c.json",
+    "diagnostic": false
+  },
+  {
+    "id": "djokovic-turin-return",
+    "player": "Novak Djokovic (Turin 2022 ATP Finals practice match vs Auger-Aliassime; batch label)",
+    "hand": "right",
+    "metadata": "djokovic-turin-return.json",
+    "diagnostic": false
+  },
+  {
+    "id": "shelton-serve-b",
+    "player": "Ben Shelton (Melbourne practice, same session as the accepted serve; left-handed)",
+    "hand": "left",
+    "metadata": "shelton-serve-b.json",
+    "diagnostic": false
+  },
+  {
+    "id": "shelton-serve-d",
+    "player": "Ben Shelton (Melbourne practice, same session as the accepted serve; left-handed)",
+    "hand": "left",
+    "metadata": "shelton-serve-d.json",
+    "diagnostic": false
+  },
+  {
+    "id": "shelton-serve-f",
+    "player": "Ben Shelton (Melbourne practice, same session as the accepted serve; left-handed)",
+    "hand": "left",
+    "metadata": "shelton-serve-f.json",
+    "diagnostic": false
+  },
+  {
+    "id": "shelton-serve-g2",
+    "player": "Ben Shelton (Melbourne practice, same session as the accepted serve; left-handed)",
+    "hand": "left",
+    "metadata": "shelton-serve-g2.json",
+    "diagnostic": true
+  },
+  {
+    "id": "sinner-return",
+    "player": "Jannik Sinner (batch label; near player in white cap and shirt, not independently verified)",
+    "hand": "right",
+    "metadata": "sinner-return.json",
+    "diagnostic": false
+  }
+]

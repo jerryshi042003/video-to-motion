@@ -1,0 +1,75 @@
+{
+  "identity": "Djokovic-inspired Meshy heads on fixed Shelton motion. Appearance transfer study, not Djokovic motion or a verified likeness.",
+  "method": "Three previously generated candidates, uniformly fitted to the unchanged body head envelope. Neck blend follows Joint12 and Joint15.",
+  "candidates": [
+    {
+      "id": "single",
+      "source": "single-rigged.blend",
+      "sourceSha256": "e730e8b76c3bf889029460e0830c4509cdc835f8cb501d5715dbf770197be5ee",
+      "scale": 0.7973208396338496,
+      "bounds": [
+        [
+          -0.09929351508617401,
+          0.09449993818998337
+        ],
+        [
+          0.3239656090736389,
+          0.6064819693565369
+        ],
+        [
+          -0.1061105951666832,
+          0.12408619374036789
+        ]
+      ],
+      "faces": 15999,
+      "bytes": 700740,
+      "sha256": "f1401e768d3b5b9b3ac6995ee686e553fd078e0b2111fbf83c2ec12e4f8767e8"
+    },
+    {
+      "id": "multi",
+      "source": "multi-rigged.blend",
+      "sourceSha256": "732511ad5a031ef365fafceb6cf05dbd8a1ec8ba907ba6199d74766bd175a716",
+      "scale": 0.815207539025682,
+      "bounds": [
+        [
+          -0.10399038344621658,
+          0.08905316889286041
+        ],
+        [
+          0.32376211881637573,
+          0.6068128347396851
+        ],
+        [
+          -0.1055983155965805,
+          0.12397982180118561
+        ]
+      ],
+      "faces": 16000,
+      "bytes": 840288,
+      "sha256": "a70a748b38e5908a26c08b63897207454e9f7608566bca90d5dff17eb83c34ed"
+    },
+    {
+      "id": "frontal",
+      "source": "frontal-rigged.blend",
+      "sourceSha256": "af9aba7631166ae30fcbed7fc4fb832b72a2c39caaf7120d56712da3e73f32bf",
+      "scale": 0.7501335206342895,
+      "bounds": [
+        [
+          -0.08289099484682083,
+          0.12153498083353043
+        ],
+        [
+          0.3238115906715393,
+          0.5981857776641846
+        ],
+        [
+          -0.10294950008392334,
+          0.1131049394607544
+        ]
+      ],
+      "faces": 15998,
+      "bytes": 840904,
+      "sha256": "92e1ce72a511b6d2afaf4d466fcd0257f54e4b05798d8e1f89747f2e02ec873d"
+    }
+  ]
+}

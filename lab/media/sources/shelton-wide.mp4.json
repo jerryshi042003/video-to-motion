@@ -1,0 +1,9 @@
+{
+  "origin": "Source video frame at local2s; no AI generation",
+  "source": "https://www.youtube.com/watch?v=IfvdZNHfmb4",
+  "sourceStartSeconds": 6,
+  "inputFile": "ben-shelton-wide-6-12-exact180.mp4",
+  "inputSha256": "1185f53527cd0e753b51de99f9bd195756456c622b40524c57273b7b58bd3320",
+  "preview": "960px wide30fps silent comparison excerpt; inference input was1080p30fps",
+  "purpose": "Source-to-result analytical comparison"
+}

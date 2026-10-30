@@ -1,0 +1,9 @@
+{
+  "origin": "Source video frame at local2s; no AI generation",
+  "source": "https://www.youtube.com/watch?v=cDV-pQCJkP4",
+  "sourceStartSeconds": 101.5,
+  "inputFile": "shelton-coria-played-101p5-108p5.mp4",
+  "inputSha256": "a712e81214901aaeb22bd29553e2f709a3b566fe81ba41e4561f99b1c1cc8c56",
+  "preview": "960px wide30fps silent comparison excerpt; inference input was1080p30fps",
+  "purpose": "Source-to-result analytical comparison"
+}

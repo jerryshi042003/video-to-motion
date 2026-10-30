@@ -1,0 +1,4 @@
+{
+  "prompt": "{\n  \"origin\": \"Source video frame at local2s; no AI generation\",\n  \"source\": \"https://www.youtube.com/watch?v=ot8tSR3q9gI\",\n  \"sourceStartSeconds\": 300,\n  \"inputFile\": \"ucla-johnson-point8-300-309.mp4\",\n  \"inputSha256\": \"3a5820ea1a4f2a4e849bda8d5a3afffe9e8934ab6d7da787d2122c52a16cbfbd\",\n  \"preview\": \"960px wide30fps silent comparison excerpt; inference input was1080p30fps\",\n  \"purpose\": \"Source-to-result analytical comparison\"\n}",
+  "createdAt": "2026-10-26T18:51:40.028Z"
+}

@@ -1,0 +1,10 @@
+{
+  "kind": "actual-browser-render",
+  "case": "close",
+  "stage": "Skin + texture",
+  "camera": "front",
+  "timeFraction": 0.45,
+  "source": "qa/pipeline-20261026/close-thumbnail.png",
+  "date": "2026-10-26",
+  "limitations": "Source-colored reconstruction, not real face likeness"
+}

@@ -1,0 +1,133 @@
+[
+ {
+  "id": "shelton-coria",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-coria&camera=behind&footage=1&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 6.662004,
+    "duration": 6.966666666666667,
+    "playing": true,
+    "record": "shelton-coria",
+    "ready": true
+   },
+   "subject": {
+    "meshes": 12,
+    "skinned": 2,
+    "diffFraction": 0.0227,
+    "canvas": [
+     400,
+     194,
+     400,
+     194
+    ]
+   },
+   "video": {
+    "readyState": 4,
+    "currentTime": 7,
+    "paused": false,
+    "error": null,
+    "visible": true
+   },
+   "withVideo": true,
+   "viewport": [
+    400,
+    194
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "behind",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "shelton-coria-400x560.png",
+  "ms": 9324
+ },
+ {
+  "id": "racket-aero",
+  "size": "400x560",
+  "url": "http://127.0.0.1:8470/lab/?source=motion&match=shelton-serve&pipeline=1&stage=3&appearance=1&camera=racket&head=none&outfit=match&racket=aero&autoplay=1&embed=1",
+  "pass": true,
+  "errors": [],
+  "bad": [],
+  "chromeHidden": true,
+  "subjectVisible": true,
+  "info": {
+   "chrome": {
+    "header": false,
+    "footer": false,
+    "detailNav": false,
+    "sectionHead": false,
+    "library": false,
+    "tabs": false,
+    "technical": false,
+    "context": false,
+    "sourcePicker": false
+   },
+   "outbound": [],
+   "state": {
+    "kind": "motion",
+    "time": 5.953100000000007,
+    "duration": 5.966666666666667,
+    "playing": true,
+    "record": "shelton-serve",
+    "ready": true,
+    "stage": 3
+   },
+   "subject": {
+    "meshes": 11,
+    "skinned": 2,
+    "diffFraction": 0.0181,
+    "canvas": [
+     400,
+     318,
+     400,
+     318
+    ]
+   },
+   "video": null,
+   "withVideo": false,
+   "viewport": [
+    400,
+    318
+   ],
+   "scroll": [
+    400,
+    560,
+    400,
+    560
+   ],
+   "error": "",
+   "stage": "",
+   "camera": "racket",
+   "rotate": "false",
+   "play": "Pause"
+  },
+  "file": "racket-aero-400x560.png",
+  "ms": 8302
+ }
+]

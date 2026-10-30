@@ -1,0 +1,4 @@
+{
+  "prompt": "{\n  \"origin\": \"Actual browser canvas screenshot\",\n  \"source\": \"shelton-atp-16-22_seed0.npz\",\n  \"view\": \"Behind, frame0 after source-frame11 offset\",\n  \"generation\": \"None; rendered FlowHMR output\",\n  \"captured\": \"2026-10-26\"\n}",
+  "createdAt": "2026-10-26T18:51:40.063Z"
+}

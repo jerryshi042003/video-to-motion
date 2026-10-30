@@ -1,6 +1,6 @@
 {
  "generated": "2026-10-30",
- "count": 100,
+ "count": 117,
  "models": [
   {
    "id": "tennis-lab-equipment-aero-motion",
@@ -2617,6 +2617,380 @@
    "original_bytes": 9563796,
    "compression": "meshopt",
    "skins": 0
+  },
+  {
+   "id": "lib-shelton-serve-b",
+   "file": "lib-shelton-serve-b.glb",
+   "poster": "lib-shelton-serve-b-poster.jpg",
+   "title": "Ben Shelton \u00b7 shelton-serve-b",
+   "group": "library-point",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/review/shelton-serve-b.json + shelton-serve-b.bin (racket: /Users/jshi/Scratch/tennis-racket-motion-20261028/review/racket.glb)",
+   "generator": "FlowHMR + arm solver",
+   "animations": [
+    {
+     "name": "point",
+     "seconds": 6.367
+    }
+   ],
+   "triangles": 150004,
+   "original_triangles": 575524,
+   "textured": false,
+   "bytes": 1049052,
+   "original_bytes": 16218608,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "lib-shelton-serve-d",
+   "file": "lib-shelton-serve-d.glb",
+   "poster": "lib-shelton-serve-d-poster.jpg",
+   "title": "Ben Shelton \u00b7 shelton-serve-d",
+   "group": "library-point",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/review/shelton-serve-d.json + shelton-serve-d.bin (racket: /Users/jshi/Scratch/tennis-racket-motion-20261028/review/racket.glb)",
+   "generator": "FlowHMR + arm solver",
+   "animations": [
+    {
+     "name": "point",
+     "seconds": 6.367
+    }
+   ],
+   "triangles": 150000,
+   "original_triangles": 575524,
+   "textured": false,
+   "bytes": 1048832,
+   "original_bytes": 16218652,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "lib-shelton-serve-f",
+   "file": "lib-shelton-serve-f.glb",
+   "poster": "lib-shelton-serve-f-poster.jpg",
+   "title": "Ben Shelton \u00b7 shelton-serve-f",
+   "group": "library-point",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/review/shelton-serve-f.json + shelton-serve-f.bin (racket: /Users/jshi/Scratch/tennis-racket-motion-20261028/review/racket.glb)",
+   "generator": "FlowHMR + arm solver",
+   "animations": [
+    {
+     "name": "point",
+     "seconds": 6.367
+    }
+   ],
+   "triangles": 149980,
+   "original_triangles": 575524,
+   "textured": false,
+   "bytes": 1050700,
+   "original_bytes": 16218740,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "lib-shelton-serve-g2",
+   "file": "lib-shelton-serve-g2.glb",
+   "poster": "lib-shelton-serve-g2-poster.jpg",
+   "title": "Ben Shelton \u00b7 shelton-serve-g2",
+   "group": "library-point",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/review/shelton-serve-g2.json + shelton-serve-g2.bin (racket: /Users/jshi/Scratch/tennis-racket-motion-20261028/review/racket.glb)",
+   "generator": "FlowHMR + arm solver",
+   "animations": [
+    {
+     "name": "point",
+     "seconds": 6.567
+    }
+   ],
+   "triangles": 150046,
+   "original_triangles": 575524,
+   "textured": false,
+   "bytes": 1054888,
+   "original_bytes": 16224004,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "lib-alcaraz-serve",
+   "file": "lib-alcaraz-serve.glb",
+   "poster": "lib-alcaraz-serve-poster.jpg",
+   "title": "Giovanni Mpetshi Perricard \u00b7 alcaraz-serve",
+   "group": "library-point",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/review/alcaraz-serve.json + alcaraz-serve.bin (racket: /Users/jshi/Scratch/tennis-racket-motion-20261028/review/racket.glb)",
+   "generator": "FlowHMR + arm solver",
+   "animations": [
+    {
+     "name": "point",
+     "seconds": 10.967
+    }
+   ],
+   "triangles": 150012,
+   "original_triangles": 575524,
+   "textured": false,
+   "bytes": 1114168,
+   "original_bytes": 16345420,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "lib-sinner-return",
+   "file": "lib-sinner-return.glb",
+   "poster": "lib-sinner-return-poster.jpg",
+   "title": "Jannik Sinner \u00b7 sinner-return",
+   "group": "library-point",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/review/sinner-return.json + sinner-return.bin (racket: /Users/jshi/Scratch/tennis-racket-motion-20261028/review/racket.glb)",
+   "generator": "FlowHMR + arm solver",
+   "animations": [
+    {
+     "name": "point",
+     "seconds": 9.733
+    }
+   ],
+   "triangles": 149992,
+   "original_triangles": 575524,
+   "textured": false,
+   "bytes": 1094628,
+   "original_bytes": 16312152,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "lib-djokovic-turin-return",
+   "file": "lib-djokovic-turin-return.glb",
+   "poster": "lib-djokovic-turin-return-poster.jpg",
+   "title": "Novak Djokovic \u00b7 djokovic-turin-return",
+   "group": "library-point",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/review/djokovic-turin-return.json + djokovic-turin-return.bin (racket: /Users/jshi/Scratch/tennis-racket-motion-20261028/review/racket.glb)",
+   "generator": "FlowHMR + arm solver",
+   "animations": [
+    {
+     "name": "point",
+     "seconds": 12.167
+    }
+   ],
+   "triangles": 150040,
+   "original_triangles": 575524,
+   "textured": false,
+   "bytes": 1134272,
+   "original_bytes": 16373196,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "lib-cabolli-return",
+   "file": "lib-cabolli-return.glb",
+   "poster": "lib-cabolli-return-poster.jpg",
+   "title": "Flavio Cobolli \u00b7 cabolli-return",
+   "group": "library-point",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/review/cabolli-return.json + cabolli-return.bin (racket: /Users/jshi/Scratch/tennis-racket-motion-20261028/review/racket.glb)",
+   "generator": "FlowHMR + arm solver",
+   "animations": [
+    {
+     "name": "point",
+     "seconds": 6.667
+    }
+   ],
+   "triangles": 150028,
+   "original_triangles": 575524,
+   "textured": false,
+   "bytes": 1035048,
+   "original_bytes": 16226664,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "lib-alcaraz-a",
+   "file": "lib-alcaraz-a.glb",
+   "poster": "lib-alcaraz-a-poster.jpg",
+   "title": "Carlos Alcaraz \u00b7 alcaraz-a",
+   "group": "library-point",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/review/alcaraz-a.json + alcaraz-a.bin (racket: /Users/jshi/Scratch/tennis-racket-motion-20261028/review/racket.glb)",
+   "generator": "FlowHMR + arm solver",
+   "animations": [
+    {
+     "name": "point",
+     "seconds": 14.467
+    }
+   ],
+   "triangles": 149996,
+   "original_triangles": 575524,
+   "textured": false,
+   "bytes": 1143136,
+   "original_bytes": 16434400,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "lib-alcaraz-b",
+   "file": "lib-alcaraz-b.glb",
+   "poster": "lib-alcaraz-b-poster.jpg",
+   "title": "Carlos Alcaraz \u00b7 alcaraz-b",
+   "group": "library-point",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/review/alcaraz-b.json + alcaraz-b.bin (racket: /Users/jshi/Scratch/tennis-racket-motion-20261028/review/racket.glb)",
+   "generator": "FlowHMR + arm solver",
+   "animations": [
+    {
+     "name": "point",
+     "seconds": 13.267
+    }
+   ],
+   "triangles": 150050,
+   "original_triangles": 575524,
+   "textured": false,
+   "bytes": 1139776,
+   "original_bytes": 16402500,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "lib-djokovic-iw-a",
+   "file": "lib-djokovic-iw-a.glb",
+   "poster": "lib-djokovic-iw-a-poster.jpg",
+   "title": "Novak Djokovic \u00b7 djokovic-iw-a",
+   "group": "library-point",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/review/djokovic-iw-a.json + djokovic-iw-a.bin (racket: /Users/jshi/Scratch/tennis-racket-motion-20261028/review/racket.glb)",
+   "generator": "FlowHMR + arm solver",
+   "animations": [
+    {
+     "name": "point",
+     "seconds": 14.167
+    }
+   ],
+   "triangles": 149966,
+   "original_triangles": 575524,
+   "textured": false,
+   "bytes": 1161092,
+   "original_bytes": 16426472,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "lib-djokovic-iw-c",
+   "file": "lib-djokovic-iw-c.glb",
+   "poster": "lib-djokovic-iw-c-poster.jpg",
+   "title": "Novak Djokovic \u00b7 djokovic-iw-c",
+   "group": "library-point",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/review/djokovic-iw-c.json + djokovic-iw-c.bin (racket: /Users/jshi/Scratch/tennis-racket-motion-20261028/review/racket.glb)",
+   "generator": "FlowHMR + arm solver",
+   "animations": [
+    {
+     "name": "point",
+     "seconds": 14.467
+    }
+   ],
+   "triangles": 150028,
+   "original_triangles": 575524,
+   "textured": false,
+   "bytes": 1153240,
+   "original_bytes": 16439952,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "lib-cobolli-b1",
+   "file": "lib-cobolli-b1.glb",
+   "poster": "lib-cobolli-b1-poster.jpg",
+   "title": "Flavio Cobolli \u00b7 cobolli-b1",
+   "group": "library-point",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/review/cobolli-b1.json + cobolli-b1.bin (racket: /Users/jshi/Scratch/tennis-racket-motion-20261028/review/racket.glb)",
+   "generator": "FlowHMR + arm solver",
+   "animations": [
+    {
+     "name": "point",
+     "seconds": 6.667
+    }
+   ],
+   "triangles": 150070,
+   "original_triangles": 575524,
+   "textured": false,
+   "bytes": 1045368,
+   "original_bytes": 16226640,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "lib-cobolli-b2",
+   "file": "lib-cobolli-b2.glb",
+   "poster": "lib-cobolli-b2-poster.jpg",
+   "title": "Flavio Cobolli \u00b7 cobolli-b2",
+   "group": "library-point",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/review/cobolli-b2.json + cobolli-b2.bin (racket: /Users/jshi/Scratch/tennis-racket-motion-20261028/review/racket.glb)",
+   "generator": "FlowHMR + arm solver",
+   "animations": [
+    {
+     "name": "point",
+     "seconds": 11.667
+    }
+   ],
+   "triangles": 150002,
+   "original_triangles": 575524,
+   "textured": false,
+   "bytes": 1119460,
+   "original_bytes": 16364388,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "lib-cobolli-c1",
+   "file": "lib-cobolli-c1.glb",
+   "poster": "lib-cobolli-c1-poster.jpg",
+   "title": "Flavio Cobolli \u00b7 cobolli-c1",
+   "group": "library-point",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/review/cobolli-c1.json + cobolli-c1.bin (racket: /Users/jshi/Scratch/tennis-racket-motion-20261028/review/racket.glb)",
+   "generator": "FlowHMR + arm solver",
+   "animations": [
+    {
+     "name": "point",
+     "seconds": 12.2
+    }
+   ],
+   "triangles": 150050,
+   "original_triangles": 575524,
+   "textured": false,
+   "bytes": 1099564,
+   "original_bytes": 16378768,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "lib-cobolli-c2",
+   "file": "lib-cobolli-c2.glb",
+   "poster": "lib-cobolli-c2-poster.jpg",
+   "title": "Flavio Cobolli \u00b7 cobolli-c2",
+   "group": "library-point",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/review/cobolli-c2.json + cobolli-c2.bin (racket: /Users/jshi/Scratch/tennis-racket-motion-20261028/review/racket.glb)",
+   "generator": "FlowHMR + arm solver",
+   "animations": [
+    {
+     "name": "point",
+     "seconds": 6.8
+    }
+   ],
+   "triangles": 150004,
+   "original_triangles": 575524,
+   "textured": false,
+   "bytes": 1048072,
+   "original_bytes": 16230212,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "lib-alcaraz-hfr",
+   "file": "lib-alcaraz-hfr.glb",
+   "poster": "lib-alcaraz-hfr-poster.jpg",
+   "title": "Carlos Alcaraz \u00b7 alcaraz-hfr",
+   "group": "library-point",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/review/alcaraz-hfr.json + alcaraz-hfr.bin (racket: /Users/jshi/Scratch/tennis-racket-motion-20261028/review/racket.glb)",
+   "generator": "FlowHMR + arm solver",
+   "animations": [
+    {
+     "name": "point",
+     "seconds": 6.967
+    }
+   ],
+   "triangles": 150072,
+   "original_triangles": 575524,
+   "textured": false,
+   "bytes": 1069532,
+   "original_bytes": 16791548,
+   "compression": "meshopt",
+   "skins": 1
   }
  ]
 }

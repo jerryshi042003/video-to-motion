@@ -1,0 +1,4 @@
+{
+  "prompt": "{\n  \"origin\": \"Source video frame at local2s; no AI generation\",\n  \"source\": \"https://www.youtube.com/watch?v=cDV-pQCJkP4\",\n  \"sourceStartSeconds\": 154.2,\n  \"inputFile\": \"shelton-coria-rally-154-168.mp4\",\n  \"inputSha256\": \"2bec6b0877908a4d313b337063605fbabff59e69b223e82219ebedd7039ffb55\",\n  \"preview\": \"960px wide30fps silent comparison excerpt; inference input was1080p30fps\",\n  \"purpose\": \"Source-to-result analytical comparison\"\n}",
+  "createdAt": "2026-10-26T18:51:39.987Z"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Yonex VCORE 98 Ruby Red (08VC98)",
+  "extent_mm": [
+    37.7,
+    686.3,
+    265.5
+  ],
+  "traced_bed_in2": 95.4470219202539,
+  "vertices": 10300,
+  "source": [
+    "https://us.yonex.com/products/vcore-98"
+  ],
+  "method": "photo-traced frame; authored beam extrusion, strings and grip; not manufacturer CAD",
+  "limitations": [
+    "Photo-traced front and back paint; sidewall cross-sections approximated; not manufacturer CAD.",
+    "Retail frame reference; not a claim about a professional player\u2019s customized equipment."
+  ]
+}

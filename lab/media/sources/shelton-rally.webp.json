@@ -1,0 +1,4 @@
+{
+  "prompt": "{\n  \"origin\": \"Source video frame at local2s; no AI generation\",\n  \"source\": \"https://www.youtube.com/watch?v=IfvdZNHfmb4\",\n  \"sourceStartSeconds\": 24,\n  \"inputFile\": \"ben-shelton-rally-24-30-exact180.mp4\",\n  \"inputSha256\": \"08655a98f3a5f38289f33c10e3e181f00aeee97684be7ab1411ddbecaf9741e6\",\n  \"preview\": \"960px wide30fps silent comparison excerpt; inference input was1080p30fps\",\n  \"purpose\": \"Source-to-result analytical comparison\"\n}",
+  "createdAt": "2026-10-26T18:51:40.008Z"
+}

@@ -1,0 +1,500 @@
+{
+ "analyst": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "ballkid": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "bruin": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "coach": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "fan-1": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "fan-2": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "fan-3": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "fan-4": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "gauff-2": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "gauff": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "gilbert": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "goat-loader": [
+  {
+   "name": "Goat sculpt",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "jerry-serve": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "jerry": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "martin": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "pro-a": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "pro-b": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "quan-iw": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "quan-ucla": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "rival": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "shelton-2": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "shelton-coria-point": [
+  {
+   "name": "Ben Shelton generic body",
+   "t": [
+    0.97,
+    0,
+    11.37
+   ]
+  },
+  {
+   "name": "Federico Coria generic body",
+   "t": [
+    -2.44,
+    0,
+    -7.47
+   ]
+  }
+ ],
+ "shelton": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "sp-1": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "sp-2": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "sp-3": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "sp-4": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "stu-1": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "stu-2": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "stu-3": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "stu-4": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "tennis-lab-equipment-aero-motion": [
+  {
+   "name": "match separate garment.002",
+   "t": [
+    1.51,
+    0.03,
+    11.66
+   ]
+  },
+  {
+   "name": "Shelton generic body.004",
+   "t": [
+    1.51,
+    0.03,
+    11.66
+   ]
+  }
+ ],
+ "tennis-lab-pipeline-atp": [
+  {
+   "name": "Ben Shelton generic body.003",
+   "t": [
+    1.32,
+    0,
+    12.06
+   ]
+  },
+  {
+   "name": "Separate fitted garments",
+   "t": [
+    1.32,
+    0,
+    12.06
+   ]
+  }
+ ],
+ "tennis-lab-pipeline-close": [
+  {
+   "name": "Ben Shelton generic body.003",
+   "t": [
+    1.51,
+    0.03,
+    11.66
+   ]
+  },
+  {
+   "name": "Separate fitted garments",
+   "t": [
+    1.51,
+    0.03,
+    11.66
+   ]
+  }
+ ],
+ "tennis-lab-pipeline-college": [
+  {
+   "name": "Separate fitted garments",
+   "t": [
+    -1.34,
+    0,
+    11.61
+   ]
+  },
+  {
+   "name": "Spencer Johnson generic body.003",
+   "t": [
+    -1.34,
+    0,
+    11.61
+   ]
+  }
+ ],
+ "tennis-lab-shelton-atp": [
+  {
+   "name": "Ben Shelton generic body",
+   "t": [
+    0,
+    0,
+    10
+   ]
+  }
+ ],
+ "tennis-lab-shelton-coria": [
+  {
+   "name": "Ben Shelton generic body",
+   "t": [
+    -0.97,
+    0,
+    11.37
+   ]
+  },
+  {
+   "name": "Federico Coria generic body",
+   "t": [
+    2.44,
+    0,
+    -7.47
+   ]
+  }
+ ],
+ "tennis-lab-shelton-long-rally": [
+  {
+   "name": "Ben Shelton generic body",
+   "t": [
+    0,
+    0,
+    10
+   ]
+  }
+ ],
+ "tennis-lab-shelton-rally": [
+  {
+   "name": "Ben Shelton generic body",
+   "t": [
+    0,
+    0,
+    10
+   ]
+  }
+ ],
+ "tennis-lab-shelton-serve": [
+  {
+   "name": "Ben Shelton generic body",
+   "t": [
+    0,
+    0,
+    10
+   ]
+  }
+ ],
+ "tennis-lab-shelton-wide": [
+  {
+   "name": "Ben Shelton generic body",
+   "t": [
+    0,
+    0,
+    10
+   ]
+  }
+ ],
+ "tennis-lab-ucla-point8-combined": [
+  {
+   "name": "Spencer Johnson generic body",
+   "t": [
+    -1.31,
+    0,
+    11.95
+   ]
+  }
+ ],
+ "tennis-lab-ucla-point8": [
+  {
+   "name": "Spencer Johnson generic body",
+   "t": [
+    0,
+    0,
+    10
+   ]
+  }
+ ],
+ "toy-ibex": [
+  {
+   "name": "Toy ibex",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "umpire": [
+  {
+   "name": "char1",
+   "t": [
+    0,
+    0,
+    0
+   ]
+  }
+ ]
+}

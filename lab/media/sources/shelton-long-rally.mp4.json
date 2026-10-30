@@ -1,0 +1,9 @@
+{
+  "origin": "Source video frame at local2s; no AI generation",
+  "source": "https://www.youtube.com/watch?v=cDV-pQCJkP4",
+  "sourceStartSeconds": 154.2,
+  "inputFile": "shelton-coria-rally-154-168.mp4",
+  "inputSha256": "2bec6b0877908a4d313b337063605fbabff59e69b223e82219ebedd7039ffb55",
+  "preview": "960px wide30fps silent comparison excerpt; inference input was1080p30fps",
+  "purpose": "Source-to-result analytical comparison"
+}

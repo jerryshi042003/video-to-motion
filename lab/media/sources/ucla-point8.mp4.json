@@ -1,0 +1,9 @@
+{
+  "origin": "Source video frame at local2s; no AI generation",
+  "source": "https://www.youtube.com/watch?v=ot8tSR3q9gI",
+  "sourceStartSeconds": 300,
+  "inputFile": "ucla-johnson-point8-300-309.mp4",
+  "inputSha256": "3a5820ea1a4f2a4e849bda8d5a3afffe9e8934ab6d7da787d2122c52a16cbfbd",
+  "preview": "960px wide30fps silent comparison excerpt; inference input was1080p30fps",
+  "purpose": "Source-to-result analytical comparison"
+}

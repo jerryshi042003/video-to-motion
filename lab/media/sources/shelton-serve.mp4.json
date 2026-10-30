@@ -1,0 +1,9 @@
+{
+  "origin": "Source video frame at local2s; no AI generation",
+  "source": "https://www.youtube.com/watch?v=vF9WB1ZhgsI",
+  "sourceStartSeconds": 26,
+  "inputFile": "ben-shelton-serve-26-32-exact180.mp4",
+  "inputSha256": "da4b13bbb5c1e87a86979c87dbf0f593fce410826ac2932627652b1b9cdf37c4",
+  "preview": "960px wide30fps silent comparison excerpt; inference input was1080p30fps",
+  "purpose": "Source-to-result analytical comparison"
+}

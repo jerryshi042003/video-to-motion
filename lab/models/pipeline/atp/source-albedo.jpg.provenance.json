@@ -1,0 +1,36 @@
+{
+  "kind": "derived-multi-frame-video-colors",
+  "source": "atp-broadcast/shelton-atp-16-22.mp4",
+  "sampledFrames": [
+    0,
+    8,
+    16,
+    24,
+    32,
+    40,
+    48,
+    56,
+    64,
+    72,
+    80,
+    88,
+    96,
+    104,
+    112,
+    120,
+    128,
+    136,
+    144,
+    152,
+    160,
+    168
+  ],
+  "method": "Multi-frame visible source color median, source-joint image correspondence; separate 2mm garment surface; neutral region fallback for missing coverage",
+  "limitations": [
+    "No identity scan or recovered face detail",
+    "Hidden texels use explicit color fallback",
+    "Garments follow body skinning; no cloth simulation",
+    "Camera and body estimates can misassign pixels"
+  ],
+  "date": "2026-10-26"
+}

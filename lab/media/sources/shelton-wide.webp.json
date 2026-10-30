@@ -1,0 +1,4 @@
+{
+  "prompt": "{\n  \"origin\": \"Source video frame at local2s; no AI generation\",\n  \"source\": \"https://www.youtube.com/watch?v=IfvdZNHfmb4\",\n  \"sourceStartSeconds\": 6,\n  \"inputFile\": \"ben-shelton-wide-6-12-exact180.mp4\",\n  \"inputSha256\": \"1185f53527cd0e753b51de99f9bd195756456c622b40524c57273b7b58bd3320\",\n  \"preview\": \"960px wide30fps silent comparison excerpt; inference input was1080p30fps\",\n  \"purpose\": \"Source-to-result analytical comparison\"\n}",
+  "createdAt": "2026-10-26T18:51:39.900Z"
+}

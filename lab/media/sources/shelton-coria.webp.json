@@ -1,0 +1,4 @@
+{
+  "prompt": "{\n  \"origin\": \"Source video frame at local2s; no AI generation\",\n  \"source\": \"https://www.youtube.com/watch?v=cDV-pQCJkP4\",\n  \"sourceStartSeconds\": 101.5,\n  \"inputFile\": \"shelton-coria-played-101p5-108p5.mp4\",\n  \"inputSha256\": \"a712e81214901aaeb22bd29553e2f709a3b566fe81ba41e4561f99b1c1cc8c56\",\n  \"preview\": \"960px wide30fps silent comparison excerpt; inference input was1080p30fps\",\n  \"purpose\": \"Source-to-result analytical comparison\"\n}",
+  "createdAt": "2026-10-26T18:51:39.921Z"
+}

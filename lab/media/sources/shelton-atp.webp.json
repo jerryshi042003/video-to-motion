@@ -1,0 +1,4 @@
+{
+  "prompt": "{\n  \"origin\": \"Source video frame at local2s; no AI generation\",\n  \"source\": \"https://www.youtube.com/watch?v=tQdVQu-CQwQ\",\n  \"sourceStartSeconds\": 16.366666666666667,\n  \"inputFile\": \"atp-broadcast/shelton-atp-16-22.mp4\",\n  \"inputSha256\": \"a5e0d75a3f1cee39198444e13275fc931c5b5293e25ec9d26534bb61bf975075\",\n  \"preview\": \"960px wide30fps silent comparison excerpt; inference input was1080p30fps\",\n  \"purpose\": \"Source-to-result analytical comparison\",\n  \"sourceFrameStart\": 11\n}",
+  "createdAt": "2026-10-26T18:51:39.963Z"
+}
