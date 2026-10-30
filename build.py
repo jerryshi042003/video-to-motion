@@ -356,7 +356,7 @@ page = f"""<!doctype html><html lang="en"><head>
     document.querySelectorAll('iframe').forEach(function(f){{
       if(f.src.indexOf('/lab/')<0) return;
       try{{ var d=f.contentDocument, r=d.getElementById('time'), p=d.getElementById('play'), rs=d.getElementById('restart');
-        if(r&&p&&rs&&p.textContent.trim()==='Play'&&Number(r.value)>=Number(r.max)-0.05) rs.click(); }}catch(e){{}}
+        if(r&&p&&rs&&p.textContent.trim()==='Play'&&Number(r.value)>=Number(r.max)-0.05){{ rs.click(); setTimeout(function(){{ if(p.textContent.trim()==='Play') p.click(); }},120); }} }}catch(e){{}}
     }});
   }},1500);
   window.addEventListener('load',function(){{
