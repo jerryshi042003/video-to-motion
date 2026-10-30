@@ -54,7 +54,8 @@ def card(c):
     v = c.get("verdict", "")
     meta = " · ".join(e(m) for m in c.get("meta", []))
     sub = f'<span class="sub">{e(c["sub"])}</span>' if c.get("sub") else ""
-    return f"""<article class="card {c['kind']}" id="{e(c['id'])}" tabindex="0">
+    extra = " portrait" if c["id"].startswith("cast-") else ""
+    return f"""<article class="card {c['kind']}{extra}" id="{e(c['id'])}" tabindex="0">
 <div class="front">
 <div class="media">{media(c)}</div>
 <div class="cap"><h4>{e(c['title'])}{sub}</h4><div class="meta">{meta}{' · ' if meta and v else ''}<b class="v {VERDICT.get(v, '')}">{e(v)}</b></div></div>
@@ -153,6 +154,7 @@ h4.shot{{font-size:14px;color:var(--ink);margin:16px 0 8px;font-weight:600}}
 .card.flipped .back{{opacity:1;pointer-events:auto}}.card.flipped .front{{opacity:.08}}
 .media video,.media>img,.media .stack-media>img,.media .stack-media>a>img{{width:100%;display:block;background:#1a1f1d;aspect-ratio:16/9;object-fit:cover}}
 .card.video .media video{{aspect-ratio:auto;height:auto}}
+.card.portrait .media>img{{aspect-ratio:3/4;object-fit:contain;background:#d9dcd8}}
 .stack-media{{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px}}.stack-media>:first-child{{grid-column:1/-1}}
 .stack-media img{{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#1a1f1d}}
 .card.io .media{{padding:12px 14px 0}}.io{{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1.4fr);gap:8px;align-items:start}}

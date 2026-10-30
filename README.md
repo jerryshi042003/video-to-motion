@@ -1,61 +1,87 @@
 # Video to Motion
 
-A visual library of what three paid AI services actually produced when turning tennis footage into 3D motion, rackets and bodies, over one month of work in October 2026.
+What each generator actually produced, October 2026. One section per process: the stack and the pipeline first, then the results, with the input beside the output wherever both were kept.
 
-- **Modal** running [FlowHMR](https://github.com/flowhmr/flowhmr) for body motion and [RacketVision](https://arxiv.org/abs/2511.17045) for racket detection
-- **fal.ai** running Hyper3D Rodin 2.5, Kling 3.0, Hunyuan3D, Tripo, Flux and nano-banana
-- **Meshy** 6 Lite and 7.1 for characters, crowds and heads
+- **Video to motion**: Modal running [FlowHMR](https://github.com/flowhmr/flowhmr) for body motion and [RacketVision](https://arxiv.org/abs/2511.17045) for racket points, a local arm solver, Blender for the racket and the renders
+- **Bodies from photos**: Hyper3D Rodin 2.5 through fal.ai
+- **HyperFrames films**: HTML and a paused timeline rendered frame by frame to video
+- **Home-page thumbnails**: four generations in one day and a 140-option review
+- **Meshy**: characters, crowds, props and scenes for the court-stories pages
 
-Every entry shows the input on the left and the output on the right. The gallery is a single static page: open `index.html`, or view it on GitHub Pages once enabled.
+Open `index.html`, or the GitHub Pages site once enabled. Videos play on their own as they scroll into view. The small `i` on every card opens the back: source, what ran, the result, what is specific to that item, and cost.
 
 ![Ben Shelton serve: source, front, side, back](media/library/shelton-serve-b-poster.jpg)
 
-## What worked
+## Where it stands
 
-**Video to body motion.** FlowHMR on court-level footage, filmed from behind with the player large in frame, gave body motion and shape that held up. Sixteen points across six players were rebuilt this way and play source, front, side and back in sync. Broadcast and high-seat footage gave a body but not a usable wrist or face.
+| Area | Score | Why |
+| --- | --- | --- |
+| Body motion | 8/10 | FlowHMR on court-level footage, accepted across 16 points |
+| Ball | 8/10 | ball audit and estimated arcs; hidden where unsupported |
+| Racket model design | 7/10 | traced outline, woven strings, drilled grommets; depth approximate |
+| Racket motion | 6/10 | solved through the arm; face at contact set by rule; blurred at 30 fps |
+| Skin and face texture, Meshy | 5/10 | stylised characters; heads rejected as likeness |
+| Body shape specific to the person | 2/10 | every player shares the FlowHMR body; Rodin bodies paused |
+| Skin and face texture, FlowHMR with a rig | 2/10 | plain grey body |
+| Face likeness | 2/10 | Rodin, UP2You and Meshy all generated a face, none a likeness |
 
-**The racket.** Three parts had to come together:
+## Video to motion
 
-1. A racket model built in Blender from reference contours: frame, throat bridge, individual grommets, a woven string bed and a wrapped handle as separate closed meshes.
-2. RacketVision, which finds five racket points per frame where the racket is visible.
-3. A solver that moves the racket through the arm instead of freely at the wrist. Forearm twist and wrist angle are kept inside anatomical limits and racket spin is capped at 2,500 degrees per second. This stopped the face flipping between frames.
+The recipe that worked: court-level footage from behind the player, 30 fps, 1080p cut from 4K. FlowHMR gives the body and shape. RacketVision gives five racket points per frame where the racket is visible. The racket is solved through the forearm and wrist inside anatomical limits, with spin capped, instead of being placed freely at the wrist. Contact frames are labelled by eye and the face angle is pinned there. Blender renders source, front, side and back in sync.
 
-![Racket model](media/racket/racket-full.jpg)
+Sixteen points across six players, grouped by shot: serves, returns, and served points with groundstrokes. Same steps on every point; the back of each card lists what is specific to it (handedness, contacts, how much of the swing the detector saw, arm-limit frames).
 
-**120 fps footage.** At 30 fps a fast swing is a blur and the detector loses the racket exactly when it matters. In 4K 120 fps footage it keeps the racket through contact and the follow-through: 81 percent of frames found against 32 to 40 percent at 30 fps. This was the single largest gain and cost nothing.
+Other cameras and frame rates show where quality changes:
+
+- 120 fps, 4K, court level (Alcaraz forehand): the detector keeps the racket through contact; 81 percent of frames found against 32 to 40 percent at 30 fps. The best racket result of the project.
+- High diagonal seat, 4K crop (Djokovic): body fit improved, racket detection got worse; this camera is the ceiling for groundstrokes.
+- Elevated broadcast, 1080p50 (Shelton, ATP): full-court context, no usable wrist or face.
+- Fixed club camera (college match): body plus charted ball arcs, no racket.
+- 14-second rally and a two-player played point: drift over time, hidden hands, cropped serve contact. Both remain viewable as test scenes on the Tennis Lab site.
 
 ![Alcaraz forehand at 120 fps through contact](media/racket/hfr-contact.jpg)
 
-**Face angle at contact.** From behind, an open face and a closed face shrink the string outline by the same amount, so the detections cannot tell them apart. A contact rule pins the face for a few frames either side of contact, with different ranges for topspin and serves. 34 contacts were labelled by eye across the library.
+## The racket
 
-![Face angle before and after](media/racket/edge-before-after.jpg)
+A model built in Blender from reference contours, with the frame, throat bridge, individual grommets, a woven string bed and a wrapped handle as separate closed meshes. The arm solve stopped the face flipping between frames. The contact rule fixed 34 labelled contacts from 7 plausible face angles to 34. Grip registration is one hand-to-handle transform per stroke family.
 
-## What partly worked
+![Racket model](media/racket/racket-full.jpg)
 
-**Whole bodies from photos (fal.ai Rodin 2.5).** Two or three frames of the same video give a whole clothed person whose outfit matches the footage. The face is generated rather than a likeness, the generated hand stays open under the grip, and loose clothing is part of the body mesh so it bulges in some poses. Eight bodies were built; the player's own body is shown on the Shelton serve.
+## Bodies from photos
+
+Two or three frames of the player's own video to Rodin 2.5 give a whole clothed person whose outfit matches the footage. The face is generated, the hand stays open under the grip, and loose clothing bulges because the shirt is part of the body mesh. Eight bodies were built and paused.
 
 ![Shelton serve with his own Rodin body](media/bodies/compare-serve.jpg)
 
-## What did not work
+## HyperFrames films
 
-- **Meshy for likeness.** Fast and good for stylised characters, crowds and props from one reference image. Heads were rejected, hands came out as mittens, and the tennis figures were replaced.
-- **Face reconstruction.** UP2You gave a connected body with clothing but the wrong identity. MICA gave face geometry with no hair, skin or body.
-- **Kling 3.0 motion control** for AI video: both runs failed the anatomy check and the approach was dropped. No output was kept.
-- **GEM-X and Kimodo** motion capture: loops came back but none was adopted.
+HyperFrames renders HTML to video by seeking a paused GSAP timeline frame by frame in headless Chrome, so every render is deterministic. Scaffold, timeline, check, preview, render, encode. The hub clips for jerrythegoat.com (Shield, AEG, USTA, UCLA, Match Viewer, radio captions, cycling), the 17-second cycling film, the 31-second sports data reel and the Hawk-Eye 3D match films all came from it.
+
+## Home-page thumbnails
+
+HyperFrames camera-template clips on Oct 21 to 24; hand-authored HTML/CSS versions on Oct 27 at 02:00, rejected the same day; the seven original clips restored at 04:40; a review page of 140 de-duplicated options at 05:00; one selection per project with edits; a final refinement at 12:53. The gallery shows the process images and the eight live cards.
+
+## Meshy
+
+Stylised characters, crowds and props from one reference image: fast and consistent, not a likeness. The tennis likeness attempts (heads, multi-view body, first figure) were rejected; the court-stories cast and scenes are in the Meshy section.
 
 ## Repository layout
 
 ```
-index.html        the gallery (built)
-gallery.json      every entry: service, model, date, cost, verdict, inputs, outputs
-build.py          regenerates index.html from gallery.json
-media/library/    16 library clips (mp4 + poster), source | front | side | back
-media/racket/     racket model renders, overlays, 120 fps proof, contact checks
-media/bodies/     Rodin body comparison
-media/calls/      input and output images for each service call
+index.html         the gallery (built)
+gallery.json       every process: stack, pipeline, groups, cards with front and back
+build.py           regenerates index.html from gallery.json
+media/library/     16 library clips (mp4 + poster): source | front | side | back
+media/racket/      racket renders, overlays, 120 fps proof, contact checks
+media/bodies/      Rodin body comparison
+media/scenes/      stills of the live Tennis Lab scenes for the other cameras
+media/hyperframes/ hub clips and films, 960 px encodes
+media/thumbs/      thumbnail process images and the eight live cards
+media/calls/       input and output images for each service call
+media/logos/       vendor marks (sources in SOURCES.txt)
 ```
 
-Rebuild the page after editing `gallery.json`:
+Rebuild after editing `gallery.json`:
 
 ```bash
 python3 build.py
@@ -63,6 +89,6 @@ python3 build.py
 
 ## Sources and limits
 
-Footage comes from Court Level Tennis, Slow-Mo Tennis and TennisTV on YouTube, plus a college PlaySight camera; each library clip links to its source and time range. Clips are short excerpts used for analysis.
+Footage: Court Level Tennis, Slow-Mo Tennis and TennisTV on YouTube, plus a college PlaySight camera; each clip links to its source and time range. Short excerpts for analysis.
 
 Body depth is monocular and no physics was simulated. The racket face angle at contact is set by rule, not measured. Hawk-Eye SkeleTRACK and mocap-suit capture remain the gold standard; this is what one camera and public footage can do.
