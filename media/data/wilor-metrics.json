@@ -1,0 +1,1869 @@
+{
+ "shelton-serve-d": {
+  "point": "shelton-serve-d",
+  "frames": 192,
+  "fps": 30.0,
+  "hand": "left",
+  "wilor": {
+   "point": "shelton-serve-d",
+   "hand_source": "wilor",
+   "frames_with_hand": 192,
+   "frames_detected": 138,
+   "frames_prior_only": 54,
+   "dropped_outliers": [
+    4,
+    5,
+    56,
+    60,
+    78,
+    83,
+    84,
+    85,
+    125,
+    148,
+    168,
+    176,
+    180,
+    181,
+    182
+   ],
+   "registrations": [
+    {
+     "frames": [
+      0,
+      191
+     ],
+     "anchor_frames": 100,
+     "G_rotvec_deg": [
+      24.73,
+      148.13,
+      163.46
+     ],
+     "t_m": [
+      0.0404,
+      -0.0992,
+      -0.0997
+     ],
+     "cost": 114626.82986096482
+    }
+   ],
+   "anchor_frames_total": 100,
+   "detector_found_frames": 138,
+   "detector_rate": 0.71875,
+   "detector_conf_median": 0.4415891319513321,
+   "prior_vs_detected_agreement_deg_median": 23.4400161788758,
+   "frames_agreeing_within_30deg": 74,
+   "hand_extent_px_median": 35.400988439121036,
+   "wilor_elapsed_s": 34.331764936447144,
+   "modal_gpu": "A10G",
+   "frame_step_deg_median_raw": 13.649160267884717
+  },
+  "A_old_free_wrist": {
+   "reprojection": {
+    "observed_points": 553,
+    "observed_frames": 111,
+    "median_px": 4.9649710867987595,
+    "mean_px": 9.431533330716452,
+    "p95_px": 34.36791352477644,
+    "pck_0.2_racket_length": 0.9602169981916817,
+    "per_keypoint_median_px": [
+     2.696013604119189,
+     3.7069870120067074,
+     9.1366153735319,
+     5.153023091565453,
+     5.217806268451354
+    ],
+    "pck_threshold_px_median": 38.45829377918618
+   },
+   "physical": {
+    "peak_head_speed_m_s": 13.783035243433392,
+    "peak_head_speed_frame": 120,
+    "contacts": [
+     {
+      "frame": 121,
+      "kind": "serve",
+      "window": [
+       {
+        "frame": 118,
+        "tilt_deg": -11.262384968303646,
+        "face": "closed",
+        "head_speed_m_s": 8.460761569922356,
+        "angle_to_ground_deg": 78.73761503169635
+       },
+       {
+        "frame": 119,
+        "tilt_deg": 9.197647584173735,
+        "face": "open",
+        "head_speed_m_s": 11.264675599492191,
+        "angle_to_ground_deg": 80.80235241582626
+       },
+       {
+        "frame": 120,
+        "tilt_deg": -15.062905131179773,
+        "face": "closed",
+        "head_speed_m_s": 13.783035243433392,
+        "angle_to_ground_deg": 74.93709486882022
+       },
+       {
+        "frame": 121,
+        "tilt_deg": -6.487453919421356,
+        "face": "closed",
+        "head_speed_m_s": 12.226482273024681,
+        "angle_to_ground_deg": 83.51254608057864
+       },
+       {
+        "frame": 122,
+        "tilt_deg": -7.839978433616722,
+        "face": "closed",
+        "head_speed_m_s": 9.730443055921803,
+        "angle_to_ground_deg": 82.16002156638328
+       },
+       {
+        "frame": 123,
+        "tilt_deg": -22.577612201556185,
+        "face": "closed",
+        "head_speed_m_s": 10.937770356483675,
+        "angle_to_ground_deg": 67.42238779844382
+       },
+       {
+        "frame": 124,
+        "tilt_deg": -44.5855100799816,
+        "face": "closed",
+        "head_speed_m_s": 11.42447377698427,
+        "angle_to_ground_deg": 45.4144899200184
+       }
+      ],
+      "peak_head_speed_pm15_m_s": 13.783035243433392
+     }
+    ],
+    "frames_over_2600_deg_s": 0,
+    "max_angular_speed_deg_s": 1878.9419390566484,
+    "wrist_body_flex_ext_deg": {
+     "min": -91.47052396570228,
+     "max": 75.90838464543059,
+     "note": "SMPL-X body wrist (same body for all fits); flexion ranges Kim 2014 flex 74 / ext 71"
+    },
+    "wrist_body_deviation_deg": {
+     "min": -32.52902132026616,
+     "max": 95.97827445582831,
+     "note": "radial 20 / ulnar 34 Kim 2014; sign not resolved to radial/ulnar"
+    },
+    "handle_to_forearm_angle_deg": {
+     "median": 45.74539031351624,
+     "min": 21.064990637880836,
+     "max": 108.4623939336076,
+     "frames_over_150": 0,
+     "note": "angle between racket handle axis (butt->tip) and forearm (elbow->wrist); 180 = racket collinear with forearm"
+    }
+   },
+   "grip_lock": {
+    "vs_flowhmr_wrist_bone": {
+     "frames": 192,
+     "handle_axis_angle_dev_deg_median": 5.663952190307679,
+     "p90": 24.907437905335634,
+     "hand_to_butt_offset_std_mm": 15.072919545389666
+    },
+    "vs_wilor_hand_observed_frames": {
+     "frames": 192,
+     "handle_axis_angle_dev_deg_median": 56.08485310345605,
+     "p90": 155.15416701972148,
+     "hand_to_butt_offset_std_mm": 31.40143313622268
+    },
+    "frame_step_over_60deg_away_from_contact": 0,
+    "max_step_deg_away_from_contact": 49.47074652541128,
+    "linear_jerk_rms_m_s3": 1101.9457823800903,
+    "face_normal_sign_flips_away_from_contact": 0
+   }
+  },
+  "B_current_arm_solve": {
+   "reprojection": {
+    "observed_points": 553,
+    "observed_frames": 111,
+    "median_px": 3.773589244800845,
+    "mean_px": 7.9423188248081065,
+    "p95_px": 30.21482013213283,
+    "pck_0.2_racket_length": 0.969258589511754,
+    "per_keypoint_median_px": [
+     2.0593774221919965,
+     3.352096224601244,
+     7.900250870372733,
+     3.7534334030164205,
+     4.563537964143268
+    ],
+    "pck_threshold_px_median": 38.45829377918618
+   },
+   "physical": {
+    "peak_head_speed_m_s": 15.241486474142318,
+    "peak_head_speed_frame": 119,
+    "contacts": [
+     {
+      "frame": 121,
+      "kind": "serve",
+      "window": [
+       {
+        "frame": 118,
+        "tilt_deg": -1.9462770282078807,
+        "face": "vertical",
+        "head_speed_m_s": 6.938221968449395,
+        "angle_to_ground_deg": 88.05372297179213
+       },
+       {
+        "frame": 119,
+        "tilt_deg": 6.458442590986451,
+        "face": "open",
+        "head_speed_m_s": 15.241486474142318,
+        "angle_to_ground_deg": 83.54155740901355
+       },
+       {
+        "frame": 120,
+        "tilt_deg": -2.6432112952669162,
+        "face": "closed",
+        "head_speed_m_s": 13.980745489065526,
+        "angle_to_ground_deg": 87.35678870473308
+       },
+       {
+        "frame": 121,
+        "tilt_deg": -2.6913678512264587,
+        "face": "closed",
+        "head_speed_m_s": 10.420533881935306,
+        "angle_to_ground_deg": 87.30863214877354
+       },
+       {
+        "frame": 122,
+        "tilt_deg": -2.656286517937144,
+        "face": "closed",
+        "head_speed_m_s": 11.606194836071216,
+        "angle_to_ground_deg": 87.34371348206285
+       },
+       {
+        "frame": 123,
+        "tilt_deg": -3.8116787675765313,
+        "face": "closed",
+        "head_speed_m_s": 11.83862780899821,
+        "angle_to_ground_deg": 86.18832123242346
+       },
+       {
+        "frame": 124,
+        "tilt_deg": -4.992424380548421,
+        "face": "closed",
+        "head_speed_m_s": 10.781670742516207,
+        "angle_to_ground_deg": 85.00757561945159
+       }
+      ],
+      "peak_head_speed_pm15_m_s": 15.241486474142318
+     }
+    ],
+    "frames_over_2600_deg_s": 0,
+    "max_angular_speed_deg_s": 2179.1163565801435,
+    "wrist_body_flex_ext_deg": {
+     "min": -91.47052396570228,
+     "max": 75.90838464543059,
+     "note": "SMPL-X body wrist (same body for all fits); flexion ranges Kim 2014 flex 74 / ext 71"
+    },
+    "wrist_body_deviation_deg": {
+     "min": -32.52902132026616,
+     "max": 95.97827445582831,
+     "note": "radial 20 / ulnar 34 Kim 2014; sign not resolved to radial/ulnar"
+    },
+    "handle_to_forearm_angle_deg": {
+     "median": 46.29187839618524,
+     "min": 21.015537705373283,
+     "max": 116.29541252065046,
+     "frames_over_150": 0,
+     "note": "angle between racket handle axis (butt->tip) and forearm (elbow->wrist); 180 = racket collinear with forearm"
+    }
+   },
+   "grip_lock": {
+    "vs_flowhmr_wrist_bone": {
+     "frames": 192,
+     "handle_axis_angle_dev_deg_median": 2.101077512145161e-06,
+     "p90": 4.3879862185801565e-06,
+     "hand_to_butt_offset_std_mm": 2.4870311090323617e-05
+    },
+    "vs_wilor_hand_observed_frames": {
+     "frames": 192,
+     "handle_axis_angle_dev_deg_median": 55.97690752748045,
+     "p90": 150.97184800776958,
+     "hand_to_butt_offset_std_mm": 31.696260703804782
+    },
+    "frame_step_over_60deg_away_from_contact": 0,
+    "max_step_deg_away_from_contact": 52.20082495185927,
+    "linear_jerk_rms_m_s3": 1099.7569386944376,
+    "face_normal_sign_flips_away_from_contact": 0
+   }
+  },
+  "C_hand_driven_wilor": {
+   "reprojection": {
+    "observed_points": 553,
+    "observed_frames": 111,
+    "median_px": 34.128317233077205,
+    "mean_px": 53.89631473700853,
+    "p95_px": 183.16321036494588,
+    "pck_0.2_racket_length": 0.538878842676311,
+    "per_keypoint_median_px": [
+     42.68790973714428,
+     23.367595202857313,
+     34.128317233077205,
+     29.959300947347614,
+     34.01272304519231
+    ],
+    "pck_threshold_px_median": 38.45829377918618
+   },
+   "physical": {
+    "peak_head_speed_m_s": 17.637287415137106,
+    "peak_head_speed_frame": 121,
+    "contacts": [
+     {
+      "frame": 121,
+      "kind": "serve",
+      "window": [
+       {
+        "frame": 118,
+        "tilt_deg": -27.21283959554672,
+        "face": "closed",
+        "head_speed_m_s": 4.399821403037081,
+        "angle_to_ground_deg": 62.78716040445328
+       },
+       {
+        "frame": 119,
+        "tilt_deg": -16.71338034742319,
+        "face": "closed",
+        "head_speed_m_s": 13.539042613777749,
+        "angle_to_ground_deg": 73.2866196525768
+       },
+       {
+        "frame": 120,
+        "tilt_deg": 35.23430186457138,
+        "face": "open",
+        "head_speed_m_s": 17.312949830118757,
+        "angle_to_ground_deg": 54.76569813542862
+       },
+       {
+        "frame": 121,
+        "tilt_deg": 29.68753806714266,
+        "face": "open",
+        "head_speed_m_s": 17.637287415137106,
+        "angle_to_ground_deg": 60.31246193285734
+       },
+       {
+        "frame": 122,
+        "tilt_deg": -51.02485815718141,
+        "face": "closed",
+        "head_speed_m_s": 14.92399878599064,
+        "angle_to_ground_deg": 38.97514184281859
+       },
+       {
+        "frame": 123,
+        "tilt_deg": -60.01726843751106,
+        "face": "closed",
+        "head_speed_m_s": 11.321885493658328,
+        "angle_to_ground_deg": 29.982731562488937
+       },
+       {
+        "frame": 124,
+        "tilt_deg": -34.92113209695754,
+        "face": "closed",
+        "head_speed_m_s": 10.363267582124577,
+        "angle_to_ground_deg": 55.07886790304246
+       }
+      ],
+      "peak_head_speed_pm15_m_s": 17.637287415137106
+     }
+    ],
+    "frames_over_2600_deg_s": 19,
+    "max_angular_speed_deg_s": 4249.56454264322,
+    "wrist_body_flex_ext_deg": {
+     "min": -91.47052396570228,
+     "max": 75.90838464543059,
+     "note": "SMPL-X body wrist (same body for all fits); flexion ranges Kim 2014 flex 74 / ext 71"
+    },
+    "wrist_body_deviation_deg": {
+     "min": -32.52902132026616,
+     "max": 95.97827445582831,
+     "note": "radial 20 / ulnar 34 Kim 2014; sign not resolved to radial/ulnar"
+    },
+    "handle_to_forearm_angle_deg": {
+     "median": 61.27528668871978,
+     "min": 16.742164838466,
+     "max": 158.10186594743945,
+     "frames_over_150": 3,
+     "note": "angle between racket handle axis (butt->tip) and forearm (elbow->wrist); 180 = racket collinear with forearm"
+    }
+   },
+   "grip_lock": {
+    "vs_flowhmr_wrist_bone": {
+     "frames": 192,
+     "handle_axis_angle_dev_deg_median": 55.97690599313742,
+     "p90": 150.97185159682027,
+     "hand_to_butt_offset_std_mm": 37.984089072319605
+    },
+    "vs_wilor_hand_observed_frames": {
+     "frames": 192,
+     "handle_axis_angle_dev_deg_median": 7.995461628660271e-14,
+     "p90": 9.091131730915495e-14,
+     "hand_to_butt_offset_std_mm": 5.07040828243544e-14
+    },
+    "frame_step_over_60deg_away_from_contact": 32,
+    "max_step_deg_away_from_contact": 141.65215142144066,
+    "linear_jerk_rms_m_s3": 3317.6152326182473,
+    "face_normal_sign_flips_away_from_contact": 4
+   }
+  },
+  "C2_hand_roll_on_B_handle": {
+   "reprojection": {
+    "observed_points": 553,
+    "observed_frames": 111,
+    "median_px": 9.96559865087085,
+    "mean_px": 19.79512818190714,
+    "p95_px": 63.14973149482048,
+    "pck_0.2_racket_length": 0.8010849909584087,
+    "per_keypoint_median_px": [
+     2.0593774221919965,
+     3.352096224601244,
+     7.900250870372733,
+     35.61064026545134,
+     33.10889903800767
+    ],
+    "pck_threshold_px_median": 38.45829377918618
+   },
+   "physical": {
+    "peak_head_speed_m_s": 15.226613376049738,
+    "peak_head_speed_frame": 119,
+    "contacts": [
+     {
+      "frame": 121,
+      "kind": "serve",
+      "window": [
+       {
+        "frame": 118,
+        "tilt_deg": 22.57805991060551,
+        "face": "open",
+        "head_speed_m_s": 6.952355539819046,
+        "angle_to_ground_deg": 67.4219400893945
+       },
+       {
+        "frame": 119,
+        "tilt_deg": 43.385321412049,
+        "face": "open",
+        "head_speed_m_s": 15.226613376049738,
+        "angle_to_ground_deg": 46.614678587951
+       },
+       {
+        "frame": 120,
+        "tilt_deg": -52.79194427281051,
+        "face": "closed",
+        "head_speed_m_s": 13.966673391031739,
+        "angle_to_ground_deg": 37.20805572718949
+       },
+       {
+        "frame": 121,
+        "tilt_deg": -17.65478650535863,
+        "face": "closed",
+        "head_speed_m_s": 10.42850666759023,
+        "angle_to_ground_deg": 72.34521349464137
+       },
+       {
+        "frame": 122,
+        "tilt_deg": 5.868689529959166,
+        "face": "open",
+        "head_speed_m_s": 11.619435446510305,
+        "angle_to_ground_deg": 84.13131047004083
+       },
+       {
+        "frame": 123,
+        "tilt_deg": 5.351149941699912,
+        "face": "open",
+        "head_speed_m_s": 11.846376984433466,
+        "angle_to_ground_deg": 84.64885005830008
+       },
+       {
+        "frame": 124,
+        "tilt_deg": 1.0339334346621878,
+        "face": "vertical",
+        "head_speed_m_s": 10.787208000066263,
+        "angle_to_ground_deg": 88.96606656533781
+       }
+      ],
+      "peak_head_speed_pm15_m_s": 15.226613376049738
+     }
+    ],
+    "frames_over_2600_deg_s": 3,
+    "max_angular_speed_deg_s": 3286.8870692636992,
+    "wrist_body_flex_ext_deg": {
+     "min": -91.47052396570228,
+     "max": 75.90838464543059,
+     "note": "SMPL-X body wrist (same body for all fits); flexion ranges Kim 2014 flex 74 / ext 71"
+    },
+    "wrist_body_deviation_deg": {
+     "min": -32.52902132026616,
+     "max": 95.97827445582831,
+     "note": "radial 20 / ulnar 34 Kim 2014; sign not resolved to radial/ulnar"
+    },
+    "handle_to_forearm_angle_deg": {
+     "median": 46.29187839618524,
+     "min": 21.01553770537332,
+     "max": 116.29541252065046,
+     "frames_over_150": 0,
+     "note": "angle between racket handle axis (butt->tip) and forearm (elbow->wrist); 180 = racket collinear with forearm"
+    }
+   },
+   "grip_lock": {
+    "vs_flowhmr_wrist_bone": {
+     "frames": 192,
+     "handle_axis_angle_dev_deg_median": 44.22287287439505,
+     "p90": 111.50917577108525,
+     "hand_to_butt_offset_std_mm": 2.4870311090323617e-05
+    },
+    "vs_wilor_hand_observed_frames": {
+     "frames": 192,
+     "handle_axis_angle_dev_deg_median": 63.6396797169004,
+     "p90": 153.76988352158796,
+     "hand_to_butt_offset_std_mm": 31.696260703804782
+    },
+    "frame_step_over_60deg_away_from_contact": 7,
+    "max_step_deg_away_from_contact": 109.56290230878997,
+    "linear_jerk_rms_m_s3": 1099.7311200744166,
+    "face_normal_sign_flips_away_from_contact": 2
+   }
+  }
+ },
+ "alcaraz-hfr": {
+  "point": "alcaraz-hfr",
+  "frames": 837,
+  "fps": 120.0,
+  "hand": "right",
+  "wilor": {
+   "point": "alcaraz-hfr",
+   "hand_source": "wilor",
+   "frames_with_hand": 837,
+   "frames_detected": 481,
+   "frames_prior_only": 356,
+   "dropped_outliers": [
+    1,
+    10,
+    16,
+    21,
+    30,
+    31,
+    39,
+    43,
+    73,
+    75,
+    76,
+    149,
+    187,
+    309,
+    314,
+    609,
+    641,
+    647,
+    663,
+    683,
+    684,
+    687,
+    788,
+    800,
+    829
+   ],
+   "registrations": [
+    {
+     "frames": [
+      0,
+      836
+     ],
+     "anchor_frames": 438,
+     "G_rotvec_deg": [
+      -16.45,
+      96.11,
+      109.85
+     ],
+     "t_m": [
+      -0.0536,
+      -0.0345,
+      -0.0452
+     ],
+     "cost": 563769.4803413952
+    }
+   ],
+   "anchor_frames_total": 438,
+   "detector_found_frames": 481,
+   "detector_rate": 0.5746714456391876,
+   "detector_conf_median": 0.5252214074134827,
+   "prior_vs_detected_agreement_deg_median": 9.669417223195557,
+   "frames_agreeing_within_30deg": 299,
+   "hand_extent_px_median": 41.867861728472555,
+   "wilor_elapsed_s": 64.26963663101196,
+   "modal_gpu": "A10G",
+   "frame_step_deg_median_raw": 5.551136993301929
+  },
+  "A_old_free_wrist": {
+   "reprojection": {
+    "observed_points": 2235,
+    "observed_frames": 447,
+    "median_px": 13.420858950512516,
+    "mean_px": 20.801557746661327,
+    "p95_px": 58.55112918793896,
+    "pck_0.2_racket_length": 0.9512304250559284,
+    "per_keypoint_median_px": [
+     6.645191305367197,
+     9.615308537551403,
+     23.460984946927592,
+     20.565021599748246,
+     19.873293230244975
+    ],
+    "pck_threshold_px_median": 58.46706278833955
+   },
+   "physical": {
+    "peak_head_speed_m_s": 8.18577397592355,
+    "peak_head_speed_frame": 506,
+    "contacts": [
+     {
+      "frame": 650,
+      "kind": "forehand",
+      "window": [
+       {
+        "frame": 647,
+        "tilt_deg": 4.551394962331313,
+        "face": "open",
+        "head_speed_m_s": 4.187762364498216,
+        "angle_to_ground_deg": 85.44860503766868
+       },
+       {
+        "frame": 648,
+        "tilt_deg": 3.419302894284686,
+        "face": "open",
+        "head_speed_m_s": 4.10999218510521,
+        "angle_to_ground_deg": 86.58069710571532
+       },
+       {
+        "frame": 649,
+        "tilt_deg": 2.6546662366551805,
+        "face": "open",
+        "head_speed_m_s": 4.21288925099154,
+        "angle_to_ground_deg": 87.34533376334483
+       },
+       {
+        "frame": 650,
+        "tilt_deg": 2.279443921873119,
+        "face": "open",
+        "head_speed_m_s": 4.26020230171742,
+        "angle_to_ground_deg": 87.72055607812688
+       },
+       {
+        "frame": 651,
+        "tilt_deg": 2.224492522133451,
+        "face": "open",
+        "head_speed_m_s": 4.237773324899274,
+        "angle_to_ground_deg": 87.77550747786655
+       },
+       {
+        "frame": 652,
+        "tilt_deg": 2.4253947001753757,
+        "face": "open",
+        "head_speed_m_s": 4.49969178083857,
+        "angle_to_ground_deg": 87.57460529982463
+       },
+       {
+        "frame": 653,
+        "tilt_deg": 2.4891516739969513,
+        "face": "open",
+        "head_speed_m_s": 4.92940986846356,
+        "angle_to_ground_deg": 87.51084832600304
+       }
+      ],
+      "peak_head_speed_pm15_m_s": 5.599459888947991
+     }
+    ],
+    "frames_over_2600_deg_s": 0,
+    "max_angular_speed_deg_s": 906.4388375194437,
+    "wrist_body_flex_ext_deg": {
+     "min": -79.18185687363857,
+     "max": 51.27882695506506,
+     "note": "SMPL-X body wrist (same body for all fits); flexion ranges Kim 2014 flex 74 / ext 71"
+    },
+    "wrist_body_deviation_deg": {
+     "min": -54.87646072192242,
+     "max": 52.182285411108744,
+     "note": "radial 20 / ulnar 34 Kim 2014; sign not resolved to radial/ulnar"
+    },
+    "handle_to_forearm_angle_deg": {
+     "median": 69.69026007438885,
+     "min": 0.7739124143462331,
+     "max": 93.00015297328198,
+     "frames_over_150": 0,
+     "note": "angle between racket handle axis (butt->tip) and forearm (elbow->wrist); 180 = racket collinear with forearm"
+    }
+   },
+   "grip_lock": {
+    "vs_flowhmr_wrist_bone": {
+     "frames": 837,
+     "handle_axis_angle_dev_deg_median": 17.408759262307257,
+     "p90": 33.70477624675187,
+     "hand_to_butt_offset_std_mm": 22.652971106018594
+    },
+    "vs_wilor_hand_observed_frames": {
+     "frames": 837,
+     "handle_axis_angle_dev_deg_median": 45.195736203865835,
+     "p90": 96.3722157597199,
+     "hand_to_butt_offset_std_mm": 31.025455243968086
+    },
+    "frame_step_over_60deg_away_from_contact": 0,
+    "max_step_deg_away_from_contact": 7.553656979328697,
+    "linear_jerk_rms_m_s3": 1365.802037979623,
+    "face_normal_sign_flips_away_from_contact": 0
+   }
+  },
+  "B_current_arm_solve": {
+   "reprojection": {
+    "observed_points": 2235,
+    "observed_frames": 447,
+    "median_px": 11.335595474898632,
+    "mean_px": 18.780765937531807,
+    "p95_px": 54.26338669555356,
+    "pck_0.2_racket_length": 0.9610738255033557,
+    "per_keypoint_median_px": [
+     4.66156181990234,
+     6.227591177815418,
+     21.527182797638098,
+     19.718528617791748,
+     19.79896777273377
+    ],
+    "pck_threshold_px_median": 58.46706278833955
+   },
+   "physical": {
+    "peak_head_speed_m_s": 11.832486118448381,
+    "peak_head_speed_frame": 504,
+    "contacts": [
+     {
+      "frame": 650,
+      "kind": "forehand",
+      "window": [
+       {
+        "frame": 647,
+        "tilt_deg": 11.56748179169558,
+        "face": "open",
+        "head_speed_m_s": 3.906742406785511,
+        "angle_to_ground_deg": 78.43251820830442
+       },
+       {
+        "frame": 648,
+        "tilt_deg": 15.692651135557316,
+        "face": "open",
+        "head_speed_m_s": 4.057659327725735,
+        "angle_to_ground_deg": 74.30734886444269
+       },
+       {
+        "frame": 649,
+        "tilt_deg": 19.113819374342953,
+        "face": "open",
+        "head_speed_m_s": 4.248797121512452,
+        "angle_to_ground_deg": 70.88618062565705
+       },
+       {
+        "frame": 650,
+        "tilt_deg": 21.8378092413629,
+        "face": "open",
+        "head_speed_m_s": 4.48780660667041,
+        "angle_to_ground_deg": 68.1621907586371
+       },
+       {
+        "frame": 651,
+        "tilt_deg": 23.867446770535825,
+        "face": "open",
+        "head_speed_m_s": 4.723177344696762,
+        "angle_to_ground_deg": 66.13255322946418
+       },
+       {
+        "frame": 652,
+        "tilt_deg": 25.20336430128372,
+        "face": "open",
+        "head_speed_m_s": 4.973877982586489,
+        "angle_to_ground_deg": 64.79663569871627
+       },
+       {
+        "frame": 653,
+        "tilt_deg": 25.847748395578584,
+        "face": "open",
+        "head_speed_m_s": 5.197595193426857,
+        "angle_to_ground_deg": 64.15225160442142
+       }
+      ],
+      "peak_head_speed_pm15_m_s": 6.409228093681687
+     }
+    ],
+    "frames_over_2600_deg_s": 0,
+    "max_angular_speed_deg_s": 1655.7516587810392,
+    "wrist_body_flex_ext_deg": {
+     "min": -79.18185687363857,
+     "max": 51.27882695506506,
+     "note": "SMPL-X body wrist (same body for all fits); flexion ranges Kim 2014 flex 74 / ext 71"
+    },
+    "wrist_body_deviation_deg": {
+     "min": -54.87646072192242,
+     "max": 52.182285411108744,
+     "note": "radial 20 / ulnar 34 Kim 2014; sign not resolved to radial/ulnar"
+    },
+    "handle_to_forearm_angle_deg": {
+     "median": 69.49054007867682,
+     "min": 3.054442458528983,
+     "max": 87.11605850216888,
+     "frames_over_150": 0,
+     "note": "angle between racket handle axis (butt->tip) and forearm (elbow->wrist); 180 = racket collinear with forearm"
+    }
+   },
+   "grip_lock": {
+    "vs_flowhmr_wrist_bone": {
+     "frames": 837,
+     "handle_axis_angle_dev_deg_median": 9.248030646508147e-07,
+     "p90": 1.538708743001127e-06,
+     "hand_to_butt_offset_std_mm": 2.14461061343214e-05
+    },
+    "vs_wilor_hand_observed_frames": {
+     "frames": 837,
+     "handle_axis_angle_dev_deg_median": 41.15922072376807,
+     "p90": 92.95360010105993,
+     "hand_to_butt_offset_std_mm": 34.02885228936052
+    },
+    "frame_step_over_60deg_away_from_contact": 0,
+    "max_step_deg_away_from_contact": 13.797930489841994,
+    "linear_jerk_rms_m_s3": 2577.611234113645,
+    "face_normal_sign_flips_away_from_contact": 0
+   }
+  },
+  "C_hand_driven_wilor": {
+   "reprojection": {
+    "observed_points": 2235,
+    "observed_frames": 447,
+    "median_px": 39.49015842422562,
+    "mean_px": 58.497452216374434,
+    "p95_px": 175.08895384066588,
+    "pck_0.2_racket_length": 0.6975391498881431,
+    "per_keypoint_median_px": [
+     43.12895935709735,
+     20.653081940836092,
+     40.78685267617924,
+     50.28927844323825,
+     34.88377661009424
+    ],
+    "pck_threshold_px_median": 58.46706278833955
+   },
+   "physical": {
+    "peak_head_speed_m_s": 50.80041224696766,
+    "peak_head_speed_frame": 265,
+    "contacts": [
+     {
+      "frame": 650,
+      "kind": "forehand",
+      "window": [
+       {
+        "frame": 647,
+        "tilt_deg": -46.729030081754864,
+        "face": "closed",
+        "head_speed_m_s": 4.4552588438188785,
+        "angle_to_ground_deg": 43.270969918245136
+       },
+       {
+        "frame": 648,
+        "tilt_deg": -51.969551231616116,
+        "face": "closed",
+        "head_speed_m_s": 4.924330930837078,
+        "angle_to_ground_deg": 38.030448768383884
+       },
+       {
+        "frame": 649,
+        "tilt_deg": -57.54730973475937,
+        "face": "closed",
+        "head_speed_m_s": 4.980937701679992,
+        "angle_to_ground_deg": 32.45269026524063
+       },
+       {
+        "frame": 650,
+        "tilt_deg": -61.95266031916743,
+        "face": "closed",
+        "head_speed_m_s": 5.293793135666639,
+        "angle_to_ground_deg": 28.04733968083257
+       },
+       {
+        "frame": 651,
+        "tilt_deg": -64.70187414924528,
+        "face": "closed",
+        "head_speed_m_s": 5.833440754606249,
+        "angle_to_ground_deg": 25.298125850754715
+       },
+       {
+        "frame": 652,
+        "tilt_deg": -65.59792424399103,
+        "face": "closed",
+        "head_speed_m_s": 6.4150274858192144,
+        "angle_to_ground_deg": 24.40207575600897
+       },
+       {
+        "frame": 653,
+        "tilt_deg": -65.0226511924894,
+        "face": "closed",
+        "head_speed_m_s": 7.413073660319168,
+        "angle_to_ground_deg": 24.977348807510594
+       }
+      ],
+      "peak_head_speed_pm15_m_s": 25.212698826603894
+     }
+    ],
+    "frames_over_2600_deg_s": 40,
+    "max_angular_speed_deg_s": 21046.075393693478,
+    "wrist_body_flex_ext_deg": {
+     "min": -79.18185687363857,
+     "max": 51.27882695506506,
+     "note": "SMPL-X body wrist (same body for all fits); flexion ranges Kim 2014 flex 74 / ext 71"
+    },
+    "wrist_body_deviation_deg": {
+     "min": -54.87646072192242,
+     "max": 52.182285411108744,
+     "note": "radial 20 / ulnar 34 Kim 2014; sign not resolved to radial/ulnar"
+    },
+    "handle_to_forearm_angle_deg": {
+     "median": 76.56163184629638,
+     "min": 15.727687296810782,
+     "max": 133.89799616112361,
+     "frames_over_150": 0,
+     "note": "angle between racket handle axis (butt->tip) and forearm (elbow->wrist); 180 = racket collinear with forearm"
+    }
+   },
+   "grip_lock": {
+    "vs_flowhmr_wrist_bone": {
+     "frames": 837,
+     "handle_axis_angle_dev_deg_median": 41.15922079718219,
+     "p90": 92.95359976757273,
+     "hand_to_butt_offset_std_mm": 21.382546498827743
+    },
+    "vs_wilor_hand_observed_frames": {
+     "frames": 837,
+     "handle_axis_angle_dev_deg_median": 1.6717522476786327e-13,
+     "p90": 1.7559687969331106e-13,
+     "hand_to_butt_offset_std_mm": 3.480043718630126e-14
+    },
+    "frame_step_over_60deg_away_from_contact": 16,
+    "max_step_deg_away_from_contact": 175.3839616141123,
+    "linear_jerk_rms_m_s3": 72010.31982335918,
+    "face_normal_sign_flips_away_from_contact": 10
+   }
+  },
+  "C2_hand_roll_on_B_handle": {
+   "reprojection": {
+    "observed_points": 2235,
+    "observed_frames": 447,
+    "median_px": 15.158163059928853,
+    "mean_px": 22.510875702184016,
+    "p95_px": 68.01292597370609,
+    "pck_0.2_racket_length": 0.9297539149888143,
+    "per_keypoint_median_px": [
+     4.661561819902201,
+     6.227591177815418,
+     21.527182797638098,
+     31.278785250639697,
+     29.548986852689804
+    ],
+    "pck_threshold_px_median": 58.46706278833955
+   },
+   "physical": {
+    "peak_head_speed_m_s": 11.827482502611527,
+    "peak_head_speed_frame": 504,
+    "contacts": [
+     {
+      "frame": 650,
+      "kind": "forehand",
+      "window": [
+       {
+        "frame": 647,
+        "tilt_deg": -44.921513939988536,
+        "face": "closed",
+        "head_speed_m_s": 3.90332529217142,
+        "angle_to_ground_deg": 45.078486060011464
+       },
+       {
+        "frame": 648,
+        "tilt_deg": -48.454128212918725,
+        "face": "closed",
+        "head_speed_m_s": 4.054271568758385,
+        "angle_to_ground_deg": 41.545871787081275
+       },
+       {
+        "frame": 649,
+        "tilt_deg": -51.839841604513595,
+        "face": "closed",
+        "head_speed_m_s": 4.24588206918561,
+        "angle_to_ground_deg": 38.160158395486405
+       },
+       {
+        "frame": 650,
+        "tilt_deg": -55.12356011915422,
+        "face": "closed",
+        "head_speed_m_s": 4.485600029400432,
+        "angle_to_ground_deg": 34.87643988084578
+       },
+       {
+        "frame": 651,
+        "tilt_deg": -58.07366894104582,
+        "face": "closed",
+        "head_speed_m_s": 4.721713514364507,
+        "angle_to_ground_deg": 31.926331058954183
+       },
+       {
+        "frame": 652,
+        "tilt_deg": -60.605089821662744,
+        "face": "closed",
+        "head_speed_m_s": 4.973136084896371,
+        "angle_to_ground_deg": 29.394910178337256
+       },
+       {
+        "frame": 653,
+        "tilt_deg": -62.546319528037635,
+        "face": "closed",
+        "head_speed_m_s": 5.197437525912176,
+        "angle_to_ground_deg": 27.453680471962365
+       }
+      ],
+      "peak_head_speed_pm15_m_s": 6.4140647395908985
+     }
+    ],
+    "frames_over_2600_deg_s": 7,
+    "max_angular_speed_deg_s": 3215.1474543239983,
+    "wrist_body_flex_ext_deg": {
+     "min": -79.18185687363857,
+     "max": 51.27882695506506,
+     "note": "SMPL-X body wrist (same body for all fits); flexion ranges Kim 2014 flex 74 / ext 71"
+    },
+    "wrist_body_deviation_deg": {
+     "min": -54.87646072192242,
+     "max": 52.182285411108744,
+     "note": "radial 20 / ulnar 34 Kim 2014; sign not resolved to radial/ulnar"
+    },
+    "handle_to_forearm_angle_deg": {
+     "median": 69.49054007867682,
+     "min": 3.054442458528983,
+     "max": 87.11605850216888,
+     "frames_over_150": 0,
+     "note": "angle between racket handle axis (butt->tip) and forearm (elbow->wrist); 180 = racket collinear with forearm"
+    }
+   },
+   "grip_lock": {
+    "vs_flowhmr_wrist_bone": {
+     "frames": 837,
+     "handle_axis_angle_dev_deg_median": 23.696184057807212,
+     "p90": 53.215290091898225,
+     "hand_to_butt_offset_std_mm": 2.14461061343214e-05
+    },
+    "vs_wilor_hand_observed_frames": {
+     "frames": 837,
+     "handle_axis_angle_dev_deg_median": 31.151683827148247,
+     "p90": 82.08996603164383,
+     "hand_to_butt_offset_std_mm": 34.02885228936052
+    },
+    "frame_step_over_60deg_away_from_contact": 0,
+    "max_step_deg_away_from_contact": 26.792895452699987,
+    "linear_jerk_rms_m_s3": 2579.0762600514295,
+    "face_normal_sign_flips_away_from_contact": 0
+   }
+  }
+ },
+ "djokovic-turin-return": {
+  "point": "djokovic-turin-return",
+  "frames": 366,
+  "fps": 30.0,
+  "hand": "right",
+  "wilor": {
+   "point": "djokovic-turin-return",
+   "hand_source": "wilor",
+   "frames_with_hand": 366,
+   "frames_detected": 158,
+   "frames_prior_only": 208,
+   "dropped_outliers": [
+    4,
+    7,
+    20,
+    21,
+    26,
+    29,
+    33,
+    38,
+    39,
+    42,
+    55,
+    62,
+    69,
+    74,
+    77,
+    98,
+    102,
+    121,
+    122,
+    129,
+    130,
+    146,
+    150,
+    151,
+    157,
+    181,
+    189,
+    191,
+    203,
+    222,
+    257,
+    259,
+    285,
+    293,
+    301,
+    342,
+    354,
+    355
+   ],
+   "registrations": [
+    {
+     "frames": [
+      0,
+      174
+     ],
+     "anchor_frames": 138,
+     "G_rotvec_deg": [
+      41.06,
+      -111.5,
+      -140.18
+     ],
+     "t_m": [
+      0.0353,
+      0.0289,
+      -0.0585
+     ],
+     "cost": 98681.96081398235
+    },
+    {
+     "frames": [
+      175,
+      365
+     ],
+     "anchor_frames": 90,
+     "G_rotvec_deg": [
+      102.97,
+      -104.48,
+      -99.68
+     ],
+     "t_m": [
+      0.0702,
+      0.0194,
+      -0.1329
+     ],
+     "cost": 78115.22230588453
+    }
+   ],
+   "anchor_frames_total": 228,
+   "detector_found_frames": 158,
+   "detector_rate": 0.43169398907103823,
+   "detector_conf_median": 0.34690962731838226,
+   "prior_vs_detected_agreement_deg_median": 97.4765583533783,
+   "frames_agreeing_within_30deg": 12,
+   "hand_extent_px_median": 16.56738919272255,
+   "wilor_elapsed_s": 43.03446173667908,
+   "modal_gpu": "A10G",
+   "frame_step_deg_median_raw": 21.159714330763244
+  },
+  "A_old_free_wrist": {
+   "reprojection": {
+    "observed_points": 1277,
+    "observed_frames": 256,
+    "median_px": 6.005264013603014,
+    "mean_px": 9.763362110560188,
+    "p95_px": 24.551872733977227,
+    "pck_0.2_racket_length": 0.9671104150352389,
+    "per_keypoint_median_px": [
+     4.555308551881829,
+     6.021547360495829,
+     16.861063293634864,
+     5.764526610331884,
+     5.17894456421478
+    ],
+    "pck_threshold_px_median": 28.371381456905603
+   },
+   "physical": {
+    "peak_head_speed_m_s": 16.282908743993044,
+    "peak_head_speed_frame": 216,
+    "contacts": [
+     {
+      "frame": 134,
+      "kind": "slice",
+      "window": [
+       {
+        "frame": 131,
+        "tilt_deg": -14.943387075164514,
+        "face": "closed",
+        "head_speed_m_s": 10.652598477515653,
+        "angle_to_ground_deg": 75.05661292483549
+       },
+       {
+        "frame": 132,
+        "tilt_deg": -15.252086687101853,
+        "face": "closed",
+        "head_speed_m_s": 4.874626783611185,
+        "angle_to_ground_deg": 74.74791331289815
+       },
+       {
+        "frame": 133,
+        "tilt_deg": -10.716479957910922,
+        "face": "closed",
+        "head_speed_m_s": 2.682955750587544,
+        "angle_to_ground_deg": 79.28352004208908
+       },
+       {
+        "frame": 134,
+        "tilt_deg": -4.291449614147953,
+        "face": "closed",
+        "head_speed_m_s": 4.66169901456162,
+        "angle_to_ground_deg": 85.70855038585205
+       },
+       {
+        "frame": 135,
+        "tilt_deg": 0.66572256802272,
+        "face": "vertical",
+        "head_speed_m_s": 5.784183434663517,
+        "angle_to_ground_deg": 89.33427743197728
+       },
+       {
+        "frame": 136,
+        "tilt_deg": 8.89221014175991,
+        "face": "open",
+        "head_speed_m_s": 4.757798106862662,
+        "angle_to_ground_deg": 81.1077898582401
+       },
+       {
+        "frame": 137,
+        "tilt_deg": 18.505894320838298,
+        "face": "open",
+        "head_speed_m_s": 4.324134450898878,
+        "angle_to_ground_deg": 71.4941056791617
+       }
+      ],
+      "peak_head_speed_pm15_m_s": 14.78581172766964
+     },
+     {
+      "frame": 216,
+      "kind": "forehand",
+      "window": [
+       {
+        "frame": 213,
+        "tilt_deg": 0.9434678514349998,
+        "face": "vertical",
+        "head_speed_m_s": 2.181505416538994,
+        "angle_to_ground_deg": 89.056532148565
+       },
+       {
+        "frame": 214,
+        "tilt_deg": -2.130319237060781,
+        "face": "closed",
+        "head_speed_m_s": 3.3620056541601673,
+        "angle_to_ground_deg": 87.86968076293923
+       },
+       {
+        "frame": 215,
+        "tilt_deg": -2.5522045327310994,
+        "face": "closed",
+        "head_speed_m_s": 11.766464250142286,
+        "angle_to_ground_deg": 87.4477954672689
+       },
+       {
+        "frame": 216,
+        "tilt_deg": 2.146049656332348,
+        "face": "open",
+        "head_speed_m_s": 16.282908743993044,
+        "angle_to_ground_deg": 87.85395034366765
+       },
+       {
+        "frame": 217,
+        "tilt_deg": 2.098562207370843,
+        "face": "open",
+        "head_speed_m_s": 13.939925498479537,
+        "angle_to_ground_deg": 87.90143779262915
+       },
+       {
+        "frame": 218,
+        "tilt_deg": 2.1591677540200798,
+        "face": "open",
+        "head_speed_m_s": 9.929588559603223,
+        "angle_to_ground_deg": 87.84083224597993
+       },
+       {
+        "frame": 219,
+        "tilt_deg": -2.7608493200747652,
+        "face": "closed",
+        "head_speed_m_s": 7.110878211649364,
+        "angle_to_ground_deg": 87.23915067992523
+       }
+      ],
+      "peak_head_speed_pm15_m_s": 16.282908743993044
+     }
+    ],
+    "frames_over_2600_deg_s": 0,
+    "max_angular_speed_deg_s": 1642.228715502056,
+    "wrist_body_flex_ext_deg": {
+     "min": -59.13239691167724,
+     "max": 94.26670538782665,
+     "note": "SMPL-X body wrist (same body for all fits); flexion ranges Kim 2014 flex 74 / ext 71"
+    },
+    "wrist_body_deviation_deg": {
+     "min": -43.636170459360685,
+     "max": 106.72801394962767,
+     "note": "radial 20 / ulnar 34 Kim 2014; sign not resolved to radial/ulnar"
+    },
+    "handle_to_forearm_angle_deg": {
+     "median": 62.089109439958676,
+     "min": 10.41725326996436,
+     "max": 126.05019946282846,
+     "frames_over_150": 0,
+     "note": "angle between racket handle axis (butt->tip) and forearm (elbow->wrist); 180 = racket collinear with forearm"
+    }
+   },
+   "grip_lock": {
+    "vs_flowhmr_wrist_bone": {
+     "frames": 366,
+     "handle_axis_angle_dev_deg_median": 25.195168715291246,
+     "p90": 43.58939442530807,
+     "hand_to_butt_offset_std_mm": 12.460255220741816
+    },
+    "vs_wilor_hand_observed_frames": {
+     "frames": 366,
+     "handle_axis_angle_dev_deg_median": 60.83843150044366,
+     "p90": 134.30409787998195,
+     "hand_to_butt_offset_std_mm": 32.838766832752384
+    },
+    "frame_step_over_60deg_away_from_contact": 0,
+    "max_step_deg_away_from_contact": 54.74095718340187,
+    "linear_jerk_rms_m_s3": 1093.5572196038881,
+    "face_normal_sign_flips_away_from_contact": 0
+   }
+  },
+  "B_current_arm_solve": {
+   "reprojection": {
+    "observed_points": 1277,
+    "observed_frames": 256,
+    "median_px": 4.711351608386657,
+    "mean_px": 7.449396167958687,
+    "p95_px": 23.244665586942226,
+    "pck_0.2_racket_length": 0.9718089271730619,
+    "per_keypoint_median_px": [
+     2.317363379688918,
+     2.8128707326513775,
+     8.266268302494925,
+     5.618737721676544,
+     4.9998520352672084
+    ],
+    "pck_threshold_px_median": 28.371381456905603
+   },
+   "physical": {
+    "peak_head_speed_m_s": 15.76748988462607,
+    "peak_head_speed_frame": 130,
+    "contacts": [
+     {
+      "frame": 134,
+      "kind": "slice",
+      "window": [
+       {
+        "frame": 131,
+        "tilt_deg": -3.6622926418500317,
+        "face": "closed",
+        "head_speed_m_s": 10.391375341381547,
+        "angle_to_ground_deg": 86.33770735814997
+       },
+       {
+        "frame": 132,
+        "tilt_deg": -6.630842080593503,
+        "face": "closed",
+        "head_speed_m_s": 4.67082658758203,
+        "angle_to_ground_deg": 83.36915791940649
+       },
+       {
+        "frame": 133,
+        "tilt_deg": -5.180126340571654,
+        "face": "closed",
+        "head_speed_m_s": 3.0441985501412954,
+        "angle_to_ground_deg": 84.81987365942834
+       },
+       {
+        "frame": 134,
+        "tilt_deg": -0.06610419961847179,
+        "face": "vertical",
+        "head_speed_m_s": 4.9242169090375905,
+        "angle_to_ground_deg": 89.93389580038153
+       },
+       {
+        "frame": 135,
+        "tilt_deg": 2.31341041098942,
+        "face": "open",
+        "head_speed_m_s": 6.200886278717005,
+        "angle_to_ground_deg": 87.68658958901058
+       },
+       {
+        "frame": 136,
+        "tilt_deg": 11.140464942662156,
+        "face": "open",
+        "head_speed_m_s": 4.623894083905639,
+        "angle_to_ground_deg": 78.85953505733784
+       },
+       {
+        "frame": 137,
+        "tilt_deg": 27.856811796777713,
+        "face": "open",
+        "head_speed_m_s": 4.436341778799959,
+        "angle_to_ground_deg": 62.14318820322229
+       }
+      ],
+      "peak_head_speed_pm15_m_s": 15.76748988462607
+     },
+     {
+      "frame": 216,
+      "kind": "forehand",
+      "window": [
+       {
+        "frame": 213,
+        "tilt_deg": 4.965829718450351,
+        "face": "open",
+        "head_speed_m_s": 1.7651447469686483,
+        "angle_to_ground_deg": 85.03417028154965
+       },
+       {
+        "frame": 214,
+        "tilt_deg": -9.217525995608984,
+        "face": "closed",
+        "head_speed_m_s": 2.7993143459790946,
+        "angle_to_ground_deg": 80.78247400439102
+       },
+       {
+        "frame": 215,
+        "tilt_deg": -16.727208274884557,
+        "face": "closed",
+        "head_speed_m_s": 7.263097103025375,
+        "angle_to_ground_deg": 73.27279172511544
+       },
+       {
+        "frame": 216,
+        "tilt_deg": -25.019811226392,
+        "face": "closed",
+        "head_speed_m_s": 11.026543934181234,
+        "angle_to_ground_deg": 64.980188773608
+       },
+       {
+        "frame": 217,
+        "tilt_deg": 44.337288137191095,
+        "face": "open",
+        "head_speed_m_s": 11.591443807827705,
+        "angle_to_ground_deg": 45.662711862808905
+       },
+       {
+        "frame": 218,
+        "tilt_deg": 53.06920995320393,
+        "face": "open",
+        "head_speed_m_s": 10.498109137668347,
+        "angle_to_ground_deg": 36.93079004679607
+       },
+       {
+        "frame": 219,
+        "tilt_deg": 27.386467654260127,
+        "face": "open",
+        "head_speed_m_s": 8.828089735481361,
+        "angle_to_ground_deg": 62.61353234573987
+       }
+      ],
+      "peak_head_speed_pm15_m_s": 11.591443807827705
+     }
+    ],
+    "frames_over_2600_deg_s": 0,
+    "max_angular_speed_deg_s": 1838.5306320250018,
+    "wrist_body_flex_ext_deg": {
+     "min": -59.13239691167724,
+     "max": 94.26670538782665,
+     "note": "SMPL-X body wrist (same body for all fits); flexion ranges Kim 2014 flex 74 / ext 71"
+    },
+    "wrist_body_deviation_deg": {
+     "min": -43.636170459360685,
+     "max": 106.72801394962767,
+     "note": "radial 20 / ulnar 34 Kim 2014; sign not resolved to radial/ulnar"
+    },
+    "handle_to_forearm_angle_deg": {
+     "median": 57.17153044496304,
+     "min": 3.5435516716488125,
+     "max": 105.49123813318728,
+     "frames_over_150": 0,
+     "note": "angle between racket handle axis (butt->tip) and forearm (elbow->wrist); 180 = racket collinear with forearm"
+    }
+   },
+   "grip_lock": {
+    "vs_flowhmr_wrist_bone": {
+     "frames": 366,
+     "handle_axis_angle_dev_deg_median": 26.69552401820563,
+     "p90": 30.81284841409103,
+     "hand_to_butt_offset_std_mm": 7.971253269043523e-05
+    },
+    "vs_wilor_hand_observed_frames": {
+     "frames": 366,
+     "handle_axis_angle_dev_deg_median": 62.0271158167496,
+     "p90": 135.8801558782555,
+     "hand_to_butt_offset_std_mm": 28.513591131758478
+    },
+    "frame_step_over_60deg_away_from_contact": 1,
+    "max_step_deg_away_from_contact": 61.284354400833394,
+    "linear_jerk_rms_m_s3": 1033.2306301449062,
+    "face_normal_sign_flips_away_from_contact": 0
+   }
+  },
+  "C_hand_driven_wilor": {
+   "reprojection": {
+    "observed_points": 1277,
+    "observed_frames": 256,
+    "median_px": 27.331015040441866,
+    "mean_px": 35.994846601890465,
+    "p95_px": 96.85063776576271,
+    "pck_0.2_racket_length": 0.5152701644479248,
+    "per_keypoint_median_px": [
+     33.55742304248528,
+     19.635237054738553,
+     27.60773794922963,
+     27.75728564134027,
+     27.331015040441866
+    ],
+    "pck_threshold_px_median": 28.371381456905603
+   },
+   "physical": {
+    "peak_head_speed_m_s": 13.588890487115037,
+    "peak_head_speed_frame": 215,
+    "contacts": [
+     {
+      "frame": 134,
+      "kind": "slice",
+      "window": [
+       {
+        "frame": 131,
+        "tilt_deg": -66.486880819394,
+        "face": "closed",
+        "head_speed_m_s": 7.63568674160667,
+        "angle_to_ground_deg": 23.513119180605997
+       },
+       {
+        "frame": 132,
+        "tilt_deg": -7.469947142588331,
+        "face": "closed",
+        "head_speed_m_s": 5.086604358195519,
+        "angle_to_ground_deg": 82.53005285741168
+       },
+       {
+        "frame": 133,
+        "tilt_deg": -2.9642581855615444,
+        "face": "closed",
+        "head_speed_m_s": 2.2779205718667104,
+        "angle_to_ground_deg": 87.03574181443845
+       },
+       {
+        "frame": 134,
+        "tilt_deg": -4.618682481244801,
+        "face": "closed",
+        "head_speed_m_s": 7.313779150034663,
+        "angle_to_ground_deg": 85.3813175187552
+       },
+       {
+        "frame": 135,
+        "tilt_deg": -54.84075175966272,
+        "face": "closed",
+        "head_speed_m_s": 8.243519000213205,
+        "angle_to_ground_deg": 35.15924824033728
+       },
+       {
+        "frame": 136,
+        "tilt_deg": -49.070878240123626,
+        "face": "closed",
+        "head_speed_m_s": 3.0234150708226646,
+        "angle_to_ground_deg": 40.929121759876374
+       },
+       {
+        "frame": 137,
+        "tilt_deg": -22.40483996871501,
+        "face": "closed",
+        "head_speed_m_s": 9.582088574581146,
+        "angle_to_ground_deg": 67.59516003128499
+       }
+      ],
+      "peak_head_speed_pm15_m_s": 13.129899377738012
+     },
+     {
+      "frame": 216,
+      "kind": "forehand",
+      "window": [
+       {
+        "frame": 213,
+        "tilt_deg": -17.983636628259465,
+        "face": "closed",
+        "head_speed_m_s": 4.717344062543323,
+        "angle_to_ground_deg": 72.01636337174054
+       },
+       {
+        "frame": 214,
+        "tilt_deg": -15.29756955873464,
+        "face": "closed",
+        "head_speed_m_s": 9.957070306447282,
+        "angle_to_ground_deg": 74.70243044126536
+       },
+       {
+        "frame": 215,
+        "tilt_deg": 18.231830901515533,
+        "face": "open",
+        "head_speed_m_s": 13.588890487115037,
+        "angle_to_ground_deg": 71.76816909848446
+       },
+       {
+        "frame": 216,
+        "tilt_deg": 44.468996345202,
+        "face": "open",
+        "head_speed_m_s": 8.153464097227944,
+        "angle_to_ground_deg": 45.531003654798
+       },
+       {
+        "frame": 217,
+        "tilt_deg": 27.497347731764158,
+        "face": "open",
+        "head_speed_m_s": 4.537905062003822,
+        "angle_to_ground_deg": 62.50265226823584
+       },
+       {
+        "frame": 218,
+        "tilt_deg": -41.09129890403886,
+        "face": "closed",
+        "head_speed_m_s": 9.426538692253697,
+        "angle_to_ground_deg": 48.90870109596114
+       },
+       {
+        "frame": 219,
+        "tilt_deg": 26.95276859576322,
+        "face": "open",
+        "head_speed_m_s": 12.374201058273822,
+        "angle_to_ground_deg": 63.04723140423678
+       }
+      ],
+      "peak_head_speed_pm15_m_s": 13.588890487115037
+     }
+    ],
+    "frames_over_2600_deg_s": 29,
+    "max_angular_speed_deg_s": 4456.878613479919,
+    "wrist_body_flex_ext_deg": {
+     "min": -59.13239691167724,
+     "max": 94.26670538782665,
+     "note": "SMPL-X body wrist (same body for all fits); flexion ranges Kim 2014 flex 74 / ext 71"
+    },
+    "wrist_body_deviation_deg": {
+     "min": -43.636170459360685,
+     "max": 106.72801394962767,
+     "note": "radial 20 / ulnar 34 Kim 2014; sign not resolved to radial/ulnar"
+    },
+    "handle_to_forearm_angle_deg": {
+     "median": 70.02578830148659,
+     "min": 1.0219327162797935,
+     "max": 163.18214675968372,
+     "frames_over_150": 4,
+     "note": "angle between racket handle axis (butt->tip) and forearm (elbow->wrist); 180 = racket collinear with forearm"
+    }
+   },
+   "grip_lock": {
+    "vs_flowhmr_wrist_bone": {
+     "frames": 366,
+     "handle_axis_angle_dev_deg_median": 82.38024485888218,
+     "p90": 156.15474527356264,
+     "hand_to_butt_offset_std_mm": 46.01627771184841
+    },
+    "vs_wilor_hand_observed_frames": {
+     "frames": 366,
+     "handle_axis_angle_dev_deg_median": 22.768757762565734,
+     "p90": 24.98600578694345,
+     "hand_to_butt_offset_std_mm": 1.8054807808642799
+    },
+    "frame_step_over_60deg_away_from_contact": 57,
+    "max_step_deg_away_from_contact": 148.56262044933064,
+    "linear_jerk_rms_m_s3": 2654.7299393685475,
+    "face_normal_sign_flips_away_from_contact": 7
+   }
+  },
+  "C2_hand_roll_on_B_handle": {
+   "reprojection": {
+    "observed_points": 1277,
+    "observed_frames": 256,
+    "median_px": 7.128310188671078,
+    "mean_px": 10.531813775395827,
+    "p95_px": 32.249636163214134,
+    "pck_0.2_racket_length": 0.9193422083007048,
+    "per_keypoint_median_px": [
+     2.317363379688918,
+     2.8128707326514197,
+     8.266268302494925,
+     13.386445368010921,
+     14.628879412142695
+    ],
+    "pck_threshold_px_median": 28.371381456905603
+   },
+   "physical": {
+    "peak_head_speed_m_s": 15.782792056739794,
+    "peak_head_speed_frame": 130,
+    "contacts": [
+     {
+      "frame": 134,
+      "kind": "slice",
+      "window": [
+       {
+        "frame": 131,
+        "tilt_deg": -73.79574599899426,
+        "face": "closed",
+        "head_speed_m_s": 10.413469718631486,
+        "angle_to_ground_deg": 16.204254001005737
+       },
+       {
+        "frame": 132,
+        "tilt_deg": -53.50568628267063,
+        "face": "closed",
+        "head_speed_m_s": 4.6653156964429865,
+        "angle_to_ground_deg": 36.49431371732937
+       },
+       {
+        "frame": 133,
+        "tilt_deg": -52.46050887311338,
+        "face": "closed",
+        "head_speed_m_s": 3.042294345285107,
+        "angle_to_ground_deg": 37.53949112688662
+       },
+       {
+        "frame": 134,
+        "tilt_deg": 66.53206901698076,
+        "face": "open",
+        "head_speed_m_s": 4.915315049776165,
+        "angle_to_ground_deg": 23.467930983019244
+       },
+       {
+        "frame": 135,
+        "tilt_deg": -3.0158658774820277,
+        "face": "closed",
+        "head_speed_m_s": 6.2070691799795625,
+        "angle_to_ground_deg": 86.98413412251797
+       },
+       {
+        "frame": 136,
+        "tilt_deg": -32.03128218120889,
+        "face": "closed",
+        "head_speed_m_s": 4.627500521442753,
+        "angle_to_ground_deg": 57.96871781879111
+       },
+       {
+        "frame": 137,
+        "tilt_deg": -2.940294842796157,
+        "face": "closed",
+        "head_speed_m_s": 4.437075908381025,
+        "angle_to_ground_deg": 87.05970515720384
+       }
+      ],
+      "peak_head_speed_pm15_m_s": 15.782792056739794
+     },
+     {
+      "frame": 216,
+      "kind": "forehand",
+      "window": [
+       {
+        "frame": 213,
+        "tilt_deg": 41.649616508280836,
+        "face": "open",
+        "head_speed_m_s": 1.7382311099651697,
+        "angle_to_ground_deg": 48.350383491719164
+       },
+       {
+        "frame": 214,
+        "tilt_deg": 55.2022606854595,
+        "face": "open",
+        "head_speed_m_s": 2.8094132344532206,
+        "angle_to_ground_deg": 34.7977393145405
+       },
+       {
+        "frame": 215,
+        "tilt_deg": 2.2822556565776075,
+        "face": "open",
+        "head_speed_m_s": 7.276285933174481,
+        "angle_to_ground_deg": 87.7177443434224
+       },
+       {
+        "frame": 216,
+        "tilt_deg": 34.18038382067293,
+        "face": "open",
+        "head_speed_m_s": 11.015710547974326,
+        "angle_to_ground_deg": 55.81961617932707
+       },
+       {
+        "frame": 217,
+        "tilt_deg": 8.283539951495056,
+        "face": "open",
+        "head_speed_m_s": 11.566127261885025,
+        "angle_to_ground_deg": 81.71646004850494
+       },
+       {
+        "frame": 218,
+        "tilt_deg": 23.80454271915493,
+        "face": "open",
+        "head_speed_m_s": 10.476596938836844,
+        "angle_to_ground_deg": 66.19545728084506
+       },
+       {
+        "frame": 219,
+        "tilt_deg": 25.44982515541201,
+        "face": "open",
+        "head_speed_m_s": 8.809932120196253,
+        "angle_to_ground_deg": 64.55017484458799
+       }
+      ],
+      "peak_head_speed_pm15_m_s": 11.566127261885025
+     }
+    ],
+    "frames_over_2600_deg_s": 3,
+    "max_angular_speed_deg_s": 3419.318447249312,
+    "wrist_body_flex_ext_deg": {
+     "min": -59.13239691167724,
+     "max": 94.26670538782665,
+     "note": "SMPL-X body wrist (same body for all fits); flexion ranges Kim 2014 flex 74 / ext 71"
+    },
+    "wrist_body_deviation_deg": {
+     "min": -43.636170459360685,
+     "max": 106.72801394962767,
+     "note": "radial 20 / ulnar 34 Kim 2014; sign not resolved to radial/ulnar"
+    },
+    "handle_to_forearm_angle_deg": {
+     "median": 57.17153044496304,
+     "min": 3.5435516716488125,
+     "max": 105.49123813318727,
+     "frames_over_150": 0,
+     "note": "angle between racket handle axis (butt->tip) and forearm (elbow->wrist); 180 = racket collinear with forearm"
+    }
+   },
+   "grip_lock": {
+    "vs_flowhmr_wrist_bone": {
+     "frames": 366,
+     "handle_axis_angle_dev_deg_median": 46.48594078727498,
+     "p90": 131.7222319422693,
+     "hand_to_butt_offset_std_mm": 7.971253269043523e-05
+    },
+    "vs_wilor_hand_observed_frames": {
+     "frames": 366,
+     "handle_axis_angle_dev_deg_median": 50.6253202840019,
+     "p90": 121.47232675414006,
+     "hand_to_butt_offset_std_mm": 28.513591131758478
+    },
+    "frame_step_over_60deg_away_from_contact": 15,
+    "max_step_deg_away_from_contact": 113.97728157497707,
+    "linear_jerk_rms_m_s3": 1033.4868783558932,
+    "face_normal_sign_flips_away_from_contact": 2
+   }
+  }
+ },
+ "definitions": {
+  "reprojection": "px error of the 5 racket model points (tip, throat, butt, side A, side B) against RacketVision keypoints on frames/points with weight>0; filled frames excluded. PCK threshold 0.2 x racket length (0.686 m) projected at FlowHMR wrist depth (assumed scale).",
+  "tilt_deg": "asin of the vertical component of the face normal, normal signed toward court-forward (same definition as the solver audit); >0 open, <0 closed; angle_to_ground = 90-|tilt| (Kwon 2017 ~80 deg).",
+  "head_speed": "string-bed centre (0.001,0.432,0 racket-local) speed by central difference at the data rate; 30 fps under-samples the peak.",
+  "wrist angles": "from the SMPL-X body joints (forearm elbow->wrist vs middle metacarpal), identical for all fits because fits only change the racket relative to the same body; the A/B racket is rigidly attached to this wrist bone.",
+  "grip_lock": "relative rotation between the racket and an independent hand estimate (FlowHMR wrist bone; WiLoR hand on observed frames): median angular deviation from the mean relative pose. Zero by construction for the fit driven by that estimate.",
+  "frame_step/flips/jerk": "frame-to-frame racket rotation >60 deg and face-normal sign flips counted outside +-5 frames of contact; linear jerk RMS of the string-bed centre."
+ }
+}
