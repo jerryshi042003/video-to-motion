@@ -403,6 +403,13 @@ section p{margin:0 0 10px;font-size:14px}
   var vids=[].slice.call(document.querySelectorAll('video.auto'));
   var vo=new IntersectionObserver(function(es){es.forEach(function(x){var v=x.target;if(x.isIntersecting){if(v.preload==='none'){v.preload='auto';v.load();}v.play().catch(function(){});}else{v.pause();}});},{rootMargin:'160px 0px'});
   vids.forEach(function(v){vo.observe(v);});
+  setInterval(function(){
+    document.querySelectorAll('iframe').forEach(function(f){
+      if(f.src.indexOf('/lab/')<0) return;
+      try{ var d=f.contentDocument, r=d.getElementById('time'), p=d.getElementById('play'), rs=d.getElementById('restart');
+        if(r&&p&&rs&&p.textContent.trim()==='Play'&&Number(r.value)>=Number(r.max)-0.05) rs.click(); }catch(e){}
+    });
+  },1500);
   window.addEventListener('load',function(){
     document.querySelectorAll('.d3').forEach(function(el){
       var kind=el.dataset.chart, d=JSON.parse(el.dataset.json);
