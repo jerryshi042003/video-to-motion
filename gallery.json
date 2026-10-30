@@ -1,0 +1,939 @@
+{
+ "sections": [],
+ "calls": [
+  {
+   "id": "motion-13",
+   "section": "motion",
+   "service": "Modal",
+   "model": "FlowHMR",
+   "date": "2026-10-22",
+   "title": "Ben Shelton serve, the first accepted clip",
+   "line": "Court Level Tennis practice serve, 180 frames. Every later serve demo reuses this body motion.",
+   "verdict": "accepted",
+   "cost": "$0.23",
+   "inputs": [],
+   "outputs": [
+    "media/calls/motion-13-out1.jpg",
+    "media/calls/motion-13-out2.jpg"
+   ]
+  },
+  {
+   "id": "motion-00",
+   "section": "motion",
+   "service": "Modal",
+   "model": "FlowHMR",
+   "date": "2026-10-28",
+   "title": "Fourteen rear-court 4K clips in one batch",
+   "line": "Shelton, Alcaraz, Djokovic and Cobolli, filmed from behind at court level. Output per clip: source, front, side, back.",
+   "verdict": "accepted",
+   "cost": "$4.44",
+   "inputs": [
+    "media/calls/motion-00-in1.jpg",
+    "media/calls/motion-00-in2.jpg"
+   ],
+   "outputs": [
+    "media/calls/motion-00-out1.jpg",
+    "media/calls/motion-00-out2.jpg",
+    "media/calls/motion-00-out3.jpg",
+    "media/calls/motion-00-out4.jpg"
+   ]
+  },
+  {
+   "id": "motion-01",
+   "section": "motion",
+   "service": "Modal",
+   "model": "FlowHMR",
+   "date": "2026-10-28",
+   "title": "Four more rear-court points",
+   "line": "Sinner return, Mpetshi Perricard serve point, Cobolli return, Djokovic Turin return.",
+   "verdict": "accepted",
+   "cost": "$1.43",
+   "inputs": [
+    "media/calls/motion-01-in1.jpg"
+   ],
+   "outputs": [
+    "media/calls/motion-01-out1.jpg",
+    "media/calls/motion-01-out2.jpg",
+    "media/calls/motion-01-out3.jpg",
+    "media/calls/motion-01-out4.jpg"
+   ]
+  },
+  {
+   "id": "motion-03",
+   "section": "motion",
+   "service": "Modal",
+   "model": "FlowHMR",
+   "date": "2026-10-28",
+   "title": "Djokovic groundstroke on a 4K crop",
+   "line": "4K side master cropped to 1080p, 210 frames. Body fit improved from 8.6 to 6.9 px; the racket detector got worse at 4K.",
+   "verdict": "diagnostic",
+   "cost": "$0.33",
+   "inputs": [],
+   "outputs": [
+    "media/calls/motion-03-out1.jpg",
+    "media/calls/motion-03-out2.jpg"
+   ]
+  },
+  {
+   "id": "motion-10",
+   "section": "motion",
+   "service": "Modal",
+   "model": "FlowHMR",
+   "date": "2026-10-24",
+   "title": "Djokovic body shape from two angles",
+   "line": "Rear and side clips, 210 frames each, used for body shape estimates.",
+   "verdict": "diagnostic",
+   "cost": "$0.50",
+   "inputs": [
+    "media/calls/motion-10-in1.jpg",
+    "media/calls/motion-10-in2.jpg"
+   ],
+   "outputs": [
+    "media/calls/motion-10-out1.jpg"
+   ]
+  },
+  {
+   "id": "motion-05",
+   "section": "motion",
+   "service": "Modal",
+   "model": "FlowHMR",
+   "date": "2026-10-26",
+   "title": "ATP broadcast benchmark",
+   "line": "TennisTV broadcast, 169 frames. A distant wrist and face are not enough for a demo.",
+   "verdict": "diagnostic",
+   "cost": "$0.28",
+   "inputs": [
+    "media/calls/motion-05-in1.jpg"
+   ],
+   "outputs": [
+    "media/calls/motion-05-out1.jpg",
+    "media/calls/motion-05-out2.jpg"
+   ]
+  },
+  {
+   "id": "motion-15",
+   "section": "motion",
+   "service": "Modal",
+   "model": "FlowHMR",
+   "date": "2026-10-22",
+   "title": "College match point",
+   "line": "PlaySight court camera, 270 frames, combined with tagged shot data.",
+   "verdict": "diagnostic",
+   "cost": "$0.28",
+   "inputs": [
+    "media/calls/motion-15-in1.jpg"
+   ],
+   "outputs": [
+    "media/calls/motion-15-out1.jpg",
+    "media/calls/motion-15-out2.jpg"
+   ]
+  },
+  {
+   "id": "motion-09",
+   "section": "motion",
+   "service": "Modal",
+   "model": "FlowHMR",
+   "date": "2026-10-24",
+   "title": "Fourteen-second rally",
+   "line": "Shelton and Coria rally, 414 of 420 frames recovered.",
+   "verdict": "diagnostic",
+   "cost": "$0.48",
+   "inputs": [],
+   "outputs": [
+    "media/calls/motion-09-out1.jpg",
+    "media/calls/motion-09-out2.jpg"
+   ]
+  },
+  {
+   "id": "motion-11",
+   "section": "motion",
+   "service": "Modal",
+   "model": "FlowHMR",
+   "date": "2026-10-23",
+   "title": "Two players in one point",
+   "line": "Both players tracked through a played point.",
+   "verdict": "rejected",
+   "cost": "$0.47",
+   "inputs": [
+    "media/calls/motion-11-in1.jpg"
+   ],
+   "outputs": [
+    "media/calls/motion-11-out1.jpg",
+    "media/calls/motion-11-out2.jpg"
+   ]
+  },
+  {
+   "id": "motion-12",
+   "section": "motion",
+   "service": "Modal",
+   "model": "FlowHMR",
+   "date": "2026-10-23",
+   "title": "Three practice clips",
+   "line": "Body tracks only; no scene was kept.",
+   "verdict": "diagnostic",
+   "cost": "$0.54",
+   "inputs": [
+    "media/calls/motion-12-in1.jpg"
+   ],
+   "outputs": [
+    "media/calls/motion-12-out1.jpg"
+   ]
+  },
+  {
+   "id": "motion-16",
+   "section": "motion",
+   "service": "Modal",
+   "model": "FlowHMR",
+   "date": "2026-10-22",
+   "title": "Six-second pilot",
+   "line": "The first FlowHMR run that proved the pipeline.",
+   "verdict": "diagnostic",
+   "cost": "$0.31",
+   "inputs": [],
+   "outputs": [
+    "media/calls/motion-16-out1.jpg",
+    "media/calls/motion-16-out2.jpg"
+   ]
+  },
+  {
+   "id": "motion-06",
+   "section": "motion",
+   "service": "Modal",
+   "model": "SAM-3D",
+   "date": "2026-10-26",
+   "title": "SAM-3D observations, three sources",
+   "line": "Broadcast, college and court-level sources through the same four stages.",
+   "verdict": "diagnostic",
+   "cost": "$0.07",
+   "inputs": [
+    "media/calls/motion-06-in1.jpg"
+   ],
+   "outputs": [
+    "media/calls/motion-06-out1.jpg",
+    "media/calls/motion-06-out2.jpg"
+   ]
+  },
+  {
+   "id": "motion-17",
+   "section": "motion",
+   "service": "Modal",
+   "model": "SAM-3D-Body",
+   "date": "2026-10-22",
+   "title": "SAM-3D-Body / MHR diagnostic",
+   "line": "Same clip as the pilot, different body model.",
+   "verdict": "diagnostic",
+   "cost": "$0.25",
+   "inputs": [],
+   "outputs": [
+    "media/calls/motion-17-out1.jpg"
+   ]
+  },
+  {
+   "id": "racket-detect-02",
+   "section": "racket-detect",
+   "service": "Modal",
+   "model": "RacketVision",
+   "date": "2026-10-28",
+   "title": "RacketVision on the rear-court clips",
+   "line": "Five racket points per frame where the racket is visible: 32 to 81 percent of frames depending on frame rate.",
+   "verdict": "diagnostic",
+   "cost": "$0.38",
+   "inputs": [
+    "media/calls/racket-detect-02-in1.jpg"
+   ],
+   "outputs": [
+    "media/calls/racket-detect-02-out1.jpg",
+    "media/calls/racket-detect-02-out2.jpg",
+    "media/calls/racket-detect-02-out3.jpg"
+   ]
+  },
+  {
+   "id": "racket-detect-04",
+   "section": "racket-detect",
+   "service": "Modal",
+   "model": "RacketVision",
+   "date": "2026-10-27",
+   "title": "RacketVision on Djokovic, rear and 4K crop",
+   "line": "Racket observations for the own-motion build.",
+   "verdict": "diagnostic",
+   "cost": "$0.03",
+   "inputs": [
+    "media/calls/racket-detect-04-in1.jpg"
+   ],
+   "outputs": [
+    "media/calls/racket-detect-04-out1.jpg"
+   ]
+  },
+  {
+   "id": "racket-detect-18",
+   "section": "racket-detect",
+   "service": "Modal",
+   "model": "RacketVision",
+   "date": "2026-10-22",
+   "title": "RacketVision pilot, many clips",
+   "line": "Racket points for the serve, rally, college, Coria and broadcast clips.",
+   "verdict": "diagnostic",
+   "cost": "$0.19",
+   "inputs": [],
+   "outputs": [
+    "media/calls/racket-detect-18-out1.jpg"
+   ]
+  },
+  {
+   "id": "racket-detect-19",
+   "section": "racket-detect",
+   "service": "Modal",
+   "model": "FlowHMR crops",
+   "date": "2026-10-22",
+   "title": "Hand and racket crops",
+   "line": "60 keyframes of the serve, used to hand-mark contact frames.",
+   "verdict": "diagnostic",
+   "cost": "$0.10",
+   "inputs": [],
+   "outputs": [
+    "media/calls/racket-detect-19-out1.jpg",
+    "media/calls/racket-detect-19-out2.jpg"
+   ]
+  },
+  {
+   "id": "bodies-47",
+   "section": "bodies",
+   "service": "fal.ai",
+   "model": "Rodin 2.5 High",
+   "date": "2026-10-27",
+   "title": "Ben Shelton",
+   "line": "Three 1080p frames of the same practice video. Outfit matches the footage; the face is generated; the hand stays open under the grip.",
+   "verdict": "paused",
+   "cost": "$0.40",
+   "inputs": [
+    "media/calls/bodies-47-in1.jpg",
+    "media/calls/bodies-47-in2.jpg"
+   ],
+   "outputs": [
+    "media/calls/bodies-47-out1.jpg",
+    "media/calls/bodies-47-out2.jpg",
+    "media/calls/bodies-47-out3.jpg"
+   ]
+  },
+  {
+   "id": "bodies-50",
+   "section": "bodies",
+   "service": "fal.ai",
+   "model": "Rodin 2.5 High",
+   "date": "2026-10-28",
+   "title": "Flavio Cobolli",
+   "line": "Three frames from his own point. The generated hand was replaced by the motion body's gripping hand.",
+   "verdict": "paused",
+   "cost": "$0.40",
+   "inputs": [
+    "media/calls/bodies-50-in1.jpg",
+    "media/calls/bodies-50-in2.jpg"
+   ],
+   "outputs": [
+    "media/calls/bodies-50-out1.jpg",
+    "media/calls/bodies-50-out2.jpg",
+    "media/calls/bodies-50-out3.jpg"
+   ]
+  },
+  {
+   "id": "bodies-52",
+   "section": "bodies",
+   "service": "fal.ai",
+   "model": "Rodin 2.5 High",
+   "date": "2026-10-28",
+   "title": "Carlos Alcaraz",
+   "line": "Front, back and a second front crop. Skin renders darker than the footage.",
+   "verdict": "paused",
+   "cost": "$0.40",
+   "inputs": [
+    "media/calls/bodies-52-in1.jpg",
+    "media/calls/bodies-52-in2.jpg"
+   ],
+   "outputs": [
+    "media/calls/bodies-52-out1.jpg",
+    "media/calls/bodies-52-out2.jpg"
+   ]
+  },
+  {
+   "id": "bodies-48",
+   "section": "bodies",
+   "service": "fal.ai",
+   "model": "Rodin 2.5 High",
+   "date": "2026-10-27",
+   "title": "Giovanni Mpetshi Perricard",
+   "line": "Two 4K front frames and one back frame. The shirt-back print is lost.",
+   "verdict": "paused",
+   "cost": "$0.40",
+   "inputs": [
+    "media/calls/bodies-48-in1.jpg",
+    "media/calls/bodies-48-in2.jpg"
+   ],
+   "outputs": [
+    "media/calls/bodies-48-out1.jpg",
+    "media/calls/bodies-48-out2.jpg"
+   ]
+  },
+  {
+   "id": "bodies-51",
+   "section": "bodies",
+   "service": "fal.ai",
+   "model": "Rodin 2.5 High",
+   "date": "2026-10-28",
+   "title": "Novak Djokovic, full-body references",
+   "line": "Came back T-posed with forearm flaps; arms re-posed 50 degrees, then used on two points.",
+   "verdict": "paused",
+   "cost": "$0.40",
+   "inputs": [
+    "media/calls/bodies-51-in1.jpg",
+    "media/calls/bodies-51-in2.jpg"
+   ],
+   "outputs": [
+    "media/calls/bodies-51-out1.jpg",
+    "media/calls/bodies-51-out2.jpg",
+    "media/calls/bodies-51-out3.jpg"
+   ]
+  },
+  {
+   "id": "bodies-49",
+   "section": "bodies",
+   "service": "fal.ai",
+   "model": "Rodin 2.5 High",
+   "date": "2026-10-28",
+   "title": "Novak Djokovic, knee-cropped references",
+   "line": "Stiff arms and long shorts. References cut off at the knee.",
+   "verdict": "failed",
+   "cost": "$0.40",
+   "inputs": [
+    "media/calls/bodies-49-in1.jpg",
+    "media/calls/bodies-49-in2.jpg"
+   ],
+   "outputs": [
+    "media/calls/bodies-49-out1.jpg",
+    "media/calls/bodies-49-out2.jpg"
+   ]
+  },
+  {
+   "id": "bodies-46",
+   "section": "bodies",
+   "service": "fal.ai",
+   "model": "Rodin 2.5 High",
+   "date": "2026-10-26",
+   "title": "Novak Djokovic, two photos",
+   "line": "Better neck and lean silhouette. Face still wrong; shirt markings invented.",
+   "verdict": "rejected",
+   "cost": "$0.40",
+   "inputs": [
+    "media/calls/bodies-46-in1.jpg",
+    "media/calls/bodies-46-in2.jpg"
+   ],
+   "outputs": [
+    "media/calls/bodies-46-out1.jpg",
+    "media/calls/bodies-46-out2.jpg",
+    "media/calls/bodies-46-out3.jpg"
+   ]
+  },
+  {
+   "id": "bodies-45",
+   "section": "bodies",
+   "service": "fal.ai",
+   "model": "Rodin 2.5 High",
+   "date": "2026-10-26",
+   "title": "Novak Djokovic, one photo",
+   "line": "Whole-person PBR mesh, 50K triangles. Outline fine, face wrong.",
+   "verdict": "rejected",
+   "cost": "$0.40",
+   "inputs": [
+    "media/calls/bodies-45-in1.jpg"
+   ],
+   "outputs": [
+    "media/calls/bodies-45-out1.jpg",
+    "media/calls/bodies-45-out2.jpg"
+   ]
+  },
+  {
+   "id": "faces-07",
+   "section": "faces",
+   "service": "Modal",
+   "model": "UP2You",
+   "date": "2026-10-26",
+   "title": "UP2You whole-person reconstruction",
+   "line": "Two event photos plus a portrait. Connected body and clothing; wrong identity; hand texture baked onto the shirt.",
+   "verdict": "rejected",
+   "cost": "$0.36",
+   "inputs": [
+    "media/calls/faces-07-in1.jpg",
+    "media/calls/faces-07-in2.jpg"
+   ],
+   "outputs": [
+    "media/calls/faces-07-out1.jpg",
+    "media/calls/faces-07-out2.jpg"
+   ]
+  },
+  {
+   "id": "faces-08",
+   "section": "faces",
+   "service": "Modal",
+   "model": "MICA",
+   "date": "2026-10-26",
+   "title": "MICA face fit",
+   "line": "Three photos to FLAME face geometry, 5,023 vertices. No hair, skin or body.",
+   "verdict": "rejected",
+   "cost": "$0.01",
+   "inputs": [
+    "media/calls/faces-08-in1.jpg",
+    "media/calls/faces-08-in2.jpg"
+   ],
+   "outputs": [
+    "media/calls/faces-08-out1.jpg",
+    "media/calls/faces-08-out2.jpg"
+   ]
+  },
+  {
+   "id": "meshy-62",
+   "section": "meshy",
+   "service": "Meshy",
+   "model": "Meshy 7.1",
+   "date": "2026-10-20",
+   "title": "Court-stories cast",
+   "line": "Photo to A-pose image to image-to-3D with 4K PBR to rig. Players, crowd and props for a set of story pages.",
+   "verdict": "used on page",
+   "cost": "about 1,900 credits (2,108 → 216 by 21 Oct)",
+   "inputs": [],
+   "outputs": [
+    "media/calls/meshy-62-out1.jpg",
+    "media/calls/meshy-62-out2.jpg",
+    "media/calls/meshy-62-out3.jpg"
+   ]
+  },
+  {
+   "id": "meshy-61",
+   "section": "meshy",
+   "service": "Meshy",
+   "model": "Meshy 7.1",
+   "date": "2026-10-19",
+   "title": "Track-sprint riders and staff",
+   "line": "Meshy 7.1 from reference images. Every character in a cycling demo. No finger bones.",
+   "verdict": "built",
+   "cost": "part of 3,000 credits bought 19 Oct ($20)",
+   "inputs": [],
+   "outputs": [
+    "media/calls/meshy-61-out1.jpg",
+    "media/calls/meshy-61-out2.jpg"
+   ]
+  },
+  {
+   "id": "meshy-64",
+   "section": "meshy",
+   "service": "Meshy",
+   "model": "Meshy 7.1",
+   "date": "2026-10-24",
+   "title": "Three Djokovic heads",
+   "line": "Single photo, multi-angle and frontal-led variants placed on the serve body.",
+   "verdict": "rejected",
+   "cost": "105 credits",
+   "inputs": [
+    "media/calls/meshy-64-in1.jpg",
+    "media/calls/meshy-64-in2.jpg"
+   ],
+   "outputs": [
+    "media/calls/meshy-64-out1.jpg",
+    "media/calls/meshy-64-out2.jpg",
+    "media/calls/meshy-64-out3.jpg"
+   ]
+  },
+  {
+   "id": "meshy-63",
+   "section": "meshy",
+   "service": "Meshy",
+   "model": "Meshy 7.1",
+   "date": "2026-10-23",
+   "title": "Shelton likeness, multi-view",
+   "line": "Three photos to one body candidate. A modelling base, not production ready.",
+   "verdict": "rejected",
+   "cost": "35 credits",
+   "inputs": [
+    "media/calls/meshy-63-in1.jpg",
+    "media/calls/meshy-63-in2.jpg"
+   ],
+   "outputs": [
+    "media/calls/meshy-63-out1.jpg",
+    "media/calls/meshy-63-out2.jpg"
+   ]
+  },
+  {
+   "id": "meshy-60",
+   "section": "meshy",
+   "service": "Meshy",
+   "model": "Meshy 6 Lite",
+   "date": "2026-09-16",
+   "title": "First tennis figure",
+   "line": "Reference image to Meshy 6 Lite image-to-3D with 2K texture.",
+   "verdict": "rejected",
+   "cost": "49 of 130 free credits",
+   "inputs": [
+    "media/calls/meshy-60-in1.jpg"
+   ],
+   "outputs": [
+    "media/calls/meshy-60-out1.jpg",
+    "media/calls/meshy-60-out2.jpg",
+    "media/calls/meshy-60-out3.jpg"
+   ]
+  },
+  {
+   "id": "mocap-20",
+   "section": "mocap",
+   "service": "Modal",
+   "model": "GEM-X",
+   "date": "2026-10-21",
+   "title": "GEM-X mocap",
+   "line": "Fourteen runs on an L40S across forehand, broadcast and tripod clips. Loops were retargeted onto a rig for review.",
+   "verdict": "not adopted",
+   "cost": "$3.35",
+   "inputs": [],
+   "outputs": [
+    "media/calls/mocap-20-out1.jpg"
+   ]
+  },
+  {
+   "id": "mocap-21",
+   "section": "mocap",
+   "service": "Modal",
+   "model": "Kimodo",
+   "date": "2026-10-21",
+   "title": "Kimodo",
+   "line": "A standalone ready-position loop.",
+   "verdict": "not adopted",
+   "cost": "$0.13",
+   "inputs": [],
+   "outputs": [
+    "media/calls/mocap-21-out1.jpg",
+    "media/calls/mocap-21-out2.jpg"
+   ]
+  },
+  {
+   "id": "ibex-53",
+   "section": "ibex",
+   "service": "fal.ai",
+   "model": "Flux, nano-banana",
+   "date": "2026-10-27",
+   "title": "Concept images",
+   "line": "Flux and nano-banana from text prompts.",
+   "verdict": "built",
+   "cost": null,
+   "inputs": [],
+   "outputs": [
+    "media/calls/ibex-53-out1.jpg"
+   ]
+  },
+  {
+   "id": "ibex-54",
+   "section": "ibex",
+   "service": "fal.ai",
+   "model": "Hunyuan3D, Tripo",
+   "date": "2026-10-28",
+   "title": "Image to 3D, two engines",
+   "line": "Hunyuan3D and Tripo from the same concept image.",
+   "verdict": "built",
+   "cost": null,
+   "inputs": [
+    "media/calls/ibex-54-in1.jpg"
+   ],
+   "outputs": [
+    "media/calls/ibex-54-out1.jpg"
+   ]
+  },
+  {
+   "id": "ibex-56",
+   "section": "ibex",
+   "service": "fal.ai",
+   "model": "nano-banana, Hunyuan3D, Tripo",
+   "date": "2026-10-28",
+   "title": "Realistic ibex",
+   "line": "nano-banana references, then Hunyuan3D and Tripo.",
+   "verdict": "built",
+   "cost": null,
+   "inputs": [
+    "media/calls/ibex-56-in1.jpg"
+   ],
+   "outputs": [
+    "media/calls/ibex-56-out1.jpg"
+   ]
+  },
+  {
+   "id": "ibex-55",
+   "section": "ibex",
+   "service": "fal.ai",
+   "model": "nano-banana, Tripo",
+   "date": "2026-10-28",
+   "title": "Mountain",
+   "line": "nano-banana image, then Tripo.",
+   "verdict": "built",
+   "cost": null,
+   "inputs": [
+    "media/calls/ibex-55-in1.jpg"
+   ],
+   "outputs": [
+    "media/calls/ibex-55-out1.jpg"
+   ]
+  },
+  {
+   "id": "ibex-59",
+   "section": "ibex",
+   "service": "fal.ai",
+   "model": "Rodin 2.5",
+   "date": "2026-10-29",
+   "title": "Rodin image-to-3D ibex",
+   "line": "The mesh that was kept and rigged.",
+   "verdict": "used on page",
+   "cost": null,
+   "inputs": [
+    "media/calls/ibex-59-in1.jpg"
+   ],
+   "outputs": [
+    "media/calls/ibex-59-out1.jpg",
+    "media/calls/ibex-59-out2.jpg"
+   ]
+  },
+  {
+   "id": "ibex-57",
+   "section": "ibex",
+   "service": "fal.ai",
+   "model": "nano-banana",
+   "date": "2026-10-28",
+   "title": "Backgrounds",
+   "line": "Six prompts, twelve images.",
+   "verdict": "built",
+   "cost": null,
+   "inputs": [],
+   "outputs": [
+    "media/calls/ibex-57-out1.jpg"
+   ]
+  }
+ ],
+ "library": [
+  {
+   "id": "shelton-serve-b",
+   "player": "Ben Shelton",
+   "hand": "left-handed",
+   "frames": 192,
+   "racket_tracked": 138,
+   "stance_rule": 20,
+   "smoothed": 34,
+   "median_px": 6.0,
+   "source": "https://www.youtube.com/watch?v=vF9WB1ZhgsI&t=33s",
+   "range": "33.0–39.4 s",
+   "video": "media/library/shelton-serve-b.mp4",
+   "poster": "media/library/shelton-serve-b-poster.jpg"
+  },
+  {
+   "id": "shelton-serve-d",
+   "player": "Ben Shelton",
+   "hand": "left-handed",
+   "frames": 192,
+   "racket_tracked": 110,
+   "stance_rule": 43,
+   "smoothed": 39,
+   "median_px": 4.7,
+   "source": "https://www.youtube.com/watch?v=vF9WB1ZhgsI&t=48s",
+   "range": "48.0–54.4 s",
+   "video": "media/library/shelton-serve-d.mp4",
+   "poster": "media/library/shelton-serve-d-poster.jpg"
+  },
+  {
+   "id": "shelton-serve-f",
+   "player": "Ben Shelton",
+   "hand": "left-handed",
+   "frames": 192,
+   "racket_tracked": 122,
+   "stance_rule": 23,
+   "smoothed": 47,
+   "median_px": 12.3,
+   "source": "https://www.youtube.com/watch?v=vF9WB1ZhgsI&t=79s",
+   "range": "79.0–85.4 s",
+   "video": "media/library/shelton-serve-f.mp4",
+   "poster": "media/library/shelton-serve-f-poster.jpg"
+  },
+  {
+   "id": "shelton-serve-g2",
+   "player": "Ben Shelton",
+   "hand": "left-handed",
+   "frames": 198,
+   "racket_tracked": 123,
+   "stance_rule": 28,
+   "smoothed": 47,
+   "median_px": 12.5,
+   "source": "https://www.youtube.com/watch?v=vF9WB1ZhgsI&t=91s",
+   "range": "91.6–98.2 s",
+   "video": "media/library/shelton-serve-g2.mp4",
+   "poster": "media/library/shelton-serve-g2-poster.jpg"
+  },
+  {
+   "id": "alcaraz-a",
+   "player": "Carlos Alcaraz",
+   "hand": "",
+   "frames": 435,
+   "racket_tracked": 305,
+   "stance_rule": 47,
+   "smoothed": 83,
+   "median_px": 10.9,
+   "source": "https://www.youtube.com/watch?v=9Dl84UYDks0&t=586s",
+   "range": "586.0–600.5 s",
+   "video": "media/library/alcaraz-a.mp4",
+   "poster": "media/library/alcaraz-a-poster.jpg"
+  },
+  {
+   "id": "alcaraz-b",
+   "player": "Carlos Alcaraz",
+   "hand": "",
+   "frames": 399,
+   "racket_tracked": 199,
+   "stance_rule": 111,
+   "smoothed": 89,
+   "median_px": 10.6,
+   "source": "https://www.youtube.com/watch?v=9Dl84UYDks0&t=601s",
+   "range": "601.0–614.3 s",
+   "video": "media/library/alcaraz-b.mp4",
+   "poster": "media/library/alcaraz-b-poster.jpg"
+  },
+  {
+   "id": "alcaraz-serve",
+   "player": "Giovanni Mpetshi Perricard",
+   "hand": "",
+   "frames": 330,
+   "racket_tracked": 251,
+   "stance_rule": 32,
+   "smoothed": 47,
+   "median_px": 9.4,
+   "source": "https://www.youtube.com/watch?v=9Dl84UYDks0&t=548s",
+   "range": "548–559 s",
+   "video": "media/library/alcaraz-serve.mp4",
+   "poster": "media/library/alcaraz-serve-poster.jpg"
+  },
+  {
+   "id": "djokovic-iw-a",
+   "player": "Novak Djokovic",
+   "hand": "",
+   "frames": 426,
+   "racket_tracked": 136,
+   "stance_rule": 182,
+   "smoothed": 108,
+   "median_px": 9.0,
+   "source": "https://www.youtube.com/watch?v=xsP3PjNgId8&t=399s",
+   "range": "399.2–413.4 s",
+   "video": "media/library/djokovic-iw-a.mp4",
+   "poster": "media/library/djokovic-iw-a-poster.jpg"
+  },
+  {
+   "id": "djokovic-iw-c",
+   "player": "Novak Djokovic",
+   "hand": "",
+   "frames": 435,
+   "racket_tracked": 172,
+   "stance_rule": 123,
+   "smoothed": 140,
+   "median_px": 11.6,
+   "source": "https://www.youtube.com/watch?v=xsP3PjNgId8&t=435s",
+   "range": "435.0–449.5 s",
+   "video": "media/library/djokovic-iw-c.mp4",
+   "poster": "media/library/djokovic-iw-c-poster.jpg"
+  },
+  {
+   "id": "djokovic-turin-return",
+   "player": "Novak Djokovic",
+   "hand": "",
+   "frames": 366,
+   "racket_tracked": 256,
+   "stance_rule": 15,
+   "smoothed": 95,
+   "median_px": 5.7,
+   "source": "https://www.youtube.com/watch?v=-KoAgZkCIx8&t=29s",
+   "range": "29–42 s",
+   "video": "media/library/djokovic-turin-return.mp4",
+   "poster": "media/library/djokovic-turin-return-poster.jpg"
+  },
+  {
+   "id": "sinner-return",
+   "player": "Jannik Sinner",
+   "hand": "",
+   "frames": 293,
+   "racket_tracked": 101,
+   "stance_rule": 156,
+   "smoothed": 36,
+   "median_px": 10.7,
+   "source": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=109s",
+   "range": "109–119 s",
+   "video": "media/library/sinner-return.mp4",
+   "poster": "media/library/sinner-return-poster.jpg"
+  },
+  {
+   "id": "cabolli-return",
+   "player": "Flavio Cobolli",
+   "hand": "",
+   "frames": 201,
+   "racket_tracked": 65,
+   "stance_rule": 127,
+   "smoothed": 9,
+   "median_px": 4.8,
+   "source": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=137s",
+   "range": "137–144 s",
+   "video": "media/library/cabolli-return.mp4",
+   "poster": "media/library/cabolli-return-poster.jpg"
+  },
+  {
+   "id": "cobolli-b1",
+   "player": "Flavio Cobolli",
+   "hand": "",
+   "frames": 201,
+   "racket_tracked": 122,
+   "stance_rule": 41,
+   "smoothed": 38,
+   "median_px": 10.1,
+   "source": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=145s",
+   "range": "145.1–151.8 s",
+   "video": "media/library/cobolli-b1.mp4",
+   "poster": "media/library/cobolli-b1-poster.jpg"
+  },
+  {
+   "id": "cobolli-b2",
+   "player": "Flavio Cobolli",
+   "hand": "",
+   "frames": 351,
+   "racket_tracked": 222,
+   "stance_rule": 74,
+   "smoothed": 55,
+   "median_px": 6.1,
+   "source": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=152s",
+   "range": "152.0–163.7 s",
+   "video": "media/library/cobolli-b2.mp4",
+   "poster": "media/library/cobolli-b2-poster.jpg"
+  },
+  {
+   "id": "cobolli-c1",
+   "player": "Flavio Cobolli",
+   "hand": "",
+   "frames": 367,
+   "racket_tracked": 202,
+   "stance_rule": 81,
+   "smoothed": 84,
+   "median_px": 7.0,
+   "source": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=167s",
+   "range": "167.1–179.3 s",
+   "video": "media/library/cobolli-c1.mp4",
+   "poster": "media/library/cobolli-c1-poster.jpg"
+  },
+  {
+   "id": "cobolli-c2",
+   "player": "Flavio Cobolli",
+   "hand": "",
+   "frames": 205,
+   "racket_tracked": 88,
+   "stance_rule": 52,
+   "smoothed": 65,
+   "median_px": 7.1,
+   "source": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=179s",
+   "range": "179.6–186.4 s",
+   "video": "media/library/cobolli-c2.mp4",
+   "poster": "media/library/cobolli-c2-poster.jpg"
+  }
+ ]
+}

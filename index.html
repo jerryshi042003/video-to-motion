@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Video to Motion</title>
+<meta name="description" content="A visual library of what Modal (FlowHMR, RacketVision), fal.ai (Rodin, Kling, Hunyuan3D, Tripo) and Meshy produced when turning tennis video into 3D motion, rackets and bodies.">
+<style>
+:root{--bg:#fff;--fg:#111;--muted:#666;--line:#e3e3e3;--good:#1f7a3f;--bad:#b4442c;--link:#0b57d0}
+@media (prefers-color-scheme:dark){:root{--bg:#111;--fg:#eee;--muted:#999;--line:#2a2a2a;--good:#6cc08f;--bad:#e2775c;--link:#8ab4f8}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+main{max-width:1280px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:22px;margin:0 0 2px;font-weight:600}
+h2{font-size:18px;margin:44px 0 12px;padding-top:14px;border-top:1px solid var(--line);font-weight:600;scroll-margin-top:16px}
+h3{font-size:15px;margin:0;font-weight:600}h3.sub{margin:28px 0 10px;color:var(--muted);font-weight:500}
+.lede{color:var(--muted);margin:0 0 14px}
+nav{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 14px}nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--fg)}
+.card{padding:14px 0;border-top:1px solid var(--line)}.card:first-of-type{border-top:0}
+.meta{font-size:13px;color:var(--muted);margin:1px 0 8px}
+.v{color:var(--muted)}.v.good{color:var(--good)}.v.bad{color:var(--bad)}
+.io{display:grid;grid-template-columns:minmax(0,1fr) 24px minmax(0,1.4fr);gap:10px;align-items:start}
+.imgs{display:flex;flex-wrap:wrap;gap:6px}.imgs img{height:180px;max-width:100%;width:auto;border-radius:3px;background:#222;object-fit:contain;display:block}
+.arrow{color:var(--muted);text-align:center;padding-top:76px}
+.none{color:var(--muted);font-size:13px;padding-top:4px}
+figure{margin:0 0 16px;display:grid;gap:5px}figure img,figure video{width:100%;height:auto;display:block;border-radius:3px;background:#222}
+figcaption{font-size:13px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,400px),1fr));gap:16px}
+.grid.wide{grid-template-columns:repeat(auto-fill,minmax(min(100%,600px),1fr))}
+a{color:var(--link)}
+footer{margin-top:48px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:grid;gap:4px}
+@media (max-width:720px){.io{grid-template-columns:1fr}.arrow{padding:0;transform:rotate(90deg)}.imgs img{height:140px}}
+</style></head><body><main>
+<h1>Video to Motion</h1>
+<p class="lede">Tennis video to 3D motion, rackets and bodies. Input left, output right.</p>
+<nav><a href="#library">The library</a><a href="#motion">Video to motion</a><a href="#racket">The racket</a><a href="#bodies">Bodies</a><a href="#faces">Faces</a><a href="#meshy">Meshy</a><a href="#mocap">Other mocap</a><a href="#ibex">Image to 3D</a></nav>
+
+<h2 id="library">The library: 16 points, 6 players</h2>
+<div class="grid">
+<figure class="clip">
+<video src="media/library/shelton-serve-b.mp4" poster="media/library/shelton-serve-b-poster.jpg" controls muted loop playsinline preload="none"></video>
+<figcaption>Ben Shelton · left-handed · 192 frames · <a href="https://www.youtube.com/watch?v=vF9WB1ZhgsI&amp;t=33s" target="_blank" rel="noopener">source 33.0–39.4 s</a></figcaption>
+</figure>
+<figure class="clip">
+<video src="media/library/shelton-serve-d.mp4" poster="media/library/shelton-serve-d-poster.jpg" controls muted loop playsinline preload="none"></video>
+<figcaption>Ben Shelton · left-handed · 192 frames · <a href="https://www.youtube.com/watch?v=vF9WB1ZhgsI&amp;t=48s" target="_blank" rel="noopener">source 48.0–54.4 s</a></figcaption>
+</figure>
+<figure class="clip">
+<video src="media/library/shelton-serve-f.mp4" poster="media/library/shelton-serve-f-poster.jpg" controls muted loop playsinline preload="none"></video>
+<figcaption>Ben Shelton · left-handed · 192 frames · <a href="https://www.youtube.com/watch?v=vF9WB1ZhgsI&amp;t=79s" target="_blank" rel="noopener">source 79.0–85.4 s</a></figcaption>
+</figure>
+<figure class="clip">
+<video src="media/library/shelton-serve-g2.mp4" poster="media/library/shelton-serve-g2-poster.jpg" controls muted loop playsinline preload="none"></video>
+<figcaption>Ben Shelton · left-handed · 198 frames · <a href="https://www.youtube.com/watch?v=vF9WB1ZhgsI&amp;t=91s" target="_blank" rel="noopener">source 91.6–98.2 s</a></figcaption>
+</figure>
+<figure class="clip">
+<video src="media/library/alcaraz-a.mp4" poster="media/library/alcaraz-a-poster.jpg" controls muted loop playsinline preload="none"></video>
+<figcaption>Carlos Alcaraz · 435 frames · <a href="https://www.youtube.com/watch?v=9Dl84UYDks0&amp;t=586s" target="_blank" rel="noopener">source 586.0–600.5 s</a></figcaption>
+</figure>
+<figure class="clip">
+<video src="media/library/alcaraz-b.mp4" poster="media/library/alcaraz-b-poster.jpg" controls muted loop playsinline preload="none"></video>
+<figcaption>Carlos Alcaraz · 399 frames · <a href="https://www.youtube.com/watch?v=9Dl84UYDks0&amp;t=601s" target="_blank" rel="noopener">source 601.0–614.3 s</a></figcaption>
+</figure>
+<figure class="clip">
+<video src="media/library/alcaraz-serve.mp4" poster="media/library/alcaraz-serve-poster.jpg" controls muted loop playsinline preload="none"></video>
+<figcaption>Giovanni Mpetshi Perricard · 330 frames · <a href="https://www.youtube.com/watch?v=9Dl84UYDks0&amp;t=548s" target="_blank" rel="noopener">source 548–559 s</a></figcaption>
+</figure>
+<figure class="clip">
+<video src="media/library/djokovic-iw-a.mp4" poster="media/library/djokovic-iw-a-poster.jpg" controls muted loop playsinline preload="none"></video>
+<figcaption>Novak Djokovic · 426 frames · <a href="https://www.youtube.com/watch?v=xsP3PjNgId8&amp;t=399s" target="_blank" rel="noopener">source 399.2–413.4 s</a></figcaption>
+</figure>
+<figure class="clip">
+<video src="media/library/djokovic-iw-c.mp4" poster="media/library/djokovic-iw-c-poster.jpg" controls muted loop playsinline preload="none"></video>
+<figcaption>Novak Djokovic · 435 frames · <a href="https://www.youtube.com/watch?v=xsP3PjNgId8&amp;t=435s" target="_blank" rel="noopener">source 435.0–449.5 s</a></figcaption>
+</figure>
+<figure class="clip">
+<video src="media/library/djokovic-turin-return.mp4" poster="media/library/djokovic-turin-return-poster.jpg" controls muted loop playsinline preload="none"></video>
+<figcaption>Novak Djokovic · 366 frames · <a href="https://www.youtube.com/watch?v=-KoAgZkCIx8&amp;t=29s" target="_blank" rel="noopener">source 29–42 s</a></figcaption>
+</figure>
+<figure class="clip">
+<video src="media/library/sinner-return.mp4" poster="media/library/sinner-return-poster.jpg" controls muted loop playsinline preload="none"></video>
+<figcaption>Jannik Sinner · 293 frames · <a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=109s" target="_blank" rel="noopener">source 109–119 s</a></figcaption>
+</figure>
+<figure class="clip">
+<video src="media/library/cabolli-return.mp4" poster="media/library/cabolli-return-poster.jpg" controls muted loop playsinline preload="none"></video>
+<figcaption>Flavio Cobolli · 201 frames · <a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=137s" target="_blank" rel="noopener">source 137–144 s</a></figcaption>
+</figure>
+<figure class="clip">
+<video src="media/library/cobolli-b1.mp4" poster="media/library/cobolli-b1-poster.jpg" controls muted loop playsinline preload="none"></video>
+<figcaption>Flavio Cobolli · 201 frames · <a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=145s" target="_blank" rel="noopener">source 145.1–151.8 s</a></figcaption>
+</figure>
+<figure class="clip">
+<video src="media/library/cobolli-b2.mp4" poster="media/library/cobolli-b2-poster.jpg" controls muted loop playsinline preload="none"></video>
+<figcaption>Flavio Cobolli · 351 frames · <a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=152s" target="_blank" rel="noopener">source 152.0–163.7 s</a></figcaption>
+</figure>
+<figure class="clip">
+<video src="media/library/cobolli-c1.mp4" poster="media/library/cobolli-c1-poster.jpg" controls muted loop playsinline preload="none"></video>
+<figcaption>Flavio Cobolli · 367 frames · <a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=167s" target="_blank" rel="noopener">source 167.1–179.3 s</a></figcaption>
+</figure>
+<figure class="clip">
+<video src="media/library/cobolli-c2.mp4" poster="media/library/cobolli-c2-poster.jpg" controls muted loop playsinline preload="none"></video>
+<figcaption>Flavio Cobolli · 205 frames · <a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=179s" target="_blank" rel="noopener">source 179.6–186.4 s</a></figcaption>
+</figure>
+</div>
+
+<h2 id="motion">Video to body motion</h2>
+<article class="card" id="motion-13">
+<h3>Ben Shelton serve, the first accepted clip</h3><div class="meta">Modal · FlowHMR · 2026-10-22 · $0.23 · <span class="v good">accepted</span></div>
+<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-13-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-13-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-13-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-13-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="motion-00">
+<h3>Fourteen rear-court 4K clips in one batch</h3><div class="meta">Modal · FlowHMR · 2026-10-28 · $4.44 · <span class="v good">accepted</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/motion-00-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-00-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-00-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-00-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-00-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-00-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-00-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-00-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-00-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-00-out3.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-00-out4.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-00-out4.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="motion-01">
+<h3>Four more rear-court points</h3><div class="meta">Modal · FlowHMR · 2026-10-28 · $1.43 · <span class="v good">accepted</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/motion-01-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-01-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-01-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-01-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-01-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-01-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-01-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-01-out3.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-01-out4.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-01-out4.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="motion-03">
+<h3>Djokovic groundstroke on a 4K crop</h3><div class="meta">Modal · FlowHMR · 2026-10-28 · $0.33 · <span class="v mid">diagnostic</span></div>
+<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-03-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-03-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-03-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-03-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="motion-10">
+<h3>Djokovic body shape from two angles</h3><div class="meta">Modal · FlowHMR · 2026-10-24 · $0.50 · <span class="v mid">diagnostic</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/motion-10-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-10-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-10-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-10-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-10-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-10-out1.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="motion-05">
+<h3>ATP broadcast benchmark</h3><div class="meta">Modal · FlowHMR · 2026-10-26 · $0.28 · <span class="v mid">diagnostic</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/motion-05-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-05-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-05-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-05-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-05-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-05-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="motion-15">
+<h3>College match point</h3><div class="meta">Modal · FlowHMR · 2026-10-22 · $0.28 · <span class="v mid">diagnostic</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/motion-15-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-15-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-15-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-15-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-15-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-15-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="motion-09">
+<h3>Fourteen-second rally</h3><div class="meta">Modal · FlowHMR · 2026-10-24 · $0.48 · <span class="v mid">diagnostic</span></div>
+<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-09-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-09-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-09-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-09-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="motion-11">
+<h3>Two players in one point</h3><div class="meta">Modal · FlowHMR · 2026-10-23 · $0.47 · <span class="v bad">rejected</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/motion-11-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-11-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-11-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-11-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-11-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-11-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="motion-12">
+<h3>Three practice clips</h3><div class="meta">Modal · FlowHMR · 2026-10-23 · $0.54 · <span class="v mid">diagnostic</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/motion-12-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-12-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-12-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-12-out1.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="motion-16">
+<h3>Six-second pilot</h3><div class="meta">Modal · FlowHMR · 2026-10-22 · $0.31 · <span class="v mid">diagnostic</span></div>
+<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-16-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-16-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-16-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-16-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="motion-06">
+<h3>SAM-3D observations, three sources</h3><div class="meta">Modal · SAM-3D · 2026-10-26 · $0.07 · <span class="v mid">diagnostic</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/motion-06-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-06-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-06-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-06-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-06-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-06-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="motion-17">
+<h3>SAM-3D-Body / MHR diagnostic</h3><div class="meta">Modal · SAM-3D-Body · 2026-10-22 · $0.25 · <span class="v mid">diagnostic</span></div>
+<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-17-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-17-out1.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+
+<h2 id="racket">The racket</h2>
+<div class="grid">
+<figure><a href="media/racket/racket-full.jpg" target="_blank" rel="noopener"><img src="media/racket/racket-full.jpg" loading="lazy" alt=""></a><figcaption>Racket model, built in Blender</figcaption></figure>
+<figure><a href="media/racket/racket-face.jpg" target="_blank" rel="noopener"><img src="media/racket/racket-face.jpg" loading="lazy" alt=""></a><figcaption>Face</figcaption></figure>
+<figure><a href="media/racket/racket-tip-macro.jpg" target="_blank" rel="noopener"><img src="media/racket/racket-tip-macro.jpg" loading="lazy" alt=""></a><figcaption>Tip grommets</figcaption></figure>
+<figure><a href="media/racket/racket-strings-macro.jpg" target="_blank" rel="noopener"><img src="media/racket/racket-strings-macro.jpg" loading="lazy" alt=""></a><figcaption>Frame edge</figcaption></figure>
+</div>
+<h3 class="sub">Finding the racket</h3>
+<article class="card" id="racket-detect-02">
+<h3>RacketVision on the rear-court clips</h3><div class="meta">Modal · RacketVision · 2026-10-28 · $0.38 · <span class="v mid">diagnostic</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/racket-detect-02-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-02-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/racket-detect-02-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-02-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/racket-detect-02-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-02-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/racket-detect-02-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-02-out3.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="racket-detect-04">
+<h3>RacketVision on Djokovic, rear and 4K crop</h3><div class="meta">Modal · RacketVision · 2026-10-27 · $0.03 · <span class="v mid">diagnostic</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/racket-detect-04-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-04-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/racket-detect-04-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-04-out1.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="racket-detect-18">
+<h3>RacketVision pilot, many clips</h3><div class="meta">Modal · RacketVision · 2026-10-22 · $0.19 · <span class="v mid">diagnostic</span></div>
+<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/racket-detect-18-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-18-out1.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="racket-detect-19">
+<h3>Hand and racket crops</h3><div class="meta">Modal · FlowHMR crops · 2026-10-22 · $0.10 · <span class="v mid">diagnostic</span></div>
+<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/racket-detect-19-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-19-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/racket-detect-19-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-19-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<h3 class="sub">Solving the racket through the arm</h3>
+<div class="grid wide">
+<figure><a href="media/racket/ovl-djokovic-iw-a.jpg" target="_blank" rel="noopener"><img src="media/racket/ovl-djokovic-iw-a.jpg" loading="lazy" alt=""></a><figcaption>Djokovic, Indian Wells A. Red old fit, green arm solve, cyan detections</figcaption></figure>
+<figure><a href="media/racket/ovl-djokovic-turin-return.jpg" target="_blank" rel="noopener"><img src="media/racket/ovl-djokovic-turin-return.jpg" loading="lazy" alt=""></a><figcaption>Djokovic, Turin</figcaption></figure>
+<figure><a href="media/racket/ovl-djokovic-iw-c.jpg" target="_blank" rel="noopener"><img src="media/racket/ovl-djokovic-iw-c.jpg" loading="lazy" alt=""></a><figcaption>Djokovic, Indian Wells C</figcaption></figure>
+<figure><a href="media/racket/ovl-sinner-return.jpg" target="_blank" rel="noopener"><img src="media/racket/ovl-sinner-return.jpg" loading="lazy" alt=""></a><figcaption>Sinner return</figcaption></figure>
+</div>
+<h3 class="sub">Grip</h3>
+<div class="grid wide">
+<figure><a href="media/racket/all-grip.jpg" target="_blank" rel="noopener"><img src="media/racket/all-grip.jpg" loading="lazy" alt=""></a><figcaption>Grip registration, all 16 points</figcaption></figure>
+<figure><a href="media/racket/hand-grip-contact.jpg" target="_blank" rel="noopener"><img src="media/racket/hand-grip-contact.jpg" loading="lazy" alt=""></a><figcaption>Hand at contact, 120 fps</figcaption></figure>
+</div>
+<h3 class="sub">120 fps changes everything</h3>
+<figure><video src="media/racket/alcaraz-120-forehand-v2.mp4" poster="media/racket/alcaraz-120-forehand-v2-poster.jpg" controls muted loop playsinline preload="none"></video><figcaption>Alcaraz forehand, 120 fps. Source, overlay, front, side, back</figcaption></figure>
+<div class="grid wide">
+<figure><a href="media/racket/hfr-contact.jpg" target="_blank" rel="noopener"><img src="media/racket/hfr-contact.jpg" loading="lazy" alt=""></a><figcaption>Through contact</figcaption></figure>
+<figure><a href="media/racket/hfr-follow.jpg" target="_blank" rel="noopener"><img src="media/racket/hfr-follow.jpg" loading="lazy" alt=""></a><figcaption>Follow-through</figcaption></figure>
+</div>
+<h3 class="sub">Face angle at contact</h3>
+<div class="grid wide">
+<figure><a href="media/racket/face-edge-compare.jpg" target="_blank" rel="noopener"><img src="media/racket/face-edge-compare.jpg" loading="lazy" alt=""></a><figcaption>Face angle at contact, before and after</figcaption></figure>
+<figure><a href="media/racket/edge-before-after.jpg" target="_blank" rel="noopener"><img src="media/racket/edge-before-after.jpg" loading="lazy" alt=""></a><figcaption>Same check across the library</figcaption></figure>
+</div>
+<h3 class="sub">Djokovic groundstroke, rebuilt from a 4K crop</h3>
+<figure><video src="media/racket/djokovic-groundstroke-v2.mp4" poster="media/racket/djokovic-groundstroke-v2-poster.jpg" controls muted loop playsinline preload="none"></video><figcaption>Djokovic groundstroke from a 4K crop</figcaption></figure>
+<div class="grid wide">
+<figure><a href="media/racket/compare-a.jpg" target="_blank" rel="noopener"><img src="media/racket/compare-a.jpg" loading="lazy" alt=""></a><figcaption>Phases 20 to 80</figcaption></figure>
+<figure><a href="media/racket/compare-b.jpg" target="_blank" rel="noopener"><img src="media/racket/compare-b.jpg" loading="lazy" alt=""></a><figcaption>Phases 84 to 155</figcaption></figure>
+</div>
+
+<h2 id="bodies">Whole bodies from photos: fal.ai Rodin</h2>
+<figure><video src="media/bodies/shelton-serve-fal.mp4" poster="media/bodies/shelton-serve-fal-poster.jpg" controls muted loop playsinline preload="none"></video><figcaption>Shelton serve, his own Rodin body</figcaption></figure>
+<figure><a href="media/bodies/compare-serve.jpg" target="_blank" rel="noopener"><img src="media/bodies/compare-serve.jpg" loading="lazy" alt=""></a><figcaption>Source, plain body, Rodin body</figcaption></figure>
+<article class="card" id="bodies-47">
+<h3>Ben Shelton</h3><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-27 · $0.40 · <span class="v mid">paused</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/bodies-47-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-47-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-47-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-47-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/bodies-47-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-47-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-47-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-47-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-47-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-47-out3.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="bodies-50">
+<h3>Flavio Cobolli</h3><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-28 · $0.40 · <span class="v mid">paused</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/bodies-50-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-50-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-50-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-50-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/bodies-50-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-50-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-50-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-50-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-50-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-50-out3.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="bodies-52">
+<h3>Carlos Alcaraz</h3><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-28 · $0.40 · <span class="v mid">paused</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/bodies-52-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-52-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-52-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-52-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/bodies-52-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-52-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-52-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-52-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="bodies-48">
+<h3>Giovanni Mpetshi Perricard</h3><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-27 · $0.40 · <span class="v mid">paused</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/bodies-48-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-48-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-48-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-48-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/bodies-48-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-48-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-48-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-48-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="bodies-51">
+<h3>Novak Djokovic, full-body references</h3><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-28 · $0.40 · <span class="v mid">paused</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/bodies-51-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-51-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-51-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-51-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/bodies-51-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-51-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-51-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-51-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-51-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-51-out3.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="bodies-49">
+<h3>Novak Djokovic, knee-cropped references</h3><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-28 · $0.40 · <span class="v bad">failed</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/bodies-49-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-49-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-49-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-49-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/bodies-49-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-49-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-49-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-49-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="bodies-46">
+<h3>Novak Djokovic, two photos</h3><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-26 · $0.40 · <span class="v bad">rejected</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/bodies-46-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-46-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-46-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-46-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/bodies-46-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-46-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-46-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-46-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-46-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-46-out3.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="bodies-45">
+<h3>Novak Djokovic, one photo</h3><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-26 · $0.40 · <span class="v bad">rejected</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/bodies-45-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-45-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/bodies-45-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-45-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-45-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-45-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+
+<h2 id="faces">Faces and whole-person reconstruction on Modal</h2>
+<article class="card" id="faces-07">
+<h3>UP2You whole-person reconstruction</h3><div class="meta">Modal · UP2You · 2026-10-26 · $0.36 · <span class="v bad">rejected</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/faces-07-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/faces-07-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/faces-07-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/faces-07-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/faces-07-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/faces-07-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/faces-07-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/faces-07-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="faces-08">
+<h3>MICA face fit</h3><div class="meta">Modal · MICA · 2026-10-26 · $0.01 · <span class="v bad">rejected</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/faces-08-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/faces-08-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/faces-08-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/faces-08-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/faces-08-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/faces-08-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/faces-08-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/faces-08-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+
+<h2 id="meshy">Meshy</h2>
+<article class="card" id="meshy-62">
+<h3>Court-stories cast</h3><div class="meta">Meshy · Meshy 7.1 · 2026-10-20 · about 1,900 credits (2,108 → 216 by 21 Oct) · <span class="v good">used on page</span></div>
+<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/meshy-62-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-62-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-62-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-62-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-62-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-62-out3.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="meshy-61">
+<h3>Track-sprint riders and staff</h3><div class="meta">Meshy · Meshy 7.1 · 2026-10-19 · part of 3,000 credits bought 19 Oct ($20) · <span class="v mid">built</span></div>
+<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/meshy-61-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-61-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-61-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-61-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="meshy-64">
+<h3>Three Djokovic heads</h3><div class="meta">Meshy · Meshy 7.1 · 2026-10-24 · 105 credits · <span class="v bad">rejected</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/meshy-64-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-64-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-64-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-64-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/meshy-64-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-64-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-64-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-64-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-64-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-64-out3.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="meshy-63">
+<h3>Shelton likeness, multi-view</h3><div class="meta">Meshy · Meshy 7.1 · 2026-10-23 · 35 credits · <span class="v bad">rejected</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/meshy-63-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-63-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-63-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-63-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/meshy-63-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-63-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-63-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-63-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="meshy-60">
+<h3>First tennis figure</h3><div class="meta">Meshy · Meshy 6 Lite · 2026-09-16 · 49 of 130 free credits · <span class="v bad">rejected</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/meshy-60-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-60-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/meshy-60-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-60-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-60-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-60-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-60-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-60-out3.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+
+<h2 id="mocap">Other motion capture tried</h2>
+<article class="card" id="mocap-20">
+<h3>GEM-X mocap</h3><div class="meta">Modal · GEM-X · 2026-10-21 · $3.35 · <span class="v bad">not adopted</span></div>
+<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/mocap-20-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/mocap-20-out1.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="mocap-21">
+<h3>Kimodo</h3><div class="meta">Modal · Kimodo · 2026-10-21 · $0.13 · <span class="v bad">not adopted</span></div>
+<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/mocap-21-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/mocap-21-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/mocap-21-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/mocap-21-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+
+<h2 id="ibex">Image to 3D for a different subject: an ibex</h2>
+<article class="card" id="ibex-53">
+<h3>Concept images</h3><div class="meta">fal.ai · Flux, nano-banana · 2026-10-27 · <span class="v mid">built</span></div>
+<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/ibex-53-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-53-out1.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="ibex-54">
+<h3>Image to 3D, two engines</h3><div class="meta">fal.ai · Hunyuan3D, Tripo · 2026-10-28 · <span class="v mid">built</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/ibex-54-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-54-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/ibex-54-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-54-out1.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="ibex-56">
+<h3>Realistic ibex</h3><div class="meta">fal.ai · nano-banana, Hunyuan3D, Tripo · 2026-10-28 · <span class="v mid">built</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/ibex-56-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-56-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/ibex-56-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-56-out1.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="ibex-55">
+<h3>Mountain</h3><div class="meta">fal.ai · nano-banana, Tripo · 2026-10-28 · <span class="v mid">built</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/ibex-55-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-55-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/ibex-55-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-55-out1.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="ibex-59">
+<h3>Rodin image-to-3D ibex</h3><div class="meta">fal.ai · Rodin 2.5 · 2026-10-29 · <span class="v good">used on page</span></div>
+<div class="io"><div class="imgs"><a href="media/calls/ibex-59-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-59-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/ibex-59-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-59-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/ibex-59-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-59-out2.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+<article class="card" id="ibex-57">
+<h3>Backgrounds</h3><div class="meta">fal.ai · nano-banana · 2026-10-28 · <span class="v mid">built</span></div>
+<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/ibex-57-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-57-out1.jpg" loading="lazy" alt=""></a></div></div>
+</article>
+
+<footer>
+<span>Footage: Court Level Tennis, Slow-Mo Tennis, TennisTV, a college PlaySight camera. Short excerpts for analysis.</span>
+<span>Tools: FlowHMR, RacketVision on Modal. Rodin 2.5, Kling 3.0, Hunyuan3D, Tripo, Flux, nano-banana on fal.ai. Meshy 6 Lite, 7.1. Blender.</span>
+</footer>
+</main></body></html>
