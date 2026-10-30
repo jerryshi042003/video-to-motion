@@ -159,8 +159,62 @@
    ],
    "groups": [
     {
+     "title": "The two best",
+     "note": "A complete serve-and-volley point with the ball, and the first accepted serve. Everything below is the rest of the work, good and bad.",
+     "items": [
+      {
+       "id": "featured-serve-volley",
+       "kind": "video",
+       "title": "Ben Shelton, serve and volley",
+       "sub": "The whole point: toss, serve out wide from the deuce side, approach, volley",
+       "meta": [
+        "played point",
+        "210 frames",
+        "both players solved",
+        "Tennis Lab demo"
+       ],
+       "verdict": "accepted",
+       "video": "media/library/featured-serve-volley.mp4",
+       "poster": "media/library/featured-serve-volley-poster.jpg",
+       "back": {
+        "source": "Slow-Mo Tennis · Shelton and Coria practice set · 1:41.50–1:48.50, 4K60",
+        "source_url": "https://www.youtube.com/watch?v=cDV-pQCJkP4&t=101s",
+        "ran": "FlowHMR for both players, camera motion fitted from background features, estimated court alignment, EZONE racket in the gripping hand, ball through the point. Recorded here from the live Tennis Lab demo, Behind camera.",
+        "why": "The best demo of the project: a complete point with the ball, not a serve loop. This is the scene the USTA story opener is being rebuilt from. An earlier cut of this point failed the portfolio replacement gate (cropped serve contact, far player unreliable); the finished demo is the featured one.",
+        "differs": "Only full point with two players; deuce side, serve out wide, then the volley.",
+        "cost": "$0.47 Modal"
+       },
+       "link": "https://jerry-tennis-lab.vercel.app/?source=motion&match=shelton-coria"
+      },
+      {
+       "id": "featured-serve",
+       "kind": "video",
+       "title": "Ben Shelton serve, first accepted motion",
+       "sub": "Court-level practice serve, 180 frames",
+       "meta": [
+        "Modal · FlowHMR",
+        "Oct 22",
+        "$0.23",
+        "Tennis Lab demo"
+       ],
+       "verdict": "accepted",
+       "video": "media/library/featured-serve.mp4",
+       "poster": "media/library/featured-serve-poster.jpg",
+       "back": {
+        "source": "Court Level Tennis · Shelton practice serve, 26–32 s",
+        "source_url": "https://www.youtube.com/watch?v=vF9WB1ZhgsI&t=26s",
+        "ran": "FlowHMR on Modal, fitted hand grip, existing EZONE racket. Recorded here from the live Tennis Lab demo, Behind camera.",
+        "why": "The body motion every later serve demo reuses. Jerry: the really good one.",
+        "differs": "Serve only, one player.",
+        "cost": "$0.23 Modal"
+       },
+       "link": "https://jerry-tennis-lab.vercel.app/?source=motion&match=shelton-serve"
+      }
+     ]
+    },
+    {
      "title": "Court level, behind the player, 30 fps, 1080p from 4K",
-     "note": "The recipe that worked. Same steps on every point; differences are the player, the contacts and how much of the swing the detector saw.",
+     "note": "The 16-point library. Same steps on every point; differences are the player, the contacts and how much of the swing the detector saw.",
      "subgroups": [
       {
        "title": "Serves",
@@ -644,58 +698,12 @@
         "differs": "Same camera as the library points but twice the length; shows what drifts over time.",
         "cost": "$0.48 Modal"
        }
-      },
-      {
-       "id": "shelton-coria",
-       "kind": "image",
-       "title": "Shelton and Coria, played point",
-       "sub": "Two players, 4K60 source",
-       "meta": [
-        "30 fps",
-        "210 frames each",
-        "both players"
-       ],
-       "verdict": "rejected",
-       "image": "media/scenes/shelton-coria.jpg",
-       "link": "https://jerry-tennis-lab.vercel.app/?source=motion&match=shelton-coria",
-       "back": {
-        "source": "Slow-Mo Tennis · Shelton and Coria practice set · 1:41.50–1:48.50",
-        "source_url": "https://www.youtube.com/watch?v=cDV-pQCJkP4&t=101s",
-        "ran": "FlowHMR for both players, camera motion fitted from background features, court alignment estimated, EZONE racket attached.",
-        "why": "Failed as a portfolio replacement: serve contact is above the frame, one shoe is cropped at the opening edge, the far player and hidden hands are unreliable, and the racket jumped up to 79 degrees between frames before the arm solve existed.",
-        "differs": "Only two-player reconstruction. Still viewable as a test scene on the Tennis Lab site.",
-        "cost": "$0.47 Modal"
-       }
       }
      ]
     },
     {
      "title": "Where it started",
      "items": [
-      {
-       "id": "motion-13",
-       "kind": "io",
-       "title": "Ben Shelton serve, first accepted motion",
-       "meta": [
-        "Modal",
-        "FlowHMR",
-        "2026-10-22",
-        "$0.23"
-       ],
-       "verdict": "accepted",
-       "inputs": [],
-       "outputs": [
-        "media/calls/motion-13-out1.jpg",
-        "media/calls/motion-13-out2.jpg"
-       ],
-       "back": {
-        "source": "",
-        "ran": "FlowHMR on Modal, 180 frames of a Court Level Tennis practice serve.",
-        "why": "The body motion every later serve demo reuses; this is where the recipe started.",
-        "differs": "",
-        "cost": "$0.23"
-       }
-      },
       {
        "id": "motion-03",
        "kind": "io",
@@ -1432,7 +1440,7 @@
        "back": {
         "source": "Kings, Galaxy and Reign crests and cards",
         "ran": "HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold.",
-        "why": "Its poster is still the live Galaxy card poster.",
+        "why": "Its poster is still the live Galaxy card poster. The Crypto.com Arena shot is cut from this copy at Jerry's request.",
         "cost": "$0"
        }
       },
@@ -1793,7 +1801,7 @@
        "back": {
         "source": "Option Galaxy 03 from the 140-option review",
         "ran": "ffmpeg cut of the AEG clip, edited to finish on the Reign frame; intro shortened 3600 to 450 ms in the final refinement.",
-        "why": "Live Galaxy card. Opens the Shield story on click.",
+        "why": "Live Galaxy card; opens the Shield story on click. The Crypto.com Arena opening is cut from this copy at Jerry's request and is being removed from the live site.",
         "cost": "$0"
        }
       },
@@ -2485,10 +2493,8 @@
         "live"
        ],
        "verdict": "live",
-       "image": "media/venues/galaxy-sheet.jpg",
-       "gallery": [
-        "media/venues/galaxy-full.jpg"
-       ],
+       "image": "media/venues/galaxy-full.jpg",
+       "gallery": [],
        "back": {
         "source": "OpenStreetMap Carson, Poly Haven CC0 props (15 items), the clubs' own match videos",
         "ran": "Pitch, stands, canopies, north board, VELO track, car parks with cars, freeways and houses from code; the soccer, hockey and Reign matches reuse generic Meshy bodies with a run loop; arenas modelled in code.",
@@ -2548,7 +2554,7 @@
     {
      "step": "3",
      "what": "Set",
-     "how": "boulder, toy diorama"
+     "how": "boulder, toy diorama, gorge, dam"
     },
     {
      "step": "4",
@@ -2633,7 +2639,7 @@
        "back": {
         "source": "Text prompt: adult male Alpine ibex on white",
         "ran": "Three stills; Hunyuan3D and Tripo from the chosen one; Hunyuan chosen (Tripo merged the hooves), rigged onto the dot goat's 16-bone skeleton, 6.8 MB to 1.3 MB.",
-        "why": "Was a loader style variant; no longer on the site.",
+        "why": "Live as a style variant and as the animal in the wild mountain scenes.",
         "differs": "",
         "cost": "inside about $4 of fal spend"
        }
@@ -2695,6 +2701,71 @@
         "ran": "Dot ibex over each backdrop.",
         "why": "Rejected as a direction.",
         "cost": ""
+       }
+      },
+      {
+       "id": "wild",
+       "kind": "image",
+       "title": "Wild gorge and dam",
+       "sub": "Procedural terrain, Poly Haven scans, physical sky",
+       "meta": [
+        "not AI",
+        "?style=wild"
+       ],
+       "verdict": "live",
+       "image": "media/loader/wild-mountain-run.jpg",
+       "gallery": [
+        "media/loader/wild-leap.jpg",
+        "media/loader/wild-dam-sheet.jpg"
+       ],
+       "back": {
+        "source": "Poly Haven CC0 cliff and boulder scans, three.js physical sky at dusk",
+        "ran": "Displaced gorge and peaks, triplanar cliff and grass-rock materials, four scanned dressing props; the real ibex runs, charges and climbs the dam.",
+        "why": "Live as the wild variant. A Rodin text-to-3D granite crag was tried for this scene and rejected as a marble column.",
+        "differs": "",
+        "cost": "$0 for the scene"
+       }
+      },
+      {
+       "id": "wild-dam-motion",
+       "kind": "video",
+       "title": "Dam climb",
+       "sub": "Wild variant, revised motion",
+       "meta": [
+        "Oct 28"
+       ],
+       "verdict": "live",
+       "video": "media/loader/wild-dam-motion.mp4",
+       "poster": "media/loader/wild-dam-motion-poster.jpg",
+       "back": {
+        "source": "Cingino dam reference footage",
+        "ran": "Authored motion on the real ibex.",
+        "why": "Current wild scene.",
+        "cost": ""
+       }
+      },
+      {
+       "id": "cingino",
+       "kind": "image",
+       "title": "Cingino dam rebuild",
+       "sub": "Rodin 2.5 ibex from a generated reference, unreleased",
+       "meta": [
+        "fal.ai Rodin",
+        "Codex image_gen",
+        "staging only"
+       ],
+       "verdict": "paused",
+       "image": "media/loader/cingino-ibex-reference.jpg",
+       "gallery": [
+        "media/loader/cingino-ibex-raw.jpg",
+        "media/loader/cingino-dam-sheet.jpg"
+       ],
+       "back": {
+        "source": "A modelling reference image generated with Codex, then fal.ai Rodin 2.5 High image-to-3D",
+        "ran": "Raw 16.5 MB mesh normalised in Blender, 60k faces, authored 20-bone rig, meshopt to 965 KB; masonry albedo and height for the dam wall also generated.",
+        "why": "Staging previews only; the live site returns 404 for this ibex.",
+        "differs": "",
+        "cost": "about $0.40 Rodin"
        }
       },
       {
@@ -2782,7 +2853,7 @@
        "back": {
         "source": "Option Galaxy 03 from the thumbnail review, ending on Ontario Reign",
         "ran": "ffmpeg cut, intro shortened to 450 ms.",
-        "why": "Plays on hover and in view on jerrythegoat.com; click goes to /shield/.",
+        "why": "Plays on hover and in view on jerrythegoat.com; click goes to /shield/. Crypto.com Arena opening cut from this copy at Jerry's request.",
         "cost": "$0"
        }
       },
