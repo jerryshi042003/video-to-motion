@@ -152,8 +152,8 @@ S = []
 
 # ---------- hero ----------
 S.append(f"""<section aria-label="Hero" class="hero">
-{lab("shelton-coria", "", h=720, ball="auto")}
-<p class="cap">Ben Shelton, serve and volley · drag to orbit · the footage above drives the scene</p>
+{lab("shelton-coria", "", h=720, ball="../media/data/ball-shelton-coria.json&bx=-1")}
+<p class="cap">Ben Shelton, serve and volley · drag to orbit · the footage drives the scene · the ball is fitted to 235 detections in the footage</p>
 </section>""")
 
 # ---------- 1 plan ----------
@@ -274,8 +274,11 @@ S.append(f"""<section aria-labelledby="h-fix">
 <p>FlowHMR carried Shelton about 1.1 m into the court by contact because the footage crops the toss. The fix counter-translates his root along the court during the serve so both feet stay behind the line, then blends out over the first approach steps; the return and the volley are untouched.</p>
 {chart("bars", {"rows":[{"label":"hips at contact, before","value":10.76,"color":"#b4442c"},{"label":"hips at contact, after","value":11.54,"color":"#236442"},{"label":"baseline","value":11.885,"color":"#6e6e76"}],"max":12.5,"unit":" m"}, "court metres from the net · feet min 11.97 after the fix")}
 
-<h3>No ball</h3>
-<p>No model tracks the ball in 3D from one camera here, and the Tennis Lab export has none. The ball is authored to events read off the motion: in the tossing hand to release, contact at the racket head, a landing inside the box, the next racket. It is a Wilson US Open ball, 6.7 cm, rebuilt from product photos: seam fitted to the photo, felt, the Wilson and us open marks.</p>
+<h3>The ball, by inference</h3>
+<p>No model gives the ball in 3D from one camera, and the Tennis Lab export has none. First version: flights authored to events read off the motion. Now: a ball detector on every frame (RacketVision's ball head, then TrackNetV3 on the 1080p and the 4K 60 fps source, on Modal), then piecewise ballistic flights fitted through the registered camera between contact and bounce, bounces on the court plane. That is the ball in the scene at the top of the page.</p>
+{video("media/racket/ball-overlay-shelton-coria.mp4", "media/racket/ball-overlay-shelton-coria-poster.jpg", "detections and the fitted flight reprojected on the footage")}
+{chart("bars", {"rows":[{"label":"serve → bounce","value":3.5,"color":"#236442"},{"label":"bounce → return","value":3.1,"color":"#236442"},{"label":"return → volley","value":2.2,"color":"#236442"},{"label":"volley → bounce","value":3.1,"color":"#236442"},{"label":"bounce → bounce","value":2.4,"color":"#236442"},{"label":"last bounce → end","value":2.5,"color":"#236442"}],"max":8,"unit":" px"}, "median error of the fitted flight against the detections, per segment · 1080p pixels · 235 of 315 detections used")}
+<p class="cap">serve 181 km/h at the strings · toss has no detections, the ball is above the frame, so release and contact follow the hand · the lab camera and the body placement disagree by about 3 m of depth near the net, so the fit keeps the volley on the racket and drops the detections of the return flight</p>
 {model("ball-usopen", "drag to inspect", h=300, attrs='camera-orbit="40deg 70deg 0.3m" auto-rotate')}
 {mini([("in hand through the toss", 9, "attached to the tossing hand"), ("leaves the strings at contact", 9, "at the racket head"), ("lands where it should", 7, "inside the box; the exact spot is modelled"), ("spin and true 3D flight", 2, "not measured")])}
 
