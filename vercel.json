@@ -1,0 +1,7 @@
+{
+  "cleanUrls": true,
+  "headers": [
+    {"source": "/(.*)\\.(glb|bin|mp4|jpg|webp|png|svg)", "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]},
+    {"source": "/(.*)", "headers": [{"key": "Accept-Ranges", "value": "bytes"}]}
+  ]
+}
