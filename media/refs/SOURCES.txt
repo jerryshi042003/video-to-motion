@@ -1,0 +1,3 @@
+flowhmr-teaser.jpg: frame from https://flowhmr.github.io/assets/media/flowhmr-demo.mp4 (FlowHMR project page)
+racketvision-teaser.jpg: https://arxiv.org/html/2511.17045v3/teaser.png (RacketVision paper, AAAI 2026)
+hawkeye-skeletrack.jpg: https://www.hawkeyeinnovations.com/news/4243365/skeletrack-a-new-era-of-data-in-tennis (Hawk-Eye Innovations)

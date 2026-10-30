@@ -102,161 +102,144 @@ def lib_model(pid):
     return ""
 
 
-S = G["scores"]
-score_rows = rows([(f"{e(s['name'])}: {e(s['note'])}", f"{s['score']}/10") for s in S])
+
+def score_cards(items):
+    out = []
+    for img, name, line, score in items:
+        out.append(f'<li><img src="{e(img)}" loading="lazy" alt=""><div><b>{e(name)}</b><small>{e(line)}</small></div><code>{e(score)}</code></li>')
+    return '<ul class="scores">' + "".join(out) + "</ul>"
 
 sections = []
 
 sections.append(f"""<section aria-labelledby="h-stand">
 <h2 id="h-stand">Where it stands</h2>
-<p class="sub">Self-assessed on the viewing result, not a measured match. Frame rate matters most for the racket and ball.</p>
-{stat([("8/10","body motion"),("6/10","racket motion"),("2/10","likeness")])}
-{score_rows}
-<p class="cap">gold standard: Hawk-Eye SkeleTRACK, 29 body points and 7 racket points from a stadium camera system · cited numbers come from the papers' own benchmarks, not this footage</p>
+<p class="sub">Judged on the viewing result, not a measured match.</p>
+{score_cards([
+ ("media/refs/flowhmr-teaser.jpg","Body motion","FlowHMR · 82% tracking success on Wild-4K in its paper","8/10"),
+ ("media/refs/racketvision-teaser.jpg","Ball","found in frame, estimated arcs · not spin or 3D flight","8/10"),
+ ("media/racket/racket-full.jpg","Racket model","traced outline, woven strings, drilled grommets","7/10"),
+ ("media/racket/ovl-djokovic-iw-a.jpg","Racket motion","RacketVision sees it in 32–40% of frames at 30 fps, 81% at 120","6/10"),
+ ("media/logos/meshy.png","Skin and face, Meshy","outfit and surface yes · heads and hands no","5/10"),
+ ("media/library/featured-serve-volley-poster.jpg","Body shape of the person","everyone shares the FlowHMR body","2/10"),
+ ("media/bodies/shelton-serve-fal-poster.jpg","Skin and face, FlowHMR","plain grey body","2/10"),
+ ("media/logos/hyper3d.png","Face likeness","Rodin, UP2You and Meshy all generate a face, none is the person","2/10"),
+ ("media/refs/hawkeye-skeletrack.jpg","Gold standard","Hawk-Eye SkeleTRACK · 29 body points, 7 racket points, stadium cameras","ref"),
+])}
 </section>""")
 
 sections.append(f"""<section aria-labelledby="h-motion">
 <h2 id="h-motion">Video to motion</h2>
-<p class="sub">One camera, one point, a body that moves like the player. Modal rents the GPU; FlowHMR gives the body; RacketVision finds the racket; the rest is local.</p>
-{steps([("Pick a clip","court-level YouTube footage, player large in frame, cut to one point","yt-dlp"),
+<p class="sub">One camera, one point, a body that moves like the player.</p>
+{steps([("Pick a clip","court-level footage, player large in frame, one point","yt-dlp"),
         ("Body","joints, shape and camera per frame","FlowHMR · Modal"),
-        ("Racket points","five keypoints where the racket is visible","RacketVision · Modal"),
-        ("Racket through the arm","forearm twist and wrist angle inside limits, spin capped","Python"),
-        ("Contact rule","label contact frame and shot, pin the face angle","by eye"),
-        ("Render","source, front, side, back; GLB for the web","Blender")])}
-<p class="cap">about $0.35 of Modal per clip · open weights · nothing re-solved by hand</p>
+        ("Racket points","five keypoints where visible","RacketVision · Modal"),
+        ("Racket through the arm","forearm and wrist inside limits, spin capped","Python"),
+        ("Contact rule","label contact and shot, pin the face angle","by eye"),
+        ("Render","four-up video and GLB","Blender")])}
+<p class="cap">about $0.35 of Modal per clip · open weights</p>
 {model("tennis-lab-shelton-coria","Ben Shelton, serve and volley · the whole point, both players · drag to orbit", full=True)}
-{model("tennis-lab-shelton-serve","Ben Shelton serve · the first accepted motion, Oct 22", full=True)}
-{video("media/library/featured-serve-volley.mp4","media/library/featured-serve-volley-poster.jpg","the same point from the Tennis Lab demo, Behind camera")}
+{model("tennis-lab-shelton-serve","Ben Shelton serve · the first accepted motion", full=True)}
 </section>""")
 
 sections.append(f"""<section aria-labelledby="h-lib">
 <h2 id="h-lib">The rear-court library</h2>
-<p class="sub">Sixteen points, six players, one recipe. Court level from behind, 30 fps, 1080p cut from 4K. Tap a tile to load its model.</p>
-<p class="cap">serves</p>
-{two([lib_model(p) for p in ("shelton-serve-b","shelton-serve-d","shelton-serve-f","shelton-serve-g2")])}
-<p class="cap">returns</p>
-{two([lib_model(p) for p in ("sinner-return","djokovic-turin-return","cabolli-return")])}
-<p class="cap">served points with groundstrokes</p>
-{two([lib_model(p) for p in ("alcaraz-serve","alcaraz-a","alcaraz-b","djokovic-iw-a","djokovic-iw-c","cobolli-b1","cobolli-b2","cobolli-c1","cobolli-c2")])}
-{rows([("Shelton is left-handed; the racket stays in the left hand across frames","handedness"),
-       ("Djokovic IW-A frame 145 and IW-C frame 312 are one-handed slices; Alcaraz-A 303 is a two-handed backhand","contacts"),
-       ("Racket error 4.7 to 12.5 px median per point; arm limits exceeded on 0 to 37 frames","numbers"),
-       ("Face angle at contact is set by rule, not measured","limit")])}
+<p class="sub">Sixteen points, six players, one recipe. The eight distinct ones; the rest look the same.</p>
+{lib_model("shelton-serve-d")}
+{lib_model("alcaraz-serve")}
+{lib_model("sinner-return")}
+{lib_model("djokovic-turin-return")}
+{lib_model("cabolli-return")}
+{lib_model("alcaraz-a")}
+{lib_model("djokovic-iw-a")}
+{lib_model("cobolli-c1")}
 </section>""")
 
 sections.append(f"""<section aria-labelledby="h-cams">
 <h2 id="h-cams">Other cameras and frame rates</h2>
 <p class="sub">Same FlowHMR, different footage. This is where quality changes.</p>
-{video("media/racket/alcaraz-120-forehand-v2.mp4","media/racket/alcaraz-120-forehand-v2-poster.jpg","Alcaraz forehand · 4K 120 fps · the detector keeps the racket through contact: 81% of frames found vs 32–40% at 30 fps")}
-{two([model("tennis-lab-shelton-atp","ATP broadcast · elevated camera, 169 frames · body only"),
-      model("tennis-lab-ucla-point8-combined","college match · fixed club camera · body + charted ball arcs"),
-      model("tennis-lab-shelton-long-rally","14-second rally · drift and hidden hands over time"),
-      model("tennis-lab-shelton-wide","wide-view movement · behind the baseline"),
-      model("tennis-lab-shelton-rally","forehand and backhand · near-side player"),
-      model("tennis-lab-quan-gomez-point","Quan vs Gomez · Hawk-Eye capsule replay")])}
-{video("media/racket/djokovic-groundstroke-v2.mp4","media/racket/djokovic-groundstroke-v2-poster.jpg","Djokovic groundstrokes · high diagonal seat, 4K crop · body fit improved, racket detection got worse: this camera is the ceiling")}
-{rows([("Broadcast and high-seat footage give a body but no usable wrist or face","why"),
-       ("Only the 120 fps clip shows the racket through contact","frame rate"),
-       ("Two-player point and the long rally stay as test scenes","status")])}
+{video("media/racket/alcaraz-120-forehand-v2.mp4","media/racket/alcaraz-120-forehand-v2-poster.jpg","Alcaraz forehand · 4K 120 fps · the racket stays through contact")}
+{model("tennis-lab-shelton-atp","ATP broadcast · elevated camera · body only, no usable wrist", full=True)}
+{model("tennis-lab-ucla-point8-combined","college match · fixed club camera · body + charted ball", full=True)}
+{model("tennis-lab-shelton-long-rally","14-second rally · drift and hidden hands over time", full=True)}
+{video("media/racket/djokovic-groundstroke-v2.mp4","media/racket/djokovic-groundstroke-v2-poster.jpg","Djokovic · high diagonal seat, 4K crop · the ceiling for groundstrokes")}
 </section>""")
 
 sections.append(f"""<section aria-labelledby="h-racket">
 <h2 id="h-racket">The racket</h2>
 <p class="sub">A model, a detector, and a solver that moves it through the arm.</p>
-{model("racket-arm-solved","the rebuilt racket · frame, throat, grommets, woven strings, grip · built in Blender from reference contours", full=True)}
+{model("racket-arm-solved","the rebuilt racket · frame, throat, grommets, woven strings, grip", full=True)}
 {model("tennis-lab-equipment-aero-motion","Pure Aero on the serve · traced from manufacturer photos", full=True)}
-{two([model("racket-ezone","EZONE 98 · photo-textured, the library stand-in"), model("racket-aero","Pure Aero 98 · traced"), model("racket-vcore","VCORE 98 · traced"), model("racket-blade","Blade 98 v10 · traced")])}
-{fig("media/racket/ovl-djokovic-iw-a.jpg","solved through the arm · red old fit, green arm solve, cyan detections · no frame over 2,600°/s on 15 of 16 points")}
-{fig("media/racket/hfr-contact.jpg","120 fps through contact · green fit on cyan detections · 15.5 px on held-out frames")}
-{fig("media/racket/edge-before-after.jpg","face angle at contact, before and after the rule · 7 of 34 plausible → 34 of 34")}
-{fig("media/racket/all-grip.jpg","hand-to-handle registration for every point")}
-{rows([("Five racket points per frame where visible; availability is not accuracy","RacketVision"),
-       ("Seen from behind, open and closed faces shrink the outline the same way; the rule chose the angle","limit"),
-       ("Next: segment the racket in the lag phase, hand model for grip, ground truth under 5 px","next")])}
+{fig("media/racket/ovl-djokovic-iw-a.jpg","solved through the arm · red old fit, green arm solve, cyan detections")}
+{fig("media/racket/edge-before-after.jpg","face angle at contact, before and after the rule")}
 </section>""")
 
 sections.append(f"""<section aria-labelledby="h-bodies">
 <h2 id="h-bodies">Bodies from photos</h2>
-<p class="sub">Two or three frames of the player's own video to Rodin 2.5 through fal.ai, bound to the FlowHMR motion.</p>
-{video("media/bodies/shelton-serve-fal.mp4","media/bodies/shelton-serve-fal-poster.jpg","Shelton serve with his own Rodin body · outfit matches the footage · face generated, not a likeness")}
-{two([model("rodin-shelton","Shelton · Rodin 2.5"), model("rodin-cobolli","Cobolli · Rodin 2.5"), model("rodin-alcaraz","Alcaraz · Rodin 2.5"), model("rodin-perricard","Mpetshi Perricard · Rodin 2.5"), model("rodin-djokovic-2","Djokovic take 2 · Rodin 2.5"), model("rodin-shelton-rigged","Shelton · cleaned and rigged")])}
-{fig("media/bodies/compare-serve.jpg","source, plain body, Rodin body across the serve")}
-{rows([("Eight bodies at about $0.40 each; all paused on Oct 28: wrinkled, bent spine, changed height","paused"),
-       ("The hand stays open under the grip; loose clothing bulges because the shirt is part of the mesh","limit"),
-       ("UP2You and MICA face fits rejected at 2/10 and 4/10","rejected")])}
+<p class="sub">Three frames of the player's own video to Rodin 2.5 through fal.ai, bound to the motion.</p>
+{video("media/bodies/shelton-serve-fal.mp4","media/bodies/shelton-serve-fal-poster.jpg","Shelton with his own Rodin body · outfit matches the footage · face generated")}
+{model("rodin-shelton","the Rodin body itself · about $0.40", full=True)}
+{rows([("Eight bodies built, all paused: wrinkles, bent spine, changed height","paused"),("UP2You and MICA face fits rejected","rejected")])}
 </section>""")
 
 sections.append(f"""<section aria-labelledby="h-scenes">
 <h2 id="h-scenes">Scenes and cast</h2>
-<p class="sub">The venue backgrounds are data, not generated images: OpenStreetMap footprints, USGS terrain, a NAIP aerial photo, Poly Haven props. Meshy made the people.</p>
-{model("shelton-coria-point","the USTA story opener · the same point as a plain grey body, live on jerrythegoat.com/usta", full=True)}
-{two([model("ball-usopen","the Wilson US Open ball · 6.7 cm, felt and print authored from reference photos"), model("straus-stands","Straus Stadium stands · 3D Warehouse model used on the UCLA page")])}
+<p class="sub">Venues are data, not generated images: OpenStreetMap, USGS terrain, an aerial photo, Poly Haven props. Meshy made the people.</p>
+{model("shelton-coria-point","the USTA opener · plain grey body with the Wilson ball · live on jerrythegoat.com/usta", full=True)}
+{model("ball-usopen","the Wilson US Open ball · 6.7 cm, felt and print from reference photos", full=True)}
 {fig("media/venues/usta-sheet.jpg","US Open · Arthur Ashe and Flushing Meadows from OSM and code","https://jerrythegoat.com/usta/")}
-{fig("media/venues/ucla-full.jpg","UCLA · Westwood on real terrain, aerial photo ground, 52k trees from its near-infrared band","https://jerrythegoat.com/ucla/")}
-{fig("media/venues/galaxy-full.jpg","Galaxy, Kings, Reign · Dignity Health Sports Park from OSM, Poly Haven props","https://jerrythegoat.com/galaxy/")}
-<p class="cap">the Meshy cast · photo → A-pose still → Meshy 7.1 image-to-3D → rig · tap to load</p>
-{two([model("shelton-2","Ben Shelton · likeness v2, live"), model("gauff-2","Coco Gauff · likeness v2"), model("gilbert","Brad Gilbert · live"), model("martin","Billy Martin · live"),
-      model("quan-iw","Rudy Quan · live"), model("jerry","Jerry · four-photo rebuild, live"), model("umpire","chair umpire · live"), model("ballkid","ball kid · live"),
-      model("stu-1","walking student"), model("sp-1","seated spectator · remeshed for the crowd"), model("fan-1","Galaxy fan"), model("pro-a","generic pro · plays soccer and hockey too"),
-      model("palm","palm · instanced 200+ times"), model("analyst","front-row analyst"), model("jerry-serve","Jerry serve · mocap retargeted"), model("coach","generic coach"), model("bruin","UCLA figure"), model("crowd-sp-1","crowd impostor · 1.5k polys")])}
-{rows([("About 1,900 Meshy credits for the cast, crowd and props in five days","cost"),
-       ("Fast and consistent for stylised people; heads rejected as likeness, hands came out as mittens","verdict"),
-       ("Source stills and prompts were deleted with the scratch folder on Oct 27; the GLBs survive","note")])}
+{fig("media/venues/ucla-full.jpg","UCLA · real terrain, aerial photo ground, 52k trees from its near-infrared band","https://jerrythegoat.com/ucla/")}
+{fig("media/venues/galaxy-full.jpg","Galaxy, Kings, Reign · Dignity Health Sports Park from OSM","https://jerrythegoat.com/galaxy/")}
+<p class="cap">the Meshy cast · photo → A-pose still → image-to-3D → rig</p>
+{model("shelton-2","Ben Shelton · Meshy likeness, live on the USTA page before the rebuild", full=True)}
+{model("gauff-2","Coco Gauff · Meshy likeness", full=True)}
+{model("martin","Billy Martin · UCLA head coach", full=True)}
+{model("jerry","Jerry · four-photo rebuild", full=True)}
+{model("umpire","chair umpire · from a text prompt", full=True)}
+{model("sp-1","seated spectator · remeshed to 1.5k polys for the crowd", full=True)}
+{model("palm","palm · instanced 200+ times around Carson", full=True)}
 </section>""")
 
 sections.append(f"""<section aria-labelledby="h-loader">
 <h2 id="h-loader">The goat, the ibex and the mountain</h2>
-<p class="sub">The home-page intro animal and wallpaper, and the generated variants that were tried.</p>
-{two([model("goat-loader","dot goat · CC0 goat reshaped in Blender · the default"), model("toy-ibex","toy ibex · nano-banana still → Tripo"),
-      model("toy-ibex-hunyuan-raw","toy ibex · the Hunyuan3D attempt, not used"), model("toy-mountain","toy mountain · nano-banana still → Tripo"), model("boulder-loader","the boulder · Poly Haven, decimated"), model("mountainside-loader","mountainside · Poly Haven")])}
+<p class="sub">The home-page intro animal and wallpaper.</p>
+{model("goat-loader","dot goat · a CC0 goat reshaped in Blender · the default", full=True)}
+{model("toy-ibex","toy ibex · nano-banana still → Tripo", full=True)}
+{model("toy-mountain","toy mountain · nano-banana still → Tripo", full=True)}
 {video("media/loader/three-loaders.mp4","media/loader/three-loaders-poster.jpg","dot, toy, real · the same climb on three animals")}
-{fig("media/loader/theme-backdrops.jpg","blue-hour backdrops from nano-banana · rejected: feels like greenscreen")}
-{fig("media/loader/mountain-flux-outpaint.jpg","home-page mountain · an ink painting extended by FLUX outpainting, original pixels unchanged · $0.35")}
-{fig("media/loader/goat-mark-candidates.jpg","header mark · four traced candidates, C chosen")}
-{rows([("Rodin text-to-3D granite crag for the wild scene rejected as a marble column","rejected"),
-       ("Cingino dam rebuild with a Rodin ibex stayed on staging","paused"),
-       ("Goat intro now plays on the home page only and draws every 8 ms","live")])}
+{fig("media/loader/mountain-flux-outpaint.jpg","home-page mountain · an ink painting extended by FLUX outpainting · $0.35")}
 </section>""")
 
 sections.append(f"""<section aria-labelledby="h-films">
 <h2 id="h-films">Films and thumbnails</h2>
-<p class="sub">HyperFrames renders HTML to video by seeking a paused timeline frame by frame in headless Chrome. Every hub clip and film came from it.</p>
+<p class="sub">HyperFrames renders HTML to video frame by frame in headless Chrome.</p>
 {video("media/hyperframes/cycling-film.mp4","media/hyperframes/cycling-film-poster.jpg","cycling film · 17 s · live at /cycling")}
-{video("media/hyperframes/reel-v3.mp4","media/hyperframes/reel-v3-poster.jpg","sports data reel v3 · 31 s · twelve segments")}
-{two([video("media/hyperframes/shield-genie.mp4","media/hyperframes/shield-genie-poster.jpg","Shield · ask the season goal"),
-      video("media/hyperframes/match-map.mp4","media/hyperframes/match-map-poster.jpg","Match Viewer · live card"),
-      video("media/hyperframes/radio-captions.mp4","media/hyperframes/radio-captions-poster.jpg","radio · word-by-word captions"),
-      video("media/hyperframes/hawkeye-loop.mp4","media/hyperframes/hawkeye-loop-poster.jpg","Hawk-Eye 3D match films")])}
-<p class="cap">the live home-page cards · chosen from 140 options on Oct 27</p>
-{two([video("media/thumbs/final-galaxy.mp4","media/thumbs/final-galaxy-poster.jpg","Galaxy · ends on Ontario Reign"),
-      video("media/thumbs/final-usta.mp4","media/thumbs/final-usta-poster.jpg","USTA · serve first"),
-      video("media/thumbs/final-ucla.mp4","media/thumbs/final-ucla-poster.jpg","UCLA · serve down the T"),
-      video("media/thumbs/final-cycling.mp4","media/thumbs/final-cycling-poster.jpg","cycling · rider to infield to TV")])}
-{fig("media/thumbs/review-desktop.jpg","the review page · 140 de-duplicated candidates, one chosen per project")}
+{video("media/hyperframes/reel-v3.mp4","media/hyperframes/reel-v3-poster.jpg","sports data reel · 31 s")}
+{video("media/hyperframes/shield-genie.mp4","media/hyperframes/shield-genie-poster.jpg","Shield · ask the season goal")}
+{video("media/hyperframes/radio-captions.mp4","media/hyperframes/radio-captions-poster.jpg","radio · word-by-word captions · live card")}
+{video("media/thumbs/final-galaxy.mp4","media/thumbs/final-galaxy-poster.jpg","Galaxy card · chosen from 140 options, ends on Ontario Reign")}
+{fig("media/thumbs/review-desktop.jpg","the review page · 140 candidates, one chosen per project")}
 </section>""")
 
 sections.append(f"""<section aria-labelledby="h-dropped">
 <h2 id="h-dropped">Tried and dropped</h2>
-{rows([("Kling 3.0 motion-control video: both runs failed the anatomy gate, $2.50","fal.ai"),
-       ("GEM-X mocap, 14 runs on an L40S: loops came back, none adopted, $3.35","Modal"),
-       ("Kimodo: a ready-position loop, not released","Modal"),
-       ("Meshy heads on the serve body: detached, 5/10","Meshy"),
-       ("Internally generated mountain wings and pinnacle: rejected","image"),
-       ("Up-front shader compile for the goat intro: slower under software GL, reverted","web")])}
+{rows([("Kling 3.0 motion-control video failed the anatomy gate","fal.ai"),
+       ("GEM-X and Kimodo mocap loops, none adopted","Modal"),
+       ("Meshy heads on the serve body: detached","Meshy"),
+       ("Rodin granite crag: a marble column","fal.ai"),
+       ("nano-banana backdrops: greenscreen","fal.ai")])}
 </section>""")
 
 T = G["timeline"]
 sections.append(f"""<section aria-labelledby="h-time">
 <h2 id="h-time">Timeline</h2>
-{dated_rows([(t["date"], t["what"], "done") for t in T["done"]] + [("Oct 29", "16-point library and the audit; USTA opener rebuilt on the serve-and-volley point", "done"), ("Oct 30", "Serve kept behind the baseline; goat intro on the home page only; all three PRs merged and deployed", "live")])}
-<p class="cap">next · 120 fps footage only · racket silhouette in the lag phase · a hand model for grip · ground truth under 5 px · a body and face that are the person</p>
+{dated_rows([(t["date"], t["what"], "done") for t in T["done"]] + [("Oct 29", "16-point library and the audit; USTA opener rebuilt on the serve-and-volley point", "done"), ("Oct 30", "Serve kept behind the baseline; goat intro on the home page only; deployed", "live")])}
+<p class="cap">next · 120 fps footage only · racket silhouette in the lag phase · a hand model · ground truth under 5 px · a body and face that are the person</p>
 </section>""")
 
 sections.append("""<section class="try" aria-label="Open">
 <a class="btn" href="https://jerrythegoat.com/usta/">Open the USTA story</a>
 <a class="btn2" href="https://jerry-tennis-lab.vercel.app/">The Tennis Lab demos</a>
-<footer>FlowHMR and RacketVision on Modal · Rodin, Tripo, Hunyuan3D, Kling, FLUX and nano-banana through fal.ai · Meshy · Blender · HyperFrames · footage: Court Level Tennis, Slow-Mo Tennis, TennisTV, UCLA Tennis Consulting · body depth is monocular, no physics simulated · faces are generated, not likenesses</footer>
+<footer>FlowHMR and RacketVision on Modal · Rodin, Tripo, Hunyuan3D, Kling, FLUX and nano-banana through fal.ai · Meshy · Blender · HyperFrames · footage: Court Level Tennis, Slow-Mo Tennis, TennisTV, UCLA Tennis Consulting · depth is monocular, no physics · faces are generated, not likenesses</footer>
 </section>""")
 
 CSS = (ROOT / "writeup.css").read_text()
@@ -269,11 +252,15 @@ figure{margin:0}
 .model.full model-viewer{aspect-ratio:4/3}
 .tap{position:absolute;inset:0;width:100%;height:100%;border:0;background:var(--fill) center/cover no-repeat;cursor:pointer;border-radius:12px;display:flex;align-items:flex-end;justify-content:center;padding:8px}
 .tap span{font:11px var(--mono);color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px 9px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.two .cap{margin-top:8px}
+.scores{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.scores li{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.scores img{width:56px;height:56px;object-fit:cover;border-radius:12px;background:var(--fill);border:1px solid var(--line)}
+.scores b{display:block;font-weight:600}
+.scores small{display:block;color:var(--muted);font-size:12.5px;line-height:1.35}
+.scores code{font:12px var(--mono);color:var(--fg);background:var(--fill);border-radius:6px;padding:3px 7px}
 .steps .ic .n{font:12px var(--mono);color:var(--fg)}
-section > .model, section > .vid, section > .fig, section > .two, section > .rows, section > .stat{margin-top:16px}
-section > .cap + .two{margin-top:8px}
+section > .model, section > .vid, section > .fig, section > .rows, section > .scores{margin-top:16px}
+section > .cap + .model{margin-top:8px}
 section > .sub + *{margin-top:0}
 """
 
