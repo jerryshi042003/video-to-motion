@@ -74,7 +74,7 @@ def pipeline(steps):
 def stack(items):
     out = []
     for s in items:
-        logo = img(s["logo"], "logo") if s.get("logo") else f'<span class="mono">{e(s.get("mono", s["name"][:2]))}</span>'
+        logo = img(s["logo"], "logo dark" if s.get("dark") else "logo") if s.get("logo") else f'<span class="mono">{e(s.get("mono", s["name"][:2]))}</span>'
         out.append(f'<div class="tool">{logo}<div><b>{e(s["name"])}</b><span>{e(s["role"])}</span><span class="cost">{e(s["cost"])}</span></div></div>')
     return '<div class="tools">' + "".join(out) + "</div>"
 
@@ -101,9 +101,9 @@ def process(p):
 
 def scores():
     rows = "".join(
-        f'<div class="score"><span class="name">{e(s["name"])}</span><span class="bar"><i style="width:{s["score"]*10}%"></i></span><span class="num">{s["score"]}/10</span><span class="why">{e(s["note"])}</span></div>'
+        f'<div class="score"><span class="name">{e(s["name"])}</span><span class="bar"><i style="width:{s["score"]*10}%"></i></span><span class="num">{s["score"]}/10</span><span class="why">{e(s["note"])}{(" <a href=\"" + e(s["ref"]) + "\" target=\"_blank\" rel=\"noopener\">paper</a>") if s.get("ref") else ""}</span></div>'
         for s in G["scores"])
-    return f'<section id="scores"><header><h2>Where it stands</h2><p>Self-assessed, October 2026. Each number links to the evidence above.</p></header><div class="scores">{rows}</div></section>'
+    return f'<section id="scores"><header><h2>Where it stands</h2><p>{e(G.get("scores_note", ""))}</p></header><div class="scores">{rows}</div></section>'
 
 
 def timeline():
@@ -139,7 +139,7 @@ h4.shot{{font-size:14px;color:var(--ink);margin:16px 0 8px;font-weight:600}}
 .how{{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:28px;align-items:start}}
 .tools{{display:grid;gap:8px}}.tool{{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:8px;padding:10px 12px}}
 .tool .logo,.tool .mono{{width:34px;height:34px;flex:none;border-radius:7px;object-fit:contain;background:#f5f7fa;padding:5px}}
-.tool .mono{{display:grid;place-items:center;font-size:11px;font-weight:700;color:var(--blue)}}
+.tool .mono{{display:grid;place-items:center;font-size:11px;font-weight:700;color:var(--blue)}}.tool .logo.dark{{background:#1b1f1c}}
 .tool b{{display:block;font-size:14px}}.tool span{{display:block;font-size:13px;color:var(--muted)}}.tool .cost{{color:var(--ink);font-size:12px;margin-top:2px}}
 .pipe{{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;counter-reset:s}}
 .pipe li{{border:1px solid var(--line);border-radius:8px;padding:10px 12px;position:relative;font-size:13px}}

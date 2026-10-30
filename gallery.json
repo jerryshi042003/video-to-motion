@@ -3,44 +3,48 @@
   {
    "name": "Body motion",
    "score": 8,
-   "note": "FlowHMR on court-level footage; accepted across 16 points"
+   "note": "FlowHMR on court-level footage, accepted across 16 points. Judged on how it looks and times, not measured depth: FlowHMR reports 82.47% physical tracking success on Wild-4K (GVHMR 62.82%) and about 57 mm world-aligned joint error on the RICH benchmark.",
+   "ref": "https://arxiv.org/abs/2610.03691"
   },
   {
    "name": "Ball",
    "score": 8,
-   "note": "ball audit and estimated arcs; hidden where unsupported"
+   "note": "Ball found in frame and estimated arcs, 30 fps; hidden where unsupported. Not spin or measured 3D flight. RacketVision's tennis ball tracker reports recall 0.880.",
+   "ref": "https://arxiv.org/abs/2511.17045"
   },
   {
    "name": "Racket model design",
    "score": 7,
-   "note": "traced outline, woven strings, drilled grommets; depth approximate"
+   "note": "A craft judgement: traced outline, woven strings, drilled grommets; depth and sidewalls approximate."
   },
   {
    "name": "Racket motion",
    "score": 6,
-   "note": "solved through the arm; face at contact set by rule; blurred at 30 fps"
+   "note": "Solved through the arm; face at contact set by rule, not measured. Generous at 30 fps, where the racket is found in only 32 to 40% of frames; fair at 120 fps (81%). RacketVision reaches 89.6% correct keypoints on broadcast clips, with the side points weakest at about 80%.",
+   "ref": "https://arxiv.org/abs/2511.17045"
   },
   {
    "name": "Skin and face texture, Meshy",
    "score": 5,
-   "note": "stylised characters; heads rejected as likeness"
+   "note": "Fair for outfit and surface, not face: heads were rejected and hands came out as mittens, which Meshy's own help page lists as known limits."
   },
   {
    "name": "Body shape specific to the person",
    "score": 2,
-   "note": "every player shares the FlowHMR body; Rodin bodies paused"
+   "note": "A pipeline choice: every player shares the FlowHMR body; Rodin bodies are paused."
   },
   {
    "name": "Skin and face texture, FlowHMR with a rig",
    "score": 2,
-   "note": "plain grey body"
+   "note": "Plain grey body."
   },
   {
    "name": "Face likeness",
    "score": 2,
-   "note": "Rodin, UP2You and Meshy all generated a face, none a likeness"
+   "note": "Rodin, UP2You and Meshy all generated a face; none is a likeness, and neither vendor promises one from two or three photos."
   }
  ],
+ "scores_note": "Self-assessed. Scores judge the viewing result, not a measured match to the player. Frame rate matters most for the racket and ball. The gold standard is Hawk-Eye SkeleTRACK: 29 body points and 7 racket points from a stadium camera system, not one YouTube camera. Numbers next to a score come from the cited paper, measured on its own benchmarks, not on this footage.",
  "timeline": {
   "done": [
    {
@@ -89,7 +93,8 @@
     {
      "name": "Modal",
      "role": "Rented GPUs (T4, L40S, A100). Runs every model below per clip.",
-     "logo": "media/logos/modal-fav.png",
+     "logo": "media/logos/modal.svg",
+     "dark": true,
      "cost": "$14.44 metered this month, $0 billed"
     },
     {
@@ -2237,8 +2242,8 @@
       {
        "id": "cast-bruin",
        "kind": "image",
-       "title": "Bruin mascot",
-       "sub": "",
+       "title": "UCLA figure",
+       "sub": "Shipped as bruin.glb",
        "meta": [
         "Meshy",
         "not live"
@@ -2247,7 +2252,7 @@
        "image": "media/cast/bruin.jpg",
        "back": {
         "source": "Text prompt",
-        "ran": "Meshy.",
+        "ran": "Meshy pipeline.",
         "why": "Not used on the live page.",
         "cost": "not recorded"
        }
