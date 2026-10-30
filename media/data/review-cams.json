@@ -1,0 +1,291 @@
+{
+"alcaraz-a": {
+"cam": [
+-0.173,
+3.002,
+10.802
+],
+"pelvis": [
+-0.004,
+0.99,
+0.027
+],
+"frames": 435,
+"fps": 30.0,
+"source_start": 0,
+"source_fps": 30,
+"hand": "right"
+},
+"alcaraz-b": {
+"cam": [
+-0.716,
+3.172,
+11.981
+],
+"pelvis": [
+-0.013,
+0.969,
+0.03
+],
+"frames": 399,
+"fps": 30.0,
+"source_start": 0,
+"source_fps": 30,
+"hand": "right"
+},
+"alcaraz-hfr": {
+"cam": [
+0.215,
+1.85,
+6.323
+],
+"pelvis": [
+-0.001,
+0.915,
+0.028
+],
+"frames": 837,
+"fps": 120.0,
+"source_start": 0,
+"source_fps": 60,
+"hand": "right"
+},
+"alcaraz-serve": {
+"cam": [
+1.695,
+2.584,
+10.076
+],
+"pelvis": [
+-0.01,
+0.96,
+0.036
+],
+"frames": 330,
+"fps": 30.0,
+"source_start": 0,
+"source_fps": 30,
+"hand": "right"
+},
+"cabolli-return": {
+"cam": [
+1.859,
+3.917,
+9.907
+],
+"pelvis": [
+-0.002,
+0.781,
+0.024
+],
+"frames": 201,
+"fps": 30.0,
+"source_start": 0,
+"source_fps": 30,
+"hand": "right"
+},
+"cobolli-b1": {
+"cam": [
+-1.273,
+4.245,
+13.765
+],
+"pelvis": [
+0.001,
+0.722,
+0.027
+],
+"frames": 201,
+"fps": 30.0,
+"source_start": 0,
+"source_fps": 30,
+"hand": "right"
+},
+"cobolli-b2": {
+"cam": [
+0.934,
+3.282,
+12.681
+],
+"pelvis": [
+0.009,
+0.988,
+0.03
+],
+"frames": 351,
+"fps": 30.0,
+"source_start": 0,
+"source_fps": 30,
+"hand": "right"
+},
+"cobolli-c1": {
+"cam": [
+-0.783,
+2.329,
+11.559
+],
+"pelvis": [
+-0.04,
+0.947,
+0.047
+],
+"frames": 367,
+"fps": 30.0,
+"source_start": 0,
+"source_fps": 30,
+"hand": "right"
+},
+"cobolli-c2": {
+"cam": [
+-0.496,
+3.978,
+13.588
+],
+"pelvis": [
+-0.014,
+0.965,
+0.04
+],
+"frames": 205,
+"fps": 30.0,
+"source_start": 0,
+"source_fps": 30,
+"hand": "right"
+},
+"djokovic-iw-a": {
+"cam": [
+-1.676,
+1.247,
+6.59
+],
+"pelvis": [
+-0.002,
+0.88,
+0.021
+],
+"frames": 426,
+"fps": 30.0,
+"source_start": 0,
+"source_fps": 30,
+"hand": "right"
+},
+"djokovic-iw-c": {
+"cam": [
+2.981,
+1.896,
+7.941
+],
+"pelvis": [
+-0.018,
+0.762,
+0.031
+],
+"frames": 435,
+"fps": 30.0,
+"source_start": 0,
+"source_fps": 30,
+"hand": "right"
+},
+"djokovic-turin-return": {
+"cam": [
+3.487,
+2.39,
+7.933
+],
+"pelvis": [
+-0.002,
+0.785,
+0.021
+],
+"frames": 366,
+"fps": 30.0,
+"source_start": 0,
+"source_fps": 30,
+"hand": "right"
+},
+"shelton-serve-b": {
+"cam": [
+-2.09,
+1.007,
+5.926
+],
+"pelvis": [
+-0.022,
+1.016,
+0.03
+],
+"frames": 192,
+"fps": 30.0,
+"source_start": 0,
+"source_fps": 30,
+"hand": "left"
+},
+"shelton-serve-d": {
+"cam": [
+-1.988,
+1.37,
+5.793
+],
+"pelvis": [
+-0.02,
+1.015,
+0.023
+],
+"frames": 192,
+"fps": 30.0,
+"source_start": 0,
+"source_fps": 30,
+"hand": "left"
+},
+"shelton-serve-f": {
+"cam": [
+-1.81,
+1.547,
+6.082
+],
+"pelvis": [
+-0.01,
+1.042,
+0.041
+],
+"frames": 192,
+"fps": 30.0,
+"source_start": 0,
+"source_fps": 30,
+"hand": "left"
+},
+"shelton-serve-g2": {
+"cam": [
+-1.327,
+1.437,
+5.786
+],
+"pelvis": [
+-0.015,
+0.949,
+0.033
+],
+"frames": 198,
+"fps": 30.0,
+"source_start": 0,
+"source_fps": 30,
+"hand": "left"
+},
+"sinner-return": {
+"cam": [
+1.455,
+3.302,
+8.715
+],
+"pelvis": [
+-0.001,
+0.786,
+0.022
+],
+"frames": 293,
+"fps": 30.0,
+"source_start": 6,
+"source_fps": 30,
+"hand": "right"
+}
+}

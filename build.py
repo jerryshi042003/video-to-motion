@@ -25,14 +25,32 @@ MISSING = []
 
 # ---------- components ----------
 
-def lab(match, cap, camera="behind", footage=1, h=720):
-    src = f"lab/?source=motion&match={match}&embed=1&camera={camera}&footage={footage}&autoplay=1"
-    return f'<figure class="scene"><iframe src="{e(src)}" loading="lazy" title="{e(cap)}" allow="autoplay" style="height:{h}px"></iframe><figcaption class="cap">{cap}</figcaption></figure>'
+LABCAM = json.loads((ROOT / "media/data/lab-cams.json").read_text())
+REVCAM = json.loads((ROOT / "media/data/review-cams.json").read_text())
 
 
-def review(point, cap, camera="behind", h=640):
-    src = f"review/?point={point}&embed=1&camera={camera}&footage=1&autoplay=1"
-    return f'<figure class="scene"><iframe src="{e(src)}" loading="lazy" title="{e(cap)}" allow="autoplay" style="height:{h}px"></iframe><figcaption class="cap">{cap}</figcaption></figure>'
+def scene(params, cap="", h=720):
+    src = "scene/?" + "&".join(f"{k}={v}" for k, v in params.items())
+    c = f'<figcaption class="cap">{cap}</figcaption>' if cap else ""
+    return f'<figure class="scene"><iframe data-src="{e(src)}" title="{e(cap or params.get("m",""))}" allow="autoplay" style="height:{h}px"></iframe>{c}</figure>'
+
+
+def lab(match, cap="", h=720, ball=None, cam=None):
+    """A Tennis Lab point in the gallery's own viewer: footage above, court below, starts at the source camera."""
+    L = LABCAM[match]; rx, ry, rz = L["roots"][0][1]
+    cx, cy, cz = cam or (-0.03, 2.4, 7.71)
+    p = {"m": L["glb"], "v": f"../lab/media/sources/{match}.mp4", "court": 1, "fov": 20,
+         "cp": f"{rx+cx:.2f},{ry+cy:.2f},{rz+cz:.2f}", "ct": f"{rx:.2f},1.0,{rz-0.6:.2f}"}
+    if ball: p["ball"] = ball
+    return scene(p, cap, h)
+
+
+def review(point, cap="", h=640):
+    R = REVCAM[point]; cx, cy, cz = R["cam"]; px, py, pz = R["pelvis"]
+    vs = R["frames"] / R["fps"]
+    p = {"m": f"lib-{point}", "v": f"../review/data/{point}-source.mp4", "fov": 36, "cp": f"{cx:.2f},{cy:.2f},{cz:.2f}", "ct": f"{px:.2f},{py:.2f},{pz:.2f}"}
+    if point == "alcaraz-hfr": p["vs"] = 0.5   # 120 fps motion over 60 fps slow-motion footage
+    return scene(p, cap, h)
 
 
 def yt(vid, start, end, cap, clip=None):
@@ -133,7 +151,8 @@ S = []
 
 # ---------- hero ----------
 S.append(f"""<section aria-label="Hero" class="hero">
-{lab("shelton-coria", "Ben Shelton, serve and volley · body from one camera, racket solved through the arm, Wilson ball · drag to orbit, Front, Side, Top, Court", h=640)}
+{lab("shelton-coria", "", h=720, ball="auto")}
+<p class="cap">Ben Shelton, serve and volley · drag to orbit · the footage above drives the scene</p>
 </section>""")
 
 # ---------- 1 plan ----------
@@ -148,9 +167,9 @@ S.append(f"""<section aria-labelledby="h-plan">
 S.append(f"""<section aria-labelledby="h-ex">
 <h2 id="h-ex">2 · Examples</h2>
 <p class="sub">Three more points, each with the original footage inside the scene. Press Front, Side or Top; scrub the time.</p>
-{review("shelton-serve-d", "Ben Shelton serve · the footage frame beside the fit · 3.8 px median racket error")}
-{review("alcaraz-hfr", "Alcaraz forehand at 120 fps · the only clip where the racket stays through contact")}
-{review("djokovic-turin-return", "Djokovic return · 5.7 px median racket fit, the cleanest groundstroke")}
+{review("shelton-serve-d", "Shelton serve · 3.8 px median racket error")}
+{review("alcaraz-hfr", "Alcaraz forehand at 120 fps · the racket stays through contact")}
+{review("djokovic-turin-return", "Djokovic return · 5.7 px, the cleanest groundstroke")}
 </section>""")
 
 # ---------- 3 research ----------
@@ -188,7 +207,7 @@ S.append(f"""<section aria-labelledby="h-src">
 {source(*SMT, "Ben Shelton practice set with Federico Coria · 4K 60 fps", "cDV-pQCJkP4",
         ["camera: low behind the baseline, both players in frame", "4K 60 fps · 1080p 30 fps into the model", "serve contact partly above the frame"],
         "The only two-player point. Both bodies from one camera; the far player and hidden hands are less reliable.")}
-{lab("shelton-long-rally", "14 seconds of rally from the same set · drift and hidden hands show over time")}
+{lab("shelton-long-rally", "14 seconds of rally · drift and hidden hands show over time")}
 
 {source(*CLT, "Alcaraz vs Perricard · court-level matchplay 2025", "9Dl84UYDks0",
         ["camera: low behind the near player", "4K 60 fps", "served points with groundstrokes"],
@@ -213,12 +232,12 @@ S.append(f"""<section aria-labelledby="h-src">
 {source("media/refs/tennistv.jpg", "Tennis TV", "Shelton vs Nakashima · Indian Wells 2025 highlights", "tQdVQu-CQwQ",
         ["camera: elevated broadcast, full court", "1080p 50 fps into 1080p 30 fps", "player about 220 px tall"],
         "A body, but no usable wrist or face: the player is too small. A benchmark for court-pattern context only.")}
-{lab("shelton-atp", "ATP broadcast · body only")}
+{lab("shelton-atp", "ATP broadcast · body only", cam=(3.0, 9.0, 24.0))}
 
 {source("media/refs/ucla-tennis-consulting.jpg", "UCLA Tennis Consulting", "Spencer Johnson (UCLA) vs Samir Banerjee (Stanford) · PlaySight", "ot8tSR3q9gI",
         ["camera: fixed club camera behind the baseline", "1080p 30 fps", "one indexed point, charted shots"],
         "The only clip with a charted ball: tagged contacts and bounces from a Stanford dataset give the arcs; no racket solve.")}
-{lab("ucla-point8", "college match · body plus charted ball arcs")}
+{lab("ucla-point8", "college match · body plus the charted ball")}
 </section>""")
 
 # ---------- 5 problems and fixes ----------
@@ -246,13 +265,12 @@ S.append(f"""<section aria-labelledby="h-fix">
 {model("ball-usopen", "drag to inspect", h=300, attrs='camera-orbit="40deg 70deg 0.3m" auto-rotate')}
 {mini([("in hand through the toss", 9, "attached to the tossing hand"), ("leaves the strings at contact", 9, "at the racket head"), ("lands where it should", 7, "inside the box; the exact spot is modelled"), ("spin and true 3D flight", 2, "not measured")])}
 
-<h3>Nobody looks like the player</h3>
-<p>Three ways to put a person on the motion, scored the same way. The motion is inherited; body and face are the generator's.</p>
-{model("rodin-shelton", "Rodin 2.5 from three frames of the same video · about $0.40 · the outfit matches, the face does not", h=420, attrs=CAST)}
-{mini([("motion", 8, "inherited"), ("body shape", 6, "outfit and build close; the tank top is part of the mesh and bulges"), ("face", 2, "generated, not Shelton"), ("hands", 3, "the generated hand stays open under the grip")])}
-{model("shelton-2", "Meshy 7.1 from a four-view A-pose sheet · the figure the USTA page used before the rebuild", h=420, attrs=CAST)}
-{mini([("motion", 5, "library idles and mocap strokes, no finger bones"), ("body shape", 6, "a tennis player, not this one"), ("face", 3, "reads as a game character"), ("hands", 2, "mittens")])}
-{rows([("Eight Rodin bodies built; all paused for wrinkles, bent spine, changed height", "paused"), ("UP2You and MICA face fits rejected at 2/10 and 4/10", "rejected"), ("Three Meshy heads on the serve body: detached", "rejected"), ("Kling 3.0 motion-control video failed the anatomy gate", "dropped"), ("GEM-X and Kimodo mocap loops, none adopted", "dropped")])}
+<h3>Before and after the rebuild</h3>
+<div class="pair">
+{scene({"m": "tennis-lab-shelton-serve", "court": 1, "fov": 24, "cp": "1.6,1.7,14.5", "ct": "0,1.0,9.6"}, "before · the FlowHMR body, as captured", h=420)}
+{model("shelton-2", "after · the Shelton on the bike at jerrythegoat.com/usta", h=420, attrs='camera-orbit="20deg 78deg 3.4m" camera-target="0m 0.95m 0m" animation-name="sv"')}
+</div>
+{model("rodin-shelton", "Rodin 2.5 body from three frames of the same video", h=420, attrs=CAST)}
 </section>""")
 
 # ---------- 6 the rest ----------
@@ -268,6 +286,19 @@ S.append(f"""<section aria-labelledby="h-rest">
 {model("toy-ibex", "toy ibex · nano-banana still → Tripo", h=360, attrs='auto-rotate')}
 {video("media/hyperframes/cycling-film.mp4", "media/hyperframes/cycling-film-poster.jpg", "cycling film · HyperFrames, HTML rendered frame by frame")}
 {video("media/hyperframes/reel-v3.mp4", "media/hyperframes/reel-v3-poster.jpg", "sports data reel · 31 s")}
+</section>""")
+
+S.append(f"""<section aria-labelledby="h-env">
+<h2 id="h-env">7 · Environments</h2>
+<p class="sub">The full scenes, live. Scroll inside each one.</p>
+<figure class="scene env"><iframe data-src="https://jerrythegoat.com/usta/" title="USTA" style="height:720px"></iframe><figcaption class="cap">US Open · Arthur Ashe and Flushing Meadows</figcaption></figure>
+<figure class="scene env"><iframe data-src="https://jerrythegoat.com/ucla/" title="UCLA" style="height:720px"></iframe><figcaption class="cap">UCLA · Los Angeles Tennis Center</figcaption></figure>
+<figure class="scene env"><iframe data-src="https://jerrythegoat.com/galaxy/" title="LA Galaxy" style="height:720px"></iframe><figcaption class="cap">LA Galaxy · Dignity Health Sports Park, Carson</figcaption></figure>
+<figure class="scene env"><iframe data-src="https://jerrythegoat.com/shield/" title="LA Kings" style="height:720px"></iframe><figcaption class="cap">LA Kings · the shield</figcaption></figure>
+<h3>Thumbnails</h3>
+<div class="thumbs">
+{"".join(f'<figure class="vid"><video class="auto" src="media/thumbs/final-{n}.mp4" poster="media/thumbs/final-{n}-poster.jpg" muted loop playsinline preload="none"></video><figcaption class="cap">{n}</figcaption></figure>' for n in ("usta","ucla","galaxy","matchviewer","orfeu","radio","cycling"))}
+</div>
 </section>""")
 
 S.append(f"""<section aria-labelledby="h-time">
@@ -318,6 +349,9 @@ section > .model, section > .vid, section > .fig, section > .rows, section > .ba
 .src + .yt, .src + .vid{margin-top:12px}
 .src-vid .cap a{text-decoration:none}
 .chart .d3{width:100%}
+.pair{display:grid;gap:12px}
+.thumbs{display:grid;grid-template-columns:1fr 1fr;gap:10px}.thumbs .cap{text-align:center}
+.scene iframe[data-src]:not([src]){background:var(--fill)}
 .scores{list-style:none;margin:0 0 10px;padding:0}
 .scores li{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
 .scores li:last-child{border-bottom:1px solid var(--line)}
@@ -352,6 +386,11 @@ page = f"""<!doctype html><html lang="en"><head>
   var vids=[].slice.call(document.querySelectorAll('video.auto'));
   var vo=new IntersectionObserver(function(es){{es.forEach(function(x){{var v=x.target;if(x.isIntersecting){{if(v.preload==='none'){{v.preload='auto';v.load();}}v.play().catch(function(){{}});}}else{{v.pause();}}}});}},{{rootMargin:'160px 0px'}});
   vids.forEach(function(v){{vo.observe(v);}});
+  // scenes and environments load only near the viewport and unload far away: one live WebGL scene at a time
+  var fr=[].slice.call(document.querySelectorAll('iframe[data-src]'));
+  var fo=new IntersectionObserver(function(es){{es.forEach(function(x){{var f=x.target;
+    if(x.isIntersecting){{ if(!f.src) f.src=f.dataset.src; }} else if(f.src){{ f.removeAttribute('src'); }} }});}},{{rootMargin:'300px 0px'}});
+  fr.forEach(function(f){{fo.observe(f);}});
   setInterval(function(){{
     document.querySelectorAll('iframe').forEach(function(f){{
       if(f.src.indexOf('/lab/')<0) return;

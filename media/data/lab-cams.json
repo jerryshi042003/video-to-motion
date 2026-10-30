@@ -1,0 +1,122 @@
+{
+"shelton-coria": {
+"cam": null,
+"roots": [
+[
+"Ben Shelton captured motion",
+[
+-0.9654974937438965,
+0,
+11.368414878845215
+]
+],
+[
+"Federico Coria captured motion",
+[
+2.4391887187957764,
+0,
+-7.468093395233154
+]
+]
+],
+"frames": 210,
+"fps": 30,
+"glb": "tennis-lab-shelton-coria"
+},
+"shelton-serve": {
+"cam": null,
+"roots": [
+[
+"Ben Shelton captured motion",
+[
+0,
+0,
+10
+]
+]
+],
+"frames": 180,
+"fps": 30,
+"glb": "tennis-lab-shelton-serve"
+},
+"shelton-atp": {
+"cam": null,
+"roots": [
+[
+"Ben Shelton captured motion",
+[
+0,
+0,
+10
+]
+]
+],
+"frames": 169,
+"fps": 30,
+"glb": "tennis-lab-shelton-atp"
+},
+"shelton-long-rally": {
+"cam": null,
+"roots": [
+[
+"Ben Shelton captured motion",
+[
+0,
+0,
+10
+]
+]
+],
+"frames": 414,
+"fps": 30,
+"glb": "tennis-lab-shelton-long-rally"
+},
+"shelton-rally": {
+"cam": null,
+"roots": [
+[
+"Ben Shelton captured motion",
+[
+0,
+0,
+10
+]
+]
+],
+"frames": 180,
+"fps": 30,
+"glb": "tennis-lab-shelton-rally"
+},
+"shelton-wide": {
+"cam": null,
+"roots": [
+[
+"Ben Shelton captured motion",
+[
+0,
+0,
+10
+]
+]
+],
+"frames": 180,
+"fps": 30,
+"glb": "tennis-lab-shelton-wide"
+},
+"ucla-point8": {
+"cam": null,
+"roots": [
+[
+"Spencer Johnson captured motion",
+[
+-1.314399242401123,
+0,
+11.949723243713379
+]
+]
+],
+"frames": 270,
+"fps": 30,
+"glb": "tennis-lab-ucla-point8-combined"
+}
+}

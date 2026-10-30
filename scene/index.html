@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scene</title>
+<style>
+:root{--fg:#111;--muted:#6e6e76;--line:#e4e4e8;--fill:#f4f4f6;--accent:#0a66d8}
+@media (prefers-color-scheme:dark){:root{--fg:#ececf0;--muted:#9a9aa4;--line:#2a2a30;--fill:#17171b}}
+html,body{margin:0;height:100%;background:var(--fill);color:var(--fg);font:12px ui-monospace,"SF Mono",Menlo,monospace;overflow:hidden}
+#wrap{display:flex;flex-direction:column;height:100%}
+video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#000;flex:none}
+#stage{position:relative;flex:1;min-height:0}
+canvas{display:block;width:100%;height:100%;touch-action:none}
+#bar{position:absolute;left:10px;right:10px;bottom:10px;display:flex;align-items:center;gap:10px;pointer-events:none}
+#bar>*{pointer-events:auto}
+#play{width:34px;height:34px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#111;display:grid;place-items:center;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.25);padding:0}
+#play svg{width:14px;height:14px;fill:#111}
+#seek{flex:1;-webkit-appearance:none;appearance:none;height:3px;border-radius:2px;background:rgba(255,255,255,.55);outline:0;margin:0}
+#seek::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.35);cursor:pointer}
+#seek::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#fff;border:0;cursor:pointer}
+#load{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);pointer-events:none;transition:opacity .4s}
+#load.off{opacity:0}
+</style>
+<script type="importmap">{"imports":{"three":"../vendor/three.module.js"}}</script>
+</head>
+<body>
+<div id="wrap">
+<video id="v" muted playsinline loop preload="auto" hidden></video>
+<div id="stage"><canvas id="c"></canvas><div id="load">loading</div>
+<div id="bar"><button id="play" aria-label="Play"><svg viewBox="0 0 16 16"><path d="M3 2l11 6-11 6z"/></svg></button><input id="seek" type="range" min="0" max="1" step="0.001" value="0" aria-label="Time"></div></div>
+</div>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from '../vendor/OrbitControls.js';
+import { GLTFLoader } from '../vendor/GLTFLoader.js';
+import { MeshoptDecoder } from '../vendor/meshopt_decoder.module.js';
+
+const q = new URLSearchParams(location.search);
+const num = (k, d) => q.has(k) ? Number(q.get(k)) : d;
+const vec = (k) => q.has(k) ? new THREE.Vector3(...q.get(k).split(',').map(Number)) : null;
+const model = q.get('m'), footage = q.get('v'), court = q.get('court') === '1', ballMode = q.get('ball');
+const offset = num('off', 0), rate = num('rate', 1), vs = num('vs', 1); // vs: scene seconds per footage second
+
+const canvas = document.getElementById('c'), video = document.getElementById('v'), playBtn = document.getElementById('play'), seek = document.getElementById('seek'), loadEl = document.getElementById('load');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+const scene = new THREE.Scene();
+const dark = matchMedia('(prefers-color-scheme:dark)').matches;
+scene.background = new THREE.Color(dark ? '#17171b' : '#dfe3e8');
+scene.fog = new THREE.Fog(scene.background, 30, 90);
+const camera = new THREE.PerspectiveCamera(num('fov', 30), 1, 0.05, 200);
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true; controls.dampingFactor = 0.08; controls.maxPolarAngle = Math.PI * 0.49; controls.minDistance = 1.2; controls.maxDistance = 60; controls.enablePan = false;
+
+scene.add(new THREE.HemisphereLight(0xffffff, 0x8a9aa8, dark ? 0.9 : 1.2));
+const sun = new THREE.DirectionalLight(0xffffff, dark ? 1.6 : 2.2); sun.position.set(6, 14, 8); sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048); sun.shadow.camera.left = sun.shadow.camera.bottom = -16; sun.shadow.camera.right = sun.shadow.camera.top = 16; sun.shadow.camera.far = 50; sun.shadow.bias = -0.0005;
+scene.add(sun);
+
+// ground: a hard court with ITF lines when court=1, otherwise a plain floor
+const HALF_LEN = 11.885, HALF_W = 5.485, HALF_SW = 4.115, SERVICE = 6.4;
+{
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(200, 200), new THREE.MeshStandardMaterial({ color: court ? '#3f7a52' : (dark ? '#202026' : '#c9cfd6'), roughness: 1 }));
+  floor.rotation.x = -Math.PI / 2; floor.position.y = -0.002; floor.receiveShadow = true; scene.add(floor);
+  if (court) {
+    const inner = new THREE.Mesh(new THREE.PlaneGeometry(HALF_W * 2 + 7, HALF_LEN * 2 + 12), new THREE.MeshStandardMaterial({ color: '#2f6fa3', roughness: 1 }));
+    inner.rotation.x = -Math.PI / 2; inner.position.y = -0.001; inner.receiveShadow = true; scene.add(inner);
+    const lines = new THREE.Group(); const lm = new THREE.MeshBasicMaterial({ color: '#f4f6f8' });
+    const line = (x, z, w, d) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(w, d), lm); m.rotation.x = -Math.PI / 2; m.position.set(x, 0.003, z); lines.add(m); };
+    const LW = 0.05;
+    line(0, HALF_LEN, HALF_W * 2 + LW, 0.1); line(0, -HALF_LEN, HALF_W * 2 + LW, 0.1);
+    for (const x of [-HALF_W, HALF_W, -HALF_SW, HALF_SW]) line(x, 0, LW, HALF_LEN * 2);
+    line(0, SERVICE, HALF_SW * 2, LW); line(0, -SERVICE, HALF_SW * 2, LW); line(0, 0, LW, SERVICE * 2);
+    line(0, HALF_LEN - 0.1, LW, 0.2); line(0, -HALF_LEN + 0.1, LW, 0.2);
+    scene.add(lines);
+    const net = new THREE.Mesh(new THREE.PlaneGeometry(HALF_W * 2 + 1.8, 0.95), new THREE.MeshStandardMaterial({ color: '#111', transparent: true, opacity: 0.55, side: THREE.DoubleSide }));
+    net.position.set(0, 0.5, 0); scene.add(net);
+    const tape = new THREE.Mesh(new THREE.BoxGeometry(HALF_W * 2 + 1.8, 0.05, 0.02), new THREE.MeshStandardMaterial({ color: '#fff' })); tape.position.set(0, 0.99, 0); scene.add(tape);
+    for (const x of [-HALF_W - 0.9, HALF_W + 0.9]) { const p = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.07), new THREE.MeshStandardMaterial({ color: '#222' })); p.position.set(x, 0.53, 0); scene.add(p); }
+  }
+}
+
+const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
+const load = (url) => new Promise((res, rej) => loader.load(url, res, undefined, rej));
+
+let mixer = null, duration = 0, root = null, ball = null, placeBall = null, playing = q.get('autoplay') !== '0';
+let t = 0, visible = true, lastNow = performance.now();
+
+function frame(group) {
+  // start at the source camera when given (cp = camera position, ct = target), else behind the player
+  const box = new THREE.Box3().setFromObject(group); const c = box.getCenter(new THREE.Vector3()); const size = box.getSize(new THREE.Vector3());
+  const target = vec('ct') || c.clone().setY(Math.min(1.1, c.y));
+  const pos = vec('cp') || target.clone().add(new THREE.Vector3(0.4, 1.6, Math.max(6, size.z + 4)));
+  camera.position.copy(pos); controls.target.copy(target); controls.update();
+}
+
+async function main() {
+  const gltf = await load(`../media/models/${model}.glb`);
+  root = gltf.scene; scene.add(root);
+  root.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; o.frustumCulled = false; if (o.isSkinnedMesh) { o.material = new THREE.MeshStandardMaterial({ color: '#b9bfba', roughness: 0.9, metalness: 0 }); } } });
+  if (gltf.animations.length) {
+    mixer = new THREE.AnimationMixer(root);
+    for (const clip of gltf.animations) { if (/camera/i.test(clip.name)) continue; const a = mixer.clipAction(clip); a.setLoop(THREE.LoopRepeat, Infinity); a.play(); duration = Math.max(duration, clip.duration); }
+  }
+  if (ballMode === 'auto') placeBall = await authoredBall(gltf);
+  else if (ballMode) placeBall = await trackedBall(ballMode);
+  frame(root);
+  loadEl.classList.add('off');
+  if (footage) { video.src = footage; video.hidden = false; video.playbackRate = rate; }
+  seekTo(0);
+  if (playing) start();
+}
+
+// the Wilson ball mesh, falling back to a plain sphere until it arrives
+async function ballMesh() {
+  const g = new THREE.Group(); g.name = 'ball';
+  let m = new THREE.Mesh(new THREE.SphereGeometry(0.0335, 24, 16), new THREE.MeshStandardMaterial({ color: '#dcff4a', roughness: 0.95 })); m.castShadow = true; g.add(m);
+  load('../media/models/ball-usopen.glb').then((b) => { const mesh = b.scene.getObjectByProperty('isMesh', true); if (mesh) { mesh.castShadow = true; g.remove(m); m = mesh; g.add(mesh); } }).catch(() => {});
+  scene.add(g); return g;
+}
+
+// a ball track from a JSON file: {fps, positions:[[x,y,z]|null], visible:[bool]}
+async function trackedBall(url) {
+  const d = await (await fetch(url)).json(); const g = await ballMesh();
+  return (sec) => { const i = Math.min(d.positions.length - 1, Math.max(0, Math.round(sec * d.fps))); const p = d.positions[i]; g.visible = !!p && (d.visible ? d.visible[i] : true); if (p) g.position.set(p[0], p[1], p[2]); g.rotation.set(sec * 9, sec * 5, 0); };
+}
+
+// the authored ball for the Shelton vs Coria point, ported from jerrythegoat.com/usta: events read off the motion
+// (toss top, fastest wrist moments), piecewise ballistic flights between contact, bounce and the next racket.
+async function authoredBall(gltf) {
+  const V = () => new THREE.Vector3();
+  const byName = (re) => { let r = null; root.traverse((o) => { if (!r && re.test(o.name)) r = o; }); return r; };
+  const shelton = byName(/^Ben_Shelton_captured/), coria = byName(/^Federico_Coria_captured/);
+  if (!shelton || !coria) return null;
+  const joint = (who, n) => { let b = null; who.traverse((o) => { if (!b && (o.name === `Joint${n}` || o.name === `Joint${n}_1`)) b = o; }); return b; };
+  const rk = (who) => { let r = null; who.traverse((o) => { if (!r && /^Existing_EZONE/.test(o.name)) r = o; }); return r; };
+  const S_L = joint(shelton, 20), S_R = joint(shelton, 21), C_R = joint(coria, 21), S_RK = rk(shelton), C_RK = rk(coria), S_H = joint(shelton, 0);
+  const S_FEET = [10, 11, 7, 8].map((n) => joint(shelton, n)).filter(Boolean);
+  const headOf = (racket, out) => {
+    if (!racket._axis) {
+      const box = new THREE.Box3(); racket.traverse((o) => { if (o.isMesh) { o.geometry.computeBoundingBox(); const bb = o.geometry.boundingBox.clone().applyMatrix4(new THREE.Matrix4().copy(racket.matrixWorld).invert().multiply(o.matrixWorld)); box.union(bb); } });
+      const size = box.getSize(V()); const axis = ['x', 'y', 'z'][[size.x, size.y, size.z].indexOf(Math.max(size.x, size.y, size.z))];
+      const far = Math.abs(box.max[axis]) > Math.abs(box.min[axis]) ? 1 : -1; racket._axis = V(); racket._axis[axis] = far;
+    }
+    return out.copy(racket._axis).multiplyScalar(0.5).applyMatrix4(racket.matrixWorld);
+  };
+  // serve drift: keep both feet behind the baseline (z = HALF_LEN) through contact, fading out over the approach
+  const shift = { amount: 0, until: 0, fade: 1.1, at(s) { if (!this.amount) return 0; if (s <= this.until) return this.amount; return this.amount * (1 - THREE.MathUtils.smoothstep(s, this.until, this.until + this.fade)); } };
+  const baseZ = shelton.position.z;
+  const sample = (s) => { mixer.setTime(s); shelton.position.z = baseZ + shift.at(s); root.updateMatrixWorld(true); };
+  const build = () => { const out = []; for (let f = 0; f < duration * 30; f++) { const s = f / 30; sample(s); out.push({ s, sl: S_L.getWorldPosition(V()), sr: S_R.getWorldPosition(V()), cr: C_R.getWorldPosition(V()), sh: headOf(S_RK, V()), ch: headOf(C_RK, V()), swing: headOf(S_RK, V()).sub(S_H.getWorldPosition(V())), feetMaxZ: Math.max(...S_FEET.map((j) => j.getWorldPosition(V()).z)) }); } return out; };
+  let track = build();
+  const speed = (k, i) => i > 0 ? track[i][k].distanceTo(track[i - 1][k]) * 30 : 0;
+  const argmax = (lo, hi, f) => { let best = -1, bi = -1; for (let i = Math.round(lo * 30); i < Math.min(track.length, Math.round(hi * 30)); i++) { const v = f(i); if (v > best) { best = v; bi = i; } } return bi / 30; };
+  const tServe = argmax(0.3, 1.8, (i) => track[i].sl.y);
+  const need = Math.max(0, ...track.filter((k) => k.s <= tServe + 0.05).map((k) => k.feetMaxZ - (HALF_LEN - 0.05)));
+  if (need > 0) { shift.amount = need; shift.until = tServe + 0.12; track = build(); }
+  const tLand = tServe + 0.47, tReturn = argmax(tLand + 0.25, tLand + 1.4, (i) => speed('cr', i));
+  const tVolley = argmax(tReturn + 0.6, Math.min(duration - 0.4, tReturn + 3.0), (i) => speed('swing', i));
+  const tRelease = Math.max(0.05, tServe - 0.72), tVolleyLand = tVolley + 0.55;
+  const at = (s) => track[Math.max(0, Math.min(track.length - 1, Math.round(s * 30)))];
+  const contact = at(tServe).sh.clone(), returnPt = at(tReturn).ch.clone(), volleyPt = at(tVolley).sh.clone(), release = at(tRelease).sr.clone().add(new THREE.Vector3(0, 0.1, 0));
+  const G = new THREE.Vector3(0, -9.81, 0), R = 0.0335;
+  // this GLB runs along z with Shelton at +z; the USTA page's x-along-court points map as x = -z_site, z = x_site
+  const sx = shelton.position.x < 0 ? 1 : -1; // the Tennis Lab file has Shelton left of centre from behind
+  const WIDE = new THREE.Vector3(3.5 * sx, R, -5.7), OPEN = new THREE.Vector3(-3.0 * sx, R, -8.5);
+  const solve = (p0, p1, tau) => p1.clone().sub(p0).sub(G.clone().multiplyScalar(0.5 * tau * tau)).divideScalar(tau);
+  const vServe = solve(contact, WIDE, tLand - tServe), vBounce = solve(WIDE, returnPt, tReturn - tLand), vReturn = solve(returnPt, volleyPt, tVolley - tReturn), vVolley = solve(volleyPt, OPEN, tVolleyLand - tVolley);
+  const g = await ballMesh(); const p = V(), tmp = V();
+  const seg = (p0, v0, dt) => p.copy(p0).addScaledVector(v0, dt).addScaledVector(G, 0.5 * dt * dt);
+  console.info('[scene] serve %s s, return %s s, volley %s s, drift %s m', tServe.toFixed(2), tReturn.toFixed(2), tVolley.toFixed(2), shift.amount.toFixed(2));
+  return (s) => {
+    sample(s); let vis = true;
+    if (s < tRelease) S_R.getWorldPosition(p).add(tmp.set(0, 0.09, 0));
+    else if (s < tServe) { const u = (s - tRelease) / (tServe - tRelease), peak = Math.max(release.y, contact.y) + 0.35; p.lerpVectors(release, contact, u); p.y = release.y + (contact.y - release.y) * u + (peak - Math.max(release.y, contact.y)) * 4 * u * (1 - u); }
+    else if (s < tLand) seg(contact, vServe, s - tServe);
+    else if (s < tReturn) seg(WIDE, vBounce, s - tLand);
+    else if (s < tVolley) seg(returnPt, vReturn, s - tReturn);
+    else if (s < tVolleyLand) seg(volleyPt, vVolley, s - tVolley);
+    else { const d2 = s - tVolleyLand; seg(OPEN, tmp.set(vVolley.x * 0.6, -(vVolley.y + G.y * 0.55) * 0.5, vVolley.z * 0.6), d2); if (p.y < R) p.y = R; vis = d2 < 0.6; }
+    g.position.copy(p); g.visible = vis; g.rotation.set(s * 9, s * 5, 0);
+  };
+}
+
+function seekTo(sec) {
+  t = duration ? ((sec % duration) + duration) % duration : 0;
+  if (placeBall) placeBall(t); else if (mixer) mixer.setTime(t);
+  seek.value = duration ? t / duration : 0;
+  if (footage && Math.abs(video.currentTime - (t / vs + offset)) > 0.08) { try { video.currentTime = t / vs + offset; } catch (e) {} }
+}
+const icon = (on) => playBtn.innerHTML = on ? '<svg viewBox="0 0 16 16"><path d="M3 2h4v12H3zM9 2h4v12H9z"/></svg>' : '<svg viewBox="0 0 16 16"><path d="M3 2l11 6-11 6z"/></svg>';
+function start() { playing = true; icon(true); if (footage) video.play().catch(() => {}); lastNow = performance.now(); }
+function stop() { playing = false; icon(false); if (footage) video.pause(); }
+playBtn.onclick = () => playing ? stop() : start();
+let scrubbing = false;
+seek.addEventListener('pointerdown', () => { scrubbing = true; });
+seek.addEventListener('input', () => seekTo(seek.value * duration));
+seek.addEventListener('pointerup', () => { scrubbing = false; });
+seek.addEventListener('change', () => { scrubbing = false; });
+
+function resize() { const w = canvas.clientWidth, h = canvas.clientHeight; if (canvas.width !== Math.round(w * renderer.getPixelRatio()) || canvas.height !== Math.round(h * renderer.getPixelRatio())) { renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); } }
+function tick(now) {
+  requestAnimationFrame(tick);
+  if (!visible) { lastNow = now; return; }
+  resize();
+  if (playing && !scrubbing && duration) {
+    if (footage && video.readyState >= 2 && !video.paused) seekTo((video.currentTime - offset) * vs);
+    else seekTo(t + Math.min(0.1, (now - lastNow) / 1000) * rate);
+  }
+  lastNow = now;
+  controls.update(); renderer.render(scene, camera);
+}
+requestAnimationFrame(tick);
+// only run while on screen: no work for scenes scrolled away, no competing WebGL contexts
+new IntersectionObserver((es) => { visible = es[0].isIntersecting; if (footage) { if (visible && playing) video.play().catch(() => {}); else video.pause(); } }, { threshold: 0.05 }).observe(canvas);
+document.addEventListener('visibilitychange', () => { visible = !document.hidden; });
+main().catch((e) => { loadEl.textContent = 'could not load'; console.error(e); });
+</script>
+</body>
+</html>
