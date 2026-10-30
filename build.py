@@ -389,7 +389,7 @@ PAGES = [("index", "Tennis", "Video to Motion", "How one YouTube clip becomes a 
 
 def nav(cur):
     return '<nav class="pages" aria-label="Pages">' + "".join(
-        (f'<b>{t}</b>' if k == cur else f'<a href="{"/" if k == "index" else "/" + k}">{t}</a>') for k, t, *_ in PAGES) + '</nav>'
+        (f'<b>{t}</b>' if k == cur else f'<a href="{"./" if k == "index" else k + ".html"}">{t}</a>') for k, t, *_ in PAGES) + '</nav>'
 
 for key, tab, title, lede, parts in PAGES:
     page = f"""<!doctype html><html lang="en"><head>
