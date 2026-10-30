@@ -1,939 +1,2052 @@
 {
- "sections": [],
- "calls": [
+ "scores": [
   {
-   "id": "motion-13",
-   "section": "motion",
-   "service": "Modal",
-   "model": "FlowHMR",
-   "date": "2026-10-22",
-   "title": "Ben Shelton serve, the first accepted clip",
-   "line": "Court Level Tennis practice serve, 180 frames. Every later serve demo reuses this body motion.",
-   "verdict": "accepted",
-   "cost": "$0.23",
-   "inputs": [],
-   "outputs": [
-    "media/calls/motion-13-out1.jpg",
-    "media/calls/motion-13-out2.jpg"
-   ]
+   "name": "Body motion",
+   "score": 8,
+   "note": "FlowHMR on court-level footage; accepted across 16 points"
   },
   {
-   "id": "motion-00",
-   "section": "motion",
-   "service": "Modal",
-   "model": "FlowHMR",
-   "date": "2026-10-28",
-   "title": "Fourteen rear-court 4K clips in one batch",
-   "line": "Shelton, Alcaraz, Djokovic and Cobolli, filmed from behind at court level. Output per clip: source, front, side, back.",
-   "verdict": "accepted",
-   "cost": "$4.44",
-   "inputs": [
-    "media/calls/motion-00-in1.jpg",
-    "media/calls/motion-00-in2.jpg"
-   ],
-   "outputs": [
-    "media/calls/motion-00-out1.jpg",
-    "media/calls/motion-00-out2.jpg",
-    "media/calls/motion-00-out3.jpg",
-    "media/calls/motion-00-out4.jpg"
-   ]
+   "name": "Ball",
+   "score": 8,
+   "note": "ball audit and estimated arcs; hidden where unsupported"
   },
   {
-   "id": "motion-01",
-   "section": "motion",
-   "service": "Modal",
-   "model": "FlowHMR",
-   "date": "2026-10-28",
-   "title": "Four more rear-court points",
-   "line": "Sinner return, Mpetshi Perricard serve point, Cobolli return, Djokovic Turin return.",
-   "verdict": "accepted",
-   "cost": "$1.43",
-   "inputs": [
-    "media/calls/motion-01-in1.jpg"
-   ],
-   "outputs": [
-    "media/calls/motion-01-out1.jpg",
-    "media/calls/motion-01-out2.jpg",
-    "media/calls/motion-01-out3.jpg",
-    "media/calls/motion-01-out4.jpg"
-   ]
+   "name": "Racket model design",
+   "score": 7,
+   "note": "traced outline, woven strings, drilled grommets; depth approximate"
   },
   {
-   "id": "motion-03",
-   "section": "motion",
-   "service": "Modal",
-   "model": "FlowHMR",
-   "date": "2026-10-28",
-   "title": "Djokovic groundstroke on a 4K crop",
-   "line": "4K side master cropped to 1080p, 210 frames. Body fit improved from 8.6 to 6.9 px; the racket detector got worse at 4K.",
-   "verdict": "diagnostic",
-   "cost": "$0.33",
-   "inputs": [],
-   "outputs": [
-    "media/calls/motion-03-out1.jpg",
-    "media/calls/motion-03-out2.jpg"
-   ]
+   "name": "Racket motion",
+   "score": 6,
+   "note": "solved through the arm; face at contact set by rule; blurred at 30 fps"
   },
   {
-   "id": "motion-10",
-   "section": "motion",
-   "service": "Modal",
-   "model": "FlowHMR",
-   "date": "2026-10-24",
-   "title": "Djokovic body shape from two angles",
-   "line": "Rear and side clips, 210 frames each, used for body shape estimates.",
-   "verdict": "diagnostic",
-   "cost": "$0.50",
-   "inputs": [
-    "media/calls/motion-10-in1.jpg",
-    "media/calls/motion-10-in2.jpg"
-   ],
-   "outputs": [
-    "media/calls/motion-10-out1.jpg"
-   ]
+   "name": "Skin and face texture, Meshy",
+   "score": 5,
+   "note": "stylised characters; heads rejected as likeness"
   },
   {
-   "id": "motion-05",
-   "section": "motion",
-   "service": "Modal",
-   "model": "FlowHMR",
-   "date": "2026-10-26",
-   "title": "ATP broadcast benchmark",
-   "line": "TennisTV broadcast, 169 frames. A distant wrist and face are not enough for a demo.",
-   "verdict": "diagnostic",
-   "cost": "$0.28",
-   "inputs": [
-    "media/calls/motion-05-in1.jpg"
-   ],
-   "outputs": [
-    "media/calls/motion-05-out1.jpg",
-    "media/calls/motion-05-out2.jpg"
-   ]
+   "name": "Body shape specific to the person",
+   "score": 2,
+   "note": "every player shares the FlowHMR body; Rodin bodies paused"
   },
   {
-   "id": "motion-15",
-   "section": "motion",
-   "service": "Modal",
-   "model": "FlowHMR",
-   "date": "2026-10-22",
-   "title": "College match point",
-   "line": "PlaySight court camera, 270 frames, combined with tagged shot data.",
-   "verdict": "diagnostic",
-   "cost": "$0.28",
-   "inputs": [
-    "media/calls/motion-15-in1.jpg"
-   ],
-   "outputs": [
-    "media/calls/motion-15-out1.jpg",
-    "media/calls/motion-15-out2.jpg"
-   ]
+   "name": "Skin and face texture, FlowHMR with a rig",
+   "score": 2,
+   "note": "plain grey body"
   },
   {
-   "id": "motion-09",
-   "section": "motion",
-   "service": "Modal",
-   "model": "FlowHMR",
-   "date": "2026-10-24",
-   "title": "Fourteen-second rally",
-   "line": "Shelton and Coria rally, 414 of 420 frames recovered.",
-   "verdict": "diagnostic",
-   "cost": "$0.48",
-   "inputs": [],
-   "outputs": [
-    "media/calls/motion-09-out1.jpg",
-    "media/calls/motion-09-out2.jpg"
-   ]
-  },
-  {
-   "id": "motion-11",
-   "section": "motion",
-   "service": "Modal",
-   "model": "FlowHMR",
-   "date": "2026-10-23",
-   "title": "Two players in one point",
-   "line": "Both players tracked through a played point.",
-   "verdict": "rejected",
-   "cost": "$0.47",
-   "inputs": [
-    "media/calls/motion-11-in1.jpg"
-   ],
-   "outputs": [
-    "media/calls/motion-11-out1.jpg",
-    "media/calls/motion-11-out2.jpg"
-   ]
-  },
-  {
-   "id": "motion-12",
-   "section": "motion",
-   "service": "Modal",
-   "model": "FlowHMR",
-   "date": "2026-10-23",
-   "title": "Three practice clips",
-   "line": "Body tracks only; no scene was kept.",
-   "verdict": "diagnostic",
-   "cost": "$0.54",
-   "inputs": [
-    "media/calls/motion-12-in1.jpg"
-   ],
-   "outputs": [
-    "media/calls/motion-12-out1.jpg"
-   ]
-  },
-  {
-   "id": "motion-16",
-   "section": "motion",
-   "service": "Modal",
-   "model": "FlowHMR",
-   "date": "2026-10-22",
-   "title": "Six-second pilot",
-   "line": "The first FlowHMR run that proved the pipeline.",
-   "verdict": "diagnostic",
-   "cost": "$0.31",
-   "inputs": [],
-   "outputs": [
-    "media/calls/motion-16-out1.jpg",
-    "media/calls/motion-16-out2.jpg"
-   ]
-  },
-  {
-   "id": "motion-06",
-   "section": "motion",
-   "service": "Modal",
-   "model": "SAM-3D",
-   "date": "2026-10-26",
-   "title": "SAM-3D observations, three sources",
-   "line": "Broadcast, college and court-level sources through the same four stages.",
-   "verdict": "diagnostic",
-   "cost": "$0.07",
-   "inputs": [
-    "media/calls/motion-06-in1.jpg"
-   ],
-   "outputs": [
-    "media/calls/motion-06-out1.jpg",
-    "media/calls/motion-06-out2.jpg"
-   ]
-  },
-  {
-   "id": "motion-17",
-   "section": "motion",
-   "service": "Modal",
-   "model": "SAM-3D-Body",
-   "date": "2026-10-22",
-   "title": "SAM-3D-Body / MHR diagnostic",
-   "line": "Same clip as the pilot, different body model.",
-   "verdict": "diagnostic",
-   "cost": "$0.25",
-   "inputs": [],
-   "outputs": [
-    "media/calls/motion-17-out1.jpg"
-   ]
-  },
-  {
-   "id": "racket-detect-02",
-   "section": "racket-detect",
-   "service": "Modal",
-   "model": "RacketVision",
-   "date": "2026-10-28",
-   "title": "RacketVision on the rear-court clips",
-   "line": "Five racket points per frame where the racket is visible: 32 to 81 percent of frames depending on frame rate.",
-   "verdict": "diagnostic",
-   "cost": "$0.38",
-   "inputs": [
-    "media/calls/racket-detect-02-in1.jpg"
-   ],
-   "outputs": [
-    "media/calls/racket-detect-02-out1.jpg",
-    "media/calls/racket-detect-02-out2.jpg",
-    "media/calls/racket-detect-02-out3.jpg"
-   ]
-  },
-  {
-   "id": "racket-detect-04",
-   "section": "racket-detect",
-   "service": "Modal",
-   "model": "RacketVision",
-   "date": "2026-10-27",
-   "title": "RacketVision on Djokovic, rear and 4K crop",
-   "line": "Racket observations for the own-motion build.",
-   "verdict": "diagnostic",
-   "cost": "$0.03",
-   "inputs": [
-    "media/calls/racket-detect-04-in1.jpg"
-   ],
-   "outputs": [
-    "media/calls/racket-detect-04-out1.jpg"
-   ]
-  },
-  {
-   "id": "racket-detect-18",
-   "section": "racket-detect",
-   "service": "Modal",
-   "model": "RacketVision",
-   "date": "2026-10-22",
-   "title": "RacketVision pilot, many clips",
-   "line": "Racket points for the serve, rally, college, Coria and broadcast clips.",
-   "verdict": "diagnostic",
-   "cost": "$0.19",
-   "inputs": [],
-   "outputs": [
-    "media/calls/racket-detect-18-out1.jpg"
-   ]
-  },
-  {
-   "id": "racket-detect-19",
-   "section": "racket-detect",
-   "service": "Modal",
-   "model": "FlowHMR crops",
-   "date": "2026-10-22",
-   "title": "Hand and racket crops",
-   "line": "60 keyframes of the serve, used to hand-mark contact frames.",
-   "verdict": "diagnostic",
-   "cost": "$0.10",
-   "inputs": [],
-   "outputs": [
-    "media/calls/racket-detect-19-out1.jpg",
-    "media/calls/racket-detect-19-out2.jpg"
-   ]
-  },
-  {
-   "id": "bodies-47",
-   "section": "bodies",
-   "service": "fal.ai",
-   "model": "Rodin 2.5 High",
-   "date": "2026-10-27",
-   "title": "Ben Shelton",
-   "line": "Three 1080p frames of the same practice video. Outfit matches the footage; the face is generated; the hand stays open under the grip.",
-   "verdict": "paused",
-   "cost": "$0.40",
-   "inputs": [
-    "media/calls/bodies-47-in1.jpg",
-    "media/calls/bodies-47-in2.jpg"
-   ],
-   "outputs": [
-    "media/calls/bodies-47-out1.jpg",
-    "media/calls/bodies-47-out2.jpg",
-    "media/calls/bodies-47-out3.jpg"
-   ]
-  },
-  {
-   "id": "bodies-50",
-   "section": "bodies",
-   "service": "fal.ai",
-   "model": "Rodin 2.5 High",
-   "date": "2026-10-28",
-   "title": "Flavio Cobolli",
-   "line": "Three frames from his own point. The generated hand was replaced by the motion body's gripping hand.",
-   "verdict": "paused",
-   "cost": "$0.40",
-   "inputs": [
-    "media/calls/bodies-50-in1.jpg",
-    "media/calls/bodies-50-in2.jpg"
-   ],
-   "outputs": [
-    "media/calls/bodies-50-out1.jpg",
-    "media/calls/bodies-50-out2.jpg",
-    "media/calls/bodies-50-out3.jpg"
-   ]
-  },
-  {
-   "id": "bodies-52",
-   "section": "bodies",
-   "service": "fal.ai",
-   "model": "Rodin 2.5 High",
-   "date": "2026-10-28",
-   "title": "Carlos Alcaraz",
-   "line": "Front, back and a second front crop. Skin renders darker than the footage.",
-   "verdict": "paused",
-   "cost": "$0.40",
-   "inputs": [
-    "media/calls/bodies-52-in1.jpg",
-    "media/calls/bodies-52-in2.jpg"
-   ],
-   "outputs": [
-    "media/calls/bodies-52-out1.jpg",
-    "media/calls/bodies-52-out2.jpg"
-   ]
-  },
-  {
-   "id": "bodies-48",
-   "section": "bodies",
-   "service": "fal.ai",
-   "model": "Rodin 2.5 High",
-   "date": "2026-10-27",
-   "title": "Giovanni Mpetshi Perricard",
-   "line": "Two 4K front frames and one back frame. The shirt-back print is lost.",
-   "verdict": "paused",
-   "cost": "$0.40",
-   "inputs": [
-    "media/calls/bodies-48-in1.jpg",
-    "media/calls/bodies-48-in2.jpg"
-   ],
-   "outputs": [
-    "media/calls/bodies-48-out1.jpg",
-    "media/calls/bodies-48-out2.jpg"
-   ]
-  },
-  {
-   "id": "bodies-51",
-   "section": "bodies",
-   "service": "fal.ai",
-   "model": "Rodin 2.5 High",
-   "date": "2026-10-28",
-   "title": "Novak Djokovic, full-body references",
-   "line": "Came back T-posed with forearm flaps; arms re-posed 50 degrees, then used on two points.",
-   "verdict": "paused",
-   "cost": "$0.40",
-   "inputs": [
-    "media/calls/bodies-51-in1.jpg",
-    "media/calls/bodies-51-in2.jpg"
-   ],
-   "outputs": [
-    "media/calls/bodies-51-out1.jpg",
-    "media/calls/bodies-51-out2.jpg",
-    "media/calls/bodies-51-out3.jpg"
-   ]
-  },
-  {
-   "id": "bodies-49",
-   "section": "bodies",
-   "service": "fal.ai",
-   "model": "Rodin 2.5 High",
-   "date": "2026-10-28",
-   "title": "Novak Djokovic, knee-cropped references",
-   "line": "Stiff arms and long shorts. References cut off at the knee.",
-   "verdict": "failed",
-   "cost": "$0.40",
-   "inputs": [
-    "media/calls/bodies-49-in1.jpg",
-    "media/calls/bodies-49-in2.jpg"
-   ],
-   "outputs": [
-    "media/calls/bodies-49-out1.jpg",
-    "media/calls/bodies-49-out2.jpg"
-   ]
-  },
-  {
-   "id": "bodies-46",
-   "section": "bodies",
-   "service": "fal.ai",
-   "model": "Rodin 2.5 High",
-   "date": "2026-10-26",
-   "title": "Novak Djokovic, two photos",
-   "line": "Better neck and lean silhouette. Face still wrong; shirt markings invented.",
-   "verdict": "rejected",
-   "cost": "$0.40",
-   "inputs": [
-    "media/calls/bodies-46-in1.jpg",
-    "media/calls/bodies-46-in2.jpg"
-   ],
-   "outputs": [
-    "media/calls/bodies-46-out1.jpg",
-    "media/calls/bodies-46-out2.jpg",
-    "media/calls/bodies-46-out3.jpg"
-   ]
-  },
-  {
-   "id": "bodies-45",
-   "section": "bodies",
-   "service": "fal.ai",
-   "model": "Rodin 2.5 High",
-   "date": "2026-10-26",
-   "title": "Novak Djokovic, one photo",
-   "line": "Whole-person PBR mesh, 50K triangles. Outline fine, face wrong.",
-   "verdict": "rejected",
-   "cost": "$0.40",
-   "inputs": [
-    "media/calls/bodies-45-in1.jpg"
-   ],
-   "outputs": [
-    "media/calls/bodies-45-out1.jpg",
-    "media/calls/bodies-45-out2.jpg"
-   ]
-  },
-  {
-   "id": "faces-07",
-   "section": "faces",
-   "service": "Modal",
-   "model": "UP2You",
-   "date": "2026-10-26",
-   "title": "UP2You whole-person reconstruction",
-   "line": "Two event photos plus a portrait. Connected body and clothing; wrong identity; hand texture baked onto the shirt.",
-   "verdict": "rejected",
-   "cost": "$0.36",
-   "inputs": [
-    "media/calls/faces-07-in1.jpg",
-    "media/calls/faces-07-in2.jpg"
-   ],
-   "outputs": [
-    "media/calls/faces-07-out1.jpg",
-    "media/calls/faces-07-out2.jpg"
-   ]
-  },
-  {
-   "id": "faces-08",
-   "section": "faces",
-   "service": "Modal",
-   "model": "MICA",
-   "date": "2026-10-26",
-   "title": "MICA face fit",
-   "line": "Three photos to FLAME face geometry, 5,023 vertices. No hair, skin or body.",
-   "verdict": "rejected",
-   "cost": "$0.01",
-   "inputs": [
-    "media/calls/faces-08-in1.jpg",
-    "media/calls/faces-08-in2.jpg"
-   ],
-   "outputs": [
-    "media/calls/faces-08-out1.jpg",
-    "media/calls/faces-08-out2.jpg"
-   ]
-  },
-  {
-   "id": "meshy-62",
-   "section": "meshy",
-   "service": "Meshy",
-   "model": "Meshy 7.1",
-   "date": "2026-10-20",
-   "title": "Court-stories cast",
-   "line": "Photo to A-pose image to image-to-3D with 4K PBR to rig. Players, crowd and props for a set of story pages.",
-   "verdict": "used on page",
-   "cost": "about 1,900 credits (2,108 → 216 by 21 Oct)",
-   "inputs": [],
-   "outputs": [
-    "media/calls/meshy-62-out1.jpg",
-    "media/calls/meshy-62-out2.jpg",
-    "media/calls/meshy-62-out3.jpg"
-   ]
-  },
-  {
-   "id": "meshy-61",
-   "section": "meshy",
-   "service": "Meshy",
-   "model": "Meshy 7.1",
-   "date": "2026-10-19",
-   "title": "Track-sprint riders and staff",
-   "line": "Meshy 7.1 from reference images. Every character in a cycling demo. No finger bones.",
-   "verdict": "built",
-   "cost": "part of 3,000 credits bought 19 Oct ($20)",
-   "inputs": [],
-   "outputs": [
-    "media/calls/meshy-61-out1.jpg",
-    "media/calls/meshy-61-out2.jpg"
-   ]
-  },
-  {
-   "id": "meshy-64",
-   "section": "meshy",
-   "service": "Meshy",
-   "model": "Meshy 7.1",
-   "date": "2026-10-24",
-   "title": "Three Djokovic heads",
-   "line": "Single photo, multi-angle and frontal-led variants placed on the serve body.",
-   "verdict": "rejected",
-   "cost": "105 credits",
-   "inputs": [
-    "media/calls/meshy-64-in1.jpg",
-    "media/calls/meshy-64-in2.jpg"
-   ],
-   "outputs": [
-    "media/calls/meshy-64-out1.jpg",
-    "media/calls/meshy-64-out2.jpg",
-    "media/calls/meshy-64-out3.jpg"
-   ]
-  },
-  {
-   "id": "meshy-63",
-   "section": "meshy",
-   "service": "Meshy",
-   "model": "Meshy 7.1",
-   "date": "2026-10-23",
-   "title": "Shelton likeness, multi-view",
-   "line": "Three photos to one body candidate. A modelling base, not production ready.",
-   "verdict": "rejected",
-   "cost": "35 credits",
-   "inputs": [
-    "media/calls/meshy-63-in1.jpg",
-    "media/calls/meshy-63-in2.jpg"
-   ],
-   "outputs": [
-    "media/calls/meshy-63-out1.jpg",
-    "media/calls/meshy-63-out2.jpg"
-   ]
-  },
-  {
-   "id": "meshy-60",
-   "section": "meshy",
-   "service": "Meshy",
-   "model": "Meshy 6 Lite",
-   "date": "2026-09-16",
-   "title": "First tennis figure",
-   "line": "Reference image to Meshy 6 Lite image-to-3D with 2K texture.",
-   "verdict": "rejected",
-   "cost": "49 of 130 free credits",
-   "inputs": [
-    "media/calls/meshy-60-in1.jpg"
-   ],
-   "outputs": [
-    "media/calls/meshy-60-out1.jpg",
-    "media/calls/meshy-60-out2.jpg",
-    "media/calls/meshy-60-out3.jpg"
-   ]
-  },
-  {
-   "id": "mocap-20",
-   "section": "mocap",
-   "service": "Modal",
-   "model": "GEM-X",
-   "date": "2026-10-21",
-   "title": "GEM-X mocap",
-   "line": "Fourteen runs on an L40S across forehand, broadcast and tripod clips. Loops were retargeted onto a rig for review.",
-   "verdict": "not adopted",
-   "cost": "$3.35",
-   "inputs": [],
-   "outputs": [
-    "media/calls/mocap-20-out1.jpg"
-   ]
-  },
-  {
-   "id": "mocap-21",
-   "section": "mocap",
-   "service": "Modal",
-   "model": "Kimodo",
-   "date": "2026-10-21",
-   "title": "Kimodo",
-   "line": "A standalone ready-position loop.",
-   "verdict": "not adopted",
-   "cost": "$0.13",
-   "inputs": [],
-   "outputs": [
-    "media/calls/mocap-21-out1.jpg",
-    "media/calls/mocap-21-out2.jpg"
-   ]
-  },
-  {
-   "id": "ibex-53",
-   "section": "ibex",
-   "service": "fal.ai",
-   "model": "Flux, nano-banana",
-   "date": "2026-10-27",
-   "title": "Concept images",
-   "line": "Flux and nano-banana from text prompts.",
-   "verdict": "built",
-   "cost": null,
-   "inputs": [],
-   "outputs": [
-    "media/calls/ibex-53-out1.jpg"
-   ]
-  },
-  {
-   "id": "ibex-54",
-   "section": "ibex",
-   "service": "fal.ai",
-   "model": "Hunyuan3D, Tripo",
-   "date": "2026-10-28",
-   "title": "Image to 3D, two engines",
-   "line": "Hunyuan3D and Tripo from the same concept image.",
-   "verdict": "built",
-   "cost": null,
-   "inputs": [
-    "media/calls/ibex-54-in1.jpg"
-   ],
-   "outputs": [
-    "media/calls/ibex-54-out1.jpg"
-   ]
-  },
-  {
-   "id": "ibex-56",
-   "section": "ibex",
-   "service": "fal.ai",
-   "model": "nano-banana, Hunyuan3D, Tripo",
-   "date": "2026-10-28",
-   "title": "Realistic ibex",
-   "line": "nano-banana references, then Hunyuan3D and Tripo.",
-   "verdict": "built",
-   "cost": null,
-   "inputs": [
-    "media/calls/ibex-56-in1.jpg"
-   ],
-   "outputs": [
-    "media/calls/ibex-56-out1.jpg"
-   ]
-  },
-  {
-   "id": "ibex-55",
-   "section": "ibex",
-   "service": "fal.ai",
-   "model": "nano-banana, Tripo",
-   "date": "2026-10-28",
-   "title": "Mountain",
-   "line": "nano-banana image, then Tripo.",
-   "verdict": "built",
-   "cost": null,
-   "inputs": [
-    "media/calls/ibex-55-in1.jpg"
-   ],
-   "outputs": [
-    "media/calls/ibex-55-out1.jpg"
-   ]
-  },
-  {
-   "id": "ibex-59",
-   "section": "ibex",
-   "service": "fal.ai",
-   "model": "Rodin 2.5",
-   "date": "2026-10-29",
-   "title": "Rodin image-to-3D ibex",
-   "line": "The mesh that was kept and rigged.",
-   "verdict": "used on page",
-   "cost": null,
-   "inputs": [
-    "media/calls/ibex-59-in1.jpg"
-   ],
-   "outputs": [
-    "media/calls/ibex-59-out1.jpg",
-    "media/calls/ibex-59-out2.jpg"
-   ]
-  },
-  {
-   "id": "ibex-57",
-   "section": "ibex",
-   "service": "fal.ai",
-   "model": "nano-banana",
-   "date": "2026-10-28",
-   "title": "Backgrounds",
-   "line": "Six prompts, twelve images.",
-   "verdict": "built",
-   "cost": null,
-   "inputs": [],
-   "outputs": [
-    "media/calls/ibex-57-out1.jpg"
-   ]
+   "name": "Face likeness",
+   "score": 2,
+   "note": "Rodin, UP2You and Meshy all generated a face, none a likeness"
   }
  ],
- "library": [
+ "timeline": {
+  "done": [
+   {
+    "date": "Sep 16",
+    "what": "First tennis figure: Meshy 6 Lite from a generated reference image"
+   },
+   {
+    "date": "Oct 19–21",
+    "what": "Meshy characters, crowds and props for court stories and the track-sprint demo; Kling motion-control video fails"
+   },
+   {
+    "date": "Oct 21–22",
+    "what": "GEM-X and Kimodo mocap tried and dropped; first FlowHMR run; Shelton serve accepted"
+   },
+   {
+    "date": "Oct 23–24",
+    "what": "Longer rallies, two-player point, Djokovic body shape"
+   },
+   {
+    "date": "Oct 26",
+    "what": "Broadcast and college benchmarks; Meshy heads rejected; detailed rackets traced from manufacturer photos"
+   },
+   {
+    "date": "Oct 27",
+    "what": "Rodin bodies through fal.ai; Djokovic 4K crop; UP2You and MICA face tests rejected"
+   },
+   {
+    "date": "Oct 28",
+    "what": "16-point rear-court library; racket solved through the arm; 120 fps forehand; face angle fixed at 34 contacts; Rodin bodies paused"
+   }
+  ],
+  "next": [
+   "Use 120 fps footage only: the single largest gain, at no cost",
+   "Segment the racket in the lag phase (SAM 2) and fit the silhouette; the head ellipse gives the face angle",
+   "Hand model (HaMeR or WiLoR) for wrist and grip; calibrate each player's grip once",
+   "Score against hand-marked ground truth: target under 5 px, today 15.5",
+   "Person-specific body shape and a face that is a likeness"
+  ]
+ },
+ "processes": [
   {
-   "id": "shelton-serve-b",
-   "player": "Ben Shelton",
-   "hand": "left-handed",
-   "frames": 192,
-   "racket_tracked": 138,
-   "stance_rule": 20,
-   "smoothed": 34,
-   "median_px": 6.0,
-   "source": "https://www.youtube.com/watch?v=vF9WB1ZhgsI&t=33s",
-   "range": "33.0–39.4 s",
-   "video": "media/library/shelton-serve-b.mp4",
-   "poster": "media/library/shelton-serve-b-poster.jpg"
+   "id": "flowhmr",
+   "name": "Video to motion",
+   "one_line": "One camera, one point, a body that moves like the player.",
+   "stack": [
+    {
+     "name": "Modal",
+     "role": "Rented GPUs (T4, L40S, A100). Runs every model below per clip.",
+     "logo": "media/logos/modal.svg",
+     "cost": "$14.44 metered this month, $0 billed"
+    },
+    {
+     "name": "FlowHMR",
+     "role": "Body motion and shape from one camera.",
+     "logo": "",
+     "mono": "HMR",
+     "cost": "open weights, about $0.30 per clip on Modal"
+    },
+    {
+     "name": "RacketVision",
+     "role": "Five racket keypoints per frame (AAAI 2026).",
+     "logo": "",
+     "mono": "RV",
+     "cost": "about $0.02 per clip"
+    },
+    {
+     "name": "Arm solver",
+     "role": "Local Python: racket through forearm and wrist, contact rule, ball audit.",
+     "logo": "",
+     "mono": "PY",
+     "cost": "$0"
+    },
+    {
+     "name": "Blender",
+     "role": "Racket model, binding, four-up renders, GLB export.",
+     "logo": "media/logos/blender.svg",
+     "cost": "$0"
+    }
+   ],
+   "pipeline": [
+    {
+     "step": "1",
+     "what": "Pick a clip",
+     "how": "YouTube court-level footage, player large in frame, cut to one point"
+    },
+    {
+     "step": "2",
+     "what": "Body",
+     "how": "FlowHMR on Modal: joints, shape, camera per frame"
+    },
+    {
+     "step": "3",
+     "what": "Racket points",
+     "how": "RacketVision on Modal: 5 keypoints where visible"
+    },
+    {
+     "step": "4",
+     "what": "Racket through the arm",
+     "how": "forearm twist, wrist angle, spin cap; stance rule where hidden"
+    },
+    {
+     "step": "5",
+     "what": "Contact rule",
+     "how": "label contact frame and shot type; pin the face angle"
+    },
+    {
+     "step": "6",
+     "what": "Render",
+     "how": "Blender: source, front, side, back; GLB for the web"
+    }
+   ],
+   "groups": [
+    {
+     "title": "Court level, behind the player, 30 fps, 1080p from 4K",
+     "note": "The recipe that worked. Same steps on every point; differences are the player, the contacts and how much of the swing the detector saw.",
+     "subgroups": [
+      {
+       "title": "Serves",
+       "items": [
+        {
+         "id": "shelton-serve-b",
+         "kind": "video",
+         "title": "Ben Shelton",
+         "sub": "Serves",
+         "meta": [
+          "192 frames",
+          "6.0 px",
+          "30 fps"
+         ],
+         "verdict": "accepted",
+         "video": "media/library/shelton-serve-b.mp4",
+         "poster": "media/library/shelton-serve-b-poster.jpg",
+         "back": {
+          "source": "Court Level Tennis · 33.0–39.4 s",
+          "source_url": "https://www.youtube.com/watch?v=vF9WB1ZhgsI&t=33s",
+          "ran": "Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.",
+          "why": "Body accepted. Racket face at contact is set by rule, not measured.",
+          "differs": "Ben Shelton (left-handed, racket in the left hand). 192 frames. Contacts: serve at frame 134. Racket seen by the detector in 138 frames, stance rule in 20, smoothed in 34; 6.0 px median error; arm limits exceeded on 2 frames.",
+          "cost": "about $0.32 Modal (share of the batch) + RacketVision share"
+         }
+        },
+        {
+         "id": "shelton-serve-d",
+         "kind": "video",
+         "title": "Ben Shelton",
+         "sub": "Serves",
+         "meta": [
+          "192 frames",
+          "4.7 px",
+          "30 fps"
+         ],
+         "verdict": "accepted",
+         "video": "media/library/shelton-serve-d.mp4",
+         "poster": "media/library/shelton-serve-d-poster.jpg",
+         "back": {
+          "source": "Court Level Tennis · 48.0–54.4 s",
+          "source_url": "https://www.youtube.com/watch?v=vF9WB1ZhgsI&t=48s",
+          "ran": "Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.",
+          "why": "Body accepted. Racket face at contact is set by rule, not measured.",
+          "differs": "Ben Shelton (left-handed, racket in the left hand). 192 frames. Contacts: serve at 120. Racket seen by the detector in 110 frames, stance rule in 43, smoothed in 39; 4.7 px median error; arm limits exceeded on 5 frames.",
+          "cost": "about $0.32 Modal (share of the batch) + RacketVision share"
+         }
+        },
+        {
+         "id": "shelton-serve-f",
+         "kind": "video",
+         "title": "Ben Shelton",
+         "sub": "Serves",
+         "meta": [
+          "192 frames",
+          "12.3 px",
+          "30 fps"
+         ],
+         "verdict": "accepted",
+         "video": "media/library/shelton-serve-f.mp4",
+         "poster": "media/library/shelton-serve-f-poster.jpg",
+         "back": {
+          "source": "Court Level Tennis · 79.0–85.4 s",
+          "source_url": "https://www.youtube.com/watch?v=vF9WB1ZhgsI&t=79s",
+          "ran": "Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.",
+          "why": "Body accepted. Racket face at contact is set by rule, not measured.",
+          "differs": "Ben Shelton (left-handed, racket in the left hand). 192 frames. Contacts: serve at 117. Racket seen by the detector in 122 frames, stance rule in 23, smoothed in 47; 12.3 px median error; arm limits exceeded on 0 frames.",
+          "cost": "about $0.32 Modal (share of the batch) + RacketVision share"
+         }
+        },
+        {
+         "id": "shelton-serve-g2",
+         "kind": "video",
+         "title": "Ben Shelton",
+         "sub": "Serves",
+         "meta": [
+          "198 frames",
+          "12.5 px",
+          "30 fps"
+         ],
+         "verdict": "accepted",
+         "video": "media/library/shelton-serve-g2.mp4",
+         "poster": "media/library/shelton-serve-g2-poster.jpg",
+         "back": {
+          "source": "Court Level Tennis · 91.6–98.2 s",
+          "source_url": "https://www.youtube.com/watch?v=vF9WB1ZhgsI&t=91s",
+          "ran": "Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.",
+          "why": "Body accepted. Racket face at contact is set by rule, not measured.",
+          "differs": "Ben Shelton (left-handed, racket in the left hand). 198 frames. Contacts: serve at 120. Racket seen by the detector in 123 frames, stance rule in 28, smoothed in 47; 12.5 px median error; arm limits exceeded on 4 frames.",
+          "cost": "about $0.32 Modal (share of the batch) + RacketVision share"
+         }
+        }
+       ]
+      },
+      {
+       "title": "Returns",
+       "items": [
+        {
+         "id": "sinner-return",
+         "kind": "video",
+         "title": "Jannik Sinner",
+         "sub": "Returns",
+         "meta": [
+          "293 frames",
+          "10.7 px",
+          "30 fps"
+         ],
+         "verdict": "accepted",
+         "video": "media/library/sinner-return.mp4",
+         "poster": "media/library/sinner-return-poster.jpg",
+         "back": {
+          "source": "Court Level Tennis · 109–119 s",
+          "source_url": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=109s",
+          "ran": "Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.",
+          "why": "Body accepted. Racket face at contact is set by rule, not measured.",
+          "differs": "Jannik Sinner. 293 frames. Contacts: topspin at 82, 159, 230. Racket seen by the detector in 101 frames, stance rule in 156, smoothed in 36; 10.7 px median error; arm limits exceeded on 11 frames.",
+          "cost": "about $0.36 Modal (share of the batch) + RacketVision share"
+         }
+        },
+        {
+         "id": "djokovic-turin-return",
+         "kind": "video",
+         "title": "Novak Djokovic",
+         "sub": "Returns",
+         "meta": [
+          "366 frames",
+          "5.7 px",
+          "30 fps"
+         ],
+         "verdict": "accepted",
+         "video": "media/library/djokovic-turin-return.mp4",
+         "poster": "media/library/djokovic-turin-return-poster.jpg",
+         "back": {
+          "source": "Court Level Tennis · 29–42 s",
+          "source_url": "https://www.youtube.com/watch?v=-KoAgZkCIx8&t=29s",
+          "ran": "Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.",
+          "why": "Body accepted. Racket face at contact is set by rule, not measured.",
+          "differs": "Novak Djokovic. 366 frames. Contacts: topspin at 134 and 216. Racket seen by the detector in 256 frames, stance rule in 15, smoothed in 95; 5.7 px median error; arm limits exceeded on 17 frames.",
+          "cost": "about $0.36 Modal (share of the batch) + RacketVision share"
+         }
+        },
+        {
+         "id": "cabolli-return",
+         "kind": "video",
+         "title": "Flavio Cobolli",
+         "sub": "Returns",
+         "meta": [
+          "201 frames",
+          "4.8 px",
+          "30 fps"
+         ],
+         "verdict": "accepted",
+         "video": "media/library/cabolli-return.mp4",
+         "poster": "media/library/cabolli-return-poster.jpg",
+         "back": {
+          "source": "Court Level Tennis · 137–144 s",
+          "source_url": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=137s",
+          "ran": "Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.",
+          "why": "Body accepted. Racket face at contact is set by rule, not measured.",
+          "differs": "Flavio Cobolli. 201 frames. Contacts: no clear contact labelled; player mostly out of the swing. Racket seen by the detector in 65 frames, stance rule in 127, smoothed in 9; 4.8 px median error; arm limits exceeded on 6 frames.",
+          "cost": "about $0.36 Modal (share of the batch) + RacketVision share"
+         }
+        }
+       ]
+      },
+      {
+       "title": "Served points with groundstrokes",
+       "items": [
+        {
+         "id": "alcaraz-serve",
+         "kind": "video",
+         "title": "Giovanni Mpetshi Perricard",
+         "sub": "Served points with groundstrokes",
+         "meta": [
+          "330 frames",
+          "9.4 px",
+          "30 fps"
+         ],
+         "verdict": "accepted",
+         "video": "media/library/alcaraz-serve.mp4",
+         "poster": "media/library/alcaraz-serve-poster.jpg",
+         "back": {
+          "source": "Court Level Tennis · 548–559 s",
+          "source_url": "https://www.youtube.com/watch?v=9Dl84UYDks0&t=548s",
+          "ran": "Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.",
+          "why": "Body accepted. Racket face at contact is set by rule, not measured.",
+          "differs": "Giovanni Mpetshi Perricard. 330 frames. Contacts: serve at 92, topspin at 148 and 221. Racket seen by the detector in 251 frames, stance rule in 32, smoothed in 47; 9.4 px median error; arm limits exceeded on 12 frames.",
+          "cost": "about $0.36 Modal (share of the batch) + RacketVision share"
+         }
+        },
+        {
+         "id": "alcaraz-a",
+         "kind": "video",
+         "title": "Carlos Alcaraz",
+         "sub": "Served points with groundstrokes",
+         "meta": [
+          "435 frames",
+          "10.9 px",
+          "30 fps"
+         ],
+         "verdict": "accepted",
+         "video": "media/library/alcaraz-a.mp4",
+         "poster": "media/library/alcaraz-a-poster.jpg",
+         "back": {
+          "source": "Court Level Tennis · 586.0–600.5 s",
+          "source_url": "https://www.youtube.com/watch?v=9Dl84UYDks0&t=586s",
+          "ran": "Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.",
+          "why": "Body accepted. Racket face at contact is set by rule, not measured.",
+          "differs": "Carlos Alcaraz. 435 frames. Contacts: serve at 249; frame 303 is a two-handed backhand. Racket seen by the detector in 305 frames, stance rule in 47, smoothed in 83; 10.9 px median error; arm limits exceeded on 22 frames.",
+          "cost": "about $0.32 Modal (share of the batch) + RacketVision share"
+         }
+        },
+        {
+         "id": "alcaraz-b",
+         "kind": "video",
+         "title": "Carlos Alcaraz",
+         "sub": "Served points with groundstrokes",
+         "meta": [
+          "399 frames",
+          "10.6 px",
+          "30 fps"
+         ],
+         "verdict": "accepted",
+         "video": "media/library/alcaraz-b.mp4",
+         "poster": "media/library/alcaraz-b-poster.jpg",
+         "back": {
+          "source": "Court Level Tennis · 601.0–614.3 s",
+          "source_url": "https://www.youtube.com/watch?v=9Dl84UYDks0&t=601s",
+          "ran": "Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.",
+          "why": "Body accepted. Racket face at contact is set by rule, not measured.",
+          "differs": "Carlos Alcaraz. 399 frames. Contacts: serve at 177, topspin at 238. Racket seen by the detector in 199 frames, stance rule in 111, smoothed in 89; 10.6 px median error; arm limits exceeded on 37 frames.",
+          "cost": "about $0.32 Modal (share of the batch) + RacketVision share"
+         }
+        },
+        {
+         "id": "djokovic-iw-a",
+         "kind": "video",
+         "title": "Novak Djokovic",
+         "sub": "Served points with groundstrokes",
+         "meta": [
+          "426 frames",
+          "9.0 px",
+          "30 fps"
+         ],
+         "verdict": "accepted",
+         "video": "media/library/djokovic-iw-a.mp4",
+         "poster": "media/library/djokovic-iw-a-poster.jpg",
+         "back": {
+          "source": "Court Level Tennis · 399.2–413.4 s",
+          "source_url": "https://www.youtube.com/watch?v=xsP3PjNgId8&t=399s",
+          "ran": "Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.",
+          "why": "Body accepted. Racket face at contact is set by rule, not measured.",
+          "differs": "Novak Djokovic. 426 frames. Contacts: topspin at 78 and 328; frame 145 is a one-handed slice. Racket seen by the detector in 136 frames, stance rule in 182, smoothed in 108; 9.0 px median error; arm limits exceeded on 7 frames.",
+          "cost": "about $0.32 Modal (share of the batch) + RacketVision share"
+         }
+        },
+        {
+         "id": "djokovic-iw-c",
+         "kind": "video",
+         "title": "Novak Djokovic",
+         "sub": "Served points with groundstrokes",
+         "meta": [
+          "435 frames",
+          "11.6 px",
+          "30 fps"
+         ],
+         "verdict": "accepted",
+         "video": "media/library/djokovic-iw-c.mp4",
+         "poster": "media/library/djokovic-iw-c-poster.jpg",
+         "back": {
+          "source": "Court Level Tennis · 435.0–449.5 s",
+          "source_url": "https://www.youtube.com/watch?v=xsP3PjNgId8&t=435s",
+          "ran": "Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.",
+          "why": "Body accepted. Racket face at contact is set by rule, not measured.",
+          "differs": "Novak Djokovic. 435 frames. Contacts: topspin at 10, 169, 242; frame 312 is a one-handed slice. Racket seen by the detector in 172 frames, stance rule in 123, smoothed in 140; 11.6 px median error; arm limits exceeded on 15 frames.",
+          "cost": "about $0.32 Modal (share of the batch) + RacketVision share"
+         }
+        },
+        {
+         "id": "cobolli-b1",
+         "kind": "video",
+         "title": "Flavio Cobolli",
+         "sub": "Served points with groundstrokes",
+         "meta": [
+          "201 frames",
+          "10.1 px",
+          "30 fps"
+         ],
+         "verdict": "accepted",
+         "video": "media/library/cobolli-b1.mp4",
+         "poster": "media/library/cobolli-b1-poster.jpg",
+         "back": {
+          "source": "Court Level Tennis · 145.1–151.8 s",
+          "source_url": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=145s",
+          "ran": "Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.",
+          "why": "Body accepted. Racket face at contact is set by rule, not measured.",
+          "differs": "Flavio Cobolli. 201 frames. Contacts: serve at 8, topspin at 62 and 133. Racket seen by the detector in 122 frames, stance rule in 41, smoothed in 38; 10.1 px median error; arm limits exceeded on 23 frames.",
+          "cost": "about $0.32 Modal (share of the batch) + RacketVision share"
+         }
+        },
+        {
+         "id": "cobolli-b2",
+         "kind": "video",
+         "title": "Flavio Cobolli",
+         "sub": "Served points with groundstrokes",
+         "meta": [
+          "351 frames",
+          "6.1 px",
+          "30 fps"
+         ],
+         "verdict": "accepted",
+         "video": "media/library/cobolli-b2.mp4",
+         "poster": "media/library/cobolli-b2-poster.jpg",
+         "back": {
+          "source": "Court Level Tennis · 152.0–163.7 s",
+          "source_url": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=152s",
+          "ran": "Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.",
+          "why": "Body accepted. Racket face at contact is set by rule, not measured.",
+          "differs": "Flavio Cobolli. 351 frames. Contacts: serve at 147, topspin at 202 and 276. Racket seen by the detector in 222 frames, stance rule in 74, smoothed in 55; 6.1 px median error; arm limits exceeded on 12 frames.",
+          "cost": "about $0.32 Modal (share of the batch) + RacketVision share"
+         }
+        },
+        {
+         "id": "cobolli-c1",
+         "kind": "video",
+         "title": "Flavio Cobolli",
+         "sub": "Served points with groundstrokes",
+         "meta": [
+          "367 frames",
+          "7.0 px",
+          "30 fps"
+         ],
+         "verdict": "accepted",
+         "video": "media/library/cobolli-c1.mp4",
+         "poster": "media/library/cobolli-c1-poster.jpg",
+         "back": {
+          "source": "Court Level Tennis · 167.1–179.3 s",
+          "source_url": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=167s",
+          "ran": "Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.",
+          "why": "Body accepted. Racket face at contact is set by rule, not measured.",
+          "differs": "Flavio Cobolli. 367 frames. Contacts: serve at 66, topspin at 124, 200, 278. Racket seen by the detector in 202 frames, stance rule in 81, smoothed in 84; 7.0 px median error; arm limits exceeded on 8 frames.",
+          "cost": "about $0.32 Modal (share of the batch) + RacketVision share"
+         }
+        },
+        {
+         "id": "cobolli-c2",
+         "kind": "video",
+         "title": "Flavio Cobolli",
+         "sub": "Served points with groundstrokes",
+         "meta": [
+          "205 frames",
+          "7.1 px",
+          "30 fps"
+         ],
+         "verdict": "accepted",
+         "video": "media/library/cobolli-c2.mp4",
+         "poster": "media/library/cobolli-c2-poster.jpg",
+         "back": {
+          "source": "Court Level Tennis · 179.6–186.4 s",
+          "source_url": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=179s",
+          "ran": "Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.",
+          "why": "Body accepted. Racket face at contact is set by rule, not measured.",
+          "differs": "Flavio Cobolli. 205 frames. Contacts: serve at 77. Racket seen by the detector in 88 frames, stance rule in 52, smoothed in 65; 7.1 px median error; arm limits exceeded on 7 frames.",
+          "cost": "about $0.32 Modal (share of the batch) + RacketVision share"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Other cameras and frame rates",
+     "note": "Same FlowHMR, different footage. This is where quality changes.",
+     "items": [
+      {
+       "id": "alcaraz-120",
+       "kind": "video",
+       "title": "Carlos Alcaraz forehand",
+       "sub": "120 fps, 4K, court level",
+       "meta": [
+        "120 fps",
+        "4K",
+        "81% racket found"
+       ],
+       "verdict": "accepted",
+       "video": "media/racket/alcaraz-120-forehand-v2.mp4",
+       "poster": "media/racket/alcaraz-120-forehand-v2-poster.jpg",
+       "back": {
+        "source": "Slow-Mo Tennis · Indian Wells 2023 practice, 4K 120 fps",
+        "source_url": "https://www.youtube.com/watch?v=-Eu80hGbgVA",
+        "ran": "FlowHMR at 30 fps upsampled to 120; RacketVision on every 120 fps frame; racket solved through the arm; contact rule at frame 650.",
+        "why": "Best racket result of the whole project: the detector keeps the racket through contact and follow-through. 15.5 px median on held-out frames.",
+        "differs": "Only clip at 120 fps. Everything else is 30 fps, where the racket blurs at contact and the detector loses it.",
+        "cost": "inside the RacketVision batch, about $0.40 Modal"
+       }
+      },
+      {
+       "id": "djokovic-v2",
+       "kind": "video",
+       "title": "Novak Djokovic groundstrokes",
+       "sub": "High seat, diagonal, 4K crop",
+       "meta": [
+        "30 fps",
+        "4K crop to 1080p",
+        "210 frames"
+       ],
+       "verdict": "diagnostic",
+       "video": "media/racket/djokovic-groundstroke-v2.mp4",
+       "poster": "media/racket/djokovic-groundstroke-v2-poster.jpg",
+       "back": {
+        "source": "Court Level Tennis · Indian Wells practice, high diagonal seat",
+        "source_url": "",
+        "ran": "4K master matched to the 720p clip frame for frame, cropped to 1080p; FlowHMR on the crop; RacketVision on 4K and 720p merged; 11 backhand frames hand-marked.",
+        "why": "Body fit improved from 8.6 to 6.9 px. The racket detector got worse on 4K (151 confident frames vs 181 on 720p). Forehand contacts are edge-on and stay unmarked.",
+        "differs": "Camera is high and diagonal with a coach and partner in frame; player only about 260 px tall in the 720p clip. This camera is the ceiling for groundstrokes.",
+        "cost": "$0.33 Modal"
+       }
+      },
+      {
+       "id": "shelton-atp",
+       "kind": "image",
+       "title": "Ben Shelton, ATP broadcast",
+       "sub": "Elevated broadcast camera, 1080p50",
+       "meta": [
+        "1080p50 to 30 fps",
+        "169 frames",
+        "body only"
+       ],
+       "verdict": "diagnostic",
+       "image": "media/scenes/shelton-atp.jpg",
+       "link": "https://jerry-tennis-lab.vercel.app/?source=motion&match=shelton-atp",
+       "back": {
+        "source": "TennisTV · 0:16.37–0:22.00, one camera cut excluded",
+        "source_url": "https://www.youtube.com/watch?v=tQdVQu-CQwQ&t=16s",
+        "ran": "FlowHMR only, same fixed Shelton body as the court-level serve. No racket, ball or opponent solved.",
+        "why": "Full-court view explains play, but the player is about 220 px tall so the wrist and face carry no usable detail. Kept as a benchmark, not a demo.",
+        "differs": "Output is a live 3D scene on the Tennis Lab site, not a four-up video: the four-up export was built later for the rear-court recipe and was not run on this clip.",
+        "cost": "$0.28 Modal"
+       }
+      },
+      {
+       "id": "ucla-point8",
+       "kind": "image",
+       "title": "Spencer Johnson, college match",
+       "sub": "Fixed club camera behind the baseline, 1080p",
+       "meta": [
+        "30 fps",
+        "270 frames",
+        "body + ball arcs"
+       ],
+       "verdict": "diagnostic",
+       "image": "media/scenes/ucla-point8.jpg",
+       "link": "https://jerry-tennis-lab.vercel.app/?source=motion&match=ucla-point8",
+       "back": {
+        "source": "UCLA Tennis Consulting · PlaySight footage · 5:00–5:09, point 8",
+        "source_url": "https://www.youtube.com/watch?v=ot8tSR3q9gI&t=300s",
+        "ran": "FlowHMR body plus tagged shot contacts and bounces from a Stanford charting dataset; estimated ball arcs. Court fit median 0.46 m.",
+        "why": "Body placement and ball arcs are estimates. No racket solve; the racket stage was rejected for this clip.",
+        "differs": "Only clip from a fixed club camera and the only one with a charted ball. Live 3D scene, no four-up video.",
+        "cost": "$0.28 Modal"
+       }
+      },
+      {
+       "id": "shelton-long-rally",
+       "kind": "image",
+       "title": "Ben Shelton, 14-second rally",
+       "sub": "Court level behind the baseline, long movement",
+       "meta": [
+        "30 fps",
+        "414 of 420 frames",
+        "body only"
+       ],
+       "verdict": "diagnostic",
+       "image": "media/scenes/shelton-long-rally.jpg",
+       "link": "https://jerry-tennis-lab.vercel.app/?source=motion&match=shelton-long-rally",
+       "back": {
+        "source": "Slow-Mo Tennis · Shelton and Coria practice set · 2:34.20–2:48.00",
+        "source_url": "https://www.youtube.com/watch?v=cDV-pQCJkP4&t=154s",
+        "ran": "FlowHMR on a fixed body shape over 14 seconds. The run exited with an error and 414 of 420 frames were recovered.",
+        "why": "Longer movement exposes tracking drift and hidden hands. Racket contact and court placement were not solved.",
+        "differs": "Same camera as the library points but twice the length; shows what drifts over time.",
+        "cost": "$0.48 Modal"
+       }
+      },
+      {
+       "id": "shelton-coria",
+       "kind": "image",
+       "title": "Shelton and Coria, played point",
+       "sub": "Two players, 4K60 source",
+       "meta": [
+        "30 fps",
+        "210 frames each",
+        "both players"
+       ],
+       "verdict": "rejected",
+       "image": "media/scenes/shelton-coria.jpg",
+       "link": "https://jerry-tennis-lab.vercel.app/?source=motion&match=shelton-coria",
+       "back": {
+        "source": "Slow-Mo Tennis · Shelton and Coria practice set · 1:41.50–1:48.50",
+        "source_url": "https://www.youtube.com/watch?v=cDV-pQCJkP4&t=101s",
+        "ran": "FlowHMR for both players, camera motion fitted from background features, court alignment estimated, EZONE racket attached.",
+        "why": "Failed as a portfolio replacement: serve contact is above the frame, one shoe is cropped at the opening edge, the far player and hidden hands are unreliable, and the racket jumped up to 79 degrees between frames before the arm solve existed.",
+        "differs": "Only two-player reconstruction. Still viewable as a test scene on the Tennis Lab site.",
+        "cost": "$0.47 Modal"
+       }
+      }
+     ]
+    },
+    {
+     "title": "Where it started",
+     "items": [
+      {
+       "id": "motion-13",
+       "kind": "io",
+       "title": "Ben Shelton serve, first accepted motion",
+       "meta": [
+        "Modal",
+        "FlowHMR",
+        "2026-10-22",
+        "$0.23"
+       ],
+       "verdict": "accepted",
+       "inputs": [],
+       "outputs": [
+        "media/calls/motion-13-out1.jpg",
+        "media/calls/motion-13-out2.jpg"
+       ],
+       "back": {
+        "source": "",
+        "ran": "FlowHMR on Modal, 180 frames of a Court Level Tennis practice serve.",
+        "why": "The body motion every later serve demo reuses; this is where the recipe started.",
+        "differs": "",
+        "cost": "$0.23"
+       }
+      },
+      {
+       "id": "motion-03",
+       "kind": "io",
+       "title": "Djokovic groundstroke on a 4K crop",
+       "meta": [
+        "Modal",
+        "FlowHMR",
+        "2026-10-28",
+        "$0.33"
+       ],
+       "verdict": "diagnostic",
+       "inputs": [],
+       "outputs": [
+        "media/calls/motion-03-out1.jpg",
+        "media/calls/motion-03-out2.jpg"
+       ],
+       "back": {
+        "source": "",
+        "ran": "4K side master cropped to 1080p, 210 frames. Body fit improved from 8.6 to 6.9 px; the racket detector got worse at 4K.",
+        "why": "4K side master cropped to 1080p, 210 frames. Body fit improved from 8.6 to 6.9 px; the racket detector got worse at 4K.",
+        "differs": "",
+        "cost": "$0.33"
+       }
+      }
+     ]
+    },
+    {
+     "title": "Tried and dropped",
+     "items": [
+      {
+       "id": "mocap-20",
+       "kind": "io",
+       "title": "GEM-X mocap",
+       "meta": [
+        "Modal",
+        "GEM-X",
+        "2026-10-21",
+        "$3.35"
+       ],
+       "verdict": "not adopted",
+       "inputs": [],
+       "outputs": [
+        "media/calls/mocap-20-out1.jpg"
+       ],
+       "back": {
+        "source": "",
+        "ran": "Fourteen runs on an L40S across forehand, broadcast and tripod clips. Loops were retargeted onto a rig for review.",
+        "why": "Fourteen runs on an L40S across forehand, broadcast and tripod clips. Loops were retargeted onto a rig for review.",
+        "differs": "",
+        "cost": "$3.35"
+       }
+      },
+      {
+       "id": "mocap-21",
+       "kind": "io",
+       "title": "Kimodo",
+       "meta": [
+        "Modal",
+        "Kimodo",
+        "2026-10-21",
+        "$0.13"
+       ],
+       "verdict": "not adopted",
+       "inputs": [],
+       "outputs": [
+        "media/calls/mocap-21-out1.jpg",
+        "media/calls/mocap-21-out2.jpg"
+       ],
+       "back": {
+        "source": "",
+        "ran": "A standalone ready-position loop.",
+        "why": "A standalone ready-position loop.",
+        "differs": "",
+        "cost": "$0.13"
+       }
+      }
+     ]
+    }
+   ]
   },
   {
-   "id": "shelton-serve-d",
-   "player": "Ben Shelton",
-   "hand": "left-handed",
-   "frames": 192,
-   "racket_tracked": 110,
-   "stance_rule": 43,
-   "smoothed": 39,
-   "median_px": 4.7,
-   "source": "https://www.youtube.com/watch?v=vF9WB1ZhgsI&t=48s",
-   "range": "48.0–54.4 s",
-   "video": "media/library/shelton-serve-d.mp4",
-   "poster": "media/library/shelton-serve-d-poster.jpg"
+   "id": "racket",
+   "name": "The racket",
+   "one_line": "A model, a detector, and a solver that moves it through the arm.",
+   "stack": [
+    {
+     "name": "Blender",
+     "role": "Racket model, binding, four-up renders, GLB export.",
+     "logo": "media/logos/blender.svg",
+     "cost": "$0"
+    },
+    {
+     "name": "RacketVision",
+     "role": "Five racket keypoints per frame (AAAI 2026).",
+     "logo": "",
+     "mono": "RV",
+     "cost": "about $0.02 per clip"
+    },
+    {
+     "name": "Arm solver",
+     "role": "Local Python: racket through forearm and wrist, contact rule, ball audit.",
+     "logo": "",
+     "mono": "PY",
+     "cost": "$0"
+    }
+   ],
+   "pipeline": [
+    {
+     "step": "1",
+     "what": "Model",
+     "how": "trace the outline, author strings, grommets, grip"
+    },
+    {
+     "step": "2",
+     "what": "Detect",
+     "how": "RacketVision keypoints per frame"
+    },
+    {
+     "step": "3",
+     "what": "Solve",
+     "how": "through forearm and wrist, spin capped"
+    },
+    {
+     "step": "4",
+     "what": "Pin contact",
+     "how": "label 34 contacts, hold the face angle"
+    }
+   ],
+   "groups": [
+    {
+     "title": "Results",
+     "items": [
+      {
+       "id": "racket-model",
+       "kind": "image",
+       "title": "Racket model",
+       "sub": "Blender, from reference contours",
+       "meta": [
+        "separate closed meshes",
+        "strings woven",
+        "grommets drilled"
+       ],
+       "verdict": "built",
+       "image": "media/racket/racket-full.jpg",
+       "gallery": [
+        "media/racket/racket-face.jpg",
+        "media/racket/racket-tip-macro.jpg",
+        "media/racket/racket-strings-macro.jpg"
+       ],
+       "back": {
+        "source": "Manufacturer photos traced for the outline; string axes and grommet positions authored",
+        "ran": "build_racket.py in Blender, then material and finish passes, then an export gate that re-imports the GLB and checks every string passage.",
+        "why": "Depth and sidewalls are approximate, not CAD. Texture artwork was authored from references, not scanned.",
+        "differs": "",
+        "cost": "$0, local Blender"
+       }
+      },
+      {
+       "id": "arm-solve",
+       "kind": "image",
+       "title": "Racket solved through the arm",
+       "sub": "Red old fit, green arm solve, cyan detections",
+       "meta": [
+        "forearm twist ±80°",
+        "wrist ≤70°",
+        "spin cap 2,500°/s"
+       ],
+       "verdict": "accepted",
+       "image": "media/racket/ovl-djokovic-iw-a.jpg",
+       "gallery": [
+        "media/racket/ovl-djokovic-turin-return.jpg",
+        "media/racket/ovl-djokovic-iw-c.jpg",
+        "media/racket/ovl-sinner-return.jpg"
+       ],
+       "back": {
+        "source": "Library points, Djokovic and Sinner",
+        "ran": "Instead of placing the racket freely at the wrist, solve forearm twist and wrist angle per frame inside anatomical limits, smooth over time, cap spin.",
+        "why": "A racket seen from behind looks the same rotated 180 degrees about its handle, so the free fit flipped the face between frames (up to 5,400°/s). After: no frame over 2,600°/s on 15 of 16 points.",
+        "differs": "",
+        "cost": "$0, local"
+       }
+      },
+      {
+       "id": "contact-rule",
+       "kind": "image",
+       "title": "Face angle at contact",
+       "sub": "Before and after the contact rule",
+       "meta": [
+        "34 contacts labelled",
+        "7 of 34 → 34 of 34"
+       ],
+       "verdict": "accepted",
+       "image": "media/racket/edge-before-after.jpg",
+       "gallery": [
+        "media/racket/face-edge-compare.jpg"
+       ],
+       "back": {
+        "source": "All 16 library points plus the 120 fps forehand",
+        "ran": "Contact frame and shot type labelled by eye for every clear swing; for ±3 frames the face is held vertical to 15° closed (topspin) or 15° closed to 10° open (serve).",
+        "why": "From behind, open and closed faces shrink the string outline by the same amount, so five points cannot tell them apart. The rule chose the angle, not the video; the true angle is inside the range, not measured.",
+        "differs": "",
+        "cost": "$0, local"
+       }
+      },
+      {
+       "id": "hfr-proof",
+       "kind": "image",
+       "title": "Racket through contact at 120 fps",
+       "sub": "Green fit on cyan detections",
+       "meta": [
+        "frames 640–661",
+        "15.5 px held-out"
+       ],
+       "verdict": "accepted",
+       "image": "media/racket/hfr-contact.jpg",
+       "gallery": [
+        "media/racket/hfr-follow.jpg"
+       ],
+       "back": {
+        "source": "Slow-Mo Tennis · Alcaraz 120 fps",
+        "ran": "RacketVision on every 120 fps frame, fit through the arm.",
+        "why": "Frames 613 to 622 (the lag before contact) have no detection and the fill is about 45° off. Frame 664 has a false detection on the head.",
+        "differs": "",
+        "cost": ""
+       }
+      },
+      {
+       "id": "grip",
+       "kind": "image",
+       "title": "Grip registration",
+       "sub": "Hand to handle, every point",
+       "meta": [
+        "16 points",
+        "left hand for Shelton"
+       ],
+       "verdict": "built",
+       "image": "media/racket/all-grip.jpg",
+       "gallery": [
+        "media/racket/hand-grip-contact.jpg"
+       ],
+       "back": {
+        "source": "Library points",
+        "ran": "One hand-to-handle registration per stroke family, separated from forearm roll and wrist motion.",
+        "why": "Grip rotation and contact depth remain inferred. No evidence for axial sliding during a swing, so it stays zero.",
+        "differs": "",
+        "cost": ""
+       }
+      },
+      {
+       "id": "racket-detect-02",
+       "kind": "io",
+       "title": "RacketVision on the library clips",
+       "meta": [
+        "Modal",
+        "RacketVision",
+        "2026-10-28",
+        "$0.38"
+       ],
+       "verdict": "diagnostic",
+       "inputs": [
+        "media/calls/racket-detect-02-in1.jpg"
+       ],
+       "outputs": [
+        "media/calls/racket-detect-02-out1.jpg",
+        "media/calls/racket-detect-02-out2.jpg",
+        "media/calls/racket-detect-02-out3.jpg"
+       ],
+       "back": {
+        "source": "",
+        "ran": "RacketVision on a T4 over all rear-court clips plus the 120 fps source.",
+        "why": "Five racket points per frame where visible: 32 to 81 percent of frames depending on frame rate. Availability is not accuracy.",
+        "differs": "",
+        "cost": "$0.38"
+       }
+      }
+     ]
+    }
+   ]
   },
   {
-   "id": "shelton-serve-f",
-   "player": "Ben Shelton",
-   "hand": "left-handed",
-   "frames": 192,
-   "racket_tracked": 122,
-   "stance_rule": 23,
-   "smoothed": 47,
-   "median_px": 12.3,
-   "source": "https://www.youtube.com/watch?v=vF9WB1ZhgsI&t=79s",
-   "range": "79.0–85.4 s",
-   "video": "media/library/shelton-serve-f.mp4",
-   "poster": "media/library/shelton-serve-f-poster.jpg"
+   "id": "bodies",
+   "name": "Bodies from photos",
+   "one_line": "The player's own clothes and build on top of the motion.",
+   "stack": [
+    {
+     "name": "fal.ai",
+     "role": "API gateway; Rodin's own API needs a $120/month plan.",
+     "logo": "media/logos/fal.png",
+     "cost": "$20 bought, $9.94 used"
+    },
+    {
+     "name": "Hyper3D Rodin 2.5",
+     "role": "Whole clothed body from two or three photos.",
+     "logo": "media/logos/hyper3d.png",
+     "cost": "about $0.40 per body"
+    },
+    {
+     "name": "Blender",
+     "role": "Bind the body to the FlowHMR motion and render.",
+     "logo": "media/logos/blender.svg",
+     "cost": "$0"
+    }
+   ],
+   "pipeline": [
+    {
+     "step": "1",
+     "what": "Frames",
+     "how": "two or three frames of the player from the same video"
+    },
+    {
+     "step": "2",
+     "what": "Rodin 2.5",
+     "how": "whole clothed PBR mesh through fal.ai"
+    },
+    {
+     "step": "3",
+     "what": "Bind",
+     "how": "attach to the FlowHMR motion, graft the gripping hand"
+    },
+    {
+     "step": "4",
+     "what": "Render",
+     "how": "same four-up as the plain body"
+    }
+   ],
+   "groups": [
+    {
+     "title": "On the motion",
+     "items": [
+      {
+       "id": "shelton-fal",
+       "kind": "video",
+       "title": "Ben Shelton serve with his own body",
+       "sub": "Appearance on top of motion",
+       "meta": [
+        "Rodin 2.5 body",
+        "180 frames",
+        "motion unchanged"
+       ],
+       "verdict": "paused",
+       "video": "media/bodies/shelton-serve-fal.mp4",
+       "poster": "media/bodies/shelton-serve-fal-poster.jpg",
+       "back": {
+        "source": "Court Level Tennis · same practice serve as the accepted motion",
+        "source_url": "https://www.youtube.com/watch?v=vF9WB1ZhgsI&t=33s",
+        "ran": "Three frames of the video to fal.ai Rodin 2.5 for a whole clothed body; bound to the accepted FlowHMR serve motion; rendered in Blender.",
+        "why": "Outfit matches the footage. Face is generated, not a likeness; the hand stays open under the grip; the loose tank top bulges because the shirt is part of the body mesh.",
+        "differs": "Only point in the gallery with the player's own body. Paused with all Rodin bodies until the racket is right.",
+        "cost": "$0.40 fal.ai"
+       }
+      }
+     ]
+    },
+    {
+     "title": "Eight Rodin bodies",
+     "items": [
+      {
+       "id": "bodies-47",
+       "kind": "io",
+       "title": "Ben Shelton",
+       "meta": [
+        "fal.ai",
+        "Rodin 2.5 High",
+        "2026-10-27",
+        "$0.40"
+       ],
+       "verdict": "paused",
+       "inputs": [
+        "media/calls/bodies-47-in1.jpg",
+        "media/calls/bodies-47-in2.jpg"
+       ],
+       "outputs": [
+        "media/calls/bodies-47-out1.jpg",
+        "media/calls/bodies-47-out2.jpg",
+        "media/calls/bodies-47-out3.jpg"
+       ],
+       "back": {
+        "source": "Frames from the same Court Level Tennis video as the motion",
+        "ran": "Two or three frames of the player's own video to fal.ai Rodin 2.5 High (Hyper3D), whole clothed PBR mesh, bound to that player's FlowHMR motion.",
+        "why": "Three 1080p frames of the same practice video. Outfit matches the footage; the face is generated; the hand stays open under the grip.",
+        "differs": "",
+        "cost": "$0.40"
+       }
+      },
+      {
+       "id": "bodies-50",
+       "kind": "io",
+       "title": "Flavio Cobolli",
+       "meta": [
+        "fal.ai",
+        "Rodin 2.5 High",
+        "2026-10-28",
+        "$0.40"
+       ],
+       "verdict": "paused",
+       "inputs": [
+        "media/calls/bodies-50-in1.jpg",
+        "media/calls/bodies-50-in2.jpg"
+       ],
+       "outputs": [
+        "media/calls/bodies-50-out1.jpg",
+        "media/calls/bodies-50-out2.jpg",
+        "media/calls/bodies-50-out3.jpg"
+       ],
+       "back": {
+        "source": "Frames from the same Court Level Tennis video as the motion",
+        "ran": "Two or three frames of the player's own video to fal.ai Rodin 2.5 High (Hyper3D), whole clothed PBR mesh, bound to that player's FlowHMR motion.",
+        "why": "Three frames from his own point. The generated hand was replaced by the motion body's gripping hand.",
+        "differs": "",
+        "cost": "$0.40"
+       }
+      },
+      {
+       "id": "bodies-52",
+       "kind": "io",
+       "title": "Carlos Alcaraz",
+       "meta": [
+        "fal.ai",
+        "Rodin 2.5 High",
+        "2026-10-28",
+        "$0.40"
+       ],
+       "verdict": "paused",
+       "inputs": [
+        "media/calls/bodies-52-in1.jpg",
+        "media/calls/bodies-52-in2.jpg"
+       ],
+       "outputs": [
+        "media/calls/bodies-52-out1.jpg",
+        "media/calls/bodies-52-out2.jpg"
+       ],
+       "back": {
+        "source": "Frames from the same Court Level Tennis video as the motion",
+        "ran": "Two or three frames of the player's own video to fal.ai Rodin 2.5 High (Hyper3D), whole clothed PBR mesh, bound to that player's FlowHMR motion.",
+        "why": "Front, back and a second front crop. Skin renders darker than the footage.",
+        "differs": "",
+        "cost": "$0.40"
+       }
+      },
+      {
+       "id": "bodies-48",
+       "kind": "io",
+       "title": "Giovanni Mpetshi Perricard",
+       "meta": [
+        "fal.ai",
+        "Rodin 2.5 High",
+        "2026-10-27",
+        "$0.40"
+       ],
+       "verdict": "paused",
+       "inputs": [
+        "media/calls/bodies-48-in1.jpg",
+        "media/calls/bodies-48-in2.jpg"
+       ],
+       "outputs": [
+        "media/calls/bodies-48-out1.jpg",
+        "media/calls/bodies-48-out2.jpg"
+       ],
+       "back": {
+        "source": "Frames from the same Court Level Tennis video as the motion",
+        "ran": "Two or three frames of the player's own video to fal.ai Rodin 2.5 High (Hyper3D), whole clothed PBR mesh, bound to that player's FlowHMR motion.",
+        "why": "Two 4K front frames and one back frame. The shirt-back print is lost.",
+        "differs": "",
+        "cost": "$0.40"
+       }
+      },
+      {
+       "id": "bodies-51",
+       "kind": "io",
+       "title": "Novak Djokovic, full-body references",
+       "meta": [
+        "fal.ai",
+        "Rodin 2.5 High",
+        "2026-10-28",
+        "$0.40"
+       ],
+       "verdict": "paused",
+       "inputs": [
+        "media/calls/bodies-51-in1.jpg",
+        "media/calls/bodies-51-in2.jpg"
+       ],
+       "outputs": [
+        "media/calls/bodies-51-out1.jpg",
+        "media/calls/bodies-51-out2.jpg",
+        "media/calls/bodies-51-out3.jpg"
+       ],
+       "back": {
+        "source": "Frames from the same Court Level Tennis video as the motion",
+        "ran": "Two or three frames of the player's own video to fal.ai Rodin 2.5 High (Hyper3D), whole clothed PBR mesh, bound to that player's FlowHMR motion.",
+        "why": "Came back T-posed with forearm flaps; arms re-posed 50 degrees, then used on two points.",
+        "differs": "",
+        "cost": "$0.40"
+       }
+      },
+      {
+       "id": "bodies-49",
+       "kind": "io",
+       "title": "Novak Djokovic, knee-cropped references",
+       "meta": [
+        "fal.ai",
+        "Rodin 2.5 High",
+        "2026-10-28",
+        "$0.40"
+       ],
+       "verdict": "failed",
+       "inputs": [
+        "media/calls/bodies-49-in1.jpg",
+        "media/calls/bodies-49-in2.jpg"
+       ],
+       "outputs": [
+        "media/calls/bodies-49-out1.jpg",
+        "media/calls/bodies-49-out2.jpg"
+       ],
+       "back": {
+        "source": "Frames from the same Court Level Tennis video as the motion",
+        "ran": "Two or three frames of the player's own video to fal.ai Rodin 2.5 High (Hyper3D), whole clothed PBR mesh, bound to that player's FlowHMR motion.",
+        "why": "Stiff arms and long shorts. References cut off at the knee.",
+        "differs": "",
+        "cost": "$0.40"
+       }
+      },
+      {
+       "id": "bodies-46",
+       "kind": "io",
+       "title": "Novak Djokovic, two photos",
+       "meta": [
+        "fal.ai",
+        "Rodin 2.5 High",
+        "2026-10-26",
+        "$0.40"
+       ],
+       "verdict": "rejected",
+       "inputs": [
+        "media/calls/bodies-46-in1.jpg",
+        "media/calls/bodies-46-in2.jpg"
+       ],
+       "outputs": [
+        "media/calls/bodies-46-out1.jpg",
+        "media/calls/bodies-46-out2.jpg",
+        "media/calls/bodies-46-out3.jpg"
+       ],
+       "back": {
+        "source": "Frames from the same Court Level Tennis video as the motion",
+        "ran": "Two or three frames of the player's own video to fal.ai Rodin 2.5 High (Hyper3D), whole clothed PBR mesh, bound to that player's FlowHMR motion.",
+        "why": "Better neck and lean silhouette. Face still wrong; shirt markings invented.",
+        "differs": "",
+        "cost": "$0.40"
+       }
+      },
+      {
+       "id": "bodies-45",
+       "kind": "io",
+       "title": "Novak Djokovic, one photo",
+       "meta": [
+        "fal.ai",
+        "Rodin 2.5 High",
+        "2026-10-26",
+        "$0.40"
+       ],
+       "verdict": "rejected",
+       "inputs": [
+        "media/calls/bodies-45-in1.jpg"
+       ],
+       "outputs": [
+        "media/calls/bodies-45-out1.jpg",
+        "media/calls/bodies-45-out2.jpg"
+       ],
+       "back": {
+        "source": "Frames from the same Court Level Tennis video as the motion",
+        "ran": "Two or three frames of the player's own video to fal.ai Rodin 2.5 High (Hyper3D), whole clothed PBR mesh, bound to that player's FlowHMR motion.",
+        "why": "Whole-person PBR mesh, 50K triangles. Outline fine, face wrong.",
+        "differs": "",
+        "cost": "$0.40"
+       }
+      }
+     ]
+    },
+    {
+     "title": "Face and whole-person reconstruction, rejected",
+     "items": [
+      {
+       "id": "faces-07",
+       "kind": "io",
+       "title": "UP2You whole-person reconstruction",
+       "meta": [
+        "Modal",
+        "UP2You",
+        "2026-10-26",
+        "$0.36"
+       ],
+       "verdict": "rejected",
+       "inputs": [
+        "media/calls/faces-07-in1.jpg",
+        "media/calls/faces-07-in2.jpg"
+       ],
+       "outputs": [
+        "media/calls/faces-07-out1.jpg",
+        "media/calls/faces-07-out2.jpg"
+       ],
+       "back": {
+        "source": "",
+        "ran": "Two event photos plus a portrait. Connected body and clothing; wrong identity; hand texture baked onto the shirt.",
+        "why": "Two event photos plus a portrait. Connected body and clothing; wrong identity; hand texture baked onto the shirt.",
+        "differs": "",
+        "cost": "$0.36"
+       }
+      },
+      {
+       "id": "faces-08",
+       "kind": "io",
+       "title": "MICA face fit",
+       "meta": [
+        "Modal",
+        "MICA",
+        "2026-10-26",
+        "$0.01"
+       ],
+       "verdict": "rejected",
+       "inputs": [
+        "media/calls/faces-08-in1.jpg",
+        "media/calls/faces-08-in2.jpg"
+       ],
+       "outputs": [
+        "media/calls/faces-08-out1.jpg",
+        "media/calls/faces-08-out2.jpg"
+       ],
+       "back": {
+        "source": "",
+        "ran": "Three photos to FLAME face geometry, 5,023 vertices. No hair, skin or body.",
+        "why": "Three photos to FLAME face geometry, 5,023 vertices. No hair, skin or body.",
+        "differs": "",
+        "cost": "$0.01"
+       }
+      }
+     ]
+    }
+   ]
   },
   {
-   "id": "shelton-serve-g2",
-   "player": "Ben Shelton",
-   "hand": "left-handed",
-   "frames": 198,
-   "racket_tracked": 123,
-   "stance_rule": 28,
-   "smoothed": 47,
-   "median_px": 12.5,
-   "source": "https://www.youtube.com/watch?v=vF9WB1ZhgsI&t=91s",
-   "range": "91.6–98.2 s",
-   "video": "media/library/shelton-serve-g2.mp4",
-   "poster": "media/library/shelton-serve-g2-poster.jpg"
+   "id": "hyperframes",
+   "name": "HyperFrames films",
+   "one_line": "HTML and a paused timeline, rendered frame by frame to video.",
+   "stack": [
+    {
+     "name": "HyperFrames",
+     "role": "HTML to video: compositions, timeline, lint, check, render (heygen-com/hyperframes).",
+     "logo": "",
+     "mono": "HF",
+     "cost": "$0, open source"
+    },
+    {
+     "name": "GSAP + headless Chrome",
+     "role": "One paused timeline per composition; Chrome seeks each frame.",
+     "logo": "",
+     "mono": "GS",
+     "cost": "$0"
+    },
+    {
+     "name": "ffmpeg",
+     "role": "Encode 1280×720 masters to 960×540 hub clips; poster from the opening hold.",
+     "logo": "",
+     "mono": "ff",
+     "cost": "$0"
+    }
+   ],
+   "pipeline": [
+    {
+     "step": "1",
+     "what": "Scaffold",
+     "how": "init, STORYLINES.md, SPEC.md with every adjective as a number"
+    },
+    {
+     "step": "2",
+     "what": "Timeline",
+     "how": "clips with data-start and data-duration; no timers, no randomness"
+    },
+    {
+     "step": "3",
+     "what": "Check",
+     "how": "lint, runtime, layout, contrast, motion gates"
+    },
+    {
+     "step": "4",
+     "what": "Preview",
+     "how": "snapshots at chosen seconds; REVIEW.md"
+    },
+    {
+     "step": "5",
+     "what": "Render",
+     "how": "deterministic frame-by-frame; ffprobe duration must match"
+    },
+    {
+     "step": "6",
+     "what": "Encode",
+     "how": "ffmpeg to hub size, poster, content-hashed cache"
+    }
+   ],
+   "groups": [
+    {
+     "title": "Hub clips and films",
+     "items": [
+      {
+       "id": "shield-genie",
+       "kind": "video",
+       "title": "Shield · ask the season goal",
+       "sub": "Hub clip, 7 s loop",
+       "meta": [
+        "1280×720 master",
+        "30 fps",
+        "Oct 21"
+       ],
+       "verdict": "live",
+       "video": "media/hyperframes/shield-genie.mp4",
+       "poster": "media/hyperframes/shield-genie-poster.jpg",
+       "back": {
+        "source": "Shield demo data and the live Shield page",
+        "ran": "HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold.",
+        "why": "Typed question, answer, board scan. The live Shield card later moved to an in-page DOM animation; this clip stayed in the hub cache.",
+        "cost": "$0, local render"
+       }
+      },
+      {
+       "id": "aeg-clean",
+       "kind": "video",
+       "title": "AEG · three franchises",
+       "sub": "Hub clip, 9.7 s",
+       "meta": [
+        "1280×720 master",
+        "Oct 21–22"
+       ],
+       "verdict": "live",
+       "video": "media/hyperframes/aeg-clean.mp4",
+       "poster": "media/hyperframes/aeg-clean-poster.jpg",
+       "back": {
+        "source": "Kings, Galaxy and Reign crests and cards",
+        "ran": "HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold.",
+        "why": "Its poster is still the live Galaxy card poster.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "usta-v2",
+       "kind": "video",
+       "title": "USTA · US Open match prep",
+       "sub": "Hub clip, 7 s",
+       "meta": [
+        "3 shots",
+        "Oct 21"
+       ],
+       "verdict": "built",
+       "video": "media/hyperframes/usta-v2.mp4",
+       "poster": "media/hyperframes/usta-v2-poster.jpg",
+       "back": {
+        "source": "Ashe rally with Hawk-Eye rays, Shelton on the bike, report panel",
+        "ran": "HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold.",
+        "why": "Replaced on the home page by the serve-first card; kept here as the HyperFrames version.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "ucla-practice",
+       "kind": "video",
+       "title": "UCLA · analytics decides the practice",
+       "sub": "Hub clip, 13 s",
+       "meta": [
+        "team room → coach TV → drill",
+        "Oct 22–24"
+       ],
+       "verdict": "built",
+       "video": "media/hyperframes/ucla-practice.mp4",
+       "poster": "media/hyperframes/ucla-practice-poster.jpg",
+       "back": {
+        "source": "UCLA team room, coach TV and drill scenes",
+        "ran": "HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold.",
+        "why": "The ucla-room cut was the live UCLA card Oct 24 to 27, then replaced by a selected clip.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "match-map",
+       "kind": "video",
+       "title": "Match Viewer · dashboard to video",
+       "sub": "Hub clip, 12 s",
+       "meta": [
+        "live card today",
+        "Oct 24"
+       ],
+       "verdict": "live",
+       "video": "media/hyperframes/match-map.mp4",
+       "poster": "media/hyperframes/match-map-poster.jpg",
+       "back": {
+        "source": "Match Viewer dashboard, point 151 dot, video viewer",
+        "ran": "HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold.",
+        "why": "This cut is the live Match Viewer card on jerrythegoat.com.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "radio-captions",
+       "kind": "video",
+       "title": "AI tennis radio · word-by-word captions",
+       "sub": "Hub clip, 7 s",
+       "meta": [
+        "embedded captions",
+        "live card today",
+        "Oct 21–22"
+       ],
+       "verdict": "live",
+       "video": "media/hyperframes/radio-captions.mp4",
+       "poster": "media/hyperframes/radio-captions-poster.jpg",
+       "back": {
+        "source": "Opta Ace AI radio excerpt, Australian Open",
+        "ran": "HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold. Captions animate word by word from the transcript.",
+        "why": "Live Radio card.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "velo-montage",
+       "kind": "video",
+       "title": "Team USA Cycling · sprint, tracker, splits",
+       "sub": "Hub clip, 7 s",
+       "meta": [
+        "Oct 21"
+       ],
+       "verdict": "built",
+       "video": "media/hyperframes/velo-montage.mp4",
+       "poster": "media/hyperframes/velo-montage-poster.jpg",
+       "back": {
+        "source": "Track sprint tracker and splits card",
+        "ran": "HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold.",
+        "why": "Early cycling card; superseded by the 17 s cycling film and a selected clip.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "cycling-film",
+       "kind": "video",
+       "title": "Cycling film",
+       "sub": "17 s, the /cycling page film",
+       "meta": [
+        "1440×810",
+        "SPEC and REVIEW",
+        "Oct 22"
+       ],
+       "verdict": "live",
+       "video": "media/hyperframes/cycling-film.mp4",
+       "poster": "media/hyperframes/cycling-film-poster.jpg",
+       "back": {
+        "source": "Sprint, tracker, splits, TV punch-in on live practice splits",
+        "ran": "HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold. Longer films start from STORYLINES.md and a SPEC with every adjective as a number.",
+        "why": "Live at jerrythegoat.com/cycling/demo.mp4.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "usdash-zoom",
+       "kind": "video",
+       "title": "Top US players · dashboard zoom",
+       "sub": "Hub clip, 7 s",
+       "meta": [
+        "virtual camera tour",
+        "Oct 21"
+       ],
+       "verdict": "built",
+       "video": "media/hyperframes/usdash-zoom.mp4",
+       "poster": "media/hyperframes/usdash-zoom-poster.jpg",
+       "back": {
+        "source": "Top US players dashboard",
+        "ran": "HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold. A virtual camera pans and zooms over a live DOM page.",
+        "why": "Camera-template clip; the same template drove the riders tour.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "orfeu-split",
+       "kind": "video",
+       "title": "Orfeu · music culture split",
+       "sub": "Hub clip, 8 s",
+       "meta": [
+        "Brazil / Cumbia",
+        "Oct 21–22"
+       ],
+       "verdict": "built",
+       "video": "media/hyperframes/orfeu-split.mp4",
+       "poster": "media/hyperframes/orfeu-split-poster.jpg",
+       "back": {
+        "source": "Orfeu split panels with a confirmed source reel",
+        "ran": "HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold.",
+        "why": "The live Orfeu card is now a portrait cumbia clip plus an in-page sequence.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "reel-v3",
+       "kind": "video",
+       "title": "Sports data reel v3",
+       "sub": "31 s, landscape",
+       "meta": [
+        "1280×720",
+        "AAC",
+        "portrait twin",
+        "Oct 21"
+       ],
+       "verdict": "built",
+       "video": "media/hyperframes/reel-v3.mp4",
+       "poster": "media/hyperframes/reel-v3-poster.jpg",
+       "back": {
+        "source": "Twelve segment compositions: AEG, ask, clients, cycling, locker room, radio, serve, UCLA, US Open, end card",
+        "ran": "HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold. Segments rendered separately and joined; a 720×1280 portrait twin built from the same segments.",
+        "why": "Was the home-page hero on Oct 21; no longer on the home page, still served at /hub/reel.mp4.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "hawkeye-loop",
+       "kind": "video",
+       "title": "Hawk-Eye 3D match films",
+       "sub": "8 s loop of two rallies",
+       "meta": [
+        "1920×1080 masters",
+        "Oct 1–2"
+       ],
+       "verdict": "live",
+       "video": "media/hyperframes/hawkeye-loop.mp4",
+       "poster": "media/hyperframes/hawkeye-loop-poster.jpg",
+       "back": {
+        "source": "Quan vs Gomez and Quan vs Watanuki Hawk-Eye capsule replays",
+        "ran": "HyperFrames loop and vertical templates with data built by a Python script; 30 s landscape, 30 s vertical and an 8 s loop per match.",
+        "why": "Live at hawkeye-3d.vercel.app. The first real HyperFrames work after an Oct 2 smoke test.",
+        "cost": "$0"
+       }
+      }
+     ]
+    }
+   ]
   },
   {
-   "id": "alcaraz-a",
-   "player": "Carlos Alcaraz",
-   "hand": "",
-   "frames": 435,
-   "racket_tracked": 305,
-   "stance_rule": 47,
-   "smoothed": 83,
-   "median_px": 10.9,
-   "source": "https://www.youtube.com/watch?v=9Dl84UYDks0&t=586s",
-   "range": "586.0–600.5 s",
-   "video": "media/library/alcaraz-a.mp4",
-   "poster": "media/library/alcaraz-a-poster.jpg"
+   "id": "thumbnails",
+   "name": "Home-page thumbnails",
+   "one_line": "Four generations in one day, then a 140-option review.",
+   "stack": [
+    {
+     "name": "HyperFrames clips",
+     "role": "Camera-template and story clips as candidates.",
+     "logo": "",
+     "mono": "HF",
+     "cost": "$0"
+    },
+    {
+     "name": "ffmpeg",
+     "role": "Cuts, posters at 0.8 s, 960×540 encodes.",
+     "logo": "",
+     "mono": "ff",
+     "cost": "$0"
+    },
+    {
+     "name": "Authored DOM",
+     "role": "HTML/CSS/SVG renderers for Shield and Orfeu cards.",
+     "logo": "",
+     "mono": "UI",
+     "cost": "$0"
+    }
+   ],
+   "pipeline": [
+    {
+     "step": "1",
+     "what": "Candidates",
+     "how": "HyperFrames clips, ffmpeg cuts, authored DOM"
+    },
+    {
+     "step": "2",
+     "what": "Review",
+     "how": "crawl the hub, de-duplicate by hash, one page of 140 options"
+    },
+    {
+     "step": "3",
+     "what": "Select",
+     "how": "one per project, with edits"
+    },
+    {
+     "step": "4",
+     "what": "Refine",
+     "how": "shorter intros, clearer labels, real playlist embed"
+    },
+    {
+     "step": "5",
+     "what": "Ship",
+     "how": "rebuild the production tree, read back every object"
+    }
+   ],
+   "groups": [
+    {
+     "title": "Process",
+     "items": [
+      {
+       "id": "thumb-old",
+       "kind": "image",
+       "title": "The seven original clips",
+       "sub": "Restored Oct 27 04:40",
+       "meta": [
+        "contact sheet"
+       ],
+       "verdict": "built",
+       "image": "media/thumbs/old-videos.jpg",
+       "back": {
+        "source": "Home-page cards before the rework",
+        "ran": "Restored byte-exact from the old build after the authored DOM versions were rejected.",
+        "why": "Jerry: I like the old thumbnail video, I want all those old versions back on main.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "thumb-authored",
+       "kind": "image",
+       "title": "Authored HTML/CSS thumbnails",
+       "sub": "Rejected direction, Oct 27 02:00",
+       "meta": [
+        "no video",
+        "SVG and DOM"
+       ],
+       "verdict": "rejected",
+       "image": "media/thumbs/desktop-final-aeg.jpg",
+       "gallery": [
+        "media/thumbs/desktop-final-usta.jpg"
+       ],
+       "back": {
+        "source": "Hand-authored renderers per card",
+        "ran": "Paper surface with crests, portrait with bars, 80-student grid, timing oval, waveform.",
+        "why": "Rejected the same day in favour of the video clips.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "thumb-review",
+       "kind": "image",
+       "title": "140 options, one review page",
+       "sub": "Oct 27 05:00",
+       "meta": [
+        "58 video cuts",
+        "58 stills",
+        "24 builds"
+       ],
+       "verdict": "built",
+       "image": "media/thumbs/review-desktop.jpg",
+       "gallery": [
+        "media/thumbs/GALAXY-06.jpg",
+        "media/thumbs/ORFEU-04.jpg"
+       ],
+       "back": {
+        "source": "Every hub asset crawled and de-duplicated by hash",
+        "ran": "A build script crawled the hub folder, posters from ffmpeg at 0.8 s, served locally; choices made in chat.",
+        "why": "Selections: Galaxy 03, Shield 03, USTA 01, Match Viewer 01, UCLA 01, Cycling 01, Radio 01, Orfeu baseline.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "thumb-live",
+       "kind": "image",
+       "title": "Live result",
+       "sub": "Desktop and phone, Oct 27 12:53",
+       "meta": [
+        "commit 0950b12e8"
+       ],
+       "verdict": "live",
+       "image": "media/thumbs/live-desktop.jpg",
+       "gallery": [
+        "media/thumbs/live-mobile.jpg"
+       ],
+       "back": {
+        "source": "jerrythegoat.com home page",
+        "ran": "Selected media integrated, production tree rebuilt from the Vercel deployment and verified by reading back 26 objects.",
+        "why": "What the home page serves today.",
+        "cost": "$0"
+       }
+      }
+     ]
+    },
+    {
+     "title": "The eight live cards",
+     "items": [
+      {
+       "id": "final-galaxy",
+       "kind": "video",
+       "title": "Galaxy · ends on Ontario Reign",
+       "sub": "Selected Oct 27",
+       "meta": [
+        "5.4 s",
+        "960×540",
+        "live"
+       ],
+       "verdict": "live",
+       "video": "media/thumbs/final-galaxy.mp4",
+       "poster": "media/thumbs/final-galaxy-poster.jpg",
+       "back": {
+        "source": "Option Galaxy 03 from the 140-option review",
+        "ran": "ffmpeg cut of the AEG clip, edited to finish on the Reign frame; intro shortened 3600 to 450 ms in the final refinement.",
+        "why": "Live Galaxy card. Opens the Shield story on click.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "final-usta",
+       "kind": "video",
+       "title": "USTA · serve first",
+       "sub": "Original kept",
+       "meta": [
+        "7.4 s",
+        "live"
+       ],
+       "verdict": "live",
+       "video": "media/thumbs/final-usta.mp4",
+       "poster": "media/thumbs/final-usta-poster.jpg",
+       "back": {
+        "source": "Option USTA 01",
+        "ran": "Original serve-first clip, unchanged.",
+        "why": "Live USTA card.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "final-ucla",
+       "kind": "video",
+       "title": "UCLA · serve down the T",
+       "sub": "Selected Oct 27",
+       "meta": [
+        "11.6 s",
+        "live"
+       ],
+       "verdict": "live",
+       "video": "media/thumbs/final-ucla.mp4",
+       "poster": "media/thumbs/final-ucla-poster.jpg",
+       "back": {
+        "source": "Option UCLA 01, drill clarified",
+        "ran": "Cut from the ucla-practice HyperFrames render; final refinement relabelled the drill.",
+        "why": "Live UCLA card.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "final-matchviewer",
+       "kind": "video",
+       "title": "Match Viewer · query to point",
+       "sub": "HyperFrames cut",
+       "meta": [
+        "12 s",
+        "live"
+       ],
+       "verdict": "live",
+       "video": "media/thumbs/final-matchviewer.mp4",
+       "poster": "media/thumbs/final-matchviewer-poster.jpg",
+       "back": {
+        "source": "Option Match Viewer 01",
+        "ran": "HyperFrames matchviewer composition, match-map cut.",
+        "why": "Live Match Viewer card.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "final-cycling",
+       "kind": "video",
+       "title": "Cycling · rider to infield to TV",
+       "sub": "Selected Oct 27",
+       "meta": [
+        "17.8 s",
+        "live"
+       ],
+       "verdict": "live",
+       "video": "media/thumbs/final-cycling.mp4",
+       "poster": "media/thumbs/final-cycling-poster.jpg",
+       "back": {
+        "source": "Option Cycling 01",
+        "ran": "Cut from the cycling film with the rider-to-infield-to-TV order.",
+        "why": "Live Cycling card.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "final-radio",
+       "kind": "video",
+       "title": "Radio · centered captions",
+       "sub": "HyperFrames",
+       "meta": [
+        "7 s",
+        "live"
+       ],
+       "verdict": "live",
+       "video": "media/thumbs/final-radio.mp4",
+       "poster": "media/thumbs/final-radio-poster.jpg",
+       "back": {
+        "source": "Option Radio 01",
+        "ran": "HyperFrames radio-captions composition with the caption centred.",
+        "why": "Live Radio card.",
+        "cost": "$0"
+       }
+      },
+      {
+       "id": "final-orfeu",
+       "kind": "video",
+       "title": "Orfeu · cumbia card",
+       "sub": "Portrait clip + in-page sequence",
+       "meta": [
+        "16 s",
+        "304×540",
+        "live"
+       ],
+       "verdict": "live",
+       "video": "media/thumbs/final-orfeu.mp4",
+       "poster": "media/thumbs/final-orfeu-poster.jpg",
+       "back": {
+        "source": "Orfeu baseline mystery-box sequence",
+        "ran": "Portrait cumbia clip; the page then shows a Celso Piña cover and a real Spotify playlist embed.",
+        "why": "Live Orfeu card.",
+        "cost": "$0"
+       }
+      }
+     ]
+    }
+   ]
   },
   {
-   "id": "alcaraz-b",
-   "player": "Carlos Alcaraz",
-   "hand": "",
-   "frames": 399,
-   "racket_tracked": 199,
-   "stance_rule": 111,
-   "smoothed": 89,
-   "median_px": 10.6,
-   "source": "https://www.youtube.com/watch?v=9Dl84UYDks0&t=601s",
-   "range": "601.0–614.3 s",
-   "video": "media/library/alcaraz-b.mp4",
-   "poster": "media/library/alcaraz-b-poster.jpg"
-  },
-  {
-   "id": "alcaraz-serve",
-   "player": "Giovanni Mpetshi Perricard",
-   "hand": "",
-   "frames": 330,
-   "racket_tracked": 251,
-   "stance_rule": 32,
-   "smoothed": 47,
-   "median_px": 9.4,
-   "source": "https://www.youtube.com/watch?v=9Dl84UYDks0&t=548s",
-   "range": "548–559 s",
-   "video": "media/library/alcaraz-serve.mp4",
-   "poster": "media/library/alcaraz-serve-poster.jpg"
-  },
-  {
-   "id": "djokovic-iw-a",
-   "player": "Novak Djokovic",
-   "hand": "",
-   "frames": 426,
-   "racket_tracked": 136,
-   "stance_rule": 182,
-   "smoothed": 108,
-   "median_px": 9.0,
-   "source": "https://www.youtube.com/watch?v=xsP3PjNgId8&t=399s",
-   "range": "399.2–413.4 s",
-   "video": "media/library/djokovic-iw-a.mp4",
-   "poster": "media/library/djokovic-iw-a-poster.jpg"
-  },
-  {
-   "id": "djokovic-iw-c",
-   "player": "Novak Djokovic",
-   "hand": "",
-   "frames": 435,
-   "racket_tracked": 172,
-   "stance_rule": 123,
-   "smoothed": 140,
-   "median_px": 11.6,
-   "source": "https://www.youtube.com/watch?v=xsP3PjNgId8&t=435s",
-   "range": "435.0–449.5 s",
-   "video": "media/library/djokovic-iw-c.mp4",
-   "poster": "media/library/djokovic-iw-c-poster.jpg"
-  },
-  {
-   "id": "djokovic-turin-return",
-   "player": "Novak Djokovic",
-   "hand": "",
-   "frames": 366,
-   "racket_tracked": 256,
-   "stance_rule": 15,
-   "smoothed": 95,
-   "median_px": 5.7,
-   "source": "https://www.youtube.com/watch?v=-KoAgZkCIx8&t=29s",
-   "range": "29–42 s",
-   "video": "media/library/djokovic-turin-return.mp4",
-   "poster": "media/library/djokovic-turin-return-poster.jpg"
-  },
-  {
-   "id": "sinner-return",
-   "player": "Jannik Sinner",
-   "hand": "",
-   "frames": 293,
-   "racket_tracked": 101,
-   "stance_rule": 156,
-   "smoothed": 36,
-   "median_px": 10.7,
-   "source": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=109s",
-   "range": "109–119 s",
-   "video": "media/library/sinner-return.mp4",
-   "poster": "media/library/sinner-return-poster.jpg"
-  },
-  {
-   "id": "cabolli-return",
-   "player": "Flavio Cobolli",
-   "hand": "",
-   "frames": 201,
-   "racket_tracked": 65,
-   "stance_rule": 127,
-   "smoothed": 9,
-   "median_px": 4.8,
-   "source": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=137s",
-   "range": "137–144 s",
-   "video": "media/library/cabolli-return.mp4",
-   "poster": "media/library/cabolli-return-poster.jpg"
-  },
-  {
-   "id": "cobolli-b1",
-   "player": "Flavio Cobolli",
-   "hand": "",
-   "frames": 201,
-   "racket_tracked": 122,
-   "stance_rule": 41,
-   "smoothed": 38,
-   "median_px": 10.1,
-   "source": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=145s",
-   "range": "145.1–151.8 s",
-   "video": "media/library/cobolli-b1.mp4",
-   "poster": "media/library/cobolli-b1-poster.jpg"
-  },
-  {
-   "id": "cobolli-b2",
-   "player": "Flavio Cobolli",
-   "hand": "",
-   "frames": 351,
-   "racket_tracked": 222,
-   "stance_rule": 74,
-   "smoothed": 55,
-   "median_px": 6.1,
-   "source": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=152s",
-   "range": "152.0–163.7 s",
-   "video": "media/library/cobolli-b2.mp4",
-   "poster": "media/library/cobolli-b2-poster.jpg"
-  },
-  {
-   "id": "cobolli-c1",
-   "player": "Flavio Cobolli",
-   "hand": "",
-   "frames": 367,
-   "racket_tracked": 202,
-   "stance_rule": 81,
-   "smoothed": 84,
-   "median_px": 7.0,
-   "source": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=167s",
-   "range": "167.1–179.3 s",
-   "video": "media/library/cobolli-c1.mp4",
-   "poster": "media/library/cobolli-c1-poster.jpg"
-  },
-  {
-   "id": "cobolli-c2",
-   "player": "Flavio Cobolli",
-   "hand": "",
-   "frames": 205,
-   "racket_tracked": 88,
-   "stance_rule": 52,
-   "smoothed": 65,
-   "median_px": 7.1,
-   "source": "https://www.youtube.com/watch?v=D6wCPsoAd58&t=179s",
-   "range": "179.6–186.4 s",
-   "video": "media/library/cobolli-c2.mp4",
-   "poster": "media/library/cobolli-c2-poster.jpg"
+   "id": "meshy",
+   "name": "Meshy",
+   "one_line": "Stylised characters, crowds, props and scenes from one image.",
+   "stack": [
+    {
+     "name": "Meshy 7.1 / 6 Lite",
+     "role": "Image-to-3D and text-to-3D, texture, rig, animate.",
+     "logo": "media/logos/meshy.png",
+     "cost": "3,000 credits for $20, used in five days"
+    },
+    {
+     "name": "gpt-image-2, nano-banana",
+     "role": "Reference images and A-pose stills before image-to-3D.",
+     "logo": "",
+     "mono": "IMG",
+     "cost": "inside the Meshy credits"
+    },
+    {
+     "name": "Blender / three.js",
+     "role": "Placement, idles, story pages.",
+     "logo": "media/logos/blender.svg",
+     "cost": "$0"
+    }
+   ],
+   "pipeline": [
+    {
+     "step": "1",
+     "what": "Reference",
+     "how": "photo, or a generated A-pose still"
+    },
+    {
+     "step": "2",
+     "what": "Image to 3D",
+     "how": "Meshy 7.1 with 4K PBR texture"
+    },
+    {
+     "step": "3",
+     "what": "Rig and animate",
+     "how": "Meshy rig, library idles or text-to-motion"
+    },
+    {
+     "step": "4",
+     "what": "Place",
+     "how": "Blender or three.js scene"
+    }
+   ],
+   "groups": [
+    {
+     "title": "Tennis: likeness attempts",
+     "items": [
+      {
+       "id": "meshy-64",
+       "kind": "io",
+       "title": "Three Djokovic heads",
+       "meta": [
+        "Meshy",
+        "Meshy 7.1",
+        "2026-10-24",
+        "105 credits"
+       ],
+       "verdict": "rejected",
+       "inputs": [
+        "media/calls/meshy-64-in1.jpg",
+        "media/calls/meshy-64-in2.jpg"
+       ],
+       "outputs": [
+        "media/calls/meshy-64-out1.jpg",
+        "media/calls/meshy-64-out2.jpg",
+        "media/calls/meshy-64-out3.jpg"
+       ],
+       "back": {
+        "source": "",
+        "ran": "Single photo, multi-angle and frontal-led variants placed on the serve body.",
+        "why": "Single photo, multi-angle and frontal-led variants placed on the serve body.",
+        "differs": "",
+        "cost": "105 credits"
+       }
+      },
+      {
+       "id": "meshy-63",
+       "kind": "io",
+       "title": "Shelton likeness, multi-view",
+       "meta": [
+        "Meshy",
+        "Meshy 7.1",
+        "2026-10-23",
+        "35 credits"
+       ],
+       "verdict": "rejected",
+       "inputs": [
+        "media/calls/meshy-63-in1.jpg",
+        "media/calls/meshy-63-in2.jpg"
+       ],
+       "outputs": [
+        "media/calls/meshy-63-out1.jpg",
+        "media/calls/meshy-63-out2.jpg"
+       ],
+       "back": {
+        "source": "",
+        "ran": "Three photos to one body candidate. A modelling base, not production ready.",
+        "why": "Three photos to one body candidate. A modelling base, not production ready.",
+        "differs": "",
+        "cost": "35 credits"
+       }
+      },
+      {
+       "id": "meshy-60",
+       "kind": "io",
+       "title": "First tennis figure",
+       "meta": [
+        "Meshy",
+        "Meshy 6 Lite",
+        "2026-09-16",
+        "49 of 130 free credits"
+       ],
+       "verdict": "rejected",
+       "inputs": [
+        "media/calls/meshy-60-in1.jpg"
+       ],
+       "outputs": [
+        "media/calls/meshy-60-out1.jpg",
+        "media/calls/meshy-60-out2.jpg",
+        "media/calls/meshy-60-out3.jpg"
+       ],
+       "back": {
+        "source": "",
+        "ran": "Reference image to Meshy 6 Lite image-to-3D with 2K texture.",
+        "why": "Reference image to Meshy 6 Lite image-to-3D with 2K texture.",
+        "differs": "",
+        "cost": "49 of 130 free credits"
+       }
+      }
+     ]
+    }
+   ]
   }
  ]
 }

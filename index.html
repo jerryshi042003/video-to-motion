@@ -1,318 +1,616 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Video to Motion</title>
-<meta name="description" content="A visual library of what Modal (FlowHMR, RacketVision), fal.ai (Rodin, Kling, Hunyuan3D, Tripo) and Meshy produced when turning tennis video into 3D motion, rackets and bodies.">
+<meta name="description" content="What Meshy, fal.ai, Modal (FlowHMR, RacketVision), HyperFrames and Blender produced: tennis video to 3D motion, rackets, bodies, scenes and films. Process first, results below.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <style>
-:root{--bg:#fff;--fg:#111;--muted:#666;--line:#e3e3e3;--good:#1f7a3f;--bad:#b4442c;--link:#0b57d0}
-@media (prefers-color-scheme:dark){:root{--bg:#111;--fg:#eee;--muted:#999;--line:#2a2a2a;--good:#6cc08f;--bad:#e2775c;--link:#8ab4f8}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
-main{max-width:1280px;margin:0 auto;padding:28px 20px 60px}
-h1{font-size:22px;margin:0 0 2px;font-weight:600}
-h2{font-size:18px;margin:44px 0 12px;padding-top:14px;border-top:1px solid var(--line);font-weight:600;scroll-margin-top:16px}
-h3{font-size:15px;margin:0;font-weight:600}h3.sub{margin:28px 0 10px;color:var(--muted);font-weight:500}
-.lede{color:var(--muted);margin:0 0 14px}
-nav{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 14px}nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--fg)}
-.card{padding:14px 0;border-top:1px solid var(--line)}.card:first-of-type{border-top:0}
-.meta{font-size:13px;color:var(--muted);margin:1px 0 8px}
-.v{color:var(--muted)}.v.good{color:var(--good)}.v.bad{color:var(--bad)}
-.io{display:grid;grid-template-columns:minmax(0,1fr) 24px minmax(0,1.4fr);gap:10px;align-items:start}
-.imgs{display:flex;flex-wrap:wrap;gap:6px}.imgs img{height:180px;max-width:100%;width:auto;border-radius:3px;background:#222;object-fit:contain;display:block}
-.arrow{color:var(--muted);text-align:center;padding-top:76px}
-.none{color:var(--muted);font-size:13px;padding-top:4px}
-figure{margin:0 0 16px;display:grid;gap:5px}figure img,figure video{width:100%;height:auto;display:block;border-radius:3px;background:#222}
-figcaption{font-size:13px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,400px),1fr));gap:16px}
-.grid.wide{grid-template-columns:repeat(auto-fill,minmax(min(100%,600px),1fr))}
-a{color:var(--link)}
-footer{margin-top:48px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:grid;gap:4px}
-@media (max-width:720px){.io{grid-template-columns:1fr}.arrow{padding:0;transform:rotate(90deg)}.imgs img{height:140px}}
-</style></head><body><main>
-<h1>Video to Motion</h1>
-<p class="lede">Tennis video to 3D motion, rackets and bodies. Input left, output right.</p>
-<nav><a href="#library">The library</a><a href="#motion">Video to motion</a><a href="#racket">The racket</a><a href="#bodies">Bodies</a><a href="#faces">Faces</a><a href="#meshy">Meshy</a><a href="#mocap">Other mocap</a><a href="#ibex">Image to 3D</a></nav>
-
-<h2 id="library">The library: 16 points, 6 players</h2>
-<div class="grid">
-<figure class="clip">
-<video src="media/library/shelton-serve-b.mp4" poster="media/library/shelton-serve-b-poster.jpg" controls muted loop playsinline preload="none"></video>
-<figcaption>Ben Shelton · left-handed · 192 frames · <a href="https://www.youtube.com/watch?v=vF9WB1ZhgsI&amp;t=33s" target="_blank" rel="noopener">source 33.0–39.4 s</a></figcaption>
-</figure>
-<figure class="clip">
-<video src="media/library/shelton-serve-d.mp4" poster="media/library/shelton-serve-d-poster.jpg" controls muted loop playsinline preload="none"></video>
-<figcaption>Ben Shelton · left-handed · 192 frames · <a href="https://www.youtube.com/watch?v=vF9WB1ZhgsI&amp;t=48s" target="_blank" rel="noopener">source 48.0–54.4 s</a></figcaption>
-</figure>
-<figure class="clip">
-<video src="media/library/shelton-serve-f.mp4" poster="media/library/shelton-serve-f-poster.jpg" controls muted loop playsinline preload="none"></video>
-<figcaption>Ben Shelton · left-handed · 192 frames · <a href="https://www.youtube.com/watch?v=vF9WB1ZhgsI&amp;t=79s" target="_blank" rel="noopener">source 79.0–85.4 s</a></figcaption>
-</figure>
-<figure class="clip">
-<video src="media/library/shelton-serve-g2.mp4" poster="media/library/shelton-serve-g2-poster.jpg" controls muted loop playsinline preload="none"></video>
-<figcaption>Ben Shelton · left-handed · 198 frames · <a href="https://www.youtube.com/watch?v=vF9WB1ZhgsI&amp;t=91s" target="_blank" rel="noopener">source 91.6–98.2 s</a></figcaption>
-</figure>
-<figure class="clip">
-<video src="media/library/alcaraz-a.mp4" poster="media/library/alcaraz-a-poster.jpg" controls muted loop playsinline preload="none"></video>
-<figcaption>Carlos Alcaraz · 435 frames · <a href="https://www.youtube.com/watch?v=9Dl84UYDks0&amp;t=586s" target="_blank" rel="noopener">source 586.0–600.5 s</a></figcaption>
-</figure>
-<figure class="clip">
-<video src="media/library/alcaraz-b.mp4" poster="media/library/alcaraz-b-poster.jpg" controls muted loop playsinline preload="none"></video>
-<figcaption>Carlos Alcaraz · 399 frames · <a href="https://www.youtube.com/watch?v=9Dl84UYDks0&amp;t=601s" target="_blank" rel="noopener">source 601.0–614.3 s</a></figcaption>
-</figure>
-<figure class="clip">
-<video src="media/library/alcaraz-serve.mp4" poster="media/library/alcaraz-serve-poster.jpg" controls muted loop playsinline preload="none"></video>
-<figcaption>Giovanni Mpetshi Perricard · 330 frames · <a href="https://www.youtube.com/watch?v=9Dl84UYDks0&amp;t=548s" target="_blank" rel="noopener">source 548–559 s</a></figcaption>
-</figure>
-<figure class="clip">
-<video src="media/library/djokovic-iw-a.mp4" poster="media/library/djokovic-iw-a-poster.jpg" controls muted loop playsinline preload="none"></video>
-<figcaption>Novak Djokovic · 426 frames · <a href="https://www.youtube.com/watch?v=xsP3PjNgId8&amp;t=399s" target="_blank" rel="noopener">source 399.2–413.4 s</a></figcaption>
-</figure>
-<figure class="clip">
-<video src="media/library/djokovic-iw-c.mp4" poster="media/library/djokovic-iw-c-poster.jpg" controls muted loop playsinline preload="none"></video>
-<figcaption>Novak Djokovic · 435 frames · <a href="https://www.youtube.com/watch?v=xsP3PjNgId8&amp;t=435s" target="_blank" rel="noopener">source 435.0–449.5 s</a></figcaption>
-</figure>
-<figure class="clip">
-<video src="media/library/djokovic-turin-return.mp4" poster="media/library/djokovic-turin-return-poster.jpg" controls muted loop playsinline preload="none"></video>
-<figcaption>Novak Djokovic · 366 frames · <a href="https://www.youtube.com/watch?v=-KoAgZkCIx8&amp;t=29s" target="_blank" rel="noopener">source 29–42 s</a></figcaption>
-</figure>
-<figure class="clip">
-<video src="media/library/sinner-return.mp4" poster="media/library/sinner-return-poster.jpg" controls muted loop playsinline preload="none"></video>
-<figcaption>Jannik Sinner · 293 frames · <a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=109s" target="_blank" rel="noopener">source 109–119 s</a></figcaption>
-</figure>
-<figure class="clip">
-<video src="media/library/cabolli-return.mp4" poster="media/library/cabolli-return-poster.jpg" controls muted loop playsinline preload="none"></video>
-<figcaption>Flavio Cobolli · 201 frames · <a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=137s" target="_blank" rel="noopener">source 137–144 s</a></figcaption>
-</figure>
-<figure class="clip">
-<video src="media/library/cobolli-b1.mp4" poster="media/library/cobolli-b1-poster.jpg" controls muted loop playsinline preload="none"></video>
-<figcaption>Flavio Cobolli · 201 frames · <a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=145s" target="_blank" rel="noopener">source 145.1–151.8 s</a></figcaption>
-</figure>
-<figure class="clip">
-<video src="media/library/cobolli-b2.mp4" poster="media/library/cobolli-b2-poster.jpg" controls muted loop playsinline preload="none"></video>
-<figcaption>Flavio Cobolli · 351 frames · <a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=152s" target="_blank" rel="noopener">source 152.0–163.7 s</a></figcaption>
-</figure>
-<figure class="clip">
-<video src="media/library/cobolli-c1.mp4" poster="media/library/cobolli-c1-poster.jpg" controls muted loop playsinline preload="none"></video>
-<figcaption>Flavio Cobolli · 367 frames · <a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=167s" target="_blank" rel="noopener">source 167.1–179.3 s</a></figcaption>
-</figure>
-<figure class="clip">
-<video src="media/library/cobolli-c2.mp4" poster="media/library/cobolli-c2-poster.jpg" controls muted loop playsinline preload="none"></video>
-<figcaption>Flavio Cobolli · 205 frames · <a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=179s" target="_blank" rel="noopener">source 179.6–186.4 s</a></figcaption>
-</figure>
+:root{--ink:#17202a;--muted:#596571;--line:#e3e6e8;--blue:#2458d3;--wash:#eef3fd;--paper:#fff;--good:#236442;--bad:#963c2f;--mid:#596571;color-scheme:light}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:var(--blue);text-underline-offset:3px}
+.top{border-top:3px solid var(--blue);border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--paper);z-index:20}
+.top .in{max-width:1336px;margin:auto;padding:0 24px;height:56px;display:flex;align-items:center;gap:22px}
+.brand{font-weight:700;font-size:18px;white-space:nowrap}
+.top nav{display:flex;gap:16px;overflow-x:auto;font-size:13px}.top nav a{color:var(--muted);text-decoration:none;white-space:nowrap}.top nav a:hover{color:var(--ink)}
+main{max-width:1336px;margin:auto;padding:28px 24px 80px}
+h1{font-size:34px;line-height:1.15;letter-spacing:-.03em;margin:0 0 6px;font-weight:700}
+.lede{color:var(--muted);margin:0 0 8px;max-width:72ch}
+section{margin-top:56px}section>header{border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:18px}
+h2{font-size:25px;letter-spacing:-.025em;margin:0}section>header p{margin:4px 0 0;color:var(--muted)}
+h3{font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:28px 0 10px;font-weight:600}
+h4.shot{font-size:14px;color:var(--ink);margin:16px 0 8px;font-weight:600}
+.note{margin:-4px 0 12px;color:var(--muted);max-width:80ch}
+.how{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:28px;align-items:start}
+.tools{display:grid;gap:8px}.tool{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.tool .logo,.tool .mono{width:34px;height:34px;flex:none;border-radius:7px;object-fit:contain;background:#f5f7fa;padding:5px}
+.tool .mono{display:grid;place-items:center;font-size:11px;font-weight:700;color:var(--blue)}
+.tool b{display:block;font-size:14px}.tool span{display:block;font-size:13px;color:var(--muted)}.tool .cost{color:var(--ink);font-size:12px;margin-top:2px}
+.pipe{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;counter-reset:s}
+.pipe li{border:1px solid var(--line);border-radius:8px;padding:10px 12px;position:relative;font-size:13px}
+.pipe li .n{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--wash);color:var(--blue);font-size:11px;font-weight:700;margin-bottom:6px}
+.pipe li b{display:block;font-size:14px}.pipe li span:last-child{color:var(--muted)}
+.pipe li:not(:last-child)::after{content:"→";position:absolute;right:-9px;top:12px;color:var(--muted);font-size:12px;background:var(--paper)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px}
+.card{position:relative;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper);min-height:120px}
+.card.io{grid-column:1/-1}
+.card .front,.card .back{transition:opacity .18s}
+.card .back{position:absolute;inset:0;background:var(--paper);opacity:0;pointer-events:none;overflow:auto;padding:14px 16px}
+.card.flipped .back{opacity:1;pointer-events:auto}.card.flipped .front{opacity:.08}
+.media video,.media>img,.media .stack-media>img,.media .stack-media>a>img{width:100%;display:block;background:#1a1f1d;aspect-ratio:16/9;object-fit:cover}
+.card.video .media video{aspect-ratio:auto;height:auto}
+.stack-media{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px}.stack-media>:first-child{grid-column:1/-1}
+.stack-media img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#1a1f1d}
+.card.io .media{padding:12px 14px 0}.io{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1.4fr);gap:8px;align-items:start}
+.imgs{display:flex;flex-wrap:wrap;gap:4px}.imgs img{height:120px;width:auto;max-width:100%;border-radius:3px;background:#1a1f1d;object-fit:contain}
+.arrow{color:var(--muted);text-align:center;padding-top:62px}.none{color:var(--muted);font-size:12px}
+.cap{padding:10px 14px 12px}.cap h4{margin:0;font-size:14px;font-weight:600;display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline}
+.cap .sub{color:var(--muted);font-weight:400;font-size:12.5px}
+.meta{font-size:12.5px;color:var(--muted);margin-top:2px}
+.v{font-weight:600}.v.good{color:var(--good)}.v.bad{color:var(--bad)}.v.mid{color:var(--mid)}
+.flip{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;border:1px solid #b8c2cc;background:rgba(255,255,255,.92);font:600 12px/1 Inter,sans-serif;color:var(--ink);cursor:pointer;z-index:2}
+.flip:hover{border-color:var(--blue);color:var(--blue)}
+.kv-wrap h4{margin:0 0 8px;font-size:14px;padding-right:28px}.kv{display:grid;grid-template-columns:72px 1fr;gap:8px;font-size:13px;margin-bottom:8px}
+.kv span{color:var(--muted)}.kv p{margin:0}
+.scores{display:grid;gap:10px;max-width:980px}
+.score{display:grid;grid-template-columns:260px 1fr 52px;gap:12px;align-items:center}
+.score .bar{height:8px;background:#eef1f4;border-radius:99px;overflow:hidden}.score .bar i{display:block;height:100%;background:var(--blue)}
+.score .num{font-weight:600;text-align:right}.score .why{grid-column:1/-1;color:var(--muted);font-size:13px;margin:-6px 0 2px}
+.tl{display:grid;grid-template-columns:1fr 1fr;gap:32px}.tl ol{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.tl li{display:grid;grid-template-columns:78px 1fr;gap:10px;padding:0 0 14px 14px;position:relative;font-size:14px}
+.tl li::before{content:"";position:absolute;left:-6px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--blue)}
+.tl .next li::before{background:#fff;border:2px solid var(--blue);width:6px;height:6px}.tl .d{color:var(--muted);font-size:12.5px}
+footer{margin-top:64px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:grid;gap:4px;max-width:90ch}
+@media (max-width:800px){.how,.tl{grid-template-columns:1fr}.io{grid-template-columns:1fr}.arrow{padding:0;transform:rotate(90deg)}.score{grid-template-columns:1fr 1fr 48px}.score .name{grid-column:1/-1}}
+@media (prefers-reduced-motion:reduce){.card .front,.card .back{transition:none}}
+</style></head><body>
+<div class="top"><div class="in"><span class="brand">Video to Motion</span><nav><a href="#flowhmr">Video to motion</a><a href="#racket">The racket</a><a href="#bodies">Bodies from photos</a><a href="#hyperframes">HyperFrames films</a><a href="#thumbnails">Home-page thumbnails</a><a href="#meshy">Meshy</a><a href="#scores">Where it stands</a><a href="#timeline">Timeline</a></nav></div></div>
+<main>
+<h1>What each generator actually produced</h1>
+<p class="lede">Tennis video to 3D motion, rackets and bodies; scenes, films and thumbnails for jerrythegoat.com. One section per process: the stack and pipeline first, then the results. Videos play on their own; the small i on each card opens what ran, on what, and why it passed or failed.</p>
+<section class="process" id="flowhmr">
+<header><h2>Video to motion</h2><p>One camera, one point, a body that moves like the player.</p></header>
+<div class="how"><div><h3>Stack</h3><div class="tools"><div class="tool"><img src="media/logos/modal.svg" loading="lazy" alt="" class="logo"><div><b>Modal</b><span>Rented GPUs (T4, L40S, A100). Runs every model below per clip.</span><span class="cost">$14.44 metered this month, $0 billed</span></div></div><div class="tool"><span class="mono">HMR</span><div><b>FlowHMR</b><span>Body motion and shape from one camera.</span><span class="cost">open weights, about $0.30 per clip on Modal</span></div></div><div class="tool"><span class="mono">RV</span><div><b>RacketVision</b><span>Five racket keypoints per frame (AAAI 2026).</span><span class="cost">about $0.02 per clip</span></div></div><div class="tool"><span class="mono">PY</span><div><b>Arm solver</b><span>Local Python: racket through forearm and wrist, contact rule, ball audit.</span><span class="cost">$0</span></div></div><div class="tool"><img src="media/logos/blender.svg" loading="lazy" alt="" class="logo"><div><b>Blender</b><span>Racket model, binding, four-up renders, GLB export.</span><span class="cost">$0</span></div></div></div></div><div><h3>Pipeline</h3><ol class="pipe"><li><span class="n">1</span><b>Pick a clip</b><span>YouTube court-level footage, player large in frame, cut to one point</span></li><li><span class="n">2</span><b>Body</b><span>FlowHMR on Modal: joints, shape, camera per frame</span></li><li><span class="n">3</span><b>Racket points</b><span>RacketVision on Modal: 5 keypoints where visible</span></li><li><span class="n">4</span><b>Racket through the arm</b><span>forearm twist, wrist angle, spin cap; stance rule where hidden</span></li><li><span class="n">5</span><b>Contact rule</b><span>label contact frame and shot type; pin the face angle</span></li><li><span class="n">6</span><b>Render</b><span>Blender: source, front, side, back; GLB for the web</span></li></ol></div></div>
+<h3>Court level, behind the player, 30 fps, 1080p from 4K</h3>
+<p class="note">The recipe that worked. Same steps on every point; differences are the player, the contacts and how much of the swing the detector saw.</p>
+<h4 class="shot">Serves</h4><div class="grid"><article class="card video" id="shelton-serve-b" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/library/shelton-serve-b.mp4" poster="media/library/shelton-serve-b-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Ben Shelton<span class="sub">Serves</span></h4><div class="meta">192 frames · 6.0 px · 30 fps · <b class="v good">accepted</b></div></div>
 </div>
-
-<h2 id="motion">Video to body motion</h2>
-<article class="card" id="motion-13">
-<h3>Ben Shelton serve, the first accepted clip</h3><div class="meta">Modal · FlowHMR · 2026-10-22 · $0.23 · <span class="v good">accepted</span></div>
-<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-13-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-13-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-13-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-13-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="motion-00">
-<h3>Fourteen rear-court 4K clips in one batch</h3><div class="meta">Modal · FlowHMR · 2026-10-28 · $4.44 · <span class="v good">accepted</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/motion-00-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-00-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-00-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-00-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-00-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-00-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-00-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-00-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-00-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-00-out3.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-00-out4.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-00-out4.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="motion-01">
-<h3>Four more rear-court points</h3><div class="meta">Modal · FlowHMR · 2026-10-28 · $1.43 · <span class="v good">accepted</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/motion-01-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-01-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-01-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-01-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-01-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-01-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-01-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-01-out3.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-01-out4.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-01-out4.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="motion-03">
-<h3>Djokovic groundstroke on a 4K crop</h3><div class="meta">Modal · FlowHMR · 2026-10-28 · $0.33 · <span class="v mid">diagnostic</span></div>
-<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-03-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-03-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-03-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-03-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="motion-10">
-<h3>Djokovic body shape from two angles</h3><div class="meta">Modal · FlowHMR · 2026-10-24 · $0.50 · <span class="v mid">diagnostic</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/motion-10-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-10-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-10-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-10-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-10-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-10-out1.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="motion-05">
-<h3>ATP broadcast benchmark</h3><div class="meta">Modal · FlowHMR · 2026-10-26 · $0.28 · <span class="v mid">diagnostic</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/motion-05-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-05-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-05-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-05-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-05-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-05-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="motion-15">
-<h3>College match point</h3><div class="meta">Modal · FlowHMR · 2026-10-22 · $0.28 · <span class="v mid">diagnostic</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/motion-15-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-15-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-15-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-15-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-15-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-15-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="motion-09">
-<h3>Fourteen-second rally</h3><div class="meta">Modal · FlowHMR · 2026-10-24 · $0.48 · <span class="v mid">diagnostic</span></div>
-<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-09-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-09-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-09-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-09-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="motion-11">
-<h3>Two players in one point</h3><div class="meta">Modal · FlowHMR · 2026-10-23 · $0.47 · <span class="v bad">rejected</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/motion-11-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-11-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-11-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-11-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-11-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-11-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="motion-12">
-<h3>Three practice clips</h3><div class="meta">Modal · FlowHMR · 2026-10-23 · $0.54 · <span class="v mid">diagnostic</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/motion-12-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-12-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-12-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-12-out1.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="motion-16">
-<h3>Six-second pilot</h3><div class="meta">Modal · FlowHMR · 2026-10-22 · $0.31 · <span class="v mid">diagnostic</span></div>
-<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-16-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-16-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-16-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-16-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="motion-06">
-<h3>SAM-3D observations, three sources</h3><div class="meta">Modal · SAM-3D · 2026-10-26 · $0.07 · <span class="v mid">diagnostic</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/motion-06-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-06-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-06-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-06-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/motion-06-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-06-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="motion-17">
-<h3>SAM-3D-Body / MHR diagnostic</h3><div class="meta">Modal · SAM-3D-Body · 2026-10-22 · $0.25 · <span class="v mid">diagnostic</span></div>
-<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/motion-17-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/motion-17-out1.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-
-<h2 id="racket">The racket</h2>
-<div class="grid">
-<figure><a href="media/racket/racket-full.jpg" target="_blank" rel="noopener"><img src="media/racket/racket-full.jpg" loading="lazy" alt=""></a><figcaption>Racket model, built in Blender</figcaption></figure>
-<figure><a href="media/racket/racket-face.jpg" target="_blank" rel="noopener"><img src="media/racket/racket-face.jpg" loading="lazy" alt=""></a><figcaption>Face</figcaption></figure>
-<figure><a href="media/racket/racket-tip-macro.jpg" target="_blank" rel="noopener"><img src="media/racket/racket-tip-macro.jpg" loading="lazy" alt=""></a><figcaption>Tip grommets</figcaption></figure>
-<figure><a href="media/racket/racket-strings-macro.jpg" target="_blank" rel="noopener"><img src="media/racket/racket-strings-macro.jpg" loading="lazy" alt=""></a><figcaption>Frame edge</figcaption></figure>
+<div class="back"><div class="kv-wrap"><h4>Ben Shelton</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=vF9WB1ZhgsI&amp;t=33s" target="_blank" rel="noopener">Court Level Tennis · 33.0–39.4 s</a></p></div><div class="kv"><span>What ran</span><p>Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.</p></div><div class="kv"><span>Result</span><p>Body accepted. Racket face at contact is set by rule, not measured.</p></div><div class="kv"><span>This one</span><p>Ben Shelton (left-handed, racket in the left hand). 192 frames. Contacts: serve at frame 134. Racket seen by the detector in 138 frames, stance rule in 20, smoothed in 34; 6.0 px median error; arm limits exceeded on 2 frames.</p></div><div class="kv"><span>Cost</span><p>about $0.32 Modal (share of the batch) + RacketVision share</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="shelton-serve-d" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/library/shelton-serve-d.mp4" poster="media/library/shelton-serve-d-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Ben Shelton<span class="sub">Serves</span></h4><div class="meta">192 frames · 4.7 px · 30 fps · <b class="v good">accepted</b></div></div>
 </div>
-<h3 class="sub">Finding the racket</h3>
-<article class="card" id="racket-detect-02">
-<h3>RacketVision on the rear-court clips</h3><div class="meta">Modal · RacketVision · 2026-10-28 · $0.38 · <span class="v mid">diagnostic</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/racket-detect-02-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-02-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/racket-detect-02-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-02-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/racket-detect-02-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-02-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/racket-detect-02-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-02-out3.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="racket-detect-04">
-<h3>RacketVision on Djokovic, rear and 4K crop</h3><div class="meta">Modal · RacketVision · 2026-10-27 · $0.03 · <span class="v mid">diagnostic</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/racket-detect-04-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-04-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/racket-detect-04-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-04-out1.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="racket-detect-18">
-<h3>RacketVision pilot, many clips</h3><div class="meta">Modal · RacketVision · 2026-10-22 · $0.19 · <span class="v mid">diagnostic</span></div>
-<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/racket-detect-18-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-18-out1.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="racket-detect-19">
-<h3>Hand and racket crops</h3><div class="meta">Modal · FlowHMR crops · 2026-10-22 · $0.10 · <span class="v mid">diagnostic</span></div>
-<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/racket-detect-19-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-19-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/racket-detect-19-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/racket-detect-19-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<h3 class="sub">Solving the racket through the arm</h3>
-<div class="grid wide">
-<figure><a href="media/racket/ovl-djokovic-iw-a.jpg" target="_blank" rel="noopener"><img src="media/racket/ovl-djokovic-iw-a.jpg" loading="lazy" alt=""></a><figcaption>Djokovic, Indian Wells A. Red old fit, green arm solve, cyan detections</figcaption></figure>
-<figure><a href="media/racket/ovl-djokovic-turin-return.jpg" target="_blank" rel="noopener"><img src="media/racket/ovl-djokovic-turin-return.jpg" loading="lazy" alt=""></a><figcaption>Djokovic, Turin</figcaption></figure>
-<figure><a href="media/racket/ovl-djokovic-iw-c.jpg" target="_blank" rel="noopener"><img src="media/racket/ovl-djokovic-iw-c.jpg" loading="lazy" alt=""></a><figcaption>Djokovic, Indian Wells C</figcaption></figure>
-<figure><a href="media/racket/ovl-sinner-return.jpg" target="_blank" rel="noopener"><img src="media/racket/ovl-sinner-return.jpg" loading="lazy" alt=""></a><figcaption>Sinner return</figcaption></figure>
+<div class="back"><div class="kv-wrap"><h4>Ben Shelton</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=vF9WB1ZhgsI&amp;t=48s" target="_blank" rel="noopener">Court Level Tennis · 48.0–54.4 s</a></p></div><div class="kv"><span>What ran</span><p>Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.</p></div><div class="kv"><span>Result</span><p>Body accepted. Racket face at contact is set by rule, not measured.</p></div><div class="kv"><span>This one</span><p>Ben Shelton (left-handed, racket in the left hand). 192 frames. Contacts: serve at 120. Racket seen by the detector in 110 frames, stance rule in 43, smoothed in 39; 4.7 px median error; arm limits exceeded on 5 frames.</p></div><div class="kv"><span>Cost</span><p>about $0.32 Modal (share of the batch) + RacketVision share</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="shelton-serve-f" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/library/shelton-serve-f.mp4" poster="media/library/shelton-serve-f-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Ben Shelton<span class="sub">Serves</span></h4><div class="meta">192 frames · 12.3 px · 30 fps · <b class="v good">accepted</b></div></div>
 </div>
-<h3 class="sub">Grip</h3>
-<div class="grid wide">
-<figure><a href="media/racket/all-grip.jpg" target="_blank" rel="noopener"><img src="media/racket/all-grip.jpg" loading="lazy" alt=""></a><figcaption>Grip registration, all 16 points</figcaption></figure>
-<figure><a href="media/racket/hand-grip-contact.jpg" target="_blank" rel="noopener"><img src="media/racket/hand-grip-contact.jpg" loading="lazy" alt=""></a><figcaption>Hand at contact, 120 fps</figcaption></figure>
+<div class="back"><div class="kv-wrap"><h4>Ben Shelton</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=vF9WB1ZhgsI&amp;t=79s" target="_blank" rel="noopener">Court Level Tennis · 79.0–85.4 s</a></p></div><div class="kv"><span>What ran</span><p>Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.</p></div><div class="kv"><span>Result</span><p>Body accepted. Racket face at contact is set by rule, not measured.</p></div><div class="kv"><span>This one</span><p>Ben Shelton (left-handed, racket in the left hand). 192 frames. Contacts: serve at 117. Racket seen by the detector in 122 frames, stance rule in 23, smoothed in 47; 12.3 px median error; arm limits exceeded on 0 frames.</p></div><div class="kv"><span>Cost</span><p>about $0.32 Modal (share of the batch) + RacketVision share</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="shelton-serve-g2" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/library/shelton-serve-g2.mp4" poster="media/library/shelton-serve-g2-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Ben Shelton<span class="sub">Serves</span></h4><div class="meta">198 frames · 12.5 px · 30 fps · <b class="v good">accepted</b></div></div>
 </div>
-<h3 class="sub">120 fps changes everything</h3>
-<figure><video src="media/racket/alcaraz-120-forehand-v2.mp4" poster="media/racket/alcaraz-120-forehand-v2-poster.jpg" controls muted loop playsinline preload="none"></video><figcaption>Alcaraz forehand, 120 fps. Source, overlay, front, side, back</figcaption></figure>
-<div class="grid wide">
-<figure><a href="media/racket/hfr-contact.jpg" target="_blank" rel="noopener"><img src="media/racket/hfr-contact.jpg" loading="lazy" alt=""></a><figcaption>Through contact</figcaption></figure>
-<figure><a href="media/racket/hfr-follow.jpg" target="_blank" rel="noopener"><img src="media/racket/hfr-follow.jpg" loading="lazy" alt=""></a><figcaption>Follow-through</figcaption></figure>
+<div class="back"><div class="kv-wrap"><h4>Ben Shelton</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=vF9WB1ZhgsI&amp;t=91s" target="_blank" rel="noopener">Court Level Tennis · 91.6–98.2 s</a></p></div><div class="kv"><span>What ran</span><p>Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.</p></div><div class="kv"><span>Result</span><p>Body accepted. Racket face at contact is set by rule, not measured.</p></div><div class="kv"><span>This one</span><p>Ben Shelton (left-handed, racket in the left hand). 198 frames. Contacts: serve at 120. Racket seen by the detector in 123 frames, stance rule in 28, smoothed in 47; 12.5 px median error; arm limits exceeded on 4 frames.</p></div><div class="kv"><span>Cost</span><p>about $0.32 Modal (share of the batch) + RacketVision share</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article></div>
+<h4 class="shot">Returns</h4><div class="grid"><article class="card video" id="sinner-return" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/library/sinner-return.mp4" poster="media/library/sinner-return-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Jannik Sinner<span class="sub">Returns</span></h4><div class="meta">293 frames · 10.7 px · 30 fps · <b class="v good">accepted</b></div></div>
 </div>
-<h3 class="sub">Face angle at contact</h3>
-<div class="grid wide">
-<figure><a href="media/racket/face-edge-compare.jpg" target="_blank" rel="noopener"><img src="media/racket/face-edge-compare.jpg" loading="lazy" alt=""></a><figcaption>Face angle at contact, before and after</figcaption></figure>
-<figure><a href="media/racket/edge-before-after.jpg" target="_blank" rel="noopener"><img src="media/racket/edge-before-after.jpg" loading="lazy" alt=""></a><figcaption>Same check across the library</figcaption></figure>
+<div class="back"><div class="kv-wrap"><h4>Jannik Sinner</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=109s" target="_blank" rel="noopener">Court Level Tennis · 109–119 s</a></p></div><div class="kv"><span>What ran</span><p>Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.</p></div><div class="kv"><span>Result</span><p>Body accepted. Racket face at contact is set by rule, not measured.</p></div><div class="kv"><span>This one</span><p>Jannik Sinner. 293 frames. Contacts: topspin at 82, 159, 230. Racket seen by the detector in 101 frames, stance rule in 156, smoothed in 36; 10.7 px median error; arm limits exceeded on 11 frames.</p></div><div class="kv"><span>Cost</span><p>about $0.36 Modal (share of the batch) + RacketVision share</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="djokovic-turin-return" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/library/djokovic-turin-return.mp4" poster="media/library/djokovic-turin-return-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Novak Djokovic<span class="sub">Returns</span></h4><div class="meta">366 frames · 5.7 px · 30 fps · <b class="v good">accepted</b></div></div>
 </div>
-<h3 class="sub">Djokovic groundstroke, rebuilt from a 4K crop</h3>
-<figure><video src="media/racket/djokovic-groundstroke-v2.mp4" poster="media/racket/djokovic-groundstroke-v2-poster.jpg" controls muted loop playsinline preload="none"></video><figcaption>Djokovic groundstroke from a 4K crop</figcaption></figure>
-<div class="grid wide">
-<figure><a href="media/racket/compare-a.jpg" target="_blank" rel="noopener"><img src="media/racket/compare-a.jpg" loading="lazy" alt=""></a><figcaption>Phases 20 to 80</figcaption></figure>
-<figure><a href="media/racket/compare-b.jpg" target="_blank" rel="noopener"><img src="media/racket/compare-b.jpg" loading="lazy" alt=""></a><figcaption>Phases 84 to 155</figcaption></figure>
+<div class="back"><div class="kv-wrap"><h4>Novak Djokovic</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=-KoAgZkCIx8&amp;t=29s" target="_blank" rel="noopener">Court Level Tennis · 29–42 s</a></p></div><div class="kv"><span>What ran</span><p>Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.</p></div><div class="kv"><span>Result</span><p>Body accepted. Racket face at contact is set by rule, not measured.</p></div><div class="kv"><span>This one</span><p>Novak Djokovic. 366 frames. Contacts: topspin at 134 and 216. Racket seen by the detector in 256 frames, stance rule in 15, smoothed in 95; 5.7 px median error; arm limits exceeded on 17 frames.</p></div><div class="kv"><span>Cost</span><p>about $0.36 Modal (share of the batch) + RacketVision share</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="cabolli-return" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/library/cabolli-return.mp4" poster="media/library/cabolli-return-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Flavio Cobolli<span class="sub">Returns</span></h4><div class="meta">201 frames · 4.8 px · 30 fps · <b class="v good">accepted</b></div></div>
 </div>
-
-<h2 id="bodies">Whole bodies from photos: fal.ai Rodin</h2>
-<figure><video src="media/bodies/shelton-serve-fal.mp4" poster="media/bodies/shelton-serve-fal-poster.jpg" controls muted loop playsinline preload="none"></video><figcaption>Shelton serve, his own Rodin body</figcaption></figure>
-<figure><a href="media/bodies/compare-serve.jpg" target="_blank" rel="noopener"><img src="media/bodies/compare-serve.jpg" loading="lazy" alt=""></a><figcaption>Source, plain body, Rodin body</figcaption></figure>
-<article class="card" id="bodies-47">
-<h3>Ben Shelton</h3><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-27 · $0.40 · <span class="v mid">paused</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/bodies-47-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-47-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-47-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-47-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/bodies-47-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-47-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-47-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-47-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-47-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-47-out3.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="bodies-50">
-<h3>Flavio Cobolli</h3><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-28 · $0.40 · <span class="v mid">paused</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/bodies-50-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-50-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-50-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-50-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/bodies-50-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-50-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-50-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-50-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-50-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-50-out3.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="bodies-52">
-<h3>Carlos Alcaraz</h3><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-28 · $0.40 · <span class="v mid">paused</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/bodies-52-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-52-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-52-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-52-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/bodies-52-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-52-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-52-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-52-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="bodies-48">
-<h3>Giovanni Mpetshi Perricard</h3><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-27 · $0.40 · <span class="v mid">paused</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/bodies-48-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-48-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-48-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-48-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/bodies-48-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-48-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-48-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-48-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="bodies-51">
-<h3>Novak Djokovic, full-body references</h3><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-28 · $0.40 · <span class="v mid">paused</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/bodies-51-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-51-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-51-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-51-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/bodies-51-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-51-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-51-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-51-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-51-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-51-out3.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="bodies-49">
-<h3>Novak Djokovic, knee-cropped references</h3><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-28 · $0.40 · <span class="v bad">failed</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/bodies-49-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-49-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-49-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-49-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/bodies-49-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-49-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-49-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-49-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="bodies-46">
-<h3>Novak Djokovic, two photos</h3><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-26 · $0.40 · <span class="v bad">rejected</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/bodies-46-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-46-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-46-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-46-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/bodies-46-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-46-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-46-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-46-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-46-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-46-out3.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="bodies-45">
-<h3>Novak Djokovic, one photo</h3><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-26 · $0.40 · <span class="v bad">rejected</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/bodies-45-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-45-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/bodies-45-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-45-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/bodies-45-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/bodies-45-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-
-<h2 id="faces">Faces and whole-person reconstruction on Modal</h2>
-<article class="card" id="faces-07">
-<h3>UP2You whole-person reconstruction</h3><div class="meta">Modal · UP2You · 2026-10-26 · $0.36 · <span class="v bad">rejected</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/faces-07-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/faces-07-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/faces-07-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/faces-07-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/faces-07-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/faces-07-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/faces-07-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/faces-07-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="faces-08">
-<h3>MICA face fit</h3><div class="meta">Modal · MICA · 2026-10-26 · $0.01 · <span class="v bad">rejected</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/faces-08-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/faces-08-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/faces-08-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/faces-08-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/faces-08-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/faces-08-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/faces-08-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/faces-08-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-
-<h2 id="meshy">Meshy</h2>
-<article class="card" id="meshy-62">
-<h3>Court-stories cast</h3><div class="meta">Meshy · Meshy 7.1 · 2026-10-20 · about 1,900 credits (2,108 → 216 by 21 Oct) · <span class="v good">used on page</span></div>
-<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/meshy-62-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-62-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-62-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-62-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-62-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-62-out3.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="meshy-61">
-<h3>Track-sprint riders and staff</h3><div class="meta">Meshy · Meshy 7.1 · 2026-10-19 · part of 3,000 credits bought 19 Oct ($20) · <span class="v mid">built</span></div>
-<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/meshy-61-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-61-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-61-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-61-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="meshy-64">
-<h3>Three Djokovic heads</h3><div class="meta">Meshy · Meshy 7.1 · 2026-10-24 · 105 credits · <span class="v bad">rejected</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/meshy-64-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-64-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-64-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-64-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/meshy-64-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-64-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-64-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-64-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-64-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-64-out3.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="meshy-63">
-<h3>Shelton likeness, multi-view</h3><div class="meta">Meshy · Meshy 7.1 · 2026-10-23 · 35 credits · <span class="v bad">rejected</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/meshy-63-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-63-in1.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-63-in2.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-63-in2.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/meshy-63-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-63-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-63-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-63-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="meshy-60">
-<h3>First tennis figure</h3><div class="meta">Meshy · Meshy 6 Lite · 2026-09-16 · 49 of 130 free credits · <span class="v bad">rejected</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/meshy-60-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-60-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/meshy-60-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-60-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-60-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-60-out2.jpg" loading="lazy" alt=""></a><a href="media/calls/meshy-60-out3.jpg" target="_blank" rel="noopener"><img src="media/calls/meshy-60-out3.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-
-<h2 id="mocap">Other motion capture tried</h2>
-<article class="card" id="mocap-20">
-<h3>GEM-X mocap</h3><div class="meta">Modal · GEM-X · 2026-10-21 · $3.35 · <span class="v bad">not adopted</span></div>
-<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/mocap-20-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/mocap-20-out1.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="mocap-21">
-<h3>Kimodo</h3><div class="meta">Modal · Kimodo · 2026-10-21 · $0.13 · <span class="v bad">not adopted</span></div>
-<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/mocap-21-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/mocap-21-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/mocap-21-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/mocap-21-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-
-<h2 id="ibex">Image to 3D for a different subject: an ibex</h2>
-<article class="card" id="ibex-53">
-<h3>Concept images</h3><div class="meta">fal.ai · Flux, nano-banana · 2026-10-27 · <span class="v mid">built</span></div>
-<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/ibex-53-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-53-out1.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="ibex-54">
-<h3>Image to 3D, two engines</h3><div class="meta">fal.ai · Hunyuan3D, Tripo · 2026-10-28 · <span class="v mid">built</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/ibex-54-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-54-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/ibex-54-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-54-out1.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="ibex-56">
-<h3>Realistic ibex</h3><div class="meta">fal.ai · nano-banana, Hunyuan3D, Tripo · 2026-10-28 · <span class="v mid">built</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/ibex-56-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-56-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/ibex-56-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-56-out1.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="ibex-55">
-<h3>Mountain</h3><div class="meta">fal.ai · nano-banana, Tripo · 2026-10-28 · <span class="v mid">built</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/ibex-55-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-55-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/ibex-55-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-55-out1.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="ibex-59">
-<h3>Rodin image-to-3D ibex</h3><div class="meta">fal.ai · Rodin 2.5 · 2026-10-29 · <span class="v good">used on page</span></div>
-<div class="io"><div class="imgs"><a href="media/calls/ibex-59-in1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-59-in1.jpg" loading="lazy" alt=""></a></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/ibex-59-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-59-out1.jpg" loading="lazy" alt=""></a><a href="media/calls/ibex-59-out2.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-59-out2.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-<article class="card" id="ibex-57">
-<h3>Backgrounds</h3><div class="meta">fal.ai · nano-banana · 2026-10-28 · <span class="v mid">built</span></div>
-<div class="io"><div class="imgs"><div class="none">no image kept</div></div><div class="arrow" aria-hidden="true">→</div><div class="imgs"><a href="media/calls/ibex-57-out1.jpg" target="_blank" rel="noopener"><img src="media/calls/ibex-57-out1.jpg" loading="lazy" alt=""></a></div></div>
-</article>
-
+<div class="back"><div class="kv-wrap"><h4>Flavio Cobolli</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=137s" target="_blank" rel="noopener">Court Level Tennis · 137–144 s</a></p></div><div class="kv"><span>What ran</span><p>Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.</p></div><div class="kv"><span>Result</span><p>Body accepted. Racket face at contact is set by rule, not measured.</p></div><div class="kv"><span>This one</span><p>Flavio Cobolli. 201 frames. Contacts: no clear contact labelled; player mostly out of the swing. Racket seen by the detector in 65 frames, stance rule in 127, smoothed in 9; 4.8 px median error; arm limits exceeded on 6 frames.</p></div><div class="kv"><span>Cost</span><p>about $0.36 Modal (share of the batch) + RacketVision share</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article></div>
+<h4 class="shot">Served points with groundstrokes</h4><div class="grid"><article class="card video" id="alcaraz-serve" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/library/alcaraz-serve.mp4" poster="media/library/alcaraz-serve-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Giovanni Mpetshi Perricard<span class="sub">Served points with groundstrokes</span></h4><div class="meta">330 frames · 9.4 px · 30 fps · <b class="v good">accepted</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Giovanni Mpetshi Perricard</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=9Dl84UYDks0&amp;t=548s" target="_blank" rel="noopener">Court Level Tennis · 548–559 s</a></p></div><div class="kv"><span>What ran</span><p>Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.</p></div><div class="kv"><span>Result</span><p>Body accepted. Racket face at contact is set by rule, not measured.</p></div><div class="kv"><span>This one</span><p>Giovanni Mpetshi Perricard. 330 frames. Contacts: serve at 92, topspin at 148 and 221. Racket seen by the detector in 251 frames, stance rule in 32, smoothed in 47; 9.4 px median error; arm limits exceeded on 12 frames.</p></div><div class="kv"><span>Cost</span><p>about $0.36 Modal (share of the batch) + RacketVision share</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="alcaraz-a" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/library/alcaraz-a.mp4" poster="media/library/alcaraz-a-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Carlos Alcaraz<span class="sub">Served points with groundstrokes</span></h4><div class="meta">435 frames · 10.9 px · 30 fps · <b class="v good">accepted</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Carlos Alcaraz</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=9Dl84UYDks0&amp;t=586s" target="_blank" rel="noopener">Court Level Tennis · 586.0–600.5 s</a></p></div><div class="kv"><span>What ran</span><p>Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.</p></div><div class="kv"><span>Result</span><p>Body accepted. Racket face at contact is set by rule, not measured.</p></div><div class="kv"><span>This one</span><p>Carlos Alcaraz. 435 frames. Contacts: serve at 249; frame 303 is a two-handed backhand. Racket seen by the detector in 305 frames, stance rule in 47, smoothed in 83; 10.9 px median error; arm limits exceeded on 22 frames.</p></div><div class="kv"><span>Cost</span><p>about $0.32 Modal (share of the batch) + RacketVision share</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="alcaraz-b" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/library/alcaraz-b.mp4" poster="media/library/alcaraz-b-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Carlos Alcaraz<span class="sub">Served points with groundstrokes</span></h4><div class="meta">399 frames · 10.6 px · 30 fps · <b class="v good">accepted</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Carlos Alcaraz</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=9Dl84UYDks0&amp;t=601s" target="_blank" rel="noopener">Court Level Tennis · 601.0–614.3 s</a></p></div><div class="kv"><span>What ran</span><p>Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.</p></div><div class="kv"><span>Result</span><p>Body accepted. Racket face at contact is set by rule, not measured.</p></div><div class="kv"><span>This one</span><p>Carlos Alcaraz. 399 frames. Contacts: serve at 177, topspin at 238. Racket seen by the detector in 199 frames, stance rule in 111, smoothed in 89; 10.6 px median error; arm limits exceeded on 37 frames.</p></div><div class="kv"><span>Cost</span><p>about $0.32 Modal (share of the batch) + RacketVision share</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="djokovic-iw-a" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/library/djokovic-iw-a.mp4" poster="media/library/djokovic-iw-a-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Novak Djokovic<span class="sub">Served points with groundstrokes</span></h4><div class="meta">426 frames · 9.0 px · 30 fps · <b class="v good">accepted</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Novak Djokovic</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=xsP3PjNgId8&amp;t=399s" target="_blank" rel="noopener">Court Level Tennis · 399.2–413.4 s</a></p></div><div class="kv"><span>What ran</span><p>Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.</p></div><div class="kv"><span>Result</span><p>Body accepted. Racket face at contact is set by rule, not measured.</p></div><div class="kv"><span>This one</span><p>Novak Djokovic. 426 frames. Contacts: topspin at 78 and 328; frame 145 is a one-handed slice. Racket seen by the detector in 136 frames, stance rule in 182, smoothed in 108; 9.0 px median error; arm limits exceeded on 7 frames.</p></div><div class="kv"><span>Cost</span><p>about $0.32 Modal (share of the batch) + RacketVision share</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="djokovic-iw-c" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/library/djokovic-iw-c.mp4" poster="media/library/djokovic-iw-c-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Novak Djokovic<span class="sub">Served points with groundstrokes</span></h4><div class="meta">435 frames · 11.6 px · 30 fps · <b class="v good">accepted</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Novak Djokovic</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=xsP3PjNgId8&amp;t=435s" target="_blank" rel="noopener">Court Level Tennis · 435.0–449.5 s</a></p></div><div class="kv"><span>What ran</span><p>Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.</p></div><div class="kv"><span>Result</span><p>Body accepted. Racket face at contact is set by rule, not measured.</p></div><div class="kv"><span>This one</span><p>Novak Djokovic. 435 frames. Contacts: topspin at 10, 169, 242; frame 312 is a one-handed slice. Racket seen by the detector in 172 frames, stance rule in 123, smoothed in 140; 11.6 px median error; arm limits exceeded on 15 frames.</p></div><div class="kv"><span>Cost</span><p>about $0.32 Modal (share of the batch) + RacketVision share</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="cobolli-b1" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/library/cobolli-b1.mp4" poster="media/library/cobolli-b1-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Flavio Cobolli<span class="sub">Served points with groundstrokes</span></h4><div class="meta">201 frames · 10.1 px · 30 fps · <b class="v good">accepted</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Flavio Cobolli</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=145s" target="_blank" rel="noopener">Court Level Tennis · 145.1–151.8 s</a></p></div><div class="kv"><span>What ran</span><p>Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.</p></div><div class="kv"><span>Result</span><p>Body accepted. Racket face at contact is set by rule, not measured.</p></div><div class="kv"><span>This one</span><p>Flavio Cobolli. 201 frames. Contacts: serve at 8, topspin at 62 and 133. Racket seen by the detector in 122 frames, stance rule in 41, smoothed in 38; 10.1 px median error; arm limits exceeded on 23 frames.</p></div><div class="kv"><span>Cost</span><p>about $0.32 Modal (share of the batch) + RacketVision share</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="cobolli-b2" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/library/cobolli-b2.mp4" poster="media/library/cobolli-b2-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Flavio Cobolli<span class="sub">Served points with groundstrokes</span></h4><div class="meta">351 frames · 6.1 px · 30 fps · <b class="v good">accepted</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Flavio Cobolli</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=152s" target="_blank" rel="noopener">Court Level Tennis · 152.0–163.7 s</a></p></div><div class="kv"><span>What ran</span><p>Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.</p></div><div class="kv"><span>Result</span><p>Body accepted. Racket face at contact is set by rule, not measured.</p></div><div class="kv"><span>This one</span><p>Flavio Cobolli. 351 frames. Contacts: serve at 147, topspin at 202 and 276. Racket seen by the detector in 222 frames, stance rule in 74, smoothed in 55; 6.1 px median error; arm limits exceeded on 12 frames.</p></div><div class="kv"><span>Cost</span><p>about $0.32 Modal (share of the batch) + RacketVision share</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="cobolli-c1" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/library/cobolli-c1.mp4" poster="media/library/cobolli-c1-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Flavio Cobolli<span class="sub">Served points with groundstrokes</span></h4><div class="meta">367 frames · 7.0 px · 30 fps · <b class="v good">accepted</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Flavio Cobolli</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=167s" target="_blank" rel="noopener">Court Level Tennis · 167.1–179.3 s</a></p></div><div class="kv"><span>What ran</span><p>Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.</p></div><div class="kv"><span>Result</span><p>Body accepted. Racket face at contact is set by rule, not measured.</p></div><div class="kv"><span>This one</span><p>Flavio Cobolli. 367 frames. Contacts: serve at 66, topspin at 124, 200, 278. Racket seen by the detector in 202 frames, stance rule in 81, smoothed in 84; 7.0 px median error; arm limits exceeded on 8 frames.</p></div><div class="kv"><span>Cost</span><p>about $0.32 Modal (share of the batch) + RacketVision share</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="cobolli-c2" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/library/cobolli-c2.mp4" poster="media/library/cobolli-c2-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Flavio Cobolli<span class="sub">Served points with groundstrokes</span></h4><div class="meta">205 frames · 7.1 px · 30 fps · <b class="v good">accepted</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Flavio Cobolli</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=D6wCPsoAd58&amp;t=179s" target="_blank" rel="noopener">Court Level Tennis · 179.6–186.4 s</a></p></div><div class="kv"><span>What ran</span><p>Same recipe as every other point. FlowHMR body and shape on Modal, RacketVision racket points on Modal, racket solved through the arm, contact rule at the labelled contacts, Blender export of source, front, side and back.</p></div><div class="kv"><span>Result</span><p>Body accepted. Racket face at contact is set by rule, not measured.</p></div><div class="kv"><span>This one</span><p>Flavio Cobolli. 205 frames. Contacts: serve at 77. Racket seen by the detector in 88 frames, stance rule in 52, smoothed in 65; 7.1 px median error; arm limits exceeded on 7 frames.</p></div><div class="kv"><span>Cost</span><p>about $0.32 Modal (share of the batch) + RacketVision share</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article></div><h3>Other cameras and frame rates</h3>
+<p class="note">Same FlowHMR, different footage. This is where quality changes.</p>
+<div class="grid"><article class="card video" id="alcaraz-120" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/racket/alcaraz-120-forehand-v2.mp4" poster="media/racket/alcaraz-120-forehand-v2-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Carlos Alcaraz forehand<span class="sub">120 fps, 4K, court level</span></h4><div class="meta">120 fps · 4K · 81% racket found · <b class="v good">accepted</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Carlos Alcaraz forehand</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=-Eu80hGbgVA" target="_blank" rel="noopener">Slow-Mo Tennis · Indian Wells 2023 practice, 4K 120 fps</a></p></div><div class="kv"><span>What ran</span><p>FlowHMR at 30 fps upsampled to 120; RacketVision on every 120 fps frame; racket solved through the arm; contact rule at frame 650.</p></div><div class="kv"><span>Result</span><p>Best racket result of the whole project: the detector keeps the racket through contact and follow-through. 15.5 px median on held-out frames.</p></div><div class="kv"><span>This one</span><p>Only clip at 120 fps. Everything else is 30 fps, where the racket blurs at contact and the detector loses it.</p></div><div class="kv"><span>Cost</span><p>inside the RacketVision batch, about $0.40 Modal</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="djokovic-v2" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/racket/djokovic-groundstroke-v2.mp4" poster="media/racket/djokovic-groundstroke-v2-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Novak Djokovic groundstrokes<span class="sub">High seat, diagonal, 4K crop</span></h4><div class="meta">30 fps · 4K crop to 1080p · 210 frames · <b class="v mid">diagnostic</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Novak Djokovic groundstrokes</h4><div class="kv"><span>Source</span><p>Court Level Tennis · Indian Wells practice, high diagonal seat</p></div><div class="kv"><span>What ran</span><p>4K master matched to the 720p clip frame for frame, cropped to 1080p; FlowHMR on the crop; RacketVision on 4K and 720p merged; 11 backhand frames hand-marked.</p></div><div class="kv"><span>Result</span><p>Body fit improved from 8.6 to 6.9 px. The racket detector got worse on 4K (151 confident frames vs 181 on 720p). Forehand contacts are edge-on and stay unmarked.</p></div><div class="kv"><span>This one</span><p>Camera is high and diagonal with a coach and partner in frame; player only about 260 px tall in the 720p clip. This camera is the ceiling for groundstrokes.</p></div><div class="kv"><span>Cost</span><p>$0.33 Modal</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card image" id="shelton-atp" tabindex="0">
+<div class="front">
+<div class="media"><a href="https://jerry-tennis-lab.vercel.app/?source=motion&amp;match=shelton-atp" target="_blank" rel="noopener"><img src="media/scenes/shelton-atp.jpg" loading="lazy" alt="" class=""></a></div>
+<div class="cap"><h4>Ben Shelton, ATP broadcast<span class="sub">Elevated broadcast camera, 1080p50</span></h4><div class="meta">1080p50 to 30 fps · 169 frames · body only · <b class="v mid">diagnostic</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Ben Shelton, ATP broadcast</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=tQdVQu-CQwQ&amp;t=16s" target="_blank" rel="noopener">TennisTV · 0:16.37–0:22.00, one camera cut excluded</a></p></div><div class="kv"><span>What ran</span><p>FlowHMR only, same fixed Shelton body as the court-level serve. No racket, ball or opponent solved.</p></div><div class="kv"><span>Result</span><p>Full-court view explains play, but the player is about 220 px tall so the wrist and face carry no usable detail. Kept as a benchmark, not a demo.</p></div><div class="kv"><span>This one</span><p>Output is a live 3D scene on the Tennis Lab site, not a four-up video: the four-up export was built later for the rear-court recipe and was not run on this clip.</p></div><div class="kv"><span>Cost</span><p>$0.28 Modal</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card image" id="ucla-point8" tabindex="0">
+<div class="front">
+<div class="media"><a href="https://jerry-tennis-lab.vercel.app/?source=motion&amp;match=ucla-point8" target="_blank" rel="noopener"><img src="media/scenes/ucla-point8.jpg" loading="lazy" alt="" class=""></a></div>
+<div class="cap"><h4>Spencer Johnson, college match<span class="sub">Fixed club camera behind the baseline, 1080p</span></h4><div class="meta">30 fps · 270 frames · body + ball arcs · <b class="v mid">diagnostic</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Spencer Johnson, college match</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=ot8tSR3q9gI&amp;t=300s" target="_blank" rel="noopener">UCLA Tennis Consulting · PlaySight footage · 5:00–5:09, point 8</a></p></div><div class="kv"><span>What ran</span><p>FlowHMR body plus tagged shot contacts and bounces from a Stanford charting dataset; estimated ball arcs. Court fit median 0.46 m.</p></div><div class="kv"><span>Result</span><p>Body placement and ball arcs are estimates. No racket solve; the racket stage was rejected for this clip.</p></div><div class="kv"><span>This one</span><p>Only clip from a fixed club camera and the only one with a charted ball. Live 3D scene, no four-up video.</p></div><div class="kv"><span>Cost</span><p>$0.28 Modal</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card image" id="shelton-long-rally" tabindex="0">
+<div class="front">
+<div class="media"><a href="https://jerry-tennis-lab.vercel.app/?source=motion&amp;match=shelton-long-rally" target="_blank" rel="noopener"><img src="media/scenes/shelton-long-rally.jpg" loading="lazy" alt="" class=""></a></div>
+<div class="cap"><h4>Ben Shelton, 14-second rally<span class="sub">Court level behind the baseline, long movement</span></h4><div class="meta">30 fps · 414 of 420 frames · body only · <b class="v mid">diagnostic</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Ben Shelton, 14-second rally</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=cDV-pQCJkP4&amp;t=154s" target="_blank" rel="noopener">Slow-Mo Tennis · Shelton and Coria practice set · 2:34.20–2:48.00</a></p></div><div class="kv"><span>What ran</span><p>FlowHMR on a fixed body shape over 14 seconds. The run exited with an error and 414 of 420 frames were recovered.</p></div><div class="kv"><span>Result</span><p>Longer movement exposes tracking drift and hidden hands. Racket contact and court placement were not solved.</p></div><div class="kv"><span>This one</span><p>Same camera as the library points but twice the length; shows what drifts over time.</p></div><div class="kv"><span>Cost</span><p>$0.48 Modal</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card image" id="shelton-coria" tabindex="0">
+<div class="front">
+<div class="media"><a href="https://jerry-tennis-lab.vercel.app/?source=motion&amp;match=shelton-coria" target="_blank" rel="noopener"><img src="media/scenes/shelton-coria.jpg" loading="lazy" alt="" class=""></a></div>
+<div class="cap"><h4>Shelton and Coria, played point<span class="sub">Two players, 4K60 source</span></h4><div class="meta">30 fps · 210 frames each · both players · <b class="v bad">rejected</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Shelton and Coria, played point</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=cDV-pQCJkP4&amp;t=101s" target="_blank" rel="noopener">Slow-Mo Tennis · Shelton and Coria practice set · 1:41.50–1:48.50</a></p></div><div class="kv"><span>What ran</span><p>FlowHMR for both players, camera motion fitted from background features, court alignment estimated, EZONE racket attached.</p></div><div class="kv"><span>Result</span><p>Failed as a portfolio replacement: serve contact is above the frame, one shoe is cropped at the opening edge, the far player and hidden hands are unreliable, and the racket jumped up to 79 degrees between frames before the arm solve existed.</p></div><div class="kv"><span>This one</span><p>Only two-player reconstruction. Still viewable as a test scene on the Tennis Lab site.</p></div><div class="kv"><span>Cost</span><p>$0.47 Modal</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article></div><h3>Where it started</h3>
+<div class="grid"><article class="card io" id="motion-13" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><span class="none">no input kept</span></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/motion-13-out1.jpg" loading="lazy" alt="" class=""><img src="media/calls/motion-13-out2.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>Ben Shelton serve, first accepted motion</h4><div class="meta">Modal · FlowHMR · 2026-10-22 · $0.23 · <b class="v good">accepted</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Ben Shelton serve, first accepted motion</h4><div class="kv"><span>What ran</span><p>FlowHMR on Modal, 180 frames of a Court Level Tennis practice serve.</p></div><div class="kv"><span>Result</span><p>The body motion every later serve demo reuses; this is where the recipe started.</p></div><div class="kv"><span>Cost</span><p>$0.23</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card io" id="motion-03" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><span class="none">no input kept</span></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/motion-03-out1.jpg" loading="lazy" alt="" class=""><img src="media/calls/motion-03-out2.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>Djokovic groundstroke on a 4K crop</h4><div class="meta">Modal · FlowHMR · 2026-10-28 · $0.33 · <b class="v mid">diagnostic</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Djokovic groundstroke on a 4K crop</h4><div class="kv"><span>What ran</span><p>4K side master cropped to 1080p, 210 frames. Body fit improved from 8.6 to 6.9 px; the racket detector got worse at 4K.</p></div><div class="kv"><span>Result</span><p>4K side master cropped to 1080p, 210 frames. Body fit improved from 8.6 to 6.9 px; the racket detector got worse at 4K.</p></div><div class="kv"><span>Cost</span><p>$0.33</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article></div><h3>Tried and dropped</h3>
+<div class="grid"><article class="card io" id="mocap-20" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><span class="none">no input kept</span></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/mocap-20-out1.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>GEM-X mocap</h4><div class="meta">Modal · GEM-X · 2026-10-21 · $3.35 · <b class="v bad">not adopted</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>GEM-X mocap</h4><div class="kv"><span>What ran</span><p>Fourteen runs on an L40S across forehand, broadcast and tripod clips. Loops were retargeted onto a rig for review.</p></div><div class="kv"><span>Result</span><p>Fourteen runs on an L40S across forehand, broadcast and tripod clips. Loops were retargeted onto a rig for review.</p></div><div class="kv"><span>Cost</span><p>$3.35</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card io" id="mocap-21" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><span class="none">no input kept</span></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/mocap-21-out1.jpg" loading="lazy" alt="" class=""><img src="media/calls/mocap-21-out2.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>Kimodo</h4><div class="meta">Modal · Kimodo · 2026-10-21 · $0.13 · <b class="v bad">not adopted</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Kimodo</h4><div class="kv"><span>What ran</span><p>A standalone ready-position loop.</p></div><div class="kv"><span>Result</span><p>A standalone ready-position loop.</p></div><div class="kv"><span>Cost</span><p>$0.13</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article></div>
+</section><section class="process" id="racket">
+<header><h2>The racket</h2><p>A model, a detector, and a solver that moves it through the arm.</p></header>
+<div class="how"><div><h3>Stack</h3><div class="tools"><div class="tool"><img src="media/logos/blender.svg" loading="lazy" alt="" class="logo"><div><b>Blender</b><span>Racket model, binding, four-up renders, GLB export.</span><span class="cost">$0</span></div></div><div class="tool"><span class="mono">RV</span><div><b>RacketVision</b><span>Five racket keypoints per frame (AAAI 2026).</span><span class="cost">about $0.02 per clip</span></div></div><div class="tool"><span class="mono">PY</span><div><b>Arm solver</b><span>Local Python: racket through forearm and wrist, contact rule, ball audit.</span><span class="cost">$0</span></div></div></div></div><div><h3>Pipeline</h3><ol class="pipe"><li><span class="n">1</span><b>Model</b><span>trace the outline, author strings, grommets, grip</span></li><li><span class="n">2</span><b>Detect</b><span>RacketVision keypoints per frame</span></li><li><span class="n">3</span><b>Solve</b><span>through forearm and wrist, spin capped</span></li><li><span class="n">4</span><b>Pin contact</b><span>label 34 contacts, hold the face angle</span></li></ol></div></div>
+<h3>Results</h3>
+<div class="grid"><article class="card image" id="racket-model" tabindex="0">
+<div class="front">
+<div class="media"><div class="stack-media"><img src="media/racket/racket-full.jpg" loading="lazy" alt="" class=""><img src="media/racket/racket-face.jpg" loading="lazy" alt="" class=""><img src="media/racket/racket-tip-macro.jpg" loading="lazy" alt="" class=""><img src="media/racket/racket-strings-macro.jpg" loading="lazy" alt="" class=""></div></div>
+<div class="cap"><h4>Racket model<span class="sub">Blender, from reference contours</span></h4><div class="meta">separate closed meshes · strings woven · grommets drilled · <b class="v mid">built</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Racket model</h4><div class="kv"><span>Source</span><p>Manufacturer photos traced for the outline; string axes and grommet positions authored</p></div><div class="kv"><span>What ran</span><p>build_racket.py in Blender, then material and finish passes, then an export gate that re-imports the GLB and checks every string passage.</p></div><div class="kv"><span>Result</span><p>Depth and sidewalls are approximate, not CAD. Texture artwork was authored from references, not scanned.</p></div><div class="kv"><span>Cost</span><p>$0, local Blender</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card image" id="arm-solve" tabindex="0">
+<div class="front">
+<div class="media"><div class="stack-media"><img src="media/racket/ovl-djokovic-iw-a.jpg" loading="lazy" alt="" class=""><img src="media/racket/ovl-djokovic-turin-return.jpg" loading="lazy" alt="" class=""><img src="media/racket/ovl-djokovic-iw-c.jpg" loading="lazy" alt="" class=""><img src="media/racket/ovl-sinner-return.jpg" loading="lazy" alt="" class=""></div></div>
+<div class="cap"><h4>Racket solved through the arm<span class="sub">Red old fit, green arm solve, cyan detections</span></h4><div class="meta">forearm twist ±80° · wrist ≤70° · spin cap 2,500°/s · <b class="v good">accepted</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Racket solved through the arm</h4><div class="kv"><span>Source</span><p>Library points, Djokovic and Sinner</p></div><div class="kv"><span>What ran</span><p>Instead of placing the racket freely at the wrist, solve forearm twist and wrist angle per frame inside anatomical limits, smooth over time, cap spin.</p></div><div class="kv"><span>Result</span><p>A racket seen from behind looks the same rotated 180 degrees about its handle, so the free fit flipped the face between frames (up to 5,400°/s). After: no frame over 2,600°/s on 15 of 16 points.</p></div><div class="kv"><span>Cost</span><p>$0, local</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card image" id="contact-rule" tabindex="0">
+<div class="front">
+<div class="media"><div class="stack-media"><img src="media/racket/edge-before-after.jpg" loading="lazy" alt="" class=""><img src="media/racket/face-edge-compare.jpg" loading="lazy" alt="" class=""></div></div>
+<div class="cap"><h4>Face angle at contact<span class="sub">Before and after the contact rule</span></h4><div class="meta">34 contacts labelled · 7 of 34 → 34 of 34 · <b class="v good">accepted</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Face angle at contact</h4><div class="kv"><span>Source</span><p>All 16 library points plus the 120 fps forehand</p></div><div class="kv"><span>What ran</span><p>Contact frame and shot type labelled by eye for every clear swing; for ±3 frames the face is held vertical to 15° closed (topspin) or 15° closed to 10° open (serve).</p></div><div class="kv"><span>Result</span><p>From behind, open and closed faces shrink the string outline by the same amount, so five points cannot tell them apart. The rule chose the angle, not the video; the true angle is inside the range, not measured.</p></div><div class="kv"><span>Cost</span><p>$0, local</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card image" id="hfr-proof" tabindex="0">
+<div class="front">
+<div class="media"><div class="stack-media"><img src="media/racket/hfr-contact.jpg" loading="lazy" alt="" class=""><img src="media/racket/hfr-follow.jpg" loading="lazy" alt="" class=""></div></div>
+<div class="cap"><h4>Racket through contact at 120 fps<span class="sub">Green fit on cyan detections</span></h4><div class="meta">frames 640–661 · 15.5 px held-out · <b class="v good">accepted</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Racket through contact at 120 fps</h4><div class="kv"><span>Source</span><p>Slow-Mo Tennis · Alcaraz 120 fps</p></div><div class="kv"><span>What ran</span><p>RacketVision on every 120 fps frame, fit through the arm.</p></div><div class="kv"><span>Result</span><p>Frames 613 to 622 (the lag before contact) have no detection and the fill is about 45° off. Frame 664 has a false detection on the head.</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card image" id="grip" tabindex="0">
+<div class="front">
+<div class="media"><div class="stack-media"><img src="media/racket/all-grip.jpg" loading="lazy" alt="" class=""><img src="media/racket/hand-grip-contact.jpg" loading="lazy" alt="" class=""></div></div>
+<div class="cap"><h4>Grip registration<span class="sub">Hand to handle, every point</span></h4><div class="meta">16 points · left hand for Shelton · <b class="v mid">built</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Grip registration</h4><div class="kv"><span>Source</span><p>Library points</p></div><div class="kv"><span>What ran</span><p>One hand-to-handle registration per stroke family, separated from forearm roll and wrist motion.</p></div><div class="kv"><span>Result</span><p>Grip rotation and contact depth remain inferred. No evidence for axial sliding during a swing, so it stays zero.</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card io" id="racket-detect-02" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><img src="media/calls/racket-detect-02-in1.jpg" loading="lazy" alt="" class=""></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/racket-detect-02-out1.jpg" loading="lazy" alt="" class=""><img src="media/calls/racket-detect-02-out2.jpg" loading="lazy" alt="" class=""><img src="media/calls/racket-detect-02-out3.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>RacketVision on the library clips</h4><div class="meta">Modal · RacketVision · 2026-10-28 · $0.38 · <b class="v mid">diagnostic</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>RacketVision on the library clips</h4><div class="kv"><span>What ran</span><p>RacketVision on a T4 over all rear-court clips plus the 120 fps source.</p></div><div class="kv"><span>Result</span><p>Five racket points per frame where visible: 32 to 81 percent of frames depending on frame rate. Availability is not accuracy.</p></div><div class="kv"><span>Cost</span><p>$0.38</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article></div>
+</section><section class="process" id="bodies">
+<header><h2>Bodies from photos</h2><p>The player&#x27;s own clothes and build on top of the motion.</p></header>
+<div class="how"><div><h3>Stack</h3><div class="tools"><div class="tool"><img src="media/logos/fal.png" loading="lazy" alt="" class="logo"><div><b>fal.ai</b><span>API gateway; Rodin&#x27;s own API needs a $120/month plan.</span><span class="cost">$20 bought, $9.94 used</span></div></div><div class="tool"><img src="media/logos/hyper3d.png" loading="lazy" alt="" class="logo"><div><b>Hyper3D Rodin 2.5</b><span>Whole clothed body from two or three photos.</span><span class="cost">about $0.40 per body</span></div></div><div class="tool"><img src="media/logos/blender.svg" loading="lazy" alt="" class="logo"><div><b>Blender</b><span>Bind the body to the FlowHMR motion and render.</span><span class="cost">$0</span></div></div></div></div><div><h3>Pipeline</h3><ol class="pipe"><li><span class="n">1</span><b>Frames</b><span>two or three frames of the player from the same video</span></li><li><span class="n">2</span><b>Rodin 2.5</b><span>whole clothed PBR mesh through fal.ai</span></li><li><span class="n">3</span><b>Bind</b><span>attach to the FlowHMR motion, graft the gripping hand</span></li><li><span class="n">4</span><b>Render</b><span>same four-up as the plain body</span></li></ol></div></div>
+<h3>On the motion</h3>
+<div class="grid"><article class="card video" id="shelton-fal" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/bodies/shelton-serve-fal.mp4" poster="media/bodies/shelton-serve-fal-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Ben Shelton serve with his own body<span class="sub">Appearance on top of motion</span></h4><div class="meta">Rodin 2.5 body · 180 frames · motion unchanged · <b class="v mid">paused</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Ben Shelton serve with his own body</h4><div class="kv"><span>Source</span><p><a href="https://www.youtube.com/watch?v=vF9WB1ZhgsI&amp;t=33s" target="_blank" rel="noopener">Court Level Tennis · same practice serve as the accepted motion</a></p></div><div class="kv"><span>What ran</span><p>Three frames of the video to fal.ai Rodin 2.5 for a whole clothed body; bound to the accepted FlowHMR serve motion; rendered in Blender.</p></div><div class="kv"><span>Result</span><p>Outfit matches the footage. Face is generated, not a likeness; the hand stays open under the grip; the loose tank top bulges because the shirt is part of the body mesh.</p></div><div class="kv"><span>This one</span><p>Only point in the gallery with the player&#x27;s own body. Paused with all Rodin bodies until the racket is right.</p></div><div class="kv"><span>Cost</span><p>$0.40 fal.ai</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article></div><h3>Eight Rodin bodies</h3>
+<div class="grid"><article class="card io" id="bodies-47" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><img src="media/calls/bodies-47-in1.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-47-in2.jpg" loading="lazy" alt="" class=""></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/bodies-47-out1.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-47-out2.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-47-out3.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>Ben Shelton</h4><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-27 · $0.40 · <b class="v mid">paused</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Ben Shelton</h4><div class="kv"><span>Source</span><p>Frames from the same Court Level Tennis video as the motion</p></div><div class="kv"><span>What ran</span><p>Two or three frames of the player&#x27;s own video to fal.ai Rodin 2.5 High (Hyper3D), whole clothed PBR mesh, bound to that player&#x27;s FlowHMR motion.</p></div><div class="kv"><span>Result</span><p>Three 1080p frames of the same practice video. Outfit matches the footage; the face is generated; the hand stays open under the grip.</p></div><div class="kv"><span>Cost</span><p>$0.40</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card io" id="bodies-50" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><img src="media/calls/bodies-50-in1.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-50-in2.jpg" loading="lazy" alt="" class=""></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/bodies-50-out1.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-50-out2.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-50-out3.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>Flavio Cobolli</h4><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-28 · $0.40 · <b class="v mid">paused</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Flavio Cobolli</h4><div class="kv"><span>Source</span><p>Frames from the same Court Level Tennis video as the motion</p></div><div class="kv"><span>What ran</span><p>Two or three frames of the player&#x27;s own video to fal.ai Rodin 2.5 High (Hyper3D), whole clothed PBR mesh, bound to that player&#x27;s FlowHMR motion.</p></div><div class="kv"><span>Result</span><p>Three frames from his own point. The generated hand was replaced by the motion body&#x27;s gripping hand.</p></div><div class="kv"><span>Cost</span><p>$0.40</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card io" id="bodies-52" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><img src="media/calls/bodies-52-in1.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-52-in2.jpg" loading="lazy" alt="" class=""></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/bodies-52-out1.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-52-out2.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>Carlos Alcaraz</h4><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-28 · $0.40 · <b class="v mid">paused</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Carlos Alcaraz</h4><div class="kv"><span>Source</span><p>Frames from the same Court Level Tennis video as the motion</p></div><div class="kv"><span>What ran</span><p>Two or three frames of the player&#x27;s own video to fal.ai Rodin 2.5 High (Hyper3D), whole clothed PBR mesh, bound to that player&#x27;s FlowHMR motion.</p></div><div class="kv"><span>Result</span><p>Front, back and a second front crop. Skin renders darker than the footage.</p></div><div class="kv"><span>Cost</span><p>$0.40</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card io" id="bodies-48" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><img src="media/calls/bodies-48-in1.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-48-in2.jpg" loading="lazy" alt="" class=""></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/bodies-48-out1.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-48-out2.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>Giovanni Mpetshi Perricard</h4><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-27 · $0.40 · <b class="v mid">paused</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Giovanni Mpetshi Perricard</h4><div class="kv"><span>Source</span><p>Frames from the same Court Level Tennis video as the motion</p></div><div class="kv"><span>What ran</span><p>Two or three frames of the player&#x27;s own video to fal.ai Rodin 2.5 High (Hyper3D), whole clothed PBR mesh, bound to that player&#x27;s FlowHMR motion.</p></div><div class="kv"><span>Result</span><p>Two 4K front frames and one back frame. The shirt-back print is lost.</p></div><div class="kv"><span>Cost</span><p>$0.40</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card io" id="bodies-51" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><img src="media/calls/bodies-51-in1.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-51-in2.jpg" loading="lazy" alt="" class=""></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/bodies-51-out1.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-51-out2.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-51-out3.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>Novak Djokovic, full-body references</h4><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-28 · $0.40 · <b class="v mid">paused</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Novak Djokovic, full-body references</h4><div class="kv"><span>Source</span><p>Frames from the same Court Level Tennis video as the motion</p></div><div class="kv"><span>What ran</span><p>Two or three frames of the player&#x27;s own video to fal.ai Rodin 2.5 High (Hyper3D), whole clothed PBR mesh, bound to that player&#x27;s FlowHMR motion.</p></div><div class="kv"><span>Result</span><p>Came back T-posed with forearm flaps; arms re-posed 50 degrees, then used on two points.</p></div><div class="kv"><span>Cost</span><p>$0.40</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card io" id="bodies-49" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><img src="media/calls/bodies-49-in1.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-49-in2.jpg" loading="lazy" alt="" class=""></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/bodies-49-out1.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-49-out2.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>Novak Djokovic, knee-cropped references</h4><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-28 · $0.40 · <b class="v bad">failed</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Novak Djokovic, knee-cropped references</h4><div class="kv"><span>Source</span><p>Frames from the same Court Level Tennis video as the motion</p></div><div class="kv"><span>What ran</span><p>Two or three frames of the player&#x27;s own video to fal.ai Rodin 2.5 High (Hyper3D), whole clothed PBR mesh, bound to that player&#x27;s FlowHMR motion.</p></div><div class="kv"><span>Result</span><p>Stiff arms and long shorts. References cut off at the knee.</p></div><div class="kv"><span>Cost</span><p>$0.40</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card io" id="bodies-46" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><img src="media/calls/bodies-46-in1.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-46-in2.jpg" loading="lazy" alt="" class=""></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/bodies-46-out1.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-46-out2.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-46-out3.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>Novak Djokovic, two photos</h4><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-26 · $0.40 · <b class="v bad">rejected</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Novak Djokovic, two photos</h4><div class="kv"><span>Source</span><p>Frames from the same Court Level Tennis video as the motion</p></div><div class="kv"><span>What ran</span><p>Two or three frames of the player&#x27;s own video to fal.ai Rodin 2.5 High (Hyper3D), whole clothed PBR mesh, bound to that player&#x27;s FlowHMR motion.</p></div><div class="kv"><span>Result</span><p>Better neck and lean silhouette. Face still wrong; shirt markings invented.</p></div><div class="kv"><span>Cost</span><p>$0.40</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card io" id="bodies-45" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><img src="media/calls/bodies-45-in1.jpg" loading="lazy" alt="" class=""></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/bodies-45-out1.jpg" loading="lazy" alt="" class=""><img src="media/calls/bodies-45-out2.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>Novak Djokovic, one photo</h4><div class="meta">fal.ai · Rodin 2.5 High · 2026-10-26 · $0.40 · <b class="v bad">rejected</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Novak Djokovic, one photo</h4><div class="kv"><span>Source</span><p>Frames from the same Court Level Tennis video as the motion</p></div><div class="kv"><span>What ran</span><p>Two or three frames of the player&#x27;s own video to fal.ai Rodin 2.5 High (Hyper3D), whole clothed PBR mesh, bound to that player&#x27;s FlowHMR motion.</p></div><div class="kv"><span>Result</span><p>Whole-person PBR mesh, 50K triangles. Outline fine, face wrong.</p></div><div class="kv"><span>Cost</span><p>$0.40</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article></div><h3>Face and whole-person reconstruction, rejected</h3>
+<div class="grid"><article class="card io" id="faces-07" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><img src="media/calls/faces-07-in1.jpg" loading="lazy" alt="" class=""><img src="media/calls/faces-07-in2.jpg" loading="lazy" alt="" class=""></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/faces-07-out1.jpg" loading="lazy" alt="" class=""><img src="media/calls/faces-07-out2.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>UP2You whole-person reconstruction</h4><div class="meta">Modal · UP2You · 2026-10-26 · $0.36 · <b class="v bad">rejected</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>UP2You whole-person reconstruction</h4><div class="kv"><span>What ran</span><p>Two event photos plus a portrait. Connected body and clothing; wrong identity; hand texture baked onto the shirt.</p></div><div class="kv"><span>Result</span><p>Two event photos plus a portrait. Connected body and clothing; wrong identity; hand texture baked onto the shirt.</p></div><div class="kv"><span>Cost</span><p>$0.36</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card io" id="faces-08" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><img src="media/calls/faces-08-in1.jpg" loading="lazy" alt="" class=""><img src="media/calls/faces-08-in2.jpg" loading="lazy" alt="" class=""></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/faces-08-out1.jpg" loading="lazy" alt="" class=""><img src="media/calls/faces-08-out2.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>MICA face fit</h4><div class="meta">Modal · MICA · 2026-10-26 · $0.01 · <b class="v bad">rejected</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>MICA face fit</h4><div class="kv"><span>What ran</span><p>Three photos to FLAME face geometry, 5,023 vertices. No hair, skin or body.</p></div><div class="kv"><span>Result</span><p>Three photos to FLAME face geometry, 5,023 vertices. No hair, skin or body.</p></div><div class="kv"><span>Cost</span><p>$0.01</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article></div>
+</section><section class="process" id="hyperframes">
+<header><h2>HyperFrames films</h2><p>HTML and a paused timeline, rendered frame by frame to video.</p></header>
+<div class="how"><div><h3>Stack</h3><div class="tools"><div class="tool"><span class="mono">HF</span><div><b>HyperFrames</b><span>HTML to video: compositions, timeline, lint, check, render (heygen-com/hyperframes).</span><span class="cost">$0, open source</span></div></div><div class="tool"><span class="mono">GS</span><div><b>GSAP + headless Chrome</b><span>One paused timeline per composition; Chrome seeks each frame.</span><span class="cost">$0</span></div></div><div class="tool"><span class="mono">ff</span><div><b>ffmpeg</b><span>Encode 1280×720 masters to 960×540 hub clips; poster from the opening hold.</span><span class="cost">$0</span></div></div></div></div><div><h3>Pipeline</h3><ol class="pipe"><li><span class="n">1</span><b>Scaffold</b><span>init, STORYLINES.md, SPEC.md with every adjective as a number</span></li><li><span class="n">2</span><b>Timeline</b><span>clips with data-start and data-duration; no timers, no randomness</span></li><li><span class="n">3</span><b>Check</b><span>lint, runtime, layout, contrast, motion gates</span></li><li><span class="n">4</span><b>Preview</b><span>snapshots at chosen seconds; REVIEW.md</span></li><li><span class="n">5</span><b>Render</b><span>deterministic frame-by-frame; ffprobe duration must match</span></li><li><span class="n">6</span><b>Encode</b><span>ffmpeg to hub size, poster, content-hashed cache</span></li></ol></div></div>
+<h3>Hub clips and films</h3>
+<div class="grid"><article class="card video" id="shield-genie" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/hyperframes/shield-genie.mp4" poster="media/hyperframes/shield-genie-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Shield · ask the season goal<span class="sub">Hub clip, 7 s loop</span></h4><div class="meta">1280×720 master · 30 fps · Oct 21 · <b class="v good">live</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Shield · ask the season goal</h4><div class="kv"><span>Source</span><p>Shield demo data and the live Shield page</p></div><div class="kv"><span>What ran</span><p>HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold.</p></div><div class="kv"><span>Result</span><p>Typed question, answer, board scan. The live Shield card later moved to an in-page DOM animation; this clip stayed in the hub cache.</p></div><div class="kv"><span>Cost</span><p>$0, local render</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="aeg-clean" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/hyperframes/aeg-clean.mp4" poster="media/hyperframes/aeg-clean-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>AEG · three franchises<span class="sub">Hub clip, 9.7 s</span></h4><div class="meta">1280×720 master · Oct 21–22 · <b class="v good">live</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>AEG · three franchises</h4><div class="kv"><span>Source</span><p>Kings, Galaxy and Reign crests and cards</p></div><div class="kv"><span>What ran</span><p>HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold.</p></div><div class="kv"><span>Result</span><p>Its poster is still the live Galaxy card poster.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="usta-v2" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/hyperframes/usta-v2.mp4" poster="media/hyperframes/usta-v2-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>USTA · US Open match prep<span class="sub">Hub clip, 7 s</span></h4><div class="meta">3 shots · Oct 21 · <b class="v mid">built</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>USTA · US Open match prep</h4><div class="kv"><span>Source</span><p>Ashe rally with Hawk-Eye rays, Shelton on the bike, report panel</p></div><div class="kv"><span>What ran</span><p>HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold.</p></div><div class="kv"><span>Result</span><p>Replaced on the home page by the serve-first card; kept here as the HyperFrames version.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="ucla-practice" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/hyperframes/ucla-practice.mp4" poster="media/hyperframes/ucla-practice-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>UCLA · analytics decides the practice<span class="sub">Hub clip, 13 s</span></h4><div class="meta">team room → coach TV → drill · Oct 22–24 · <b class="v mid">built</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>UCLA · analytics decides the practice</h4><div class="kv"><span>Source</span><p>UCLA team room, coach TV and drill scenes</p></div><div class="kv"><span>What ran</span><p>HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold.</p></div><div class="kv"><span>Result</span><p>The ucla-room cut was the live UCLA card Oct 24 to 27, then replaced by a selected clip.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="match-map" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/hyperframes/match-map.mp4" poster="media/hyperframes/match-map-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Match Viewer · dashboard to video<span class="sub">Hub clip, 12 s</span></h4><div class="meta">live card today · Oct 24 · <b class="v good">live</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Match Viewer · dashboard to video</h4><div class="kv"><span>Source</span><p>Match Viewer dashboard, point 151 dot, video viewer</p></div><div class="kv"><span>What ran</span><p>HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold.</p></div><div class="kv"><span>Result</span><p>This cut is the live Match Viewer card on jerrythegoat.com.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="radio-captions" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/hyperframes/radio-captions.mp4" poster="media/hyperframes/radio-captions-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>AI tennis radio · word-by-word captions<span class="sub">Hub clip, 7 s</span></h4><div class="meta">embedded captions · live card today · Oct 21–22 · <b class="v good">live</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>AI tennis radio · word-by-word captions</h4><div class="kv"><span>Source</span><p>Opta Ace AI radio excerpt, Australian Open</p></div><div class="kv"><span>What ran</span><p>HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold. Captions animate word by word from the transcript.</p></div><div class="kv"><span>Result</span><p>Live Radio card.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="velo-montage" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/hyperframes/velo-montage.mp4" poster="media/hyperframes/velo-montage-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Team USA Cycling · sprint, tracker, splits<span class="sub">Hub clip, 7 s</span></h4><div class="meta">Oct 21 · <b class="v mid">built</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Team USA Cycling · sprint, tracker, splits</h4><div class="kv"><span>Source</span><p>Track sprint tracker and splits card</p></div><div class="kv"><span>What ran</span><p>HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold.</p></div><div class="kv"><span>Result</span><p>Early cycling card; superseded by the 17 s cycling film and a selected clip.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="cycling-film" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/hyperframes/cycling-film.mp4" poster="media/hyperframes/cycling-film-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Cycling film<span class="sub">17 s, the /cycling page film</span></h4><div class="meta">1440×810 · SPEC and REVIEW · Oct 22 · <b class="v good">live</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Cycling film</h4><div class="kv"><span>Source</span><p>Sprint, tracker, splits, TV punch-in on live practice splits</p></div><div class="kv"><span>What ran</span><p>HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold. Longer films start from STORYLINES.md and a SPEC with every adjective as a number.</p></div><div class="kv"><span>Result</span><p>Live at jerrythegoat.com/cycling/demo.mp4.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="usdash-zoom" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/hyperframes/usdash-zoom.mp4" poster="media/hyperframes/usdash-zoom-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Top US players · dashboard zoom<span class="sub">Hub clip, 7 s</span></h4><div class="meta">virtual camera tour · Oct 21 · <b class="v mid">built</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Top US players · dashboard zoom</h4><div class="kv"><span>Source</span><p>Top US players dashboard</p></div><div class="kv"><span>What ran</span><p>HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold. A virtual camera pans and zooms over a live DOM page.</p></div><div class="kv"><span>Result</span><p>Camera-template clip; the same template drove the riders tour.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="orfeu-split" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/hyperframes/orfeu-split.mp4" poster="media/hyperframes/orfeu-split-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Orfeu · music culture split<span class="sub">Hub clip, 8 s</span></h4><div class="meta">Brazil / Cumbia · Oct 21–22 · <b class="v mid">built</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Orfeu · music culture split</h4><div class="kv"><span>Source</span><p>Orfeu split panels with a confirmed source reel</p></div><div class="kv"><span>What ran</span><p>HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold.</p></div><div class="kv"><span>Result</span><p>The live Orfeu card is now a portrait cumbia clip plus an in-page sequence.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="reel-v3" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/hyperframes/reel-v3.mp4" poster="media/hyperframes/reel-v3-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Sports data reel v3<span class="sub">31 s, landscape</span></h4><div class="meta">1280×720 · AAC · portrait twin · Oct 21 · <b class="v mid">built</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Sports data reel v3</h4><div class="kv"><span>Source</span><p>Twelve segment compositions: AEG, ask, clients, cycling, locker room, radio, serve, UCLA, US Open, end card</p></div><div class="kv"><span>What ran</span><p>HyperFrames: scaffold, one paused GSAP timeline per composition, lint and check, snapshot review, deterministic frame-by-frame render in headless Chrome, ffmpeg encode to 960×540 with a poster from the opening hold. Segments rendered separately and joined; a 720×1280 portrait twin built from the same segments.</p></div><div class="kv"><span>Result</span><p>Was the home-page hero on Oct 21; no longer on the home page, still served at /hub/reel.mp4.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="hawkeye-loop" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/hyperframes/hawkeye-loop.mp4" poster="media/hyperframes/hawkeye-loop-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Hawk-Eye 3D match films<span class="sub">8 s loop of two rallies</span></h4><div class="meta">1920×1080 masters · Oct 1–2 · <b class="v good">live</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Hawk-Eye 3D match films</h4><div class="kv"><span>Source</span><p>Quan vs Gomez and Quan vs Watanuki Hawk-Eye capsule replays</p></div><div class="kv"><span>What ran</span><p>HyperFrames loop and vertical templates with data built by a Python script; 30 s landscape, 30 s vertical and an 8 s loop per match.</p></div><div class="kv"><span>Result</span><p>Live at hawkeye-3d.vercel.app. The first real HyperFrames work after an Oct 2 smoke test.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article></div>
+</section><section class="process" id="thumbnails">
+<header><h2>Home-page thumbnails</h2><p>Four generations in one day, then a 140-option review.</p></header>
+<div class="how"><div><h3>Stack</h3><div class="tools"><div class="tool"><span class="mono">HF</span><div><b>HyperFrames clips</b><span>Camera-template and story clips as candidates.</span><span class="cost">$0</span></div></div><div class="tool"><span class="mono">ff</span><div><b>ffmpeg</b><span>Cuts, posters at 0.8 s, 960×540 encodes.</span><span class="cost">$0</span></div></div><div class="tool"><span class="mono">UI</span><div><b>Authored DOM</b><span>HTML/CSS/SVG renderers for Shield and Orfeu cards.</span><span class="cost">$0</span></div></div></div></div><div><h3>Pipeline</h3><ol class="pipe"><li><span class="n">1</span><b>Candidates</b><span>HyperFrames clips, ffmpeg cuts, authored DOM</span></li><li><span class="n">2</span><b>Review</b><span>crawl the hub, de-duplicate by hash, one page of 140 options</span></li><li><span class="n">3</span><b>Select</b><span>one per project, with edits</span></li><li><span class="n">4</span><b>Refine</b><span>shorter intros, clearer labels, real playlist embed</span></li><li><span class="n">5</span><b>Ship</b><span>rebuild the production tree, read back every object</span></li></ol></div></div>
+<h3>Process</h3>
+<div class="grid"><article class="card image" id="thumb-old" tabindex="0">
+<div class="front">
+<div class="media"><img src="media/thumbs/old-videos.jpg" loading="lazy" alt="" class=""></div>
+<div class="cap"><h4>The seven original clips<span class="sub">Restored Oct 27 04:40</span></h4><div class="meta">contact sheet · <b class="v mid">built</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>The seven original clips</h4><div class="kv"><span>Source</span><p>Home-page cards before the rework</p></div><div class="kv"><span>What ran</span><p>Restored byte-exact from the old build after the authored DOM versions were rejected.</p></div><div class="kv"><span>Result</span><p>Jerry: I like the old thumbnail video, I want all those old versions back on main.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card image" id="thumb-authored" tabindex="0">
+<div class="front">
+<div class="media"><div class="stack-media"><img src="media/thumbs/desktop-final-aeg.jpg" loading="lazy" alt="" class=""><img src="media/thumbs/desktop-final-usta.jpg" loading="lazy" alt="" class=""></div></div>
+<div class="cap"><h4>Authored HTML/CSS thumbnails<span class="sub">Rejected direction, Oct 27 02:00</span></h4><div class="meta">no video · SVG and DOM · <b class="v bad">rejected</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Authored HTML/CSS thumbnails</h4><div class="kv"><span>Source</span><p>Hand-authored renderers per card</p></div><div class="kv"><span>What ran</span><p>Paper surface with crests, portrait with bars, 80-student grid, timing oval, waveform.</p></div><div class="kv"><span>Result</span><p>Rejected the same day in favour of the video clips.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card image" id="thumb-review" tabindex="0">
+<div class="front">
+<div class="media"><div class="stack-media"><img src="media/thumbs/review-desktop.jpg" loading="lazy" alt="" class=""><img src="media/thumbs/GALAXY-06.jpg" loading="lazy" alt="" class=""><img src="media/thumbs/ORFEU-04.jpg" loading="lazy" alt="" class=""></div></div>
+<div class="cap"><h4>140 options, one review page<span class="sub">Oct 27 05:00</span></h4><div class="meta">58 video cuts · 58 stills · 24 builds · <b class="v mid">built</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>140 options, one review page</h4><div class="kv"><span>Source</span><p>Every hub asset crawled and de-duplicated by hash</p></div><div class="kv"><span>What ran</span><p>A build script crawled the hub folder, posters from ffmpeg at 0.8 s, served locally; choices made in chat.</p></div><div class="kv"><span>Result</span><p>Selections: Galaxy 03, Shield 03, USTA 01, Match Viewer 01, UCLA 01, Cycling 01, Radio 01, Orfeu baseline.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card image" id="thumb-live" tabindex="0">
+<div class="front">
+<div class="media"><div class="stack-media"><img src="media/thumbs/live-desktop.jpg" loading="lazy" alt="" class=""><img src="media/thumbs/live-mobile.jpg" loading="lazy" alt="" class=""></div></div>
+<div class="cap"><h4>Live result<span class="sub">Desktop and phone, Oct 27 12:53</span></h4><div class="meta">commit 0950b12e8 · <b class="v good">live</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Live result</h4><div class="kv"><span>Source</span><p>jerrythegoat.com home page</p></div><div class="kv"><span>What ran</span><p>Selected media integrated, production tree rebuilt from the Vercel deployment and verified by reading back 26 objects.</p></div><div class="kv"><span>Result</span><p>What the home page serves today.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article></div><h3>The eight live cards</h3>
+<div class="grid"><article class="card video" id="final-galaxy" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/thumbs/final-galaxy.mp4" poster="media/thumbs/final-galaxy-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Galaxy · ends on Ontario Reign<span class="sub">Selected Oct 27</span></h4><div class="meta">5.4 s · 960×540 · live · <b class="v good">live</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Galaxy · ends on Ontario Reign</h4><div class="kv"><span>Source</span><p>Option Galaxy 03 from the 140-option review</p></div><div class="kv"><span>What ran</span><p>ffmpeg cut of the AEG clip, edited to finish on the Reign frame; intro shortened 3600 to 450 ms in the final refinement.</p></div><div class="kv"><span>Result</span><p>Live Galaxy card. Opens the Shield story on click.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="final-usta" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/thumbs/final-usta.mp4" poster="media/thumbs/final-usta-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>USTA · serve first<span class="sub">Original kept</span></h4><div class="meta">7.4 s · live · <b class="v good">live</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>USTA · serve first</h4><div class="kv"><span>Source</span><p>Option USTA 01</p></div><div class="kv"><span>What ran</span><p>Original serve-first clip, unchanged.</p></div><div class="kv"><span>Result</span><p>Live USTA card.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="final-ucla" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/thumbs/final-ucla.mp4" poster="media/thumbs/final-ucla-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>UCLA · serve down the T<span class="sub">Selected Oct 27</span></h4><div class="meta">11.6 s · live · <b class="v good">live</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>UCLA · serve down the T</h4><div class="kv"><span>Source</span><p>Option UCLA 01, drill clarified</p></div><div class="kv"><span>What ran</span><p>Cut from the ucla-practice HyperFrames render; final refinement relabelled the drill.</p></div><div class="kv"><span>Result</span><p>Live UCLA card.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="final-matchviewer" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/thumbs/final-matchviewer.mp4" poster="media/thumbs/final-matchviewer-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Match Viewer · query to point<span class="sub">HyperFrames cut</span></h4><div class="meta">12 s · live · <b class="v good">live</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Match Viewer · query to point</h4><div class="kv"><span>Source</span><p>Option Match Viewer 01</p></div><div class="kv"><span>What ran</span><p>HyperFrames matchviewer composition, match-map cut.</p></div><div class="kv"><span>Result</span><p>Live Match Viewer card.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="final-cycling" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/thumbs/final-cycling.mp4" poster="media/thumbs/final-cycling-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Cycling · rider to infield to TV<span class="sub">Selected Oct 27</span></h4><div class="meta">17.8 s · live · <b class="v good">live</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Cycling · rider to infield to TV</h4><div class="kv"><span>Source</span><p>Option Cycling 01</p></div><div class="kv"><span>What ran</span><p>Cut from the cycling film with the rider-to-infield-to-TV order.</p></div><div class="kv"><span>Result</span><p>Live Cycling card.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="final-radio" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/thumbs/final-radio.mp4" poster="media/thumbs/final-radio-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Radio · centered captions<span class="sub">HyperFrames</span></h4><div class="meta">7 s · live · <b class="v good">live</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Radio · centered captions</h4><div class="kv"><span>Source</span><p>Option Radio 01</p></div><div class="kv"><span>What ran</span><p>HyperFrames radio-captions composition with the caption centred.</p></div><div class="kv"><span>Result</span><p>Live Radio card.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card video" id="final-orfeu" tabindex="0">
+<div class="front">
+<div class="media"><video class="auto" src="media/thumbs/final-orfeu.mp4" poster="media/thumbs/final-orfeu-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+<div class="cap"><h4>Orfeu · cumbia card<span class="sub">Portrait clip + in-page sequence</span></h4><div class="meta">16 s · 304×540 · live · <b class="v good">live</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Orfeu · cumbia card</h4><div class="kv"><span>Source</span><p>Orfeu baseline mystery-box sequence</p></div><div class="kv"><span>What ran</span><p>Portrait cumbia clip; the page then shows a Celso Piña cover and a real Spotify playlist embed.</p></div><div class="kv"><span>Result</span><p>Live Orfeu card.</p></div><div class="kv"><span>Cost</span><p>$0</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article></div>
+</section><section class="process" id="meshy">
+<header><h2>Meshy</h2><p>Stylised characters, crowds, props and scenes from one image.</p></header>
+<div class="how"><div><h3>Stack</h3><div class="tools"><div class="tool"><img src="media/logos/meshy.png" loading="lazy" alt="" class="logo"><div><b>Meshy 7.1 / 6 Lite</b><span>Image-to-3D and text-to-3D, texture, rig, animate.</span><span class="cost">3,000 credits for $20, used in five days</span></div></div><div class="tool"><span class="mono">IMG</span><div><b>gpt-image-2, nano-banana</b><span>Reference images and A-pose stills before image-to-3D.</span><span class="cost">inside the Meshy credits</span></div></div><div class="tool"><img src="media/logos/blender.svg" loading="lazy" alt="" class="logo"><div><b>Blender / three.js</b><span>Placement, idles, story pages.</span><span class="cost">$0</span></div></div></div></div><div><h3>Pipeline</h3><ol class="pipe"><li><span class="n">1</span><b>Reference</b><span>photo, or a generated A-pose still</span></li><li><span class="n">2</span><b>Image to 3D</b><span>Meshy 7.1 with 4K PBR texture</span></li><li><span class="n">3</span><b>Rig and animate</b><span>Meshy rig, library idles or text-to-motion</span></li><li><span class="n">4</span><b>Place</b><span>Blender or three.js scene</span></li></ol></div></div>
+<h3>Tennis: likeness attempts</h3>
+<div class="grid"><article class="card io" id="meshy-64" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><img src="media/calls/meshy-64-in1.jpg" loading="lazy" alt="" class=""><img src="media/calls/meshy-64-in2.jpg" loading="lazy" alt="" class=""></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/meshy-64-out1.jpg" loading="lazy" alt="" class=""><img src="media/calls/meshy-64-out2.jpg" loading="lazy" alt="" class=""><img src="media/calls/meshy-64-out3.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>Three Djokovic heads</h4><div class="meta">Meshy · Meshy 7.1 · 2026-10-24 · 105 credits · <b class="v bad">rejected</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Three Djokovic heads</h4><div class="kv"><span>What ran</span><p>Single photo, multi-angle and frontal-led variants placed on the serve body.</p></div><div class="kv"><span>Result</span><p>Single photo, multi-angle and frontal-led variants placed on the serve body.</p></div><div class="kv"><span>Cost</span><p>105 credits</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card io" id="meshy-63" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><img src="media/calls/meshy-63-in1.jpg" loading="lazy" alt="" class=""><img src="media/calls/meshy-63-in2.jpg" loading="lazy" alt="" class=""></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/meshy-63-out1.jpg" loading="lazy" alt="" class=""><img src="media/calls/meshy-63-out2.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>Shelton likeness, multi-view</h4><div class="meta">Meshy · Meshy 7.1 · 2026-10-23 · 35 credits · <b class="v bad">rejected</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>Shelton likeness, multi-view</h4><div class="kv"><span>What ran</span><p>Three photos to one body candidate. A modelling base, not production ready.</p></div><div class="kv"><span>Result</span><p>Three photos to one body candidate. A modelling base, not production ready.</p></div><div class="kv"><span>Cost</span><p>35 credits</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article><article class="card io" id="meshy-60" tabindex="0">
+<div class="front">
+<div class="media"><div class="io"><div class="imgs"><img src="media/calls/meshy-60-in1.jpg" loading="lazy" alt="" class=""></div><span class="arrow">→</span><div class="imgs"><img src="media/calls/meshy-60-out1.jpg" loading="lazy" alt="" class=""><img src="media/calls/meshy-60-out2.jpg" loading="lazy" alt="" class=""><img src="media/calls/meshy-60-out3.jpg" loading="lazy" alt="" class=""></div></div></div>
+<div class="cap"><h4>First tennis figure</h4><div class="meta">Meshy · Meshy 6 Lite · 2026-09-16 · 49 of 130 free credits · <b class="v bad">rejected</b></div></div>
+</div>
+<div class="back"><div class="kv-wrap"><h4>First tennis figure</h4><div class="kv"><span>What ran</span><p>Reference image to Meshy 6 Lite image-to-3D with 2K texture.</p></div><div class="kv"><span>Result</span><p>Reference image to Meshy 6 Lite image-to-3D with 2K texture.</p></div><div class="kv"><span>Cost</span><p>49 of 130 free credits</p></div></div></div>
+<button class="flip" type="button" aria-label="Details">i</button>
+</article></div>
+</section>
+<section id="scores"><header><h2>Where it stands</h2><p>Self-assessed, October 2026. Each number links to the evidence above.</p></header><div class="scores"><div class="score"><span class="name">Body motion</span><span class="bar"><i style="width:80%"></i></span><span class="num">8/10</span><span class="why">FlowHMR on court-level footage; accepted across 16 points</span></div><div class="score"><span class="name">Ball</span><span class="bar"><i style="width:80%"></i></span><span class="num">8/10</span><span class="why">ball audit and estimated arcs; hidden where unsupported</span></div><div class="score"><span class="name">Racket model design</span><span class="bar"><i style="width:70%"></i></span><span class="num">7/10</span><span class="why">traced outline, woven strings, drilled grommets; depth approximate</span></div><div class="score"><span class="name">Racket motion</span><span class="bar"><i style="width:60%"></i></span><span class="num">6/10</span><span class="why">solved through the arm; face at contact set by rule; blurred at 30 fps</span></div><div class="score"><span class="name">Skin and face texture, Meshy</span><span class="bar"><i style="width:50%"></i></span><span class="num">5/10</span><span class="why">stylised characters; heads rejected as likeness</span></div><div class="score"><span class="name">Body shape specific to the person</span><span class="bar"><i style="width:20%"></i></span><span class="num">2/10</span><span class="why">every player shares the FlowHMR body; Rodin bodies paused</span></div><div class="score"><span class="name">Skin and face texture, FlowHMR with a rig</span><span class="bar"><i style="width:20%"></i></span><span class="num">2/10</span><span class="why">plain grey body</span></div><div class="score"><span class="name">Face likeness</span><span class="bar"><i style="width:20%"></i></span><span class="num">2/10</span><span class="why">Rodin, UP2You and Meshy all generated a face, none a likeness</span></div></div></section>
+<section id="timeline"><header><h2>Timeline</h2></header><div class="tl"><ol><li><span class="d">Sep 16</span><span>First tennis figure: Meshy 6 Lite from a generated reference image</span></li><li><span class="d">Oct 19–21</span><span>Meshy characters, crowds and props for court stories and the track-sprint demo; Kling motion-control video fails</span></li><li><span class="d">Oct 21–22</span><span>GEM-X and Kimodo mocap tried and dropped; first FlowHMR run; Shelton serve accepted</span></li><li><span class="d">Oct 23–24</span><span>Longer rallies, two-player point, Djokovic body shape</span></li><li><span class="d">Oct 26</span><span>Broadcast and college benchmarks; Meshy heads rejected; detailed rackets traced from manufacturer photos</span></li><li><span class="d">Oct 27</span><span>Rodin bodies through fal.ai; Djokovic 4K crop; UP2You and MICA face tests rejected</span></li><li><span class="d">Oct 28</span><span>16-point rear-court library; racket solved through the arm; 120 fps forehand; face angle fixed at 34 contacts; Rodin bodies paused</span></li></ol><ol class="next"><li><span class="d">next</span><span>Use 120 fps footage only: the single largest gain, at no cost</span></li><li><span class="d">next</span><span>Segment the racket in the lag phase (SAM 2) and fit the silhouette; the head ellipse gives the face angle</span></li><li><span class="d">next</span><span>Hand model (HaMeR or WiLoR) for wrist and grip; calibrate each player&#x27;s grip once</span></li><li><span class="d">next</span><span>Score against hand-marked ground truth: target under 5 px, today 15.5</span></li><li><span class="d">next</span><span>Person-specific body shape and a face that is a likeness</span></li></ol></div></section>
 <footer>
-<span>Footage: Court Level Tennis, Slow-Mo Tennis, TennisTV, a college PlaySight camera. Short excerpts for analysis.</span>
-<span>Tools: FlowHMR, RacketVision on Modal. Rodin 2.5, Kling 3.0, Hunyuan3D, Tripo, Flux, nano-banana on fal.ai. Meshy 6 Lite, 7.1. Blender.</span>
+<span>Footage: Court Level Tennis, Slow-Mo Tennis, TennisTV, UCLA Tennis Consulting (PlaySight). Short excerpts for analysis, each linked to its source and time range.</span>
+<span>Body depth is monocular and no physics was simulated. Racket face angle at contact is set by rule, not measured. Faces from Rodin, UP2You and Meshy are generated, not likenesses.</span>
 </footer>
-</main></body></html>
+</main>
+<script>
+(function(){
+  var vids=[].slice.call(document.querySelectorAll('video.auto'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){var v=x.target;if(x.isIntersecting){if(v.preload==='none'){v.preload='auto';v.load();}v.play().catch(function(){});}else{v.pause();}});},{rootMargin:'200px 0px'});
+    vids.forEach(function(v){io.observe(v);});
+  }else{vids.forEach(function(v){v.preload='auto';v.play().catch(function(){});});}
+  document.querySelectorAll('.card').forEach(function(c){
+    var t=function(ev){if(ev.target.closest('a,video'))return;c.classList.toggle('flipped');};
+    c.querySelector('.flip').addEventListener('click',function(ev){ev.stopPropagation();c.classList.toggle('flipped');});
+    c.querySelector('.back').addEventListener('click',t);
+    c.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){if(ev.target===c){ev.preventDefault();c.classList.toggle('flipped');}}});
+  });
+})();
+</script>
+</body></html>
