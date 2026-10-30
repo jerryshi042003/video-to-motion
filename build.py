@@ -104,161 +104,170 @@ CLT = ("media/refs/court-level-tennis.jpg", "Court Level Tennis")
 SMT = ("media/refs/slow-mo-tennis.jpg", "Slow-Mo Tennis")
 CAST = 'camera-orbit="25deg 80deg 3.2m" camera-target="0m 0.95m 0m"'
 
+
+SPIN = [("shelton-serve-b","Shelton serve B",4841,2039),("shelton-serve-d","Shelton serve D",1313,2154),("shelton-serve-f","Shelton serve F",772,1287),("shelton-serve-g2","Shelton serve G2",694,1215),
+        ("alcaraz-serve","Perricard point",1654,1770),("sinner-return","Sinner return",5397,1859),("djokovic-turin-return","Djokovic Turin",4295,1729),("djokovic-iw-a","Djokovic IW-A",4666,1226),
+        ("djokovic-iw-c","Djokovic IW-C",1893,2461),("alcaraz-a","Alcaraz A",5112,1926),("alcaraz-b","Alcaraz B",2509,2968),("cabolli-return","Cobolli return",293,592),
+        ("cobolli-b1","Cobolli B1",1946,2148),("cobolli-b2","Cobolli B2",4286,2133),("cobolli-c1","Cobolli C1",2431,2077),("cobolli-c2","Cobolli C2",1862,1902)]
+# face angle at contact, degrees: negative closed, positive open (from the 34 labelled contacts)
+CONTACTS = [("Shelton B 134","serve",18,-15),("Shelton D 120","serve",14,-15),("Shelton F 117","serve",30,-14),("Shelton G2 120","serve",-21,-15),
+            ("Perricard 92","serve",-23,-15),("Perricard 148","topspin",-23,-5),("Perricard 221","topspin",5,-15),
+            ("Sinner 82","topspin",-82,-15),("Sinner 159","topspin",2,2),("Sinner 230","topspin",60,-4),
+            ("Djokovic Turin 134","topspin",35,-4),("Djokovic Turin 216","topspin",47,2),
+            ("Djokovic IW-A 78","topspin",-47,-15),("Djokovic IW-A 145","topspin",35,2),("Djokovic IW-A 328","topspin",-44,-15),
+            ("Djokovic IW-C 10","topspin",70,2),("Djokovic IW-C 169","topspin",46,2),("Djokovic IW-C 242","topspin",-2,-7),("Djokovic IW-C 312","topspin",59,-3),
+            ("Alcaraz A 249","serve",-25,-11),("Alcaraz A 303","topspin",38,2),("Alcaraz B 177","serve",-11,-2),("Alcaraz B 238","topspin",-41,-15),
+            ("Cobolli B1 8","serve",-2,1),("Cobolli B1 62","topspin",23,-10),("Cobolli B1 133","topspin",12,-2),
+            ("Cobolli B2 147","serve",19,10),("Cobolli B2 202","topspin",22,-11),("Cobolli B2 276","topspin",-2,-1),
+            ("Cobolli C1 66","serve",-3,-14),("Cobolli C1 124","topspin",26,2),("Cobolli C1 200","topspin",-32,-15),("Cobolli C1 278","topspin",-6,-8),("Cobolli C2 77","serve",-16,-11)]
+
+def chart(kind, data, cap, extra=""):
+    return f'<figure class="chart"><div class="d3" data-chart="{kind}" data-json=\'{json.dumps(data)}\' {extra}></div><figcaption class="cap">{cap}</figcaption></figure>'
+
+
+def refs(items):
+    return '<ul class="scores">' + "".join(f'<li><img src="{e(i)}" loading="lazy" alt=""><div><b>{e(n)}</b><small>{e(l)}</small></div><code>{e(c)}</code></li>' for i, n, l, c in items) + "</ul>"
+
+
 S = []
 
-S.append(f"""<section aria-labelledby="h-stand">
-<h2 id="h-stand">Where it stands</h2>
-<p class="sub">Judged on the viewing result, not a measured match. The bar is how close it looks to real; the line under it is why it is not a 10.</p>
-{bars([
- ("Body motion", 8, "FlowHMR from one camera. Depth is monocular and no physics ran, so feet can slide and a cropped toss loses height."),
- ("Ball", 8, "Found in frame and the arcs are authored to the motion's events. Not spin, not measured 3D flight."),
- ("Racket model", 7, "Traced outline, woven strings, drilled grommets. Depth and sidewalls are approximate, not CAD."),
- ("Racket motion", 6, "Solved through the arm. At 30 fps the detector sees the racket in only 32–40% of frames; at 120 fps, 81%. Face angle at contact is set by rule."),
- ("Skin and face, Meshy", 5, "Outfit and surface read well. Heads were rejected as likeness and hands came out as mittens."),
- ("Body shape of the person", 2, "Everyone shares the FlowHMR body. The Rodin bodies that fix this are paused for wrinkles and a bent spine."),
- ("Skin and face, FlowHMR", 2, "A plain grey body."),
- ("Face likeness", 2, "Rodin, UP2You and Meshy all generate a face. None is the person, and no vendor promises one from two or three photos."),
-])}
-<p class="cap">gold standard · Hawk-Eye SkeleTRACK, 29 body points and 7 racket points from stadium cameras</p>
+# ---------- hero ----------
+S.append(f"""<section aria-label="Hero" class="hero">
+{lab("shelton-coria", "Ben Shelton, serve and volley · body from one camera, racket solved through the arm, Wilson ball · drag to orbit, Front, Side, Top, Court", h=640)}
 </section>""")
 
-S.append(f"""<section aria-labelledby="h-body">
-<h2 id="h-body">1 · Body motion</h2>
-<p class="sub">FlowHMR on Modal turns one clip into joints, shape and camera per frame. What you get depends on the footage, so this is organised by footage. Every scene below is the real one: drag to orbit, pinch to zoom, use the camera buttons, play the footage beside it.</p>
-{steps([("Clip","one point, cut from YouTube","yt-dlp"),("Body","joints, shape, camera per frame","FlowHMR · Modal"),("Court","align the body to the court lines","Python"),("Scene","body, racket, ball on the court","three.js")])}
+# ---------- 1 plan ----------
+S.append(f"""<section aria-labelledby="h-plan">
+<h2 id="h-plan">1 · The plan</h2>
+<p class="sub">Take one YouTube clip of a point and get back a 3D body, racket and ball on a court that a viewer can orbit. No markers, no multi-camera rig, no paid capture.</p>
+{steps([("Clip","one point, cut from a court-level YouTube video","yt-dlp"),("Body","joints, shape and camera per frame from the single view","FlowHMR · Modal"),("Racket","five keypoints per frame, then a racket moved through the arm","RacketVision + solver"),("Ball","authored to the motion's events: toss, contact, bounce, next racket","Python"),("Person","a body and face that are the player","Rodin · Meshy"),("Scene","court, stadium, crowd; interactive on the web","three.js")])}
+<p class="cap">done looks like: the point plays from any angle and matches the footage frame for frame</p>
+</section>""")
+
+# ---------- 2 examples ----------
+S.append(f"""<section aria-labelledby="h-ex">
+<h2 id="h-ex">2 · Examples</h2>
+<p class="sub">Three more points, each with the original footage inside the scene. Press Front, Side or Top; scrub the time.</p>
+{review("shelton-serve-d", "Ben Shelton serve · the footage frame beside the fit · 3.8 px median racket error")}
+{review("alcaraz-hfr", "Alcaraz forehand at 120 fps · the only clip where the racket stays through contact")}
+{review("djokovic-turin-return", "Djokovic return · 5.7 px median racket fit, the cleanest groundstroke")}
+</section>""")
+
+# ---------- 3 research ----------
+S.append(f"""<section aria-labelledby="h-res">
+<h2 id="h-res">3 · Research</h2>
+<p class="sub">How the best systems do it, and what one camera can do in 2026.</p>
+{refs([("media/refs/hawkeye-skeletrack.jpg","Hawk-Eye SkeleTRACK","29 body points and 7 racket points from 10–14 stadium cameras; used since the 2024 Laver Cup. The gold standard, and private.","stadium"),
+       ("media/refs/flowhmr-teaser.jpg","FlowHMR","body motion from one camera; 82% physical tracking success on Wild-4K in its paper, 63% for the next best. What we use.","1 camera"),
+       ("media/refs/racketvision-teaser.jpg","RacketVision, AAAI 2026","five racket keypoints per frame from broadcast clips; 89.6% correct on tennis, side points weakest at 80%. What we use.","1 camera"),
+       ("media/logos/hyper3d.png","Rodin 2.5","a whole clothed body from two or three photos; no likeness promised. Tried.","photos"),
+       ("media/logos/meshy.png","Meshy 7.1","image to 3D with a rig in minutes; faces flatten and fingers fuse, by its own help page. Tried.","image")])}
+<p class="cap">games like TopSpin 2K25 record players in mocap suits; nobody has a solved single-camera racket</p>
+<h3>Where it stands</h3>
+{bars([
+ ("Body motion", 8, "FlowHMR from one camera. Depth is monocular and no physics ran, so feet can slide and a cropped toss loses height."),
+ ("Ball", 8, "Authored to the motion's events; lands where it should. Not spin, not measured 3D flight."),
+ ("Racket model", 7, "Traced outline, woven strings, drilled grommets. Depth and sidewalls approximate."),
+ ("Racket motion", 6, "Solved through the arm. At 30 fps the detector sees the racket in 32–40% of frames; at 120 fps, 81%. Face angle at contact is set by rule."),
+ ("Skin and face, Meshy", 5, "Outfit and surface read well. Heads rejected as likeness, hands came out as mittens."),
+ ("Body shape of the person", 2, "Everyone shares the FlowHMR body. The Rodin bodies that fix this are paused."),
+ ("Face likeness", 2, "Rodin, UP2You and Meshy all generate a face. None is the person."),
+])}
+</section>""")
+
+# ---------- 4 footage ----------
+S.append(f"""<section aria-labelledby="h-src">
+<h2 id="h-src">4 · Where the videos come from, and why quality differs</h2>
+<p class="sub">Same model every time. The camera and the frame rate decide the result.</p>
 
 {source(*CLT, "Ben Shelton serving up close · court level practice 2025", "vF9WB1ZhgsI",
-        ["camera: low, directly behind the server", "4K 60 fps, 1080p 30 fps into the model", "player about 490 px tall in frame"],
-        "The best footage of the project. Low and behind means the body is big and the swing plane is visible; this is the recipe every later point reuses.")}
-{yt("vF9WB1ZhgsI", 26, 32, "the source · 26–32 s", clip="lab/media/sources/shelton-serve.mp4")}
-{lab("shelton-serve", "the first accepted motion · Oct 22 · same clip, as the scene")}
-{review("shelton-serve-d", "the same serve in the 16-point library · racket solved through the arm, ball authored · 4.7 px median")}
+        ["camera: low, directly behind the server", "4K 60 fps · 1080p 30 fps into the model", "player about 490 px tall in frame"],
+        "The best footage of the project: low and behind means the body is big and the swing plane is visible. This is the recipe every later point reuses.")}
+{lab("shelton-serve", "the first accepted motion, Oct 22")}
 
 {source(*SMT, "Ben Shelton practice set with Federico Coria · 4K 60 fps", "cDV-pQCJkP4",
-        ["camera: low behind the baseline, both players in frame", "4K 60 fps, 1080p 30 fps into the model", "serve contact partly above the frame"],
-        "The only two-player point: serve out wide from the deuce side, approach, volley. Both bodies from one camera; the far player and hidden hands are less reliable. This is the point on the USTA page.")}
-{yt("cDV-pQCJkP4", 101, 109, "the source · 1:41.5–1:48.5", clip="lab/media/sources/shelton-coria.mp4")}
-{lab("shelton-coria", "serve and volley · both players · the whole point")}
+        ["camera: low behind the baseline, both players in frame", "4K 60 fps · 1080p 30 fps into the model", "serve contact partly above the frame"],
+        "The only two-player point. Both bodies from one camera; the far player and hidden hands are less reliable.")}
 {lab("shelton-long-rally", "14 seconds of rally from the same set · drift and hidden hands show over time")}
 
 {source(*CLT, "Alcaraz vs Perricard · court-level matchplay 2025", "9Dl84UYDks0",
-        ["camera: low behind the near player", "4K 60 fps", "two players, served points with groundstrokes"],
-        "Same recipe on matchplay. Serves and groundstrokes come through; the racket blurs at the fastest frames because this is 30 fps into the model.")}
-{yt("9Dl84UYDks0", 586, 601, "the source · 586–600 s", clip="review/data/alcaraz-a-source.mp4")}
+        ["camera: low behind the near player", "4K 60 fps", "served points with groundstrokes"],
+        "Same recipe on matchplay. The racket blurs at the fastest frames because this is 30 fps into the model.")}
 {review("alcaraz-a", "Alcaraz · serve at frame 249, two-handed backhand at 303 · 10.9 px")}
-{review("alcaraz-serve", "Mpetshi Perricard · 2.03 m in life, 1.82 m in the model: the shared body")}
 
 {source(*CLT, "Cobolli vs Sinner · court-level practice set 2026", "D6wCPsoAd58",
         ["camera: low behind the near player", "4K 60 fps", "returns and served points"],
         "Returns are the cleanest: a compact swing in front of the body, 4.8 px median on Cobolli.")}
-{yt("D6wCPsoAd58", 109, 119, "the source · 109–119 s", clip="review/data/sinner-return-source.mp4")}
 {review("sinner-return", "Sinner return · 293 frames · 10.7 px")}
-{review("cobolli-c1", "Cobolli · serve, then three topspin contacts · 7.0 px")}
 
 {source("media/refs/focused-tennis.jpg", "FocusedTennis", "Djokovic · 2024 Indian Wells practice match, court level 4K 60 fps", "xsP3PjNgId8",
         ["camera: court level behind the player", "4K 60 fps", "one-handed slices at frames 145 and 312"],
-        "Djokovic's slices were first labelled topspin; the contact rule needs the shot type right, so these were relabelled by eye.")}
-{yt("xsP3PjNgId8", 399, 414, "the source · 399–413 s", clip="review/data/djokovic-iw-a-source.mp4")}
+        "The slices were first labelled topspin; the contact rule needs the shot type right, so they were relabelled by eye.")}
 {review("djokovic-iw-a", "Djokovic IW-A · forehand, slice, forehand · 9.0 px")}
 
-{source("media/refs/courtleveltv-tennis5245.jpg", "Court Level TV", "Djokovic and Auger-Aliassime · ATP Finals Turin 2022 practice, 4K 60 fps", "-KoAgZkCIx8",
-        ["camera: low behind the baseline", "4K 60 fps", "a return point"],
-        "A clean return: 5.7 px median, the best Djokovic fit.")}
-{yt("-KoAgZkCIx8", 29, 42, "the source · 29–42 s", clip="review/data/djokovic-turin-return-source.mp4")}
-{review("djokovic-turin-return", "Djokovic Turin return · 366 frames · 5.7 px")}
+{source(*SMT, "Carlos Alcaraz · forehand and backhand · slow motion 4K 120 fps", "-Eu80hGbgVA",
+        ["camera: court level, side-rear", "4K 120 fps: the only high-frame-rate clip", "7 s of rallying"],
+        "At 30 fps a fast swing is a blur and the detector loses the racket at contact. At 120 fps it keeps it through contact and the follow-through. The single largest gain, and it cost nothing.")}
+{chart("bars", {"rows":[{"label":"Djokovic IW, 30 fps","value":36,"color":"#b4442c"},{"label":"Sinner, 30 fps","value":34,"color":"#b4442c"},{"label":"Alcaraz, 120 fps","value":81,"color":"#236442"}],"max":100,"unit":"%"}, "frames where the racket was found")}
 
 {source("media/refs/tennistv.jpg", "Tennis TV", "Shelton vs Nakashima · Indian Wells 2025 highlights", "tQdVQu-CQwQ",
         ["camera: elevated broadcast, full court", "1080p 50 fps into 1080p 30 fps", "player about 220 px tall"],
-        "A body, but no usable wrist or face: the player is too small. Kept as a benchmark for court-pattern context only.")}
-{yt("tQdVQu-CQwQ", 16, 22, "the source · 16.4–22 s", clip="lab/media/sources/shelton-atp.mp4")}
-{lab("shelton-atp", "ATP broadcast · body only · no racket, ball or opponent solved")}
+        "A body, but no usable wrist or face: the player is too small. A benchmark for court-pattern context only.")}
+{lab("shelton-atp", "ATP broadcast · body only")}
 
 {source("media/refs/ucla-tennis-consulting.jpg", "UCLA Tennis Consulting", "Spencer Johnson (UCLA) vs Samir Banerjee (Stanford) · PlaySight", "ot8tSR3q9gI",
         ["camera: fixed club camera behind the baseline", "1080p 30 fps", "one indexed point, charted shots"],
         "The only clip with a charted ball: tagged contacts and bounces from a Stanford dataset give the arcs; no racket solve.")}
-{yt("ot8tSR3q9gI", 300, 309, "the source · 5:00–5:09", clip="lab/media/sources/ucla-point8.mp4")}
 {lab("ucla-point8", "college match · body plus charted ball arcs")}
 </section>""")
 
-S.append(f"""<section aria-labelledby="h-racket">
-<h2 id="h-racket">2 · Racket</h2>
-<p class="sub">Three parts: a model, a detector, and a solver that moves the model through the arm. The weakest link is the footage frame rate.</p>
-{steps([("Model","trace the outline, author strings, grommets, grip","Blender"),("Detect","five racket keypoints per frame where visible","RacketVision · Modal"),("Solve","through forearm and wrist, spin capped at 2,500°/s","Python"),("Pin contact","label 34 contacts, hold the face angle","by eye")])}
-{model("racket-arm-solved", "the rebuilt racket · frame, throat, grommets, woven strings, grip · drag to inspect", h=380, attrs='camera-orbit="30deg 70deg 1.1m" auto-rotate')}
-{mini([("outline", 8, "traced from manufacturer photos"), ("strings and grommets", 8, "woven bed, every string through its own hole"), ("depth and sidewalls", 5, "approximate, not CAD"), ("paint and decals", 6, "authored, not scanned")])}
+# ---------- 5 problems and fixes ----------
+S.append(f"""<section aria-labelledby="h-fix">
+<h2 id="h-fix">5 · Problems, and how each was fixed</h2>
+<p class="sub">Every fix is measured on the same points before and after.</p>
 
-{source(*SMT, "Carlos Alcaraz · forehand and backhand · slow motion 4K 120 fps", "-Eu80hGbgVA",
-        ["camera: court level, side-rear", "4K 120 fps: the only high-frame-rate clip", "7 s of rallying"],
-        "At 30 fps a fast swing is a blur and the detector loses the racket exactly at contact. At 120 fps it keeps it through contact and the follow-through: 81% of frames found against 32–40%. The single largest gain, and it cost nothing.")}
-{yt("-Eu80hGbgVA", 0, 30, "the source · 120 fps", clip="review/data/alcaraz-hfr-source.mp4")}
-{review("alcaraz-hfr", "Alcaraz forehand at 120 fps · racket through contact, 15.5 px on held-out frames")}
-{fig("media/racket/ovl-djokovic-iw-a.jpg", "solved through the arm · red: old free-wrist fit · green: arm solve · cyan: detections")}
-{fig("media/racket/edge-before-after.jpg", "face angle at contact · top: before, 35–70° open · bottom: after the rule, near vertical")}
-{mini([("racket found, 30 fps", 4, "32–40% of frames"), ("racket found, 120 fps", 8, "81% of frames"), ("fit where seen", 7, "4.7–12.5 px median per point"), ("face angle at contact", 5, "set by rule, not measured: from behind, open and closed look the same")])}
-</section>""")
+<h3>The racket flipped at the wrist</h3>
+<p>A racket seen from behind looks the same rotated 180° about its handle, so a free-wrist fit flipped the face between frames: up to 5,400°/s. The fix solves the arm instead of the racket: forearm twist and wrist angle per frame inside anatomical limits, smoothed, spin capped at 2,500°/s, the racket following the hand where the detector sees nothing.</p>
+{chart("spin", {"rows":[{"point":p,"label":l,"before":b,"after":a} for p,l,b,a in SPIN]}, "fastest racket spin per point · red: free-wrist fit · green: solved through the arm · no frame over the cap on 15 of 16 points")}
+{chart("trace", {"src":"media/data/racket-trace.json","key":"shelton-serve-d","label":"Shelton serve D · final fit, °/s per frame"}, "the same metric live: racket angular speed through the serve in section 2, frame by frame")}
+{fig("media/racket/ovl-djokovic-iw-a.jpg", "red: old fit · green: arm solve · cyan: detections")}
 
-S.append(f"""<section aria-labelledby="h-ball">
-<h2 id="h-ball">3 · Ball</h2>
-<p class="sub">No model tracks the ball in 3D from one camera here. The ball is authored to events read off the motion: toss release, contact at the racket head, a landing inside the box, the next racket.</p>
-{model("ball-usopen", "the Wilson US Open ball · 6.7 cm · felt, seam and print authored from reference photos", h=320, attrs='camera-orbit="40deg 70deg 0.3m" auto-rotate')}
-{lab("shelton-coria", "the point with the ball · toss, serve out wide, return, volley")}
-{mini([("in hand through the toss", 9, "attached to the tossing hand"), ("leaves the strings at contact", 9, "at the racket head"), ("lands where it should", 7, "inside the deuce box; the exact spot is modelled"), ("spin and true 3D flight", 2, "not measured")])}
-</section>""")
+<h3>The face was open at contact</h3>
+<p>From behind, tilting the face open or closed shrinks its outline by the same amount, so five points cannot tell them apart. The first solves had the face 36° open at contact, which a topspin forehand cannot do. The fix labels every contact frame and shot type by eye and holds the face for ±3 frames: vertical to 15° closed for topspin, 15° closed to 10° open for a serve.</p>
+{chart("contact", {"rows":[{"label":l,"shot":s,"before":b,"after":a} for l,s,b,a in CONTACTS],"band":[-15,10]}, "34 labelled contacts · red: before · green: after the rule · 7 plausible → 34 · the rule chose the angle, not the video")}
+{fig("media/racket/edge-before-after.jpg", "camera looking along the face at contact · top: before · bottom: after")}
 
-S.append(f"""<section aria-labelledby="h-look">
-<h2 id="h-look">4 · Appearance</h2>
-<p class="sub">Three ways to put a person on the motion. Each is scored the same way: motion is inherited, body and face are the generator's.</p>
-<h3>Plain FlowHMR body</h3>
-{lab("shelton-serve", "the shared grey body · what every point uses today", camera="front")}
-{mini([("motion", 8, "FlowHMR"), ("body shape", 2, "one body for everyone"), ("face", 1, "none"), ("clothes", 1, "none")])}
-<h3>Rodin body from three frames</h3>
-{model("rodin-shelton", "Shelton · Rodin 2.5 through fal.ai from three frames of the same video · about $0.40", h=440, attrs=CAST)}
-{video("media/bodies/shelton-serve-fal.mp4", "media/bodies/shelton-serve-fal-poster.jpg", "the same body on the serve · motion unchanged")}
-{mini([("motion", 8, "inherited from FlowHMR"), ("body shape", 6, "outfit matches, build close; the tank top is part of the mesh and bulges"), ("face", 2, "generated, not Shelton"), ("hands", 3, "the generated hand stays open under the grip")])}
-<h3>Meshy likeness</h3>
-{model("shelton-2", "Shelton · Meshy 7.1 from a four-view A-pose sheet · the figure the USTA page used before the rebuild", h=440, attrs=CAST)}
+<h3>The server drifted inside the baseline</h3>
+<p>FlowHMR carried Shelton about 1.1 m into the court by contact because the footage crops the toss. The fix counter-translates his root along the court during the serve so both feet stay behind the line, then blends out over the first approach steps; the return and the volley are untouched.</p>
+{chart("bars", {"rows":[{"label":"hips at contact, before","value":10.76,"color":"#b4442c"},{"label":"hips at contact, after","value":11.54,"color":"#236442"},{"label":"baseline","value":11.885,"color":"#6e6e76"}],"max":12.5,"unit":" m"}, "court metres from the net · feet min 11.97 after the fix")}
+
+<h3>No ball</h3>
+<p>No model tracks the ball in 3D from one camera here, and the Tennis Lab export has none. The ball is authored to events read off the motion: in the tossing hand to release, contact at the racket head, a landing inside the box, the next racket. It is a Wilson US Open ball, 6.7 cm, felt and print from reference photos.</p>
+{model("ball-usopen", "drag to inspect", h=300, attrs='camera-orbit="40deg 70deg 0.3m" auto-rotate')}
+{mini([("in hand through the toss", 9, "attached to the tossing hand"), ("leaves the strings at contact", 9, "at the racket head"), ("lands where it should", 7, "inside the box; the exact spot is modelled"), ("spin and true 3D flight", 2, "not measured")])}
+
+<h3>Nobody looks like the player</h3>
+<p>Three ways to put a person on the motion, scored the same way. The motion is inherited; body and face are the generator's.</p>
+{model("rodin-shelton", "Rodin 2.5 from three frames of the same video · about $0.40 · the outfit matches, the face does not", h=420, attrs=CAST)}
+{mini([("motion", 8, "inherited"), ("body shape", 6, "outfit and build close; the tank top is part of the mesh and bulges"), ("face", 2, "generated, not Shelton"), ("hands", 3, "the generated hand stays open under the grip")])}
+{model("shelton-2", "Meshy 7.1 from a four-view A-pose sheet · the figure the USTA page used before the rebuild", h=420, attrs=CAST)}
 {mini([("motion", 5, "library idles and mocap strokes, no finger bones"), ("body shape", 6, "a tennis player, not this one"), ("face", 3, "reads as a game character"), ("hands", 2, "mittens")])}
-{rows([("Eight Rodin bodies built; all paused for wrinkles, bent spine, changed height", "paused"), ("UP2You and MICA face fits rejected at 2/10 and 4/10", "rejected"), ("Three Meshy heads on the serve body: detached", "rejected")])}
+{rows([("Eight Rodin bodies built; all paused for wrinkles, bent spine, changed height", "paused"), ("UP2You and MICA face fits rejected at 2/10 and 4/10", "rejected"), ("Three Meshy heads on the serve body: detached", "rejected"), ("Kling 3.0 motion-control video failed the anatomy gate", "dropped"), ("GEM-X and Kimodo mocap loops, none adopted", "dropped")])}
 </section>""")
 
-S.append(f"""<section aria-labelledby="h-scenes">
-<h2 id="h-scenes">5 · Scenes and cast</h2>
-<p class="sub">The venues are data, not generated images: OpenStreetMap footprints, USGS terrain, an aerial photo, Poly Haven props, built in code. Meshy made the people. The USTA page plays the serve-and-volley point inside the stadium.</p>
-{model("shelton-coria-point", "the USTA opener scene · both players, grey, with the Wilson ball", h=440, attrs='camera-target="12m 1m -0.8m" camera-orbit="215deg 78deg 7m" min-camera-orbit="auto auto 2m" max-camera-orbit="auto auto 40m"')}
+# ---------- 6 the rest ----------
+S.append(f"""<section aria-labelledby="h-rest">
+<h2 id="h-rest">6 · Scenes, cast, goat and films</h2>
+<p class="sub">The venues are data, not generated images: OpenStreetMap, USGS terrain, an aerial photo, Poly Haven props. Meshy made the people. HyperFrames made the films.</p>
+{model("shelton-coria-point", "the USTA opener scene · both players with the Wilson ball · live on jerrythegoat.com/usta", h=420, attrs='camera-target="12m 1m -0.8m" camera-orbit="215deg 78deg 7m" min-camera-orbit="auto auto 2m" max-camera-orbit="auto auto 40m"')}
 {fig("media/venues/usta-sheet.jpg", "US Open · Arthur Ashe and Flushing Meadows from OSM and code")}
-{fig("media/venues/ucla-full.jpg", "UCLA · real terrain, aerial photo ground, 52k trees placed from its near-infrared band")}
-{fig("media/venues/galaxy-full.jpg", "Galaxy, Kings, Reign · Dignity Health Sports Park from OSM, Poly Haven props")}
-<h3>The Meshy cast</h3>
-{model("gauff-2", "Coco Gauff · Meshy likeness v2", h=400, attrs=CAST)}
-{model("martin", "Billy Martin · UCLA head coach · live", h=400, attrs=CAST)}
-{model("jerry", "Jerry · four-photo rebuild · live on all three pages", h=400, attrs=CAST)}
-{model("umpire", "chair umpire · from a text prompt", h=400, attrs=CAST)}
-{model("sp-1", "seated spectator · remeshed to 1.5k polys for the crowd", h=360, attrs='camera-orbit="25deg 80deg 3m" camera-target="0m 0.8m 0m"')}
-{mini([("speed", 9, "about 44 credits and minutes per figure"), ("consistency", 8, "one style across 30 figures"), ("likeness", 3, "heads rejected"), ("hands", 2, "mittens")])}
-</section>""")
-
-S.append(f"""<section aria-labelledby="h-goat">
-<h2 id="h-goat">6 · The goat and the mountain</h2>
-<p class="sub">The home-page intro animal and wallpaper.</p>
-{model("goat-loader", "dot goat · a CC0 goat reshaped in Blender · the default intro", h=380, attrs='auto-rotate')}
-{model("toy-ibex", "toy ibex · nano-banana still → Tripo mesh · a style variant", h=380, attrs='auto-rotate')}
-{model("toy-mountain", "toy mountain · nano-banana still → Tripo · the one generated 3D set", h=380, attrs='auto-rotate')}
-{fig("media/loader/mountain-flux-outpaint.jpg", "home-page mountain · an ink painting extended by FLUX outpainting, original pixels unchanged")}
-{mini([("goat silhouette", 8, "reads as an ibex at a glance"), ("toy ibex", 7, "good toy, not the brand"), ("photoreal ibex", 5, "Hunyuan3D, hooves fine, fur flat"), ("generated backdrops", 2, "feel like greenscreen, rejected")])}
-</section>""")
-
-S.append(f"""<section aria-labelledby="h-films">
-<h2 id="h-films">7 · Films</h2>
-<p class="sub">HyperFrames renders HTML to video frame by frame in headless Chrome. Every hub clip and film came from it.</p>
-{video("media/hyperframes/cycling-film.mp4", "media/hyperframes/cycling-film-poster.jpg", "cycling film · 17 s")}
+{fig("media/venues/ucla-full.jpg", "UCLA · real terrain, aerial photo ground, 52k trees from its near-infrared band")}
+{model("gauff-2", "Coco Gauff · Meshy likeness", h=400, attrs=CAST)}
+{model("jerry", "Jerry · four-photo Meshy rebuild", h=400, attrs=CAST)}
+{model("goat-loader", "the home-page goat · a CC0 goat reshaped in Blender", h=360, attrs='auto-rotate')}
+{model("toy-ibex", "toy ibex · nano-banana still → Tripo", h=360, attrs='auto-rotate')}
+{video("media/hyperframes/cycling-film.mp4", "media/hyperframes/cycling-film-poster.jpg", "cycling film · HyperFrames, HTML rendered frame by frame")}
 {video("media/hyperframes/reel-v3.mp4", "media/hyperframes/reel-v3-poster.jpg", "sports data reel · 31 s")}
-{video("media/hyperframes/radio-captions.mp4", "media/hyperframes/radio-captions-poster.jpg", "radio · word-by-word captions")}
-{video("media/thumbs/final-galaxy.mp4", "media/thumbs/final-galaxy-poster.jpg", "Galaxy card · chosen from 140 options")}
-</section>""")
-
-S.append(f"""<section aria-labelledby="h-dropped">
-<h2 id="h-dropped">Tried and dropped</h2>
-{rows([("Kling 3.0 motion-control video failed the anatomy gate", "fal.ai"), ("GEM-X and Kimodo mocap loops, none adopted", "Modal"), ("Rodin granite crag: a marble column", "fal.ai"), ("nano-banana backdrops: greenscreen", "fal.ai"), ("Internally generated mountain wings and pinnacle", "image")])}
 </section>""")
 
 S.append(f"""<section aria-labelledby="h-time">
@@ -308,6 +317,15 @@ h3{font-size:15px;font-weight:600;margin:28px 0 8px}
 section > .model, section > .vid, section > .fig, section > .rows, section > .bars, section > .scene, section > .yt{margin-top:16px}
 .src + .yt, .src + .vid{margin-top:12px}
 .src-vid .cap a{text-decoration:none}
+.chart .d3{width:100%}
+.scores{list-style:none;margin:0 0 10px;padding:0}
+.scores li{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.scores li:last-child{border-bottom:1px solid var(--line)}
+.scores img{width:64px;height:64px;object-fit:cover;border-radius:6px;background:var(--panel)}
+.scores b{display:block;font-size:14px;font-weight:600}.scores small{display:block;font-size:12px;color:var(--muted);line-height:1.4}
+.scores code{font:11px var(--mono);color:var(--muted);align-self:start;padding-top:2px}
+.hero{margin-top:-10px}
+section p{margin:0 0 10px;font-size:14px}
 @media (prefers-reduced-motion:reduce){.track i{transition:none}}
 """
 
@@ -318,10 +336,12 @@ page = f"""<!doctype html><html lang="en"><head>
 <meta property="og:title" content="Video to Motion"><meta property="og:description" content="Tennis video to 3D motion, racket, ball and person. Every scene interactive, every result scored.">
 <style>{CSS}{EXTRA}</style>
 <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/dist/model-viewer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script defer src="charts.js"></script>
 </head><body>
 <main class="col">
 <div class="made"><a href="https://jerrythegoat.com/">jerrythegoat.com</a> · notes</div>
-<header><h1>Video to Motion</h1><p>How one YouTube clip becomes a body, a racket, a ball and a person on a court. What each step can do today, scored honestly, with every scene live on this page.</p></header>
+<header><h1>Video to Motion</h1><p>How one YouTube clip becomes a body, a racket and a ball on a court. The plan, the examples, the research, where the footage comes from, and what broke and how it was fixed.</p></header>
 {''.join(S)}
 </main>
 <script>
@@ -332,6 +352,15 @@ page = f"""<!doctype html><html lang="en"><head>
   var vids=[].slice.call(document.querySelectorAll('video.auto'));
   var vo=new IntersectionObserver(function(es){{es.forEach(function(x){{var v=x.target;if(x.isIntersecting){{if(v.preload==='none'){{v.preload='auto';v.load();}}v.play().catch(function(){{}});}}else{{v.pause();}}}});}},{{rootMargin:'160px 0px'}});
   vids.forEach(function(v){{vo.observe(v);}});
+  window.addEventListener('load',function(){{
+    document.querySelectorAll('.d3').forEach(function(el){{
+      var kind=el.dataset.chart, d=JSON.parse(el.dataset.json);
+      if(kind==='spin') VTM.spinChart(el,d.rows);
+      else if(kind==='contact') VTM.contactChart(el,d.rows,d.band);
+      else if(kind==='bars') VTM.bars(el,d.rows,d.max,function(v){{return v+(d.unit||'');}});
+      else if(kind==='trace') fetch(d.src).then(function(r){{return r.json();}}).then(function(j){{VTM.trace(el,j[d.key],d.label);}});
+    }});
+  }});
 }})();
 </script>
 </body></html>
