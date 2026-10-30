@@ -2548,7 +2548,7 @@
     {
      "step": "3",
      "what": "Set",
-     "how": "boulder, toy diorama, gorge, dam"
+     "how": "boulder, toy diorama"
     },
     {
      "step": "4",
@@ -2695,71 +2695,6 @@
         "ran": "Dot ibex over each backdrop.",
         "why": "Rejected as a direction.",
         "cost": ""
-       }
-      },
-      {
-       "id": "wild",
-       "kind": "image",
-       "title": "Wild gorge and dam",
-       "sub": "Procedural terrain, Poly Haven scans, physical sky",
-       "meta": [
-        "not AI",
-        "?style=wild"
-       ],
-       "verdict": "live",
-       "image": "media/loader/wild-mountain-run.jpg",
-       "gallery": [
-        "media/loader/wild-leap.jpg",
-        "media/loader/wild-dam-sheet.jpg"
-       ],
-       "back": {
-        "source": "Poly Haven CC0 cliff and boulder scans, three.js physical sky at dusk",
-        "ran": "Displaced gorge and peaks, triplanar cliff and grass-rock materials, four scanned dressing props; the real ibex runs, charges and climbs the dam.",
-        "why": "Live as the wild variant. A Rodin text-to-3D granite crag was tried for this scene and rejected as a marble column.",
-        "differs": "",
-        "cost": "$0 for the scene"
-       }
-      },
-      {
-       "id": "wild-dam-motion",
-       "kind": "video",
-       "title": "Dam climb",
-       "sub": "Wild variant, revised motion",
-       "meta": [
-        "Oct 28"
-       ],
-       "verdict": "live",
-       "video": "media/loader/wild-dam-motion.mp4",
-       "poster": "media/loader/wild-dam-motion-poster.jpg",
-       "back": {
-        "source": "Cingino dam reference footage",
-        "ran": "Authored motion on the real ibex.",
-        "why": "Current wild scene.",
-        "cost": ""
-       }
-      },
-      {
-       "id": "cingino",
-       "kind": "image",
-       "title": "Cingino dam rebuild",
-       "sub": "Rodin 2.5 ibex from a generated reference, unreleased",
-       "meta": [
-        "fal.ai Rodin",
-        "Codex image_gen",
-        "staging only"
-       ],
-       "verdict": "paused",
-       "image": "media/loader/cingino-ibex-reference.jpg",
-       "gallery": [
-        "media/loader/cingino-ibex-raw.jpg",
-        "media/loader/cingino-dam-sheet.jpg"
-       ],
-       "back": {
-        "source": "A modelling reference image generated with Codex, then fal.ai Rodin 2.5 High image-to-3D",
-        "ran": "Raw 16.5 MB mesh normalised in Blender, 60k faces, authored 20-bone rig, meshopt to 965 KB; masonry albedo and height for the dam wall also generated.",
-        "why": "Staging previews only; the live site returns 404 for this ibex.",
-        "differs": "",
-        "cost": "about $0.40 Rodin"
        }
       },
       {
