@@ -25,12 +25,12 @@ MISSING = []
 
 # ---------- components ----------
 
-def lab(match, cap, camera="behind", footage=1, h=560):
+def lab(match, cap, camera="behind", footage=1, h=720):
     src = f"lab/?source=motion&match={match}&embed=1&camera={camera}&footage={footage}&autoplay=1"
     return f'<figure class="scene"><iframe src="{e(src)}" loading="lazy" title="{e(cap)}" allow="autoplay" style="height:{h}px"></iframe><figcaption class="cap">{cap}</figcaption></figure>'
 
 
-def review(point, cap, camera="behind", h=560):
+def review(point, cap, camera="behind", h=640):
     src = f"review/?point={point}&embed=1&camera={camera}&footage=1&autoplay=1"
     return f'<figure class="scene"><iframe src="{e(src)}" loading="lazy" title="{e(cap)}" allow="autoplay" style="height:{h}px"></iframe><figcaption class="cap">{cap}</figcaption></figure>'
 
