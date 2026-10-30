@@ -159,3 +159,6 @@ Verification (Blender re-import of the uncompressed export, 3 sampled frames): p
 | lib-cobolli-c1 | Flavio Cobolli (batch label; pink racket, yellow shorts) | right | 367 | 30 | 66 | 26 | 16,378,768 -> 1,099,564 | 0,66,366 | 0.001 | 0.000 / 0.031 | 0.49 | 0.001 / 0.012 |  |
 | lib-cobolli-c2 | Flavio Cobolli (batch label; pink racket, yellow shorts) | right | 205 | 30 | 77 | 0 | 16,230,212 -> 1,048,072 | 0,77,204 | 0.001 | 0.000 / 0.000 | 0.51 | 0.001 / 0.012 |  |
 | lib-alcaraz-hfr | Carlos Alcaraz (Indian Wells 2023 practice) | right | 837 | 120 | 650 | 0 | 16,791,548 -> 1,069,532 | 0,650,836 | 0.000 | 0.000 / 0.000 | 0.49 | 0.000 / 0.012 | 120 Hz input; 30 Hz body interpolated to 120 Hz; diagnostic |
+
+## ball-usopen (rebuilt Oct 30)
+Built in Blender from product photos (Wilson.com, Sports Basement, Merchant of Tennis, Tennis Warehouse); seam fitted to the photo, procedural felt, vector Wilson and us open marks. Full list: /Users/jshi/Scratch/wilson-ball-20261030/out/SOURCES.md

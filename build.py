@@ -269,7 +269,7 @@ S.append(f"""<section aria-labelledby="h-fix">
 {chart("bars", {"rows":[{"label":"hips at contact, before","value":10.76,"color":"#b4442c"},{"label":"hips at contact, after","value":11.54,"color":"#236442"},{"label":"baseline","value":11.885,"color":"#6e6e76"}],"max":12.5,"unit":" m"}, "court metres from the net · feet min 11.97 after the fix")}
 
 <h3>No ball</h3>
-<p>No model tracks the ball in 3D from one camera here, and the Tennis Lab export has none. The ball is authored to events read off the motion: in the tossing hand to release, contact at the racket head, a landing inside the box, the next racket. It is a Wilson US Open ball, 6.7 cm, felt and print from reference photos.</p>
+<p>No model tracks the ball in 3D from one camera here, and the Tennis Lab export has none. The ball is authored to events read off the motion: in the tossing hand to release, contact at the racket head, a landing inside the box, the next racket. It is a Wilson US Open ball, 6.7 cm, rebuilt from product photos: seam fitted to the photo, felt, the Wilson and us open marks.</p>
 {model("ball-usopen", "drag to inspect", h=300, attrs='camera-orbit="40deg 70deg 0.3m" auto-rotate')}
 {mini([("in hand through the toss", 9, "attached to the tossing hand"), ("leaves the strings at contact", 9, "at the racket head"), ("lands where it should", 7, "inside the box; the exact spot is modelled"), ("spin and true 3D flight", 2, "not measured")])}
 
