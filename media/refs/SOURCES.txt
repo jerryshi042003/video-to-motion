@@ -3,3 +3,7 @@ racketvision-teaser.jpg: https://arxiv.org/html/2511.17045v3/teaser.png (RacketV
 hawkeye-skeletrack.jpg: https://www.hawkeyeinnovations.com/news/4243365/skeletrack-a-new-era-of-data-in-tennis (Hawk-Eye Innovations)
 channel avatars: YouTube channel og:image for Court Level Tennis (@CourtLevelTennis), Slow-Mo Tennis, Tennis TV, UCLA Tennis Consulting, FocusedTennis, Court Level TV; youtube.svg from simpleicons
 video thumbnails: https://i.ytimg.com/vi/<id>/hqdefault.jpg
+next/wilor.jpg: https://rolpotamias.github.io/WiLoR/static/images/teaser.png (WiLoR project page teaser; same file as README assets/teaser.png in github.com/rolpotamias/WiLoR)
+next/gigapose.jpg: https://nv-nguyen.github.io/gigapose/images/inference.png (GigaPose project page teaser)
+next/caddie.jpg: page 1 rendered from https://openaccess.thecvf.com/content/CVPR2026W/CVsports/papers/Jung_CADDIE_Compact_Adaptive_Detection-Driven_Inference_for_Real-Time_Golf_Club_Pose_CVPRW_2026_paper.pdf (CADDIE, CVPR 2026 Workshop CVsports)
+next/egoxtreme.jpg: https://arxiv.org/html/2603.25135v1/Teaser_2.png (EgoXtreme, arXiv 2603.25135v1 first figure)

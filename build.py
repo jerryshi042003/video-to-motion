@@ -47,7 +47,8 @@ def lab(match, cap="", h=720, ball=None, cam=None):
 
 def review(point, cap="", h=640):
     R = REVCAM[point]; cx, cy, cz = R["cam"]; px, py, pz = R["pelvis"]
-    vs = R["frames"] / R["fps"]
+    # the review footage is a crop around the player, so keep the source camera's line of sight but come in closer
+    k = 0.42; cx, cy, cz = px + (cx - px) * k, py + (cy - py) * k, pz + (cz - pz) * k
     p = {"m": f"lib-{point}", "v": f"../review/data/{point}-source.mp4", "fov": 36, "cp": f"{cx:.2f},{cy:.2f},{cz:.2f}", "ct": f"{px:.2f},{py:.2f},{pz:.2f}"}
     if point == "alcaraz-hfr": p["vs"] = 0.5   # 120 fps motion over 60 fps slow-motion footage
     return scene(p, cap, h)
@@ -256,6 +257,13 @@ S.append(f"""<section aria-labelledby="h-fix">
 {chart("contact", {"rows":[{"label":l,"shot":s,"before":b,"after":a} for l,s,b,a in CONTACTS],"band":[-15,10]}, "34 labelled contacts · red: before · green: after the rule · 7 plausible → 34 · the rule chose the angle, not the video")}
 {fig("media/racket/edge-before-after.jpg", "camera looking along the face at contact · top: before · bottom: after")}
 
+<h3>Why the racket still looks wrong, and what runs next</h3>
+<p>The detailed racket mesh changed the look, not the motion: both fits share the same pose per frame. The motion is limited by the detector. RacketVision finds the racket in a third of 30 fps frames and its two side points, the ones that set the face, are its weakest at 80%. The next run uses the hand instead of the racket edges: a hand model gives the grip every frame, the racket is rigid in the grip, and the face at contact comes from the hand and the contact frame rather than a rule.</p>
+{refs([("media/refs/next/wilor.jpg","WiLoR, CVPR 2025","hand detector and 3D hand mesh in one model, 5.5 mm on FreiHAND; frame by frame, no temporal part. Runs next on hand crops of every frame.","next"),
+       ("media/refs/next/gigapose.jpg","GigaPose, CVPR 2024","6-DoF pose of a known mesh from one RGB frame, template matching; a coarse start for the racket on frames where it is visible.","next"),
+       ("media/refs/next/caddie.jpg","CADDIE, CVPR 2026 workshop","golf club keypoints with the same five-point idea; detects on a subset of frames and interpolates between them by motion type.","pattern"),
+       ("media/refs/next/egoxtreme.jpg","EgoXtreme, 2026","swung rackets and bats under blur: deblurring gave no gain, temporal tracking did. Preprocessing is the wrong place to spend.","finding")])}
+<p class="cap">pro anchors for the check: forehand racket peak about 33 m/s, serve racket centroid 37 to 39 m/s, topspin face about 80° to the ground at contact</p>
 <h3>The server drifted inside the baseline</h3>
 <p>FlowHMR carried Shelton about 1.1 m into the court by contact because the footage crops the toss. The fix counter-translates his root along the court during the serve so both feet stay behind the line, then blends out over the first approach steps; the return and the volley are untouched.</p>
 {chart("bars", {"rows":[{"label":"hips at contact, before","value":10.76,"color":"#b4442c"},{"label":"hips at contact, after","value":11.54,"color":"#236442"},{"label":"baseline","value":11.885,"color":"#6e6e76"}],"max":12.5,"unit":" m"}, "court metres from the net · feet min 11.97 after the fix")}
@@ -267,7 +275,7 @@ S.append(f"""<section aria-labelledby="h-fix">
 
 <h3>Before and after the rebuild</h3>
 <div class="pair">
-{scene({"m": "tennis-lab-shelton-serve", "court": 1, "fov": 24, "cp": "1.6,1.7,14.5", "ct": "0,1.0,9.6"}, "before · the FlowHMR body, as captured", h=420)}
+{scene({"m": "tennis-lab-shelton-serve", "court": 1, "fov": 24, "cp": "1.8,1.6,15.8", "ct": "0,0.95,9.6"}, "before · the FlowHMR body, as captured", h=420)}
 {model("shelton-2", "after · the Shelton on the bike at jerrythegoat.com/usta", h=420, attrs='camera-orbit="20deg 78deg 3.4m" camera-target="0m 0.95m 0m" animation-name="sv"')}
 </div>
 {model("rodin-shelton", "Rodin 2.5 body from three frames of the same video", h=420, attrs=CAST)}
@@ -303,7 +311,7 @@ S.append(f"""<section aria-labelledby="h-env">
 
 S.append(f"""<section aria-labelledby="h-time">
 <h2 id="h-time">Timeline</h2>
-{dated_rows([("Sep 16","First tennis figure: Meshy 6 Lite from a generated reference","Meshy"),("Oct 19–21","Meshy cast, crowds and props for the story pages; Kling video fails","Meshy · fal"),("Oct 22","First FlowHMR run; Shelton serve accepted","Modal"),("Oct 23–26","Rallies, two-player point, broadcast and college benchmarks; Meshy heads rejected; rackets traced","Modal"),("Oct 27","Rodin bodies through fal.ai; 4K crop; face fits rejected","fal"),("Oct 28","16-point library; racket through the arm; 120 fps forehand; 34 contacts pinned","local"),("Oct 29–30","USTA opener rebuilt on the serve-and-volley point; serve kept behind the baseline; live","live")])}
+{dated_rows([("Sep 16","First tennis figure: Meshy 6 Lite from a generated reference","Meshy"),("Oct 19–21","Meshy cast, crowds and props for the story pages; Kling video fails","Meshy · fal"),("Oct 22","First FlowHMR run; Shelton serve accepted","Modal"),("Oct 23–26","Rallies, two-player point, broadcast and college benchmarks; Meshy heads rejected; rackets traced","Modal"),("Oct 27","Rodin bodies through fal.ai; 4K crop; face fits rejected","fal"),("Oct 28","16-point library; racket through the arm; 120 fps forehand; 34 contacts pinned","local"),("Oct 29–30","USTA opener rebuilt on the serve-and-volley point; serve kept behind the baseline; live","live"),("Oct 30","Own viewer with the footage driving every scene; research pass on the racket; hand-driven racket and ball-by-inference runs started","running")])}
 <p class="cap">next · 120 fps footage only · racket silhouette in the lag phase · a hand model · ground truth under 5 px · a body and face that are the person</p>
 </section>""")
 
