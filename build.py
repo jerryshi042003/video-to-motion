@@ -35,11 +35,13 @@ def review(point, cap, camera="behind", h=560):
     return f'<figure class="scene"><iframe src="{e(src)}" loading="lazy" title="{e(cap)}" allow="autoplay" style="height:{h}px"></iframe><figcaption class="cap">{cap}</figcaption></figure>'
 
 
-def yt(vid, start, end, cap):
-    """These channels block embedding on other sites, so: the video's own thumbnail, linked at the timestamp.
-    The footage itself plays inside each viewer below."""
-    n = vid.replace("-", "_", 1) if vid.startswith("-") else vid
+def yt(vid, start, end, cap, clip=None):
+    """The actual footage excerpt, played here (the channels block YouTube embeds). Credit links to the video at the timestamp."""
     url = f"https://www.youtube.com/watch?v={vid}&t={start}s"
+    if clip:
+        return (f'<figure class="vid src-vid"><video class="auto" src="{e(clip)}" muted loop playsinline preload="none" disablepictureinpicture></video>'
+                f'<figcaption class="cap"><a href="{e(url)}" target="_blank" rel="noopener">{cap} · YouTube</a></figcaption></figure>')
+    n = vid.replace("-", "_", 1) if vid.startswith("-") else vid
     return (f'<figure class="yt"><a href="{e(url)}" target="_blank" rel="noopener"><img src="media/refs/yt-{e(n)}.jpg" loading="lazy" alt="">'
             f'<span class="play"><img src="media/refs/youtube.svg" alt=""> {e(cap)}</span></a></figure>')
 
@@ -127,53 +129,53 @@ S.append(f"""<section aria-labelledby="h-body">
 {source(*CLT, "Ben Shelton serving up close · court level practice 2025", "vF9WB1ZhgsI",
         ["camera: low, directly behind the server", "4K 60 fps, 1080p 30 fps into the model", "player about 490 px tall in frame"],
         "The best footage of the project. Low and behind means the body is big and the swing plane is visible; this is the recipe every later point reuses.")}
-{yt("vF9WB1ZhgsI", 26, 32, "the source · 26–32 s")}
+{yt("vF9WB1ZhgsI", 26, 32, "the source · 26–32 s", clip="lab/media/sources/shelton-serve.mp4")}
 {lab("shelton-serve", "the first accepted motion · Oct 22 · same clip, as the scene")}
 {review("shelton-serve-d", "the same serve in the 16-point library · racket solved through the arm, ball authored · 4.7 px median")}
 
 {source(*SMT, "Ben Shelton practice set with Federico Coria · 4K 60 fps", "cDV-pQCJkP4",
         ["camera: low behind the baseline, both players in frame", "4K 60 fps, 1080p 30 fps into the model", "serve contact partly above the frame"],
         "The only two-player point: serve out wide from the deuce side, approach, volley. Both bodies from one camera; the far player and hidden hands are less reliable. This is the point on the USTA page.")}
-{yt("cDV-pQCJkP4", 101, 109, "the source · 1:41.5–1:48.5")}
+{yt("cDV-pQCJkP4", 101, 109, "the source · 1:41.5–1:48.5", clip="lab/media/sources/shelton-coria.mp4")}
 {lab("shelton-coria", "serve and volley · both players · the whole point")}
 {lab("shelton-long-rally", "14 seconds of rally from the same set · drift and hidden hands show over time")}
 
 {source(*CLT, "Alcaraz vs Perricard · court-level matchplay 2025", "9Dl84UYDks0",
         ["camera: low behind the near player", "4K 60 fps", "two players, served points with groundstrokes"],
         "Same recipe on matchplay. Serves and groundstrokes come through; the racket blurs at the fastest frames because this is 30 fps into the model.")}
-{yt("9Dl84UYDks0", 586, 601, "the source · 586–600 s")}
+{yt("9Dl84UYDks0", 586, 601, "the source · 586–600 s", clip="review/data/alcaraz-a-source.mp4")}
 {review("alcaraz-a", "Alcaraz · serve at frame 249, two-handed backhand at 303 · 10.9 px")}
 {review("alcaraz-serve", "Mpetshi Perricard · 2.03 m in life, 1.82 m in the model: the shared body")}
 
 {source(*CLT, "Cobolli vs Sinner · court-level practice set 2026", "D6wCPsoAd58",
         ["camera: low behind the near player", "4K 60 fps", "returns and served points"],
         "Returns are the cleanest: a compact swing in front of the body, 4.8 px median on Cobolli.")}
-{yt("D6wCPsoAd58", 109, 119, "the source · 109–119 s")}
+{yt("D6wCPsoAd58", 109, 119, "the source · 109–119 s", clip="review/data/sinner-return-source.mp4")}
 {review("sinner-return", "Sinner return · 293 frames · 10.7 px")}
 {review("cobolli-c1", "Cobolli · serve, then three topspin contacts · 7.0 px")}
 
 {source("media/refs/focused-tennis.jpg", "FocusedTennis", "Djokovic · 2024 Indian Wells practice match, court level 4K 60 fps", "xsP3PjNgId8",
         ["camera: court level behind the player", "4K 60 fps", "one-handed slices at frames 145 and 312"],
         "Djokovic's slices were first labelled topspin; the contact rule needs the shot type right, so these were relabelled by eye.")}
-{yt("xsP3PjNgId8", 399, 414, "the source · 399–413 s")}
+{yt("xsP3PjNgId8", 399, 414, "the source · 399–413 s", clip="review/data/djokovic-iw-a-source.mp4")}
 {review("djokovic-iw-a", "Djokovic IW-A · forehand, slice, forehand · 9.0 px")}
 
 {source("media/refs/courtleveltv-tennis5245.jpg", "Court Level TV", "Djokovic and Auger-Aliassime · ATP Finals Turin 2022 practice, 4K 60 fps", "-KoAgZkCIx8",
         ["camera: low behind the baseline", "4K 60 fps", "a return point"],
         "A clean return: 5.7 px median, the best Djokovic fit.")}
-{yt("-KoAgZkCIx8", 29, 42, "the source · 29–42 s")}
+{yt("-KoAgZkCIx8", 29, 42, "the source · 29–42 s", clip="review/data/djokovic-turin-return-source.mp4")}
 {review("djokovic-turin-return", "Djokovic Turin return · 366 frames · 5.7 px")}
 
 {source("media/refs/tennistv.jpg", "Tennis TV", "Shelton vs Nakashima · Indian Wells 2025 highlights", "tQdVQu-CQwQ",
         ["camera: elevated broadcast, full court", "1080p 50 fps into 1080p 30 fps", "player about 220 px tall"],
         "A body, but no usable wrist or face: the player is too small. Kept as a benchmark for court-pattern context only.")}
-{yt("tQdVQu-CQwQ", 16, 22, "the source · 16.4–22 s")}
+{yt("tQdVQu-CQwQ", 16, 22, "the source · 16.4–22 s", clip="lab/media/sources/shelton-atp.mp4")}
 {lab("shelton-atp", "ATP broadcast · body only · no racket, ball or opponent solved")}
 
 {source("media/refs/ucla-tennis-consulting.jpg", "UCLA Tennis Consulting", "Spencer Johnson (UCLA) vs Samir Banerjee (Stanford) · PlaySight", "ot8tSR3q9gI",
         ["camera: fixed club camera behind the baseline", "1080p 30 fps", "one indexed point, charted shots"],
         "The only clip with a charted ball: tagged contacts and bounces from a Stanford dataset give the arcs; no racket solve.")}
-{yt("ot8tSR3q9gI", 300, 309, "the source · 5:00–5:09")}
+{yt("ot8tSR3q9gI", 300, 309, "the source · 5:00–5:09", clip="lab/media/sources/ucla-point8.mp4")}
 {lab("ucla-point8", "college match · body plus charted ball arcs")}
 </section>""")
 
@@ -187,7 +189,7 @@ S.append(f"""<section aria-labelledby="h-racket">
 {source(*SMT, "Carlos Alcaraz · forehand and backhand · slow motion 4K 120 fps", "-Eu80hGbgVA",
         ["camera: court level, side-rear", "4K 120 fps: the only high-frame-rate clip", "7 s of rallying"],
         "At 30 fps a fast swing is a blur and the detector loses the racket exactly at contact. At 120 fps it keeps it through contact and the follow-through: 81% of frames found against 32–40%. The single largest gain, and it cost nothing.")}
-{yt("-Eu80hGbgVA", 0, 30, "the source")}
+{yt("-Eu80hGbgVA", 0, 30, "the source · 120 fps", clip="review/data/alcaraz-hfr-source.mp4")}
 {review("alcaraz-hfr", "Alcaraz forehand at 120 fps · racket through contact, 15.5 px on held-out frames")}
 {fig("media/racket/ovl-djokovic-iw-a.jpg", "solved through the arm · red: old free-wrist fit · green: arm solve · cyan: detections")}
 {fig("media/racket/edge-before-after.jpg", "face angle at contact · top: before, 35–70° open · bottom: after the rule, near vertical")}
@@ -303,7 +305,8 @@ h3{font-size:15px;font-weight:600;margin:28px 0 8px}
 .mini small{grid-column:1/-1;color:var(--muted);font-size:12px;line-height:1.3;margin:-2px 0 2px}
 .steps .ic .n{font:12px var(--mono);color:var(--fg)}
 section > .model, section > .vid, section > .fig, section > .rows, section > .bars, section > .scene, section > .yt{margin-top:16px}
-.src + .yt{margin-top:12px}
+.src + .yt, .src + .vid{margin-top:12px}
+.src-vid .cap a{text-decoration:none}
 @media (prefers-reduced-motion:reduce){.track i{transition:none}}
 """
 
