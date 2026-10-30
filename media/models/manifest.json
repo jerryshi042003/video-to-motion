@@ -1,0 +1,2622 @@
+{
+ "generated": "2026-10-30",
+ "count": 100,
+ "models": [
+  {
+   "id": "tennis-lab-equipment-aero-motion",
+   "file": "tennis-lab-equipment-aero-motion.glb",
+   "poster": "tennis-lab-equipment-aero-motion-poster.jpg",
+   "title": "Tennis Lab: equipment study (Aero) motion",
+   "group": "tennis-lab-demo",
+   "source_path": "/Users/jshi/Personal/playground/shishi88 @ codex/tennis-lab-release : apps/tennis-lab/public/downloads/equipment-aero-motion.glb",
+   "generator": "FlowHMR",
+   "animations": [
+    {
+     "name": "Shelton captured motion.004",
+     "seconds": 6
+    }
+   ],
+   "triangles": 30310,
+   "original_triangles": 31810,
+   "textured": true,
+   "bytes": 530984,
+   "original_bytes": 2281128,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "tennis-lab-pipeline-atp",
+   "file": "tennis-lab-pipeline-atp.glb",
+   "poster": "tennis-lab-pipeline-atp-poster.jpg",
+   "title": "Tennis Lab: pipeline demo (ATP)",
+   "group": "tennis-lab-demo",
+   "source_path": "/Users/jshi/Personal/playground/shishi88 @ codex/tennis-lab-release : apps/tennis-lab/public/downloads/pipeline-atp.glb",
+   "generator": "FlowHMR",
+   "animations": [
+    {
+     "name": "Ben Shelton source frame.003",
+     "seconds": 5.633
+    },
+    {
+     "name": "Ben Shelton captured motion.003",
+     "seconds": 5.633
+    }
+   ],
+   "triangles": 46062,
+   "original_triangles": 48497,
+   "textured": true,
+   "bytes": 563568,
+   "original_bytes": 2657496,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "tennis-lab-pipeline-close",
+   "file": "tennis-lab-pipeline-close.glb",
+   "poster": "tennis-lab-pipeline-close-poster.jpg",
+   "title": "Tennis Lab: pipeline demo (close view)",
+   "group": "tennis-lab-demo",
+   "source_path": "/Users/jshi/Personal/playground/shishi88 @ codex/tennis-lab-release : apps/tennis-lab/public/downloads/pipeline-close.glb",
+   "generator": "FlowHMR",
+   "animations": [
+    {
+     "name": "Ben Shelton captured motion.003",
+     "seconds": 6
+    }
+   ],
+   "triangles": 45015,
+   "original_triangles": 47437,
+   "textured": true,
+   "bytes": 559524,
+   "original_bytes": 2631792,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "tennis-lab-pipeline-college",
+   "file": "tennis-lab-pipeline-college.glb",
+   "poster": "tennis-lab-pipeline-college-poster.jpg",
+   "title": "Tennis Lab: pipeline demo (college)",
+   "group": "tennis-lab-demo",
+   "source_path": "/Users/jshi/Personal/playground/shishi88 @ codex/tennis-lab-release : apps/tennis-lab/public/downloads/pipeline-college.glb",
+   "generator": "FlowHMR",
+   "animations": [
+    {
+     "name": "Spencer Johnson source frame.003",
+     "seconds": 9
+    },
+    {
+     "name": "Spencer Johnson captured motion.003",
+     "seconds": 9
+    }
+   ],
+   "triangles": 46061,
+   "original_triangles": 48516,
+   "textured": true,
+   "bytes": 589952,
+   "original_bytes": 2719220,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "tennis-lab-quan-gomez-point",
+   "file": "tennis-lab-quan-gomez-point.glb",
+   "poster": "tennis-lab-quan-gomez-point-poster.jpg",
+   "title": "Tennis Lab: Quan vs Gomez point",
+   "group": "tennis-lab-demo",
+   "source_path": "/Users/jshi/Personal/playground/shishi88 @ codex/tennis-lab-release : apps/tennis-lab/public/downloads/quan-gomez-point.glb",
+   "generator": "FlowHMR",
+   "animations": [
+    {
+     "name": "GJ16 ground-position marker (not body pose)",
+     "seconds": 22.033
+    },
+    {
+     "name": "Measured ball flight (2x visibility scale)",
+     "seconds": 22.033
+    },
+    {
+     "name": "Q02O ground-position marker (not body pose)",
+     "seconds": 22.033
+    }
+   ],
+   "triangles": 1560,
+   "original_triangles": 1560,
+   "textured": false,
+   "bytes": 34020,
+   "original_bytes": 197408,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "tennis-lab-shelton-atp",
+   "file": "tennis-lab-shelton-atp.glb",
+   "poster": "tennis-lab-shelton-atp-poster.jpg",
+   "title": "Tennis Lab: Shelton (ATP)",
+   "group": "tennis-lab-demo",
+   "source_path": "/Users/jshi/Personal/playground/shishi88 @ codex/tennis-lab-release : apps/tennis-lab/public/downloads/shelton-atp.glb",
+   "generator": "FlowHMR",
+   "animations": [
+    {
+     "name": "Ben Shelton captured motion",
+     "seconds": 5.633
+    },
+    {
+     "name": "Follow player camera",
+     "seconds": 5.633
+    },
+    {
+     "name": "Player view target (camera only)",
+     "seconds": 5.633
+    }
+   ],
+   "triangles": 13564,
+   "original_triangles": 14472,
+   "textured": false,
+   "bytes": 190712,
+   "original_bytes": 808852,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "tennis-lab-shelton-coria",
+   "file": "tennis-lab-shelton-coria.glb",
+   "poster": "tennis-lab-shelton-coria-poster.jpg",
+   "title": "Tennis Lab: Shelton vs Coria practice point",
+   "group": "tennis-lab-demo",
+   "source_path": "/Users/jshi/Personal/playground/shishi88 @ codex/tennis-lab-release : apps/tennis-lab/public/downloads/shelton-coria.glb",
+   "generator": "FlowHMR",
+   "animations": [
+    {
+     "name": "Ben Shelton captured motion",
+     "seconds": 7
+    },
+    {
+     "name": "Federico Coria captured motion",
+     "seconds": 7
+    },
+    {
+     "name": "Follow player camera",
+     "seconds": 7
+    },
+    {
+     "name": "Player view target (camera only)",
+     "seconds": 7
+    }
+   ],
+   "triangles": 53380,
+   "original_triangles": 84988,
+   "textured": true,
+   "bytes": 563384,
+   "original_bytes": 3317180,
+   "compression": "meshopt",
+   "skins": 2
+  },
+  {
+   "id": "tennis-lab-shelton-long-rally",
+   "file": "tennis-lab-shelton-long-rally.glb",
+   "poster": "tennis-lab-shelton-long-rally-poster.jpg",
+   "title": "Tennis Lab: Shelton long rally",
+   "group": "tennis-lab-demo",
+   "source_path": "/Users/jshi/Personal/playground/shishi88 @ codex/tennis-lab-release : apps/tennis-lab/public/downloads/shelton-long-rally.glb",
+   "generator": "FlowHMR",
+   "animations": [
+    {
+     "name": "Ben Shelton captured motion",
+     "seconds": 13.8
+    },
+    {
+     "name": "Follow player camera",
+     "seconds": 13.8
+    },
+    {
+     "name": "Player view target (camera only)",
+     "seconds": 13.8
+    }
+   ],
+   "triangles": 13564,
+   "original_triangles": 14472,
+   "textured": false,
+   "bytes": 270352,
+   "original_bytes": 1021780,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "tennis-lab-shelton-rally",
+   "file": "tennis-lab-shelton-rally.glb",
+   "poster": "tennis-lab-shelton-rally-poster.jpg",
+   "title": "Tennis Lab: Shelton rally",
+   "group": "tennis-lab-demo",
+   "source_path": "/Users/jshi/Personal/playground/shishi88 @ codex/tennis-lab-release : apps/tennis-lab/public/downloads/shelton-rally.glb",
+   "generator": "FlowHMR",
+   "animations": [
+    {
+     "name": "Ben Shelton captured motion",
+     "seconds": 6
+    },
+    {
+     "name": "Follow player camera",
+     "seconds": 6
+    },
+    {
+     "name": "Player view target (camera only)",
+     "seconds": 6
+    }
+   ],
+   "triangles": 13564,
+   "original_triangles": 14472,
+   "textured": false,
+   "bytes": 193300,
+   "original_bytes": 818264,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "tennis-lab-shelton-serve",
+   "file": "tennis-lab-shelton-serve.glb",
+   "poster": "tennis-lab-shelton-serve-poster.jpg",
+   "title": "Tennis Lab: Shelton serve",
+   "group": "tennis-lab-demo",
+   "source_path": "/Users/jshi/Personal/playground/shishi88 @ codex/tennis-lab-release : apps/tennis-lab/public/downloads/shelton-serve.glb",
+   "generator": "FlowHMR",
+   "animations": [
+    {
+     "name": "Ben Shelton captured motion",
+     "seconds": 6
+    },
+    {
+     "name": "Follow player camera",
+     "seconds": 6
+    },
+    {
+     "name": "Player view target (camera only)",
+     "seconds": 6
+    }
+   ],
+   "triangles": 40328,
+   "original_triangles": 42842,
+   "textured": true,
+   "bytes": 384924,
+   "original_bytes": 1984928,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "tennis-lab-shelton-wide",
+   "file": "tennis-lab-shelton-wide.glb",
+   "poster": "tennis-lab-shelton-wide-poster.jpg",
+   "title": "Tennis Lab: Shelton wide ball",
+   "group": "tennis-lab-demo",
+   "source_path": "/Users/jshi/Personal/playground/shishi88 @ codex/tennis-lab-release : apps/tennis-lab/public/downloads/shelton-wide.glb",
+   "generator": "FlowHMR",
+   "animations": [
+    {
+     "name": "Ben Shelton captured motion",
+     "seconds": 6
+    },
+    {
+     "name": "Follow player camera",
+     "seconds": 6
+    },
+    {
+     "name": "Player view target (camera only)",
+     "seconds": 6
+    }
+   ],
+   "triangles": 13564,
+   "original_triangles": 14472,
+   "textured": false,
+   "bytes": 190152,
+   "original_bytes": 818000,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "tennis-lab-ucla-point8-combined",
+   "file": "tennis-lab-ucla-point8-combined.glb",
+   "poster": "tennis-lab-ucla-point8-combined-poster.jpg",
+   "title": "Tennis Lab: UCLA point 8 (combined replay)",
+   "group": "tennis-lab-demo",
+   "source_path": "/Users/jshi/Personal/playground/shishi88 @ codex/tennis-lab-release : apps/tennis-lab/public/downloads/ucla-point8-combined.glb",
+   "generator": "FlowHMR",
+   "animations": [
+    {
+     "name": "Estimated ball \u2014 tagged locations, inferred height and bounce time",
+     "seconds": 9
+    },
+    {
+     "name": "Spencer Johnson captured motion",
+     "seconds": 9
+    }
+   ],
+   "triangles": 13966,
+   "original_triangles": 14824,
+   "textured": false,
+   "bytes": 227964,
+   "original_bytes": 926860,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "tennis-lab-ucla-point8",
+   "file": "tennis-lab-ucla-point8.glb",
+   "poster": "tennis-lab-ucla-point8-poster.jpg",
+   "title": "Tennis Lab: UCLA point 8",
+   "group": "tennis-lab-demo",
+   "source_path": "/Users/jshi/Personal/playground/shishi88 @ codex/tennis-lab-release : apps/tennis-lab/public/downloads/ucla-point8.glb",
+   "generator": "FlowHMR",
+   "animations": [
+    {
+     "name": "Follow player camera",
+     "seconds": 9
+    },
+    {
+     "name": "Player view target (camera only)",
+     "seconds": 9
+    },
+    {
+     "name": "Spencer Johnson captured motion",
+     "seconds": 9
+    }
+   ],
+   "triangles": 13576,
+   "original_triangles": 14472,
+   "textured": false,
+   "bytes": 220784,
+   "original_bytes": 896240,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "racket-ezone",
+   "file": "racket-ezone.glb",
+   "poster": "racket-ezone-poster.jpg",
+   "title": "Yonex EZONE 98 (2025), photo-textured",
+   "group": "racket",
+   "source_path": "/Users/jshi/Personal/playground/shishi88 @ codex/tennis-lab-release : apps/tennis-lab/public/models/ezone.glb",
+   "generator": "Blender",
+   "animations": [],
+   "triangles": 26764,
+   "original_triangles": 28370,
+   "textured": true,
+   "bytes": 201936,
+   "original_bytes": 1174748,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "racket-aero",
+   "file": "racket-aero.glb",
+   "poster": "racket-aero-poster.jpg",
+   "title": "Racket: Aero",
+   "group": "racket",
+   "source_path": "/Users/jshi/Personal/playground/shishi88 @ codex/tennis-lab-release : apps/tennis-lab/public/models/rackets/aero.glb",
+   "generator": "Blender",
+   "animations": [],
+   "triangles": 16566,
+   "original_triangles": 17338,
+   "textured": true,
+   "bytes": 129684,
+   "original_bytes": 642036,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "racket-blade",
+   "file": "racket-blade.glb",
+   "poster": "racket-blade-poster.jpg",
+   "title": "Racket: Blade",
+   "group": "racket",
+   "source_path": "/Users/jshi/Personal/playground/shishi88 @ codex/tennis-lab-release : apps/tennis-lab/public/models/rackets/blade.glb",
+   "generator": "Blender",
+   "animations": [],
+   "triangles": 15920,
+   "original_triangles": 16674,
+   "textured": true,
+   "bytes": 124428,
+   "original_bytes": 618084,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "racket-vcore",
+   "file": "racket-vcore.glb",
+   "poster": "racket-vcore-poster.jpg",
+   "title": "Racket: VCORE",
+   "group": "racket",
+   "source_path": "/Users/jshi/Personal/playground/shishi88 @ codex/tennis-lab-release : apps/tennis-lab/public/models/rackets/vcore.glb",
+   "generator": "Blender",
+   "animations": [],
+   "triangles": 15334,
+   "original_triangles": 15986,
+   "textured": true,
+   "bytes": 115628,
+   "original_bytes": 582668,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "racket-arm-solved",
+   "file": "racket-arm-solved.glb",
+   "poster": "racket-arm-solved-poster.jpg",
+   "title": "Rebuilt racket (arm-solved library, Oct 28)",
+   "group": "racket",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/racket-rebuild/racket-final.glb",
+   "generator": "Blender",
+   "animations": [],
+   "triangles": 62292,
+   "original_triangles": 561028,
+   "textured": false,
+   "bytes": 277588,
+   "original_bytes": 13235072,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "racket-finished-v18",
+   "file": "racket-finished-v18.glb",
+   "poster": "racket-finished-v18-poster.jpg",
+   "title": "Finished racket v18 (full-redo staged racket)",
+   "group": "racket",
+   "source_path": "/Users/jshi/Scratch/tennis-racket-motion-20261028/finish-rebuild/racket-finished-v18.glb",
+   "generator": "Blender",
+   "animations": [],
+   "triangles": 388606,
+   "original_triangles": 2291450,
+   "textured": true,
+   "bytes": 1906920,
+   "original_bytes": 107666048,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "shelton-coria-point",
+   "file": "shelton-coria-point.glb",
+   "poster": "shelton-coria-point-poster.jpg",
+   "title": "USTA: Shelton vs Coria point",
+   "group": "usta-scene",
+   "source_path": "/Users/jshi/Scratch/usta-drift-20261030/apps/court-stories/public/models/shelton-coria-point.glb",
+   "generator": "FlowHMR",
+   "animations": [
+    {
+     "name": "Ben Shelton captured motion",
+     "seconds": 7
+    },
+    {
+     "name": "Federico Coria captured motion",
+     "seconds": 7
+    }
+   ],
+   "triangles": 52514,
+   "original_triangles": 55922,
+   "textured": true,
+   "bytes": 544144,
+   "original_bytes": 1020884,
+   "compression": "meshopt",
+   "skins": 2
+  },
+  {
+   "id": "ball-usopen",
+   "file": "ball-usopen.glb",
+   "poster": "ball-usopen-poster.jpg",
+   "title": "US Open ball flight",
+   "group": "usta-scene",
+   "source_path": "/Users/jshi/Scratch/usta-drift-20261030/apps/court-stories/public/models/ball-usopen.glb",
+   "generator": "Blender",
+   "animations": [],
+   "triangles": 2972,
+   "original_triangles": 2976,
+   "textured": true,
+   "bytes": 90576,
+   "original_bytes": 152904,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "shelton",
+   "file": "shelton.glb",
+   "poster": "shelton-poster.jpg",
+   "title": "Ben Shelton (v1)",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/shelton.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "bh",
+     "seconds": 2.8
+    },
+    {
+     "name": "fh",
+     "seconds": 2.8
+    },
+    {
+     "name": "fh2",
+     "seconds": 3.8
+    },
+    {
+     "name": "idle",
+     "seconds": 4
+    },
+    {
+     "name": "post",
+     "seconds": 4.96
+    },
+    {
+     "name": "ready",
+     "seconds": 4.96
+    },
+    {
+     "name": "recover",
+     "seconds": 3.96
+    },
+    {
+     "name": "run",
+     "seconds": 0.62
+    },
+    {
+     "name": "runWide",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleL",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleR",
+     "seconds": 2.96
+    },
+    {
+     "name": "sv",
+     "seconds": 2.72
+    },
+    {
+     "name": "walk",
+     "seconds": 1.02
+    }
+   ],
+   "triangles": 50621,
+   "original_triangles": 51415,
+   "textured": true,
+   "bytes": 1743556,
+   "original_bytes": 3195484,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "shelton-2",
+   "file": "shelton-2.glb",
+   "poster": "shelton-2-poster.jpg",
+   "title": "Ben Shelton (v2)",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/shelton2.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "bh",
+     "seconds": 2.8
+    },
+    {
+     "name": "fh",
+     "seconds": 2.8
+    },
+    {
+     "name": "fh2",
+     "seconds": 3.8
+    },
+    {
+     "name": "idle",
+     "seconds": 4
+    },
+    {
+     "name": "post",
+     "seconds": 2
+    },
+    {
+     "name": "ready",
+     "seconds": 4.96
+    },
+    {
+     "name": "recover",
+     "seconds": 3.96
+    },
+    {
+     "name": "run",
+     "seconds": 0.62
+    },
+    {
+     "name": "runWide",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleL",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleR",
+     "seconds": 2.96
+    },
+    {
+     "name": "sv",
+     "seconds": 2.72
+    },
+    {
+     "name": "walk",
+     "seconds": 1.02
+    },
+    {
+     "name": "readyLoop",
+     "seconds": 2
+    }
+   ],
+   "triangles": 81304,
+   "original_triangles": 82285,
+   "textured": true,
+   "bytes": 2440384,
+   "original_bytes": 2695448,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "gauff",
+   "file": "gauff.glb",
+   "poster": "gauff-poster.jpg",
+   "title": "Coco Gauff (v1)",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/gauff.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "bh",
+     "seconds": 3.8
+    },
+    {
+     "name": "fh",
+     "seconds": 2.8
+    },
+    {
+     "name": "fh2",
+     "seconds": 3.8
+    },
+    {
+     "name": "idle",
+     "seconds": 4
+    },
+    {
+     "name": "post",
+     "seconds": 4.96
+    },
+    {
+     "name": "ready",
+     "seconds": 4.96
+    },
+    {
+     "name": "recover",
+     "seconds": 3.96
+    },
+    {
+     "name": "run",
+     "seconds": 0.62
+    },
+    {
+     "name": "runWide",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleL",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleR",
+     "seconds": 2.96
+    },
+    {
+     "name": "sv",
+     "seconds": 2.72
+    },
+    {
+     "name": "walk",
+     "seconds": 1.02
+    }
+   ],
+   "triangles": 50746,
+   "original_triangles": 51127,
+   "textured": true,
+   "bytes": 1996792,
+   "original_bytes": 3554312,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "gauff-2",
+   "file": "gauff-2.glb",
+   "poster": "gauff-2-poster.jpg",
+   "title": "Coco Gauff (v2)",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/gauff2.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "bh",
+     "seconds": 2.84
+    },
+    {
+     "name": "fh",
+     "seconds": 2.8
+    },
+    {
+     "name": "fh2",
+     "seconds": 3.8
+    },
+    {
+     "name": "idle",
+     "seconds": 4
+    },
+    {
+     "name": "post",
+     "seconds": 2
+    },
+    {
+     "name": "ready",
+     "seconds": 4.96
+    },
+    {
+     "name": "recover",
+     "seconds": 3.96
+    },
+    {
+     "name": "run",
+     "seconds": 0.62
+    },
+    {
+     "name": "runWide",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleL",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleR",
+     "seconds": 2.96
+    },
+    {
+     "name": "sv",
+     "seconds": 2.72
+    },
+    {
+     "name": "walk",
+     "seconds": 1.02
+    },
+    {
+     "name": "readyLoop",
+     "seconds": 2
+    }
+   ],
+   "triangles": 80361,
+   "original_triangles": 81185,
+   "textured": true,
+   "bytes": 2564800,
+   "original_bytes": 2835888,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "gilbert",
+   "file": "gilbert.glb",
+   "poster": "gilbert-poster.jpg",
+   "title": "Gilbert",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/gilbert.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "cheer",
+     "seconds": 2.66
+    },
+    {
+     "name": "clapstand",
+     "seconds": 4.16
+    },
+    {
+     "name": "sit",
+     "seconds": 10.66
+    },
+    {
+     "name": "talk",
+     "seconds": 9.66
+    }
+   ],
+   "triangles": 30361,
+   "original_triangles": 31145,
+   "textured": true,
+   "bytes": 710804,
+   "original_bytes": 1367136,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "martin",
+   "file": "martin.glb",
+   "poster": "martin-poster.jpg",
+   "title": "Martin",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/martin.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "clap",
+     "seconds": 3.32
+    },
+    {
+     "name": "idle",
+     "seconds": 4
+    },
+    {
+     "name": "point",
+     "seconds": 3.46
+    },
+    {
+     "name": "sit",
+     "seconds": 10.66
+    },
+    {
+     "name": "talk",
+     "seconds": 9.66
+    },
+    {
+     "name": "walk",
+     "seconds": 1.02
+    },
+    {
+     "name": "watch",
+     "seconds": 2.36
+    }
+   ],
+   "triangles": 30408,
+   "original_triangles": 30970,
+   "textured": true,
+   "bytes": 797120,
+   "original_bytes": 1442544,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "quan-iw",
+   "file": "quan-iw.glb",
+   "poster": "quan-iw-poster.jpg",
+   "title": "Quan (Indian Wells)",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/quanIW.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "bh",
+     "seconds": 2.8
+    },
+    {
+     "name": "fh",
+     "seconds": 2.8
+    },
+    {
+     "name": "fh2",
+     "seconds": 3.8
+    },
+    {
+     "name": "idle",
+     "seconds": 4
+    },
+    {
+     "name": "post",
+     "seconds": 4.96
+    },
+    {
+     "name": "ready",
+     "seconds": 4.96
+    },
+    {
+     "name": "recover",
+     "seconds": 3.96
+    },
+    {
+     "name": "run",
+     "seconds": 0.62
+    },
+    {
+     "name": "runWide",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleL",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleR",
+     "seconds": 2.96
+    },
+    {
+     "name": "sv",
+     "seconds": 2.72
+    },
+    {
+     "name": "walk",
+     "seconds": 1.02
+    },
+    {
+     "name": "readyLoop",
+     "seconds": 2
+    }
+   ],
+   "triangles": 50317,
+   "original_triangles": 51207,
+   "textured": true,
+   "bytes": 1703740,
+   "original_bytes": 1921816,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "quan-ucla",
+   "file": "quan-ucla.glb",
+   "poster": "quan-ucla-poster.jpg",
+   "title": "Quan (UCLA)",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/quanUCLA.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "bh",
+     "seconds": 3.8
+    },
+    {
+     "name": "fh",
+     "seconds": 2.8
+    },
+    {
+     "name": "fh2",
+     "seconds": 3.8
+    },
+    {
+     "name": "idle",
+     "seconds": 4
+    },
+    {
+     "name": "post",
+     "seconds": 4.96
+    },
+    {
+     "name": "ready",
+     "seconds": 4.96
+    },
+    {
+     "name": "recover",
+     "seconds": 3.96
+    },
+    {
+     "name": "run",
+     "seconds": 0.62
+    },
+    {
+     "name": "runWide",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleL",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleR",
+     "seconds": 2.96
+    },
+    {
+     "name": "sv",
+     "seconds": 2.72
+    },
+    {
+     "name": "walk",
+     "seconds": 1.02
+    }
+   ],
+   "triangles": 50489,
+   "original_triangles": 51310,
+   "textured": true,
+   "bytes": 1685988,
+   "original_bytes": 1869132,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "jerry",
+   "file": "jerry.glb",
+   "poster": "jerry-poster.jpg",
+   "title": "Jerry",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/jerry.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "sit",
+     "seconds": 10.66
+    },
+    {
+     "name": "type",
+     "seconds": 5.96
+    },
+    {
+     "name": "walk",
+     "seconds": 1.02
+    }
+   ],
+   "triangles": 30178,
+   "original_triangles": 31004,
+   "textured": true,
+   "bytes": 768016,
+   "original_bytes": 1622628,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "jerry-serve",
+   "file": "jerry-serve.glb",
+   "poster": "jerry-serve-poster.jpg",
+   "title": "Jerry serve (VAL capture retargeted)",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/jerry-serve.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "idle",
+     "seconds": 4
+    },
+    {
+     "name": "sv",
+     "seconds": 2.72
+    },
+    {
+     "name": "walk",
+     "seconds": 1.02
+    }
+   ],
+   "triangles": 50184,
+   "original_triangles": 51200,
+   "textured": true,
+   "bytes": 1439612,
+   "original_bytes": 2259368,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "umpire",
+   "file": "umpire.glb",
+   "poster": "umpire-poster.jpg",
+   "title": "Umpire",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/umpire.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "sit",
+     "seconds": 10.66
+    }
+   ],
+   "triangles": 30215,
+   "original_triangles": 30937,
+   "textured": true,
+   "bytes": 648540,
+   "original_bytes": 725176,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "ballkid",
+   "file": "ballkid.glb",
+   "poster": "ballkid-poster.jpg",
+   "title": "Ball kid",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/ballkid.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "crouch",
+     "seconds": 4.72
+    },
+    {
+     "name": "stand",
+     "seconds": 9.96
+    }
+   ],
+   "triangles": 30201,
+   "original_triangles": 31024,
+   "textured": true,
+   "bytes": 714812,
+   "original_bytes": 803660,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "analyst",
+   "file": "analyst.glb",
+   "poster": "analyst-poster.jpg",
+   "title": "Analyst",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/analyst.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "sit",
+     "seconds": 10.66
+    },
+    {
+     "name": "talk",
+     "seconds": 9.66
+    },
+    {
+     "name": "type",
+     "seconds": 5.96
+    }
+   ],
+   "triangles": 30219,
+   "original_triangles": 30975,
+   "textured": true,
+   "bytes": 674308,
+   "original_bytes": 761312,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "coach",
+   "file": "coach.glb",
+   "poster": "coach-poster.jpg",
+   "title": "Coach",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/coach.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "cheer",
+     "seconds": 2.66
+    },
+    {
+     "name": "sit",
+     "seconds": 10.66
+    },
+    {
+     "name": "talk",
+     "seconds": 9.66
+    }
+   ],
+   "triangles": 30705,
+   "original_triangles": 31123,
+   "textured": true,
+   "bytes": 734716,
+   "original_bytes": 820668,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "stu-1",
+   "file": "stu-1.glb",
+   "poster": "stu-1-poster.jpg",
+   "title": "Student 1",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/stu1.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "Armature|walking_man|baselayer",
+     "seconds": 1.067
+    }
+   ],
+   "triangles": 20574,
+   "original_triangles": 20680,
+   "textured": true,
+   "bytes": 750488,
+   "original_bytes": 779964,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "stu-2",
+   "file": "stu-2.glb",
+   "poster": "stu-2-poster.jpg",
+   "title": "Student 2",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/stu2.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "Armature|walking_man|baselayer",
+     "seconds": 1.067
+    }
+   ],
+   "triangles": 20593,
+   "original_triangles": 20703,
+   "textured": true,
+   "bytes": 622072,
+   "original_bytes": 652148,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "stu-3",
+   "file": "stu-3.glb",
+   "poster": "stu-3-poster.jpg",
+   "title": "Student 3",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/stu3.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "Armature|walking_man|baselayer",
+     "seconds": 1.067
+    }
+   ],
+   "triangles": 20804,
+   "original_triangles": 20850,
+   "textured": true,
+   "bytes": 726416,
+   "original_bytes": 754644,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "stu-4",
+   "file": "stu-4.glb",
+   "poster": "stu-4-poster.jpg",
+   "title": "Student 4",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/stu4.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "Armature|walking_man|baselayer",
+     "seconds": 1.067
+    }
+   ],
+   "triangles": 20647,
+   "original_triangles": 20723,
+   "textured": true,
+   "bytes": 736628,
+   "original_bytes": 767700,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "sp-1",
+   "file": "sp-1.glb",
+   "poster": "sp-1-poster.jpg",
+   "title": "Spectator 1",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/sp1.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "clap",
+     "seconds": 3.32
+    },
+    {
+     "name": "sit",
+     "seconds": 10.66
+    }
+   ],
+   "triangles": 20475,
+   "original_triangles": 20695,
+   "textured": true,
+   "bytes": 518480,
+   "original_bytes": 593248,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "sp-2",
+   "file": "sp-2.glb",
+   "poster": "sp-2-poster.jpg",
+   "title": "Spectator 2",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/sp2.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "clap",
+     "seconds": 3.32
+    },
+    {
+     "name": "sit",
+     "seconds": 11.32
+    }
+   ],
+   "triangles": 20558,
+   "original_triangles": 20598,
+   "textured": true,
+   "bytes": 931024,
+   "original_bytes": 1055372,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "sp-3",
+   "file": "sp-3.glb",
+   "poster": "sp-3-poster.jpg",
+   "title": "Spectator 3",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/sp3.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "clap",
+     "seconds": 3.32
+    },
+    {
+     "name": "sit",
+     "seconds": 10.66
+    }
+   ],
+   "triangles": 20468,
+   "original_triangles": 20696,
+   "textured": true,
+   "bytes": 560404,
+   "original_bytes": 639528,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "sp-4",
+   "file": "sp-4.glb",
+   "poster": "sp-4-poster.jpg",
+   "title": "Spectator 4",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/sp4.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "clap",
+     "seconds": 3.32
+    },
+    {
+     "name": "sit",
+     "seconds": 11.32
+    }
+   ],
+   "triangles": 20266,
+   "original_triangles": 20373,
+   "textured": true,
+   "bytes": 643888,
+   "original_bytes": 727020,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "fan-1",
+   "file": "fan-1.glb",
+   "poster": "fan-1-poster.jpg",
+   "title": "Fan 1",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/fan1.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "idle",
+     "seconds": 4
+    },
+    {
+     "name": "phone",
+     "seconds": 2.5
+    },
+    {
+     "name": "walk",
+     "seconds": 1.02
+    }
+   ],
+   "triangles": 20448,
+   "original_triangles": 20688,
+   "textured": true,
+   "bytes": 590176,
+   "original_bytes": 1494468,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "fan-2",
+   "file": "fan-2.glb",
+   "poster": "fan-2-poster.jpg",
+   "title": "Fan 2",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/fan2.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "idle",
+     "seconds": 4
+    },
+    {
+     "name": "phone",
+     "seconds": 2.5
+    },
+    {
+     "name": "walk",
+     "seconds": 1.02
+    }
+   ],
+   "triangles": 20537,
+   "original_triangles": 20703,
+   "textured": true,
+   "bytes": 746944,
+   "original_bytes": 1802764,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "fan-3",
+   "file": "fan-3.glb",
+   "poster": "fan-3-poster.jpg",
+   "title": "Fan 3",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/fan3.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "idle",
+     "seconds": 4
+    },
+    {
+     "name": "phone",
+     "seconds": 2.5
+    },
+    {
+     "name": "walk",
+     "seconds": 1.02
+    }
+   ],
+   "triangles": 20593,
+   "original_triangles": 20733,
+   "textured": true,
+   "bytes": 642120,
+   "original_bytes": 1410072,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "fan-4",
+   "file": "fan-4.glb",
+   "poster": "fan-4-poster.jpg",
+   "title": "Fan 4",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/fan4.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "idle",
+     "seconds": 4
+    },
+    {
+     "name": "phone",
+     "seconds": 2.5
+    },
+    {
+     "name": "walk",
+     "seconds": 1.02
+    }
+   ],
+   "triangles": 20636,
+   "original_triangles": 20738,
+   "textured": true,
+   "bytes": 646784,
+   "original_bytes": 1477048,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "pro-a",
+   "file": "pro-a.glb",
+   "poster": "pro-a-poster.jpg",
+   "title": "Pro A (generic player body)",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/proA.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "bh",
+     "seconds": 3.8
+    },
+    {
+     "name": "fh",
+     "seconds": 2.8
+    },
+    {
+     "name": "fh2",
+     "seconds": 3.8
+    },
+    {
+     "name": "idle",
+     "seconds": 4
+    },
+    {
+     "name": "post",
+     "seconds": 4.96
+    },
+    {
+     "name": "ready",
+     "seconds": 4.96
+    },
+    {
+     "name": "recover",
+     "seconds": 3.96
+    },
+    {
+     "name": "run",
+     "seconds": 0.62
+    },
+    {
+     "name": "runWide",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleL",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleR",
+     "seconds": 2.96
+    },
+    {
+     "name": "sv",
+     "seconds": 2.72
+    },
+    {
+     "name": "walk",
+     "seconds": 1.02
+    }
+   ],
+   "triangles": 50065,
+   "original_triangles": 51188,
+   "textured": true,
+   "bytes": 1673220,
+   "original_bytes": 3101644,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "pro-b",
+   "file": "pro-b.glb",
+   "poster": "pro-b-poster.jpg",
+   "title": "Pro B (generic player body)",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/proB.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "bh",
+     "seconds": 3.8
+    },
+    {
+     "name": "fh",
+     "seconds": 2.8
+    },
+    {
+     "name": "fh2",
+     "seconds": 3.8
+    },
+    {
+     "name": "idle",
+     "seconds": 4
+    },
+    {
+     "name": "post",
+     "seconds": 4.96
+    },
+    {
+     "name": "ready",
+     "seconds": 4.96
+    },
+    {
+     "name": "recover",
+     "seconds": 3.96
+    },
+    {
+     "name": "run",
+     "seconds": 0.62
+    },
+    {
+     "name": "runWide",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleL",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleR",
+     "seconds": 2.96
+    },
+    {
+     "name": "sv",
+     "seconds": 2.72
+    },
+    {
+     "name": "walk",
+     "seconds": 1.02
+    }
+   ],
+   "triangles": 50296,
+   "original_triangles": 51252,
+   "textured": true,
+   "bytes": 1711644,
+   "original_bytes": 3151520,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "rival",
+   "file": "rival.glb",
+   "poster": "rival-poster.jpg",
+   "title": "Rival",
+   "group": "meshy-cast",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/rival.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "bh",
+     "seconds": 3.8
+    },
+    {
+     "name": "fh",
+     "seconds": 2.8
+    },
+    {
+     "name": "fh2",
+     "seconds": 3.8
+    },
+    {
+     "name": "idle",
+     "seconds": 4
+    },
+    {
+     "name": "post",
+     "seconds": 4.96
+    },
+    {
+     "name": "ready",
+     "seconds": 4.96
+    },
+    {
+     "name": "recover",
+     "seconds": 3.96
+    },
+    {
+     "name": "run",
+     "seconds": 0.62
+    },
+    {
+     "name": "runWide",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleL",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleR",
+     "seconds": 2.96
+    },
+    {
+     "name": "sv",
+     "seconds": 2.72
+    },
+    {
+     "name": "walk",
+     "seconds": 1.02
+    }
+   ],
+   "triangles": 50598,
+   "original_triangles": 51278,
+   "textured": true,
+   "bytes": 1754872,
+   "original_bytes": 3234360,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "palm",
+   "file": "palm.glb",
+   "poster": "palm-poster.jpg",
+   "title": "Palm tree",
+   "group": "prop",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/palm.glb",
+   "generator": "Meshy",
+   "animations": [],
+   "triangles": 2418,
+   "original_triangles": 2418,
+   "textured": true,
+   "bytes": 230036,
+   "original_bytes": 240824,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "bruin",
+   "file": "bruin.glb",
+   "poster": "bruin-poster.jpg",
+   "title": "Bruin mascot",
+   "group": "prop",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/models/bruin.glb",
+   "generator": "Meshy",
+   "animations": [
+    {
+     "name": "bh",
+     "seconds": 3.8
+    },
+    {
+     "name": "fh",
+     "seconds": 2.8
+    },
+    {
+     "name": "fh2",
+     "seconds": 3.8
+    },
+    {
+     "name": "idle",
+     "seconds": 4
+    },
+    {
+     "name": "post",
+     "seconds": 4.96
+    },
+    {
+     "name": "ready",
+     "seconds": 4.96
+    },
+    {
+     "name": "recover",
+     "seconds": 3.96
+    },
+    {
+     "name": "run",
+     "seconds": 0.62
+    },
+    {
+     "name": "runWide",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleL",
+     "seconds": 2.96
+    },
+    {
+     "name": "shuffleR",
+     "seconds": 2.96
+    },
+    {
+     "name": "sv",
+     "seconds": 2.72
+    },
+    {
+     "name": "walk",
+     "seconds": 1.02
+    }
+   ],
+   "triangles": 50801,
+   "original_triangles": 51369,
+   "textured": true,
+   "bytes": 1839660,
+   "original_bytes": 3431516,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "crowd-fan-1",
+   "file": "crowd-fan-1.glb",
+   "poster": "crowd-fan-1-poster.jpg",
+   "title": "Crowd kit: fan 1",
+   "group": "crowd",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/crowd/fan1.glb",
+   "generator": "Meshy",
+   "animations": [],
+   "triangles": 1565,
+   "original_triangles": 1565,
+   "textured": true,
+   "bytes": 147524,
+   "original_bytes": 151184,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "crowd-fan-2",
+   "file": "crowd-fan-2.glb",
+   "poster": "crowd-fan-2-poster.jpg",
+   "title": "Crowd kit: fan 2",
+   "group": "crowd",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/crowd/fan2.glb",
+   "generator": "Meshy",
+   "animations": [],
+   "triangles": 1562,
+   "original_triangles": 1562,
+   "textured": true,
+   "bytes": 160176,
+   "original_bytes": 164596,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "crowd-fan-3",
+   "file": "crowd-fan-3.glb",
+   "poster": "crowd-fan-3-poster.jpg",
+   "title": "Crowd kit: fan 3",
+   "group": "crowd",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/crowd/fan3.glb",
+   "generator": "Meshy",
+   "animations": [],
+   "triangles": 1546,
+   "original_triangles": 1546,
+   "textured": true,
+   "bytes": 161536,
+   "original_bytes": 165500,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "crowd-fan-4",
+   "file": "crowd-fan-4.glb",
+   "poster": "crowd-fan-4-poster.jpg",
+   "title": "Crowd kit: fan 4",
+   "group": "crowd",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/crowd/fan4.glb",
+   "generator": "Meshy",
+   "animations": [],
+   "triangles": 1552,
+   "original_triangles": 1552,
+   "textured": true,
+   "bytes": 147232,
+   "original_bytes": 150984,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "crowd-sp-1",
+   "file": "crowd-sp-1.glb",
+   "poster": "crowd-sp-1-poster.jpg",
+   "title": "Crowd kit: spectator 1",
+   "group": "crowd",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/crowd/sp1.glb",
+   "generator": "Meshy",
+   "animations": [],
+   "triangles": 1568,
+   "original_triangles": 1568,
+   "textured": true,
+   "bytes": 143000,
+   "original_bytes": 146272,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "crowd-sp-2",
+   "file": "crowd-sp-2.glb",
+   "poster": "crowd-sp-2-poster.jpg",
+   "title": "Crowd kit: spectator 2",
+   "group": "crowd",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/crowd/sp2.glb",
+   "generator": "Meshy",
+   "animations": [],
+   "triangles": 1521,
+   "original_triangles": 1521,
+   "textured": true,
+   "bytes": 169700,
+   "original_bytes": 173272,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "crowd-sp-3",
+   "file": "crowd-sp-3.glb",
+   "poster": "crowd-sp-3-poster.jpg",
+   "title": "Crowd kit: spectator 3",
+   "group": "crowd",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/crowd/sp3.glb",
+   "generator": "Meshy",
+   "animations": [],
+   "triangles": 1548,
+   "original_triangles": 1548,
+   "textured": true,
+   "bytes": 150064,
+   "original_bytes": 153640,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "crowd-sp-4",
+   "file": "crowd-sp-4.glb",
+   "poster": "crowd-sp-4-poster.jpg",
+   "title": "Crowd kit: spectator 4",
+   "group": "crowd",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/crowd/sp4.glb",
+   "generator": "Meshy",
+   "animations": [],
+   "triangles": 1531,
+   "original_triangles": 1531,
+   "textured": true,
+   "bytes": 148040,
+   "original_bytes": 151536,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "crowd-sp-5",
+   "file": "crowd-sp-5.glb",
+   "poster": "crowd-sp-5-poster.jpg",
+   "title": "Crowd kit: spectator 5",
+   "group": "crowd",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/crowd/sp5.glb",
+   "generator": "Meshy",
+   "animations": [],
+   "triangles": 1536,
+   "original_triangles": 1536,
+   "textured": true,
+   "bytes": 164228,
+   "original_bytes": 167588,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "crowd-sp-6",
+   "file": "crowd-sp-6.glb",
+   "poster": "crowd-sp-6-poster.jpg",
+   "title": "Crowd kit: spectator 6",
+   "group": "crowd",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/crowd/sp6.glb",
+   "generator": "Meshy",
+   "animations": [],
+   "triangles": 1559,
+   "original_triangles": 1559,
+   "textured": true,
+   "bytes": 140504,
+   "original_bytes": 143768,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "crowd-sp-7",
+   "file": "crowd-sp-7.glb",
+   "poster": "crowd-sp-7-poster.jpg",
+   "title": "Crowd kit: spectator 7",
+   "group": "crowd",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/crowd/sp7.glb",
+   "generator": "Meshy",
+   "animations": [],
+   "triangles": 1555,
+   "original_triangles": 1557,
+   "textured": true,
+   "bytes": 150684,
+   "original_bytes": 154320,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "crowd-sp-8",
+   "file": "crowd-sp-8.glb",
+   "poster": "crowd-sp-8-poster.jpg",
+   "title": "Crowd kit: spectator 8",
+   "group": "crowd",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/crowd/sp8.glb",
+   "generator": "Meshy",
+   "animations": [],
+   "triangles": 1555,
+   "original_triangles": 1555,
+   "textured": true,
+   "bytes": 158844,
+   "original_bytes": 163136,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "straus-stands",
+   "file": "straus-stands.glb",
+   "poster": "straus-stands-poster.jpg",
+   "title": "Straus Stadium stands",
+   "group": "other",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/venues/straus-stands.glb",
+   "generator": "Blender",
+   "animations": [],
+   "triangles": 314,
+   "original_triangles": 398,
+   "textured": true,
+   "bytes": 117476,
+   "original_bytes": 120420,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "prop-sofa-03",
+   "file": "prop-sofa-03.glb",
+   "poster": "prop-sofa-03-poster.jpg",
+   "title": "Sofa 03 (Poly Haven)",
+   "group": "prop",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/props/sofa_03.glb",
+   "generator": "authored",
+   "animations": [],
+   "triangles": 7754,
+   "original_triangles": 8004,
+   "textured": true,
+   "bytes": 281448,
+   "original_bytes": 298108,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "prop-sofa-02",
+   "file": "prop-sofa-02.glb",
+   "poster": "prop-sofa-02-poster.jpg",
+   "title": "Sofa 02 (Poly Haven)",
+   "group": "prop",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/props/sofa_02.glb",
+   "generator": "authored",
+   "animations": [],
+   "triangles": 2678,
+   "original_triangles": 2728,
+   "textured": true,
+   "bytes": 75492,
+   "original_bytes": 82552,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "prop-coffee-table-01",
+   "file": "prop-coffee-table-01.glb",
+   "poster": "prop-coffee-table-01-poster.jpg",
+   "title": "Coffee table 01 (Poly Haven)",
+   "group": "prop",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/props/coffee_table_01.glb",
+   "generator": "authored",
+   "animations": [],
+   "triangles": 5200,
+   "original_triangles": 5202,
+   "textured": true,
+   "bytes": 311632,
+   "original_bytes": 333396,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "prop-modern-coffee-table-01",
+   "file": "prop-modern-coffee-table-01.glb",
+   "poster": "prop-modern-coffee-table-01-poster.jpg",
+   "title": "Modern coffee table 01 (Poly Haven)",
+   "group": "prop",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/props/modern_coffee_table_01.glb",
+   "generator": "authored",
+   "animations": [],
+   "triangles": 3810,
+   "original_triangles": 4504,
+   "textured": true,
+   "bytes": 62940,
+   "original_bytes": 74268,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "prop-modern-arm-chair-01",
+   "file": "prop-modern-arm-chair-01.glb",
+   "poster": "prop-modern-arm-chair-01-poster.jpg",
+   "title": "Modern arm chair 01 (Poly Haven)",
+   "group": "prop",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/props/modern_arm_chair_01.glb",
+   "generator": "authored",
+   "animations": [],
+   "triangles": 5005,
+   "original_triangles": 5348,
+   "textured": true,
+   "bytes": 118820,
+   "original_bytes": 128332,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "prop-mid-century-lounge-chair",
+   "file": "prop-mid-century-lounge-chair.glb",
+   "poster": "prop-mid-century-lounge-chair-poster.jpg",
+   "title": "Mid-century lounge chair (Poly Haven)",
+   "group": "prop",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/props/mid_century_lounge_chair.glb",
+   "generator": "authored",
+   "animations": [],
+   "triangles": 5782,
+   "original_triangles": 6148,
+   "textured": true,
+   "bytes": 115804,
+   "original_bytes": 124184,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "prop-side-table-01",
+   "file": "prop-side-table-01.glb",
+   "poster": "prop-side-table-01-poster.jpg",
+   "title": "Side table 01 (Poly Haven)",
+   "group": "prop",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/props/side_table_01.glb",
+   "generator": "authored",
+   "animations": [],
+   "triangles": 2525,
+   "original_triangles": 2756,
+   "textured": true,
+   "bytes": 79280,
+   "original_bytes": 84832,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "prop-potted-plant-01",
+   "file": "prop-potted-plant-01.glb",
+   "poster": "prop-potted-plant-01-poster.jpg",
+   "title": "Potted plant 01 (Poly Haven)",
+   "group": "prop",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/props/potted_plant_01.glb",
+   "generator": "authored",
+   "animations": [],
+   "triangles": 26191,
+   "original_triangles": 26400,
+   "textured": true,
+   "bytes": 387544,
+   "original_bytes": 433920,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "prop-metal-office-desk",
+   "file": "prop-metal-office-desk.glb",
+   "poster": "prop-metal-office-desk-poster.jpg",
+   "title": "Metal office desk (Poly Haven)",
+   "group": "prop",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/props/metal_office_desk.glb",
+   "generator": "authored",
+   "animations": [],
+   "triangles": 4901,
+   "original_triangles": 6898,
+   "textured": true,
+   "bytes": 90268,
+   "original_bytes": 109564,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "prop-drawer-cabinet",
+   "file": "prop-drawer-cabinet.glb",
+   "poster": "prop-drawer-cabinet-poster.jpg",
+   "title": "Drawer cabinet (Poly Haven)",
+   "group": "prop",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/props/drawer_cabinet.glb",
+   "generator": "authored",
+   "animations": [],
+   "triangles": 6359,
+   "original_triangles": 7915,
+   "textured": true,
+   "bytes": 104980,
+   "original_bytes": 129424,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "prop-desk-lamp-arm-01",
+   "file": "prop-desk-lamp-arm-01.glb",
+   "poster": "prop-desk-lamp-arm-01-poster.jpg",
+   "title": "Desk lamp arm 01 (Poly Haven)",
+   "group": "prop",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/props/desk_lamp_arm_01.glb",
+   "generator": "authored",
+   "animations": [],
+   "triangles": 6487,
+   "original_triangles": 6611,
+   "textured": true,
+   "bytes": 98284,
+   "original_bytes": 107316,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "prop-painted-wooden-bench",
+   "file": "prop-painted-wooden-bench.glb",
+   "poster": "prop-painted-wooden-bench-poster.jpg",
+   "title": "Painted wooden bench (Poly Haven)",
+   "group": "prop",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/props/painted_wooden_bench.glb",
+   "generator": "authored",
+   "animations": [],
+   "triangles": 622,
+   "original_triangles": 630,
+   "textured": true,
+   "bytes": 60556,
+   "original_bytes": 65828,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "prop-metal-trash-can",
+   "file": "prop-metal-trash-can.glb",
+   "poster": "prop-metal-trash-can-poster.jpg",
+   "title": "Metal trash can (Poly Haven)",
+   "group": "prop",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/props/metal_trash_can.glb",
+   "generator": "authored",
+   "animations": [],
+   "triangles": 3493,
+   "original_triangles": 3493,
+   "textured": true,
+   "bytes": 122672,
+   "original_bytes": 131120,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "prop-steel-frame-shelves-01",
+   "file": "prop-steel-frame-shelves-01.glb",
+   "poster": "prop-steel-frame-shelves-01-poster.jpg",
+   "title": "Steel frame shelves 01 (Poly Haven)",
+   "group": "prop",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/props/steel_frame_shelves_01.glb",
+   "generator": "authored",
+   "animations": [],
+   "triangles": 3640,
+   "original_triangles": 4348,
+   "textured": true,
+   "bytes": 75648,
+   "original_bytes": 83968,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "prop-shelf-01",
+   "file": "prop-shelf-01.glb",
+   "poster": "prop-shelf-01-poster.jpg",
+   "title": "Shelf 01 (Poly Haven)",
+   "group": "prop",
+   "source_path": "/Users/jshi/Personal/playground/shishi88/apps/court-stories/public/props/shelf_01.glb",
+   "generator": "authored",
+   "animations": [],
+   "triangles": 182,
+   "original_triangles": 182,
+   "textured": true,
+   "bytes": 75032,
+   "original_bytes": 80648,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "goat-loader",
+   "file": "goat-loader.glb",
+   "poster": "goat-loader-poster.jpg",
+   "title": "Loader goat (reshaped ibex, rigged)",
+   "group": "loader",
+   "source_path": "/Users/jshi/Scratch/court-goat-smooth/apps/court-stories/src/jerry-thinking/assets/goat-loader.glb",
+   "generator": "Blender",
+   "animations": [],
+   "triangles": 23825,
+   "original_triangles": 28412,
+   "textured": false,
+   "bytes": 122928,
+   "original_bytes": 142048,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "boulder-loader",
+   "file": "boulder-loader.glb",
+   "poster": "boulder-loader-poster.jpg",
+   "title": "Loader boulder (Poly Haven boulder_01, decimated)",
+   "group": "loader",
+   "source_path": "/Users/jshi/Scratch/court-goat-smooth/apps/court-stories/src/jerry-thinking/assets/boulder-loader.glb",
+   "generator": "Blender",
+   "animations": [],
+   "triangles": 5948,
+   "original_triangles": 5950,
+   "textured": false,
+   "bytes": 53552,
+   "original_bytes": 53648,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "mountainside-loader",
+   "file": "mountainside-loader.glb",
+   "poster": "mountainside-loader-poster.jpg",
+   "title": "Loader mountainside (previous release build)",
+   "group": "loader",
+   "source_path": "/Users/jshi/Scratch/goat-ibex-release-20261027/release-prev-232836/.vercel/output/static/assets/mountainside-loader-BBejPAux.glb",
+   "generator": "Blender",
+   "animations": [],
+   "triangles": 6905,
+   "original_triangles": 6905,
+   "textured": false,
+   "bytes": 55160,
+   "original_bytes": 185980,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "toy-ibex",
+   "file": "toy-ibex.glb",
+   "poster": "toy-ibex-poster.jpg",
+   "title": "Toy ibex (rigged, web)",
+   "group": "loader",
+   "source_path": "/Users/jshi/Scratch/toy-ibex-20261027/rig/toy-ibex.glb",
+   "generator": "Tripo",
+   "animations": [],
+   "triangles": 14390,
+   "original_triangles": 14398,
+   "textured": true,
+   "bytes": 146984,
+   "original_bytes": 601348,
+   "compression": "meshopt",
+   "skins": 1
+  },
+  {
+   "id": "toy-ibex-normalized",
+   "file": "toy-ibex-normalized.glb",
+   "poster": "toy-ibex-normalized-poster.jpg",
+   "title": "Toy ibex (normalized mesh, pre-rig)",
+   "group": "loader",
+   "source_path": "/Users/jshi/Scratch/toy-ibex-20261027/rig/norm.glb",
+   "generator": "Tripo",
+   "animations": [],
+   "triangles": 38446,
+   "original_triangles": 39996,
+   "textured": true,
+   "bytes": 300156,
+   "original_bytes": 5707856,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "toy-ibex-tripo-raw",
+   "file": "toy-ibex-tripo-raw.glb",
+   "poster": "toy-ibex-tripo-raw-poster.jpg",
+   "title": "Toy ibex raw mesh (Tripo via fal)",
+   "group": "loader",
+   "source_path": "/Users/jshi/Scratch/toy-ibex-20261027/models/tripo.glb",
+   "generator": "Tripo",
+   "animations": [],
+   "triangles": 38284,
+   "original_triangles": 39996,
+   "textured": true,
+   "bytes": 299372,
+   "original_bytes": 5948248,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "toy-ibex-hunyuan-raw",
+   "file": "toy-ibex-hunyuan-raw.glb",
+   "poster": "toy-ibex-hunyuan-raw-poster.jpg",
+   "title": "Toy ibex raw mesh (Hunyuan3D via fal)",
+   "group": "loader",
+   "source_path": "/Users/jshi/Scratch/toy-ibex-20261027/models/hy.glb",
+   "generator": "Hunyuan3D",
+   "animations": [],
+   "triangles": 39090,
+   "original_triangles": 40000,
+   "textured": true,
+   "bytes": 2617816,
+   "original_bytes": 4349428,
+   "compression": "meshopt-no-texture-compress",
+   "skins": 0
+  },
+  {
+   "id": "toy-mountain",
+   "file": "toy-mountain.glb",
+   "poster": "toy-mountain-poster.jpg",
+   "title": "Toy mountain (web, slimmed)",
+   "group": "loader",
+   "source_path": "/Users/jshi/Scratch/toy-ibex-20261027/mountain/mountain-web.glb",
+   "generator": "Tripo",
+   "animations": [],
+   "triangles": 13484,
+   "original_triangles": 13498,
+   "textured": true,
+   "bytes": 133468,
+   "original_bytes": 400032,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "toy-mountain-raw",
+   "file": "toy-mountain-raw.glb",
+   "poster": "toy-mountain-raw-poster.jpg",
+   "title": "Toy mountain raw mesh (Tripo via fal)",
+   "group": "loader",
+   "source_path": "/Users/jshi/Scratch/toy-ibex-20261027/mountain/mountain.glb",
+   "generator": "Tripo",
+   "animations": [],
+   "triangles": 28074,
+   "original_triangles": 29998,
+   "textured": true,
+   "bytes": 256728,
+   "original_bytes": 6212184,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "rodin-shelton",
+   "file": "rodin-shelton.glb",
+   "poster": "rodin-shelton-poster.jpg",
+   "title": "Rodin body: Shelton",
+   "group": "rodin-body",
+   "source_path": "/Users/jshi/Scratch/tennis-shelton-recipe-20261027/fal-shelton/base_basic_pbr.glb",
+   "generator": "Rodin",
+   "animations": [],
+   "triangles": 48330,
+   "original_triangles": 50000,
+   "textured": true,
+   "bytes": 618572,
+   "original_bytes": 11595180,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "rodin-cobolli",
+   "file": "rodin-cobolli.glb",
+   "poster": "rodin-cobolli-poster.jpg",
+   "title": "Rodin body: Cobolli",
+   "group": "rodin-body",
+   "source_path": "/Users/jshi/Scratch/tennis-rear-recipe-20261027/fal-cobolli/base_basic_pbr.glb",
+   "generator": "Rodin",
+   "animations": [],
+   "triangles": 48532,
+   "original_triangles": 50000,
+   "textured": true,
+   "bytes": 503364,
+   "original_bytes": 9837616,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "rodin-alcaraz",
+   "file": "rodin-alcaraz.glb",
+   "poster": "rodin-alcaraz-poster.jpg",
+   "title": "Rodin body: Alcaraz",
+   "group": "rodin-body",
+   "source_path": "/Users/jshi/Scratch/tennis-rear-recipe-20261027/fal-alcaraz/base_basic_pbr.glb",
+   "generator": "Rodin",
+   "animations": [],
+   "triangles": 48856,
+   "original_triangles": 50000,
+   "textured": true,
+   "bytes": 501816,
+   "original_bytes": 8644164,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "rodin-perricard",
+   "file": "rodin-perricard.glb",
+   "poster": "rodin-perricard-poster.jpg",
+   "title": "Rodin body: Mpetshi Perricard",
+   "group": "rodin-body",
+   "source_path": "/Users/jshi/Scratch/tennis-rear-recipe-20261027/fal-perricard/base_basic_pbr.glb",
+   "generator": "Rodin",
+   "animations": [],
+   "triangles": 48606,
+   "original_triangles": 50000,
+   "textured": true,
+   "bytes": 523064,
+   "original_bytes": 9325704,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "rodin-djokovic",
+   "file": "rodin-djokovic.glb",
+   "poster": "rodin-djokovic-poster.jpg",
+   "title": "Rodin body: Djokovic (take 1)",
+   "group": "rodin-body",
+   "source_path": "/Users/jshi/Scratch/tennis-rear-recipe-20261027/fal-djokovic/base_basic_pbr.glb",
+   "generator": "Rodin",
+   "animations": [],
+   "triangles": 48392,
+   "original_triangles": 50000,
+   "textured": true,
+   "bytes": 504232,
+   "original_bytes": 9981104,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "rodin-djokovic-2",
+   "file": "rodin-djokovic-2.glb",
+   "poster": "rodin-djokovic-2-poster.jpg",
+   "title": "Rodin body: Djokovic (take 2)",
+   "group": "rodin-body",
+   "source_path": "/Users/jshi/Scratch/tennis-rear-recipe-20261027/fal-djokovic2/base_basic_pbr.glb",
+   "generator": "Rodin",
+   "animations": [],
+   "triangles": 46304,
+   "original_triangles": 50000,
+   "textured": true,
+   "bytes": 449440,
+   "original_bytes": 9872980,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "rodin-shelton-rigged",
+   "file": "rodin-shelton-rigged.glb",
+   "poster": "rodin-shelton-rigged-poster.jpg",
+   "title": "Rodin body: Shelton (cleaned, rigged)",
+   "group": "rodin-body",
+   "source_path": "/Users/jshi/Scratch/tennis-shelton-recipe-20261027/shelton-rig/shelton-rodin-clean.glb",
+   "generator": "Rodin",
+   "animations": [],
+   "triangles": 34756,
+   "original_triangles": 36280,
+   "textured": true,
+   "bytes": 402904,
+   "original_bytes": 10788168,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "rodin-cobolli-rigged",
+   "file": "rodin-cobolli-rigged.glb",
+   "poster": "rodin-cobolli-rigged-poster.jpg",
+   "title": "Rodin body: Cobolli (cleaned, rigged)",
+   "group": "rodin-body",
+   "source_path": "/Users/jshi/Scratch/tennis-rear-recipe-20261027/cobolli-rig/cobolli-rodin-clean.glb",
+   "generator": "Rodin",
+   "animations": [],
+   "triangles": 43845,
+   "original_triangles": 45013,
+   "textured": true,
+   "bytes": 471712,
+   "original_bytes": 9711648,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "rodin-alcaraz-rigged",
+   "file": "rodin-alcaraz-rigged.glb",
+   "poster": "rodin-alcaraz-rigged-poster.jpg",
+   "title": "Rodin body: Alcaraz (cleaned, rigged)",
+   "group": "rodin-body",
+   "source_path": "/Users/jshi/Scratch/tennis-rear-recipe-20261027/alcaraz-rig/alcaraz-rodin-clean.glb",
+   "generator": "Rodin",
+   "animations": [],
+   "triangles": 33845,
+   "original_triangles": 34533,
+   "textured": true,
+   "bytes": 378608,
+   "original_bytes": 8167572,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "rodin-perricard-rigged",
+   "file": "rodin-perricard-rigged.glb",
+   "poster": "rodin-perricard-rigged-poster.jpg",
+   "title": "Rodin body: Mpetshi Perricard (cleaned, rigged)",
+   "group": "rodin-body",
+   "source_path": "/Users/jshi/Scratch/tennis-rear-recipe-20261027/perricard-rig/perricard-rodin-clean.glb",
+   "generator": "Rodin",
+   "animations": [],
+   "triangles": 42394,
+   "original_triangles": 43476,
+   "textured": true,
+   "bytes": 466728,
+   "original_bytes": 9104780,
+   "compression": "meshopt",
+   "skins": 0
+  },
+  {
+   "id": "rodin-djokovic-2-rigged",
+   "file": "rodin-djokovic-2-rigged.glb",
+   "poster": "rodin-djokovic-2-rigged-poster.jpg",
+   "title": "Rodin body: Djokovic take 2 (cleaned, rigged)",
+   "group": "rodin-body",
+   "source_path": "/Users/jshi/Scratch/tennis-rear-recipe-20261027/djokovic2-rig/djokovic2-rodin-clean.glb",
+   "generator": "Rodin",
+   "animations": [],
+   "triangles": 37082,
+   "original_triangles": 39016,
+   "textured": true,
+   "bytes": 380528,
+   "original_bytes": 9563796,
+   "compression": "meshopt",
+   "skins": 0
+  }
+ ]
+}

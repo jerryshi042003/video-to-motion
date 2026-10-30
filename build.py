@@ -1,213 +1,308 @@
 #!/usr/bin/env python3
-"""Build index.html from gallery.json. Python 3 only, no dependencies."""
+"""Build index.html: one phone-width column in the jerrythegoat.com write-up style,
+with interactive model viewers for every GLB. Python 3 only."""
 import html
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).parent
 G = json.loads((ROOT / "gallery.json").read_text())
+MANIFEST = ROOT / "media" / "models" / "manifest.json"
+def _load_models():
+    if not MANIFEST.exists():
+        return {}
+    raw = json.loads(MANIFEST.read_text())
+    items = raw["models"] if isinstance(raw, dict) else raw
+    out = {}
+    for m in items:
+        m = dict(m)
+        m["file"] = "media/models/" + m["file"]
+        m["poster"] = "media/models/" + m["poster"]
+        out[m["id"]] = m
+    return out
+MODELS = _load_models()
+CARDS = {}
+for p in G["processes"]:
+    for g in p["groups"]:
+        for it in g.get("items", []):
+            CARDS[it["id"]] = it
+        for s in g.get("subgroups", []):
+            for it in s["items"]:
+                CARDS[it["id"]] = it
+LIB_IDS = ("shelton-serve-b", "shelton-serve-d", "shelton-serve-f", "shelton-serve-g2", "alcaraz-serve", "sinner-return",
+           "djokovic-turin-return", "cabolli-return", "alcaraz-a", "alcaraz-b", "djokovic-iw-a", "djokovic-iw-c",
+           "cobolli-b1", "cobolli-b2", "cobolli-c1", "cobolli-c2")
 e = html.escape
-VERDICT = {"accepted": "good", "used on page": "good", "built": "mid", "paused": "mid", "diagnostic": "mid",
-           "not adopted": "bad", "rejected": "bad", "failed": "bad", "live": "good"}
+MISSING = []
 
 
-def img(src, cls=""):
-    return f'<img src="{e(src)}" loading="lazy" alt="" class="{cls}">'
+def model(mid, cap, title=None, full=False):
+    m = MODELS.get(mid)
+    if not m:
+        MISSING.append(mid)
+        return ""
+    anim = " autoplay" if m.get("animations") else ""
+    kb = f"{round(m['bytes']/1024)} KB"
+    label = e(title or m["title"])
+    return f"""<figure class="model{' full' if full else ''}">
+<model-viewer src="{e(m['file'])}" poster="{e(m['poster'])}" alt="{label}" loading="lazy" reveal="interaction" camera-controls touch-action="pan-y" auto-rotate{anim} interaction-prompt="none" shadow-intensity="0.5" exposure="1"><button slot="poster" class="tap" type="button" aria-label="Load {label}" style="background-image:url('{e(m['poster'])}')"><span>tap to load · {kb}</span></button></model-viewer>
+<figcaption class="cap">{cap}</figcaption></figure>"""
 
 
-def media(c):
-    if c["kind"] == "video":
-        return (f'<video class="auto" src="{e(c["video"])}" poster="{e(c.get("poster", ""))}" '
-                f'muted loop playsinline preload="none" disablepictureinpicture></video>')
-    if c["kind"] == "image":
-        gal = "".join(img(g) for g in c.get("gallery", []))
-        main = img(c["image"])
-        if c.get("link"):
-            main = f'<a href="{e(c["link"])}" target="_blank" rel="noopener">{main}</a>'
-        return f'<div class="stack-media">{main}{gal}</div>' if gal else main
-    # io: inputs -> outputs
-    ins = "".join(img(p) for p in c.get("inputs", [])) or '<span class="none">no input kept</span>'
-    outs = "".join(img(p) for p in c.get("outputs", [])) or '<span class="none">no output kept</span>'
-    return f'<div class="io"><div class="imgs">{ins}</div><span class="arrow">→</span><div class="imgs">{outs}</div></div>'
+def video(src, poster, cap):
+    return f"""<figure class="vid"><video class="auto" src="{e(src)}" poster="{e(poster)}" muted loop playsinline preload="none" disablepictureinpicture></video><figcaption class="cap">{cap}</figcaption></figure>"""
 
 
-def back(c):
-    b = c.get("back", {})
-    rows = []
-    if b.get("source"):
-        src = e(b["source"])
-        if b.get("source_url"):
-            src = f'<a href="{e(b["source_url"])}" target="_blank" rel="noopener">{src}</a>'
-        rows.append(("Source", src))
-    if b.get("ran"):
-        rows.append(("What ran", e(b["ran"])))
-    if b.get("why"):
-        rows.append(("Result", e(b["why"])))
-    if b.get("differs"):
-        rows.append(("This one", e(b["differs"])))
-    if b.get("cost"):
-        rows.append(("Cost", e(b["cost"])))
-    return "".join(f'<div class="kv"><span>{k}</span><p>{v}</p></div>' for k, v in rows)
+def fig(src, cap, link=None):
+    img = f'<img src="{e(src)}" loading="lazy" alt="">'
+    if link:
+        img = f'<a href="{e(link)}" target="_blank" rel="noopener">{img}</a>'
+    return f'<figure class="fig">{img}<figcaption class="cap">{cap}</figcaption></figure>'
 
 
-def card(c):
-    v = c.get("verdict", "")
-    meta = " · ".join(e(m) for m in c.get("meta", []))
-    sub = f'<span class="sub">{e(c["sub"])}</span>' if c.get("sub") else ""
-    extra = " portrait" if c["id"].startswith("cast-") else ""
-    return f"""<article class="card {c['kind']}{extra}" id="{e(c['id'])}" tabindex="0">
-<div class="front">
-<div class="media">{media(c)}</div>
-<div class="cap"><h4>{e(c['title'])}{sub}</h4><div class="meta">{meta}{' · ' if meta and v else ''}<b class="v {VERDICT.get(v, '')}">{e(v)}</b></div></div>
-</div>
-<div class="back"><div class="kv-wrap"><h4>{e(c['title'])}</h4>{back(c)}</div></div>
-<button class="flip" type="button" aria-label="Details">i</button>
-</article>"""
-
-
-def pipeline(steps):
-    return '<ol class="pipe">' + "".join(
-        f'<li><span class="n">{e(s["step"])}</span><b>{e(s["what"])}</b><span>{e(s["how"])}</span></li>' for s in steps
-    ) + "</ol>"
-
-
-def stack(items):
+def rows(items):
     out = []
-    for s in items:
-        logo = img(s["logo"], "logo dark" if s.get("dark") else "logo") if s.get("logo") else f'<span class="mono">{e(s.get("mono", s["name"][:2]))}</span>'
-        out.append(f'<div class="tool">{logo}<div><b>{e(s["name"])}</b><span>{e(s["role"])}</span><span class="cost">{e(s["cost"])}</span></div></div>')
-    return '<div class="tools">' + "".join(out) + "</div>"
+    for it in items:
+        if isinstance(it, tuple):
+            text, tag = it
+            out.append(f"<li>{text} <code>{e(tag)}</code></li>")
+        else:
+            out.append(f"<li>{it}</li>")
+    return '<ul class="rows plain">' + "".join(out) + "</ul>"
 
 
-def group(g):
-    parts = [f'<h3>{e(g["title"])}</h3>']
-    if g.get("note"):
-        parts.append(f'<p class="note">{e(g["note"])}</p>')
-    if g.get("subgroups"):
-        for s in g["subgroups"]:
-            parts.append(f'<h4 class="shot">{e(s["title"])}</h4><div class="grid">{"".join(card(c) for c in s["items"])}</div>')
-    else:
-        parts.append(f'<div class="grid">{"".join(card(c) for c in g["items"])}</div>')
-    return "\n".join(parts)
+def dated_rows(items):
+    return '<ul class="rows">' + "".join(
+        f'<li><div><time>{e(d)}</time><span>{e(t)}</span><code>{e(c)}</code></div></li>' for d, t, c in items) + "</ul>"
 
 
-def process(p):
-    return f"""<section class="process" id="{e(p['id'])}">
-<header><h2>{e(p['name'])}</h2><p>{e(p.get('one_line', ''))}</p></header>
-<div class="how"><div><h3>Stack</h3>{stack(p['stack'])}</div><div><h3>Pipeline</h3>{pipeline(p['pipeline'])}</div></div>
-{''.join(group(g) for g in p['groups'])}
-</section>"""
+def steps(items):
+    return '<ol class="steps">' + "".join(
+        f'<li><div class="ic"><span class="n">{i+1}</span></div><div><b>{e(t)}</b><small>{e(d)}</small></div><code>{e(c)}</code></li>'
+        for i, (t, d, c) in enumerate(items)) + "</ol>"
 
 
-def scores():
-    rows = "".join(
-        f'<div class="score"><span class="name">{e(s["name"])}</span><span class="bar"><i style="width:{s["score"]*10}%"></i></span><span class="num">{s["score"]}/10</span><span class="why">{e(s["note"])}{(" <a href=\"" + e(s["ref"]) + "\" target=\"_blank\" rel=\"noopener\">paper</a>") if s.get("ref") else ""}</span></div>'
-        for s in G["scores"])
-    return f'<section id="scores"><header><h2>Where it stands</h2><p>{e(G.get("scores_note", ""))}</p></header><div class="scores">{rows}</div></section>'
+def stat(items):
+    return '<div class="stat">' + "".join(f'<div><b>{e(b)}</b><span>{e(s)}</span></div>' for b, s in items) + "</div>"
 
 
-def timeline():
-    done = "".join(f'<li><span class="d">{e(t["date"])}</span><span>{e(t["what"])}</span></li>' for t in G["timeline"]["done"])
-    nxt = "".join(f'<li><span class="d">next</span><span>{e(t)}</span></li>' for t in G["timeline"]["next"])
-    return f'<section id="timeline"><header><h2>Timeline</h2></header><div class="tl"><ol>{done}</ol><ol class="next">{nxt}</ol></div></section>'
+def two(blocks):
+    return '<div class="two">' + "".join(b for b in blocks if b) + "</div>"
 
 
-nav = "".join(f'<a href="#{e(p["id"])}">{e(p["name"])}</a>' for p in G["processes"]) + '<a href="#scores">Where it stands</a><a href="#timeline">Timeline</a>'
+def lib_model(pid):
+    c = CARDS.get(pid)
+    cap = f"{e(c['title'])} · {e(c['meta'][0])} · {e(c['meta'][1])}" if c else e(pid)
+    m = model("lib-" + pid, cap, title=c["title"] if c else pid)
+    if m:
+        return m
+    # not converted yet: fall back to the four-up video
+    if c:
+        return video(c["video"], c["poster"], cap)
+    return ""
 
-page = f"""<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+
+S = G["scores"]
+score_rows = rows([(f"{e(s['name'])}: {e(s['note'])}", f"{s['score']}/10") for s in S])
+
+sections = []
+
+sections.append(f"""<section aria-labelledby="h-stand">
+<h2 id="h-stand">Where it stands</h2>
+<p class="sub">Self-assessed on the viewing result, not a measured match. Frame rate matters most for the racket and ball.</p>
+{stat([("8/10","body motion"),("6/10","racket motion"),("2/10","likeness")])}
+{score_rows}
+<p class="cap">gold standard: Hawk-Eye SkeleTRACK, 29 body points and 7 racket points from a stadium camera system · cited numbers come from the papers' own benchmarks, not this footage</p>
+</section>""")
+
+sections.append(f"""<section aria-labelledby="h-motion">
+<h2 id="h-motion">Video to motion</h2>
+<p class="sub">One camera, one point, a body that moves like the player. Modal rents the GPU; FlowHMR gives the body; RacketVision finds the racket; the rest is local.</p>
+{steps([("Pick a clip","court-level YouTube footage, player large in frame, cut to one point","yt-dlp"),
+        ("Body","joints, shape and camera per frame","FlowHMR · Modal"),
+        ("Racket points","five keypoints where the racket is visible","RacketVision · Modal"),
+        ("Racket through the arm","forearm twist and wrist angle inside limits, spin capped","Python"),
+        ("Contact rule","label contact frame and shot, pin the face angle","by eye"),
+        ("Render","source, front, side, back; GLB for the web","Blender")])}
+<p class="cap">about $0.35 of Modal per clip · open weights · nothing re-solved by hand</p>
+{model("tennis-lab-shelton-coria","Ben Shelton, serve and volley · the whole point, both players · drag to orbit", full=True)}
+{model("tennis-lab-shelton-serve","Ben Shelton serve · the first accepted motion, Oct 22", full=True)}
+{video("media/library/featured-serve-volley.mp4","media/library/featured-serve-volley-poster.jpg","the same point from the Tennis Lab demo, Behind camera")}
+</section>""")
+
+sections.append(f"""<section aria-labelledby="h-lib">
+<h2 id="h-lib">The rear-court library</h2>
+<p class="sub">Sixteen points, six players, one recipe. Court level from behind, 30 fps, 1080p cut from 4K. Tap a tile to load its model.</p>
+<p class="cap">serves</p>
+{two([lib_model(p) for p in ("shelton-serve-b","shelton-serve-d","shelton-serve-f","shelton-serve-g2")])}
+<p class="cap">returns</p>
+{two([lib_model(p) for p in ("sinner-return","djokovic-turin-return","cabolli-return")])}
+<p class="cap">served points with groundstrokes</p>
+{two([lib_model(p) for p in ("alcaraz-serve","alcaraz-a","alcaraz-b","djokovic-iw-a","djokovic-iw-c","cobolli-b1","cobolli-b2","cobolli-c1","cobolli-c2")])}
+{rows([("Shelton is left-handed; the racket stays in the left hand across frames","handedness"),
+       ("Djokovic IW-A frame 145 and IW-C frame 312 are one-handed slices; Alcaraz-A 303 is a two-handed backhand","contacts"),
+       ("Racket error 4.7 to 12.5 px median per point; arm limits exceeded on 0 to 37 frames","numbers"),
+       ("Face angle at contact is set by rule, not measured","limit")])}
+</section>""")
+
+sections.append(f"""<section aria-labelledby="h-cams">
+<h2 id="h-cams">Other cameras and frame rates</h2>
+<p class="sub">Same FlowHMR, different footage. This is where quality changes.</p>
+{video("media/racket/alcaraz-120-forehand-v2.mp4","media/racket/alcaraz-120-forehand-v2-poster.jpg","Alcaraz forehand · 4K 120 fps · the detector keeps the racket through contact: 81% of frames found vs 32–40% at 30 fps")}
+{two([model("tennis-lab-shelton-atp","ATP broadcast · elevated camera, 169 frames · body only"),
+      model("tennis-lab-ucla-point8-combined","college match · fixed club camera · body + charted ball arcs"),
+      model("tennis-lab-shelton-long-rally","14-second rally · drift and hidden hands over time"),
+      model("tennis-lab-shelton-wide","wide-view movement · behind the baseline"),
+      model("tennis-lab-shelton-rally","forehand and backhand · near-side player"),
+      model("tennis-lab-quan-gomez-point","Quan vs Gomez · Hawk-Eye capsule replay")])}
+{video("media/racket/djokovic-groundstroke-v2.mp4","media/racket/djokovic-groundstroke-v2-poster.jpg","Djokovic groundstrokes · high diagonal seat, 4K crop · body fit improved, racket detection got worse: this camera is the ceiling")}
+{rows([("Broadcast and high-seat footage give a body but no usable wrist or face","why"),
+       ("Only the 120 fps clip shows the racket through contact","frame rate"),
+       ("Two-player point and the long rally stay as test scenes","status")])}
+</section>""")
+
+sections.append(f"""<section aria-labelledby="h-racket">
+<h2 id="h-racket">The racket</h2>
+<p class="sub">A model, a detector, and a solver that moves it through the arm.</p>
+{model("racket-arm-solved","the rebuilt racket · frame, throat, grommets, woven strings, grip · built in Blender from reference contours", full=True)}
+{model("tennis-lab-equipment-aero-motion","Pure Aero on the serve · traced from manufacturer photos", full=True)}
+{two([model("racket-ezone","EZONE 98 · photo-textured, the library stand-in"), model("racket-aero","Pure Aero 98 · traced"), model("racket-vcore","VCORE 98 · traced"), model("racket-blade","Blade 98 v10 · traced")])}
+{fig("media/racket/ovl-djokovic-iw-a.jpg","solved through the arm · red old fit, green arm solve, cyan detections · no frame over 2,600°/s on 15 of 16 points")}
+{fig("media/racket/hfr-contact.jpg","120 fps through contact · green fit on cyan detections · 15.5 px on held-out frames")}
+{fig("media/racket/edge-before-after.jpg","face angle at contact, before and after the rule · 7 of 34 plausible → 34 of 34")}
+{fig("media/racket/all-grip.jpg","hand-to-handle registration for every point")}
+{rows([("Five racket points per frame where visible; availability is not accuracy","RacketVision"),
+       ("Seen from behind, open and closed faces shrink the outline the same way; the rule chose the angle","limit"),
+       ("Next: segment the racket in the lag phase, hand model for grip, ground truth under 5 px","next")])}
+</section>""")
+
+sections.append(f"""<section aria-labelledby="h-bodies">
+<h2 id="h-bodies">Bodies from photos</h2>
+<p class="sub">Two or three frames of the player's own video to Rodin 2.5 through fal.ai, bound to the FlowHMR motion.</p>
+{video("media/bodies/shelton-serve-fal.mp4","media/bodies/shelton-serve-fal-poster.jpg","Shelton serve with his own Rodin body · outfit matches the footage · face generated, not a likeness")}
+{two([model("rodin-shelton","Shelton · Rodin 2.5"), model("rodin-cobolli","Cobolli · Rodin 2.5"), model("rodin-alcaraz","Alcaraz · Rodin 2.5"), model("rodin-perricard","Mpetshi Perricard · Rodin 2.5"), model("rodin-djokovic-2","Djokovic take 2 · Rodin 2.5"), model("rodin-shelton-rigged","Shelton · cleaned and rigged")])}
+{fig("media/bodies/compare-serve.jpg","source, plain body, Rodin body across the serve")}
+{rows([("Eight bodies at about $0.40 each; all paused on Oct 28: wrinkled, bent spine, changed height","paused"),
+       ("The hand stays open under the grip; loose clothing bulges because the shirt is part of the mesh","limit"),
+       ("UP2You and MICA face fits rejected at 2/10 and 4/10","rejected")])}
+</section>""")
+
+sections.append(f"""<section aria-labelledby="h-scenes">
+<h2 id="h-scenes">Scenes and cast</h2>
+<p class="sub">The venue backgrounds are data, not generated images: OpenStreetMap footprints, USGS terrain, a NAIP aerial photo, Poly Haven props. Meshy made the people.</p>
+{model("shelton-coria-point","the USTA story opener · the same point as a plain grey body, live on jerrythegoat.com/usta", full=True)}
+{two([model("ball-usopen","the Wilson US Open ball · 6.7 cm, felt and print authored from reference photos"), model("straus-stands","Straus Stadium stands · 3D Warehouse model used on the UCLA page")])}
+{fig("media/venues/usta-sheet.jpg","US Open · Arthur Ashe and Flushing Meadows from OSM and code","https://jerrythegoat.com/usta/")}
+{fig("media/venues/ucla-full.jpg","UCLA · Westwood on real terrain, aerial photo ground, 52k trees from its near-infrared band","https://jerrythegoat.com/ucla/")}
+{fig("media/venues/galaxy-full.jpg","Galaxy, Kings, Reign · Dignity Health Sports Park from OSM, Poly Haven props","https://jerrythegoat.com/galaxy/")}
+<p class="cap">the Meshy cast · photo → A-pose still → Meshy 7.1 image-to-3D → rig · tap to load</p>
+{two([model("shelton-2","Ben Shelton · likeness v2, live"), model("gauff-2","Coco Gauff · likeness v2"), model("gilbert","Brad Gilbert · live"), model("martin","Billy Martin · live"),
+      model("quan-iw","Rudy Quan · live"), model("jerry","Jerry · four-photo rebuild, live"), model("umpire","chair umpire · live"), model("ballkid","ball kid · live"),
+      model("stu-1","walking student"), model("sp-1","seated spectator · remeshed for the crowd"), model("fan-1","Galaxy fan"), model("pro-a","generic pro · plays soccer and hockey too"),
+      model("palm","palm · instanced 200+ times"), model("analyst","front-row analyst"), model("jerry-serve","Jerry serve · mocap retargeted"), model("coach","generic coach"), model("bruin","UCLA figure"), model("crowd-sp-1","crowd impostor · 1.5k polys")])}
+{rows([("About 1,900 Meshy credits for the cast, crowd and props in five days","cost"),
+       ("Fast and consistent for stylised people; heads rejected as likeness, hands came out as mittens","verdict"),
+       ("Source stills and prompts were deleted with the scratch folder on Oct 27; the GLBs survive","note")])}
+</section>""")
+
+sections.append(f"""<section aria-labelledby="h-loader">
+<h2 id="h-loader">The goat, the ibex and the mountain</h2>
+<p class="sub">The home-page intro animal and wallpaper, and the generated variants that were tried.</p>
+{two([model("goat-loader","dot goat · CC0 goat reshaped in Blender · the default"), model("toy-ibex","toy ibex · nano-banana still → Tripo"),
+      model("toy-ibex-hunyuan-raw","toy ibex · the Hunyuan3D attempt, not used"), model("toy-mountain","toy mountain · nano-banana still → Tripo"), model("boulder-loader","the boulder · Poly Haven, decimated"), model("mountainside-loader","mountainside · Poly Haven")])}
+{video("media/loader/three-loaders.mp4","media/loader/three-loaders-poster.jpg","dot, toy, real · the same climb on three animals")}
+{fig("media/loader/theme-backdrops.jpg","blue-hour backdrops from nano-banana · rejected: feels like greenscreen")}
+{fig("media/loader/mountain-flux-outpaint.jpg","home-page mountain · an ink painting extended by FLUX outpainting, original pixels unchanged · $0.35")}
+{fig("media/loader/goat-mark-candidates.jpg","header mark · four traced candidates, C chosen")}
+{rows([("Rodin text-to-3D granite crag for the wild scene rejected as a marble column","rejected"),
+       ("Cingino dam rebuild with a Rodin ibex stayed on staging","paused"),
+       ("Goat intro now plays on the home page only and draws every 8 ms","live")])}
+</section>""")
+
+sections.append(f"""<section aria-labelledby="h-films">
+<h2 id="h-films">Films and thumbnails</h2>
+<p class="sub">HyperFrames renders HTML to video by seeking a paused timeline frame by frame in headless Chrome. Every hub clip and film came from it.</p>
+{video("media/hyperframes/cycling-film.mp4","media/hyperframes/cycling-film-poster.jpg","cycling film · 17 s · live at /cycling")}
+{video("media/hyperframes/reel-v3.mp4","media/hyperframes/reel-v3-poster.jpg","sports data reel v3 · 31 s · twelve segments")}
+{two([video("media/hyperframes/shield-genie.mp4","media/hyperframes/shield-genie-poster.jpg","Shield · ask the season goal"),
+      video("media/hyperframes/match-map.mp4","media/hyperframes/match-map-poster.jpg","Match Viewer · live card"),
+      video("media/hyperframes/radio-captions.mp4","media/hyperframes/radio-captions-poster.jpg","radio · word-by-word captions"),
+      video("media/hyperframes/hawkeye-loop.mp4","media/hyperframes/hawkeye-loop-poster.jpg","Hawk-Eye 3D match films")])}
+<p class="cap">the live home-page cards · chosen from 140 options on Oct 27</p>
+{two([video("media/thumbs/final-galaxy.mp4","media/thumbs/final-galaxy-poster.jpg","Galaxy · ends on Ontario Reign"),
+      video("media/thumbs/final-usta.mp4","media/thumbs/final-usta-poster.jpg","USTA · serve first"),
+      video("media/thumbs/final-ucla.mp4","media/thumbs/final-ucla-poster.jpg","UCLA · serve down the T"),
+      video("media/thumbs/final-cycling.mp4","media/thumbs/final-cycling-poster.jpg","cycling · rider to infield to TV")])}
+{fig("media/thumbs/review-desktop.jpg","the review page · 140 de-duplicated candidates, one chosen per project")}
+</section>""")
+
+sections.append(f"""<section aria-labelledby="h-dropped">
+<h2 id="h-dropped">Tried and dropped</h2>
+{rows([("Kling 3.0 motion-control video: both runs failed the anatomy gate, $2.50","fal.ai"),
+       ("GEM-X mocap, 14 runs on an L40S: loops came back, none adopted, $3.35","Modal"),
+       ("Kimodo: a ready-position loop, not released","Modal"),
+       ("Meshy heads on the serve body: detached, 5/10","Meshy"),
+       ("Internally generated mountain wings and pinnacle: rejected","image"),
+       ("Up-front shader compile for the goat intro: slower under software GL, reverted","web")])}
+</section>""")
+
+T = G["timeline"]
+sections.append(f"""<section aria-labelledby="h-time">
+<h2 id="h-time">Timeline</h2>
+{dated_rows([(t["date"], t["what"], "done") for t in T["done"]] + [("Oct 29", "16-point library and the audit; USTA opener rebuilt on the serve-and-volley point", "done"), ("Oct 30", "Serve kept behind the baseline; goat intro on the home page only; all three PRs merged and deployed", "live")])}
+<p class="cap">next · 120 fps footage only · racket silhouette in the lag phase · a hand model for grip · ground truth under 5 px · a body and face that are the person</p>
+</section>""")
+
+sections.append("""<section class="try" aria-label="Open">
+<a class="btn" href="https://jerrythegoat.com/usta/">Open the USTA story</a>
+<a class="btn2" href="https://jerry-tennis-lab.vercel.app/">The Tennis Lab demos</a>
+<footer>FlowHMR and RacketVision on Modal · Rodin, Tripo, Hunyuan3D, Kling, FLUX and nano-banana through fal.ai · Meshy · Blender · HyperFrames · footage: Court Level Tennis, Slow-Mo Tennis, TennisTV, UCLA Tennis Consulting · body depth is monocular, no physics simulated · faces are generated, not likenesses</footer>
+</section>""")
+
+CSS = (ROOT / "writeup.css").read_text()
+EXTRA = """
+/* gallery additions, same contract: hairlines, fill, mono captions, one accent */
+figure{margin:0}
+.fig img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line);background:var(--fill)}
+.vid video{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line);background:var(--fill)}
+.model model-viewer{display:block;width:100%;height:auto;aspect-ratio:1/1;border-radius:12px;border:1px solid var(--line);background:var(--fill);--poster-color:transparent}
+.model.full model-viewer{aspect-ratio:4/3}
+.tap{position:absolute;inset:0;width:100%;height:100%;border:0;background:var(--fill) center/cover no-repeat;cursor:pointer;border-radius:12px;display:flex;align-items:flex-end;justify-content:center;padding:8px}
+.tap span{font:11px var(--mono);color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px 9px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.two .cap{margin-top:8px}
+.steps .ic .n{font:12px var(--mono);color:var(--fg)}
+section > .model, section > .vid, section > .fig, section > .two, section > .rows, section > .stat{margin-top:16px}
+section > .cap + .two{margin-top:8px}
+section > .sub + *{margin-top:0}
+"""
+
+page = f"""<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Video to Motion</title>
-<meta name="description" content="What Meshy, fal.ai, Modal (FlowHMR, RacketVision), HyperFrames and Blender produced: tennis video to 3D motion, rackets, bodies, scenes and films. Process first, results below.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<style>
-:root{{--ink:#17202a;--muted:#596571;--line:#e3e6e8;--blue:#2458d3;--wash:#eef3fd;--paper:#fff;--good:#236442;--bad:#963c2f;--mid:#596571;color-scheme:light}}
-*{{box-sizing:border-box}}html{{scroll-behavior:smooth}}
-body{{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}}
-a{{color:var(--blue);text-underline-offset:3px}}
-.top{{border-top:3px solid var(--blue);border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--paper);z-index:20}}
-.top .in{{max-width:1336px;margin:auto;padding:0 24px;height:56px;display:flex;align-items:center;gap:22px}}
-.brand{{font-weight:700;font-size:18px;white-space:nowrap}}
-.top nav{{display:flex;gap:16px;overflow-x:auto;font-size:13px}}.top nav a{{color:var(--muted);text-decoration:none;white-space:nowrap}}.top nav a:hover{{color:var(--ink)}}
-main{{max-width:1336px;margin:auto;padding:28px 24px 80px}}
-h1{{font-size:34px;line-height:1.15;letter-spacing:-.03em;margin:0 0 6px;font-weight:700}}
-.lede{{color:var(--muted);margin:0 0 8px;max-width:72ch}}
-section{{margin-top:56px}}section>header{{border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:18px}}
-h2{{font-size:25px;letter-spacing:-.025em;margin:0}}section>header p{{margin:4px 0 0;color:var(--muted)}}
-h3{{font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:28px 0 10px;font-weight:600}}
-h4.shot{{font-size:14px;color:var(--ink);margin:16px 0 8px;font-weight:600}}
-.note{{margin:-4px 0 12px;color:var(--muted);max-width:80ch}}
-.how{{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:28px;align-items:start}}
-.tools{{display:grid;gap:8px}}.tool{{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:8px;padding:10px 12px}}
-.tool .logo,.tool .mono{{width:34px;height:34px;flex:none;border-radius:7px;object-fit:contain;background:#f5f7fa;padding:5px}}
-.tool .mono{{display:grid;place-items:center;font-size:11px;font-weight:700;color:var(--blue)}}.tool .logo.dark{{background:#1b1f1c}}
-.tool b{{display:block;font-size:14px}}.tool span{{display:block;font-size:13px;color:var(--muted)}}.tool .cost{{color:var(--ink);font-size:12px;margin-top:2px}}
-.pipe{{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;counter-reset:s}}
-.pipe li{{border:1px solid var(--line);border-radius:8px;padding:10px 12px;position:relative;font-size:13px}}
-.pipe li .n{{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--wash);color:var(--blue);font-size:11px;font-weight:700;margin-bottom:6px}}
-.pipe li b{{display:block;font-size:14px}}.pipe li span:last-child{{color:var(--muted)}}
-.pipe li:not(:last-child)::after{{content:"→";position:absolute;right:-9px;top:12px;color:var(--muted);font-size:12px;background:var(--paper)}}
-.grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px}}
-.card{{position:relative;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper);min-height:120px}}
-.card.io{{grid-column:1/-1}}
-.card .front,.card .back{{transition:opacity .18s}}
-.card .back{{position:absolute;inset:0;background:var(--paper);opacity:0;pointer-events:none;overflow:auto;padding:14px 16px}}
-.card.flipped .back{{opacity:1;pointer-events:auto}}.card.flipped .front{{opacity:.08}}
-.media video,.media>img,.media .stack-media>img,.media .stack-media>a>img{{width:100%;display:block;background:#1a1f1d;aspect-ratio:16/9;object-fit:cover}}
-.card.video .media video{{aspect-ratio:auto;height:auto}}
-.card.portrait .media>img{{aspect-ratio:3/4;object-fit:contain;background:#d9dcd8}}
-.stack-media{{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px}}.stack-media>:first-child{{grid-column:1/-1}}
-.stack-media img{{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#1a1f1d}}
-.card.io .media{{padding:12px 14px 0}}.io{{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1.4fr);gap:8px;align-items:start}}
-.imgs{{display:flex;flex-wrap:wrap;gap:4px}}.imgs img{{height:120px;width:auto;max-width:100%;border-radius:3px;background:#1a1f1d;object-fit:contain}}
-.arrow{{color:var(--muted);text-align:center;padding-top:62px}}.none{{color:var(--muted);font-size:12px}}
-.cap{{padding:10px 14px 12px}}.cap h4{{margin:0;font-size:14px;font-weight:600;display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline}}
-.cap .sub{{color:var(--muted);font-weight:400;font-size:12.5px}}
-.meta{{font-size:12.5px;color:var(--muted);margin-top:2px}}
-.v{{font-weight:600}}.v.good{{color:var(--good)}}.v.bad{{color:var(--bad)}}.v.mid{{color:var(--mid)}}
-.flip{{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;border:1px solid #b8c2cc;background:rgba(255,255,255,.92);font:600 12px/1 Inter,sans-serif;color:var(--ink);cursor:pointer;z-index:2}}
-.flip:hover{{border-color:var(--blue);color:var(--blue)}}
-.kv-wrap h4{{margin:0 0 8px;font-size:14px;padding-right:28px}}.kv{{display:grid;grid-template-columns:72px 1fr;gap:8px;font-size:13px;margin-bottom:8px}}
-.kv span{{color:var(--muted)}}.kv p{{margin:0}}
-.scores{{display:grid;gap:10px;max-width:980px}}
-.score{{display:grid;grid-template-columns:260px 1fr 52px;gap:12px;align-items:center}}
-.score .bar{{height:8px;background:#eef1f4;border-radius:99px;overflow:hidden}}.score .bar i{{display:block;height:100%;background:var(--blue)}}
-.score .num{{font-weight:600;text-align:right}}.score .why{{grid-column:1/-1;color:var(--muted);font-size:13px;margin:-6px 0 2px}}
-.tl{{display:grid;grid-template-columns:1fr 1fr;gap:32px}}.tl ol{{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}}
-.tl li{{display:grid;grid-template-columns:78px 1fr;gap:10px;padding:0 0 14px 14px;position:relative;font-size:14px}}
-.tl li::before{{content:"";position:absolute;left:-6px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--blue)}}
-.tl .next li::before{{background:#fff;border:2px solid var(--blue);width:6px;height:6px}}.tl .d{{color:var(--muted);font-size:12.5px}}
-footer{{margin-top:64px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:grid;gap:4px;max-width:90ch}}
-@media (max-width:800px){{.how,.tl{{grid-template-columns:1fr}}.io{{grid-template-columns:1fr}}.arrow{{padding:0;transform:rotate(90deg)}}.score{{grid-template-columns:1fr 1fr 48px}}.score .name{{grid-column:1/-1}}}}
-@media (prefers-reduced-motion:reduce){{.card .front,.card .back{{transition:none}}}}
-</style></head><body>
-<div class="top"><div class="in"><span class="brand">Video to Motion</span><nav>{nav}</nav></div></div>
-<main>
-<h1>What each generator actually produced</h1>
-<p class="lede">Tennis video to 3D motion, rackets and bodies; scenes, films and thumbnails for jerrythegoat.com. One section per process: the stack and pipeline first, then the results. Videos play on their own; the small i on each card opens what ran, on what, and why it passed or failed.</p>
-{''.join(process(p) for p in G['processes'])}
-{scores()}
-{timeline()}
-<footer>
-<span>Footage: Court Level Tennis, Slow-Mo Tennis, TennisTV, UCLA Tennis Consulting (PlaySight). Short excerpts for analysis, each linked to its source and time range.</span>
-<span>Body depth is monocular and no physics was simulated. Racket face angle at contact is set by rule, not measured. Faces from Rodin, UP2You and Meshy are generated, not likenesses.</span>
-</footer>
+<meta name="description" content="What FlowHMR, RacketVision, Rodin, Meshy, HyperFrames and Blender actually produced: tennis video to 3D motion, rackets, bodies, scenes and films. Every model is interactive.">
+<meta property="og:title" content="Video to Motion"><meta property="og:description" content="One camera, one point, a body that moves like the player. Every 3D model we made, interactive.">
+<style>{CSS}{EXTRA}</style>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/dist/model-viewer.min.js"></script>
+</head><body>
+<main class="col">
+<div class="made"><a href="https://jerrythegoat.com/">jerrythegoat.com</a> · video to motion</div>
+<header><h1>Video to Motion</h1><p>Tennis video to 3D motion, rackets, bodies, scenes and films. What each generator actually produced, with every model interactive.</p></header>
+{''.join(sections)}
 </main>
 <script>
 (function(){{
+  var setDecoder=function(){{var c=customElements.get('model-viewer'); if(c) c.meshoptDecoderLocation='https://cdn.jsdelivr.net/npm/meshoptimizer@0.22.0/meshopt_decoder.js';}};
+  customElements.whenDefined('model-viewer').then(setDecoder);
+  document.querySelectorAll('.tap').forEach(function(b){{b.addEventListener('click',function(ev){{ev.preventDefault();var mv=b.closest('model-viewer');mv.dismissPoster();}});}});
   var vids=[].slice.call(document.querySelectorAll('video.auto'));
   if('IntersectionObserver' in window){{
-    var io=new IntersectionObserver(function(es){{es.forEach(function(x){{var v=x.target;if(x.isIntersecting){{if(v.preload==='none'){{v.preload='auto';v.load();}}v.play().catch(function(){{}});}}else{{v.pause();}}}});}},{{rootMargin:'200px 0px'}});
+    var io=new IntersectionObserver(function(es){{es.forEach(function(x){{var v=x.target;if(x.isIntersecting){{if(v.preload==='none'){{v.preload='auto';v.load();}}v.play().catch(function(){{}});}}else{{v.pause();}}}});}},{{rootMargin:'160px 0px'}});
     vids.forEach(function(v){{io.observe(v);}});
-  }}else{{vids.forEach(function(v){{v.preload='auto';v.play().catch(function(){{}});}});}}
-  document.querySelectorAll('.card').forEach(function(c){{
-    var t=function(ev){{if(ev.target.closest('a,video'))return;c.classList.toggle('flipped');}};
-    c.querySelector('.flip').addEventListener('click',function(ev){{ev.stopPropagation();c.classList.toggle('flipped');}});
-    c.querySelector('.back').addEventListener('click',t);
-    c.addEventListener('keydown',function(ev){{if(ev.key==='Enter'||ev.key===' '){{if(ev.target===c){{ev.preventDefault();c.classList.toggle('flipped');}}}}}});
-  }});
+  }}
 }})();
 </script>
 </body></html>
 """
 (ROOT / "index.html").write_text(page)
-print("wrote index.html", len(page), "bytes")
+print("wrote index.html", len(page), "bytes; models in manifest:", len(MODELS), "; missing refs:", sorted(set(MISSING)))
