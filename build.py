@@ -282,32 +282,42 @@ S.append(f"""<section aria-labelledby="h-fix">
 </section>""")
 
 # ---------- 6 the rest ----------
-S.append(f"""<section aria-labelledby="h-rest">
-<h2 id="h-rest">6 · Scenes, cast, goat and films</h2>
-<p class="sub">The venues are data, not generated images: OpenStreetMap, USGS terrain, an aerial photo, Poly Haven props. Meshy made the people. HyperFrames made the films.</p>
-{model("shelton-coria-point", "the USTA opener scene · both players with the Wilson ball · live on jerrythegoat.com/usta", h=420, attrs='camera-target="12m 1m -0.8m" camera-orbit="215deg 78deg 7m" min-camera-orbit="auto auto 2m" max-camera-orbit="auto auto 40m"')}
-{fig("media/venues/usta-sheet.jpg", "US Open · Arthur Ashe and Flushing Meadows from OSM and code")}
-{fig("media/venues/ucla-full.jpg", "UCLA · real terrain, aerial photo ground, 52k trees from its near-infrared band")}
-{model("gauff-2", "Coco Gauff · Meshy likeness", h=400, attrs=CAST)}
-{model("jerry", "Jerry · four-photo Meshy rebuild", h=400, attrs=CAST)}
-{model("goat-loader", "the home-page goat · a CC0 goat reshaped in Blender", h=360, attrs='auto-rotate')}
-{model("toy-ibex", "toy ibex · nano-banana still → Tripo", h=360, attrs='auto-rotate')}
-{video("media/hyperframes/cycling-film.mp4", "media/hyperframes/cycling-film-poster.jpg", "cycling film · HyperFrames, HTML rendered frame by frame")}
-{video("media/hyperframes/reel-v3.mp4", "media/hyperframes/reel-v3-poster.jpg", "sports data reel · 31 s")}
-</section>""")
-
-S.append(f"""<section aria-labelledby="h-env">
-<h2 id="h-env">7 · Environments</h2>
-<p class="sub">The full scenes, live. Scroll inside each one.</p>
+ENV = [f"""<section aria-label="Environments">
+<p class="sub">The venues are data, not generated images: OpenStreetMap, USGS terrain, an aerial photo, Poly Haven props. Scroll inside each scene.</p>
 <figure class="scene env"><iframe data-src="https://jerrythegoat.com/usta/" title="USTA" style="height:720px"></iframe><figcaption class="cap">US Open · Arthur Ashe and Flushing Meadows</figcaption></figure>
+{fig("media/venues/usta-sheet.jpg", "Arthur Ashe and the grounds from OpenStreetMap footprints and code")}
+{model("shelton-coria-point", "the USTA opener point · both players with the Wilson ball", h=420, attrs='camera-target="12m 1m -0.8m" camera-orbit="215deg 78deg 7m" min-camera-orbit="auto auto 2m" max-camera-orbit="auto auto 40m"')}
 <figure class="scene env"><iframe data-src="https://jerrythegoat.com/ucla/" title="UCLA" style="height:720px"></iframe><figcaption class="cap">UCLA · Los Angeles Tennis Center</figcaption></figure>
+{fig("media/venues/ucla-full.jpg", "real terrain, aerial photo ground, 52k trees from the near-infrared band")}
 <figure class="scene env"><iframe data-src="https://jerrythegoat.com/galaxy/" title="LA Galaxy" style="height:720px"></iframe><figcaption class="cap">LA Galaxy · Dignity Health Sports Park, Carson</figcaption></figure>
 <figure class="scene env"><iframe data-src="https://jerrythegoat.com/shield/" title="LA Kings" style="height:720px"></iframe><figcaption class="cap">LA Kings · the shield</figcaption></figure>
+</section>"""]
+
+CASTP = [f"""<section aria-label="Cast">
+<p class="sub">Meshy made the people from one reference image each; the goat is a CC0 scan reshaped in Blender. Drag to orbit.</p>
+{model("shelton-2", "Ben Shelton · the rebuilt body on the USTA page", h=420, attrs=CAST + ' animation-name="sv"')}
+{model("rodin-shelton", "Ben Shelton · Rodin 2.5 body from three frames of his video", h=420, attrs=CAST)}
+{model("gauff-2", "Coco Gauff", h=400, attrs=CAST)}
+{model("jerry", "Jerry · four-photo rebuild", h=400, attrs=CAST)}
+{model("martin", "Martin", h=400, attrs=CAST)}
+{model("umpire", "umpire", h=400, attrs=CAST)}
+{model("sp-1", "spectator", h=400, attrs=CAST)}
+{model("goat-loader", "the home-page goat", h=360, attrs='auto-rotate')}
+{model("toy-ibex", "toy ibex · nano-banana still → Tripo", h=360, attrs='auto-rotate')}
+{model("toy-mountain", "toy mountain", h=360, attrs='auto-rotate')}
+</section>"""]
+
+FILMS = [f"""<section aria-label="Films">
+<p class="sub">HyperFrames renders HTML to video frame by frame, so every render is the same twice.</p>
+{video("media/hyperframes/cycling-film.mp4", "media/hyperframes/cycling-film-poster.jpg", "cycling film · 17 s")}
+{video("media/hyperframes/reel-v3.mp4", "media/hyperframes/reel-v3-poster.jpg", "sports data reel · 31 s")}
+{video("media/loader/three-loaders.mp4", "media/loader/three-loaders-poster.jpg", "the three loaders")}
+{video("media/web/shield-galaxy.mp4", "media/web/shield-galaxy-poster.jpg", "the Galaxy animation behind the shield")}
 <h3>Thumbnails</h3>
 <div class="thumbs">
 {"".join(f'<figure class="vid"><video class="auto" src="media/thumbs/final-{n}.mp4" poster="media/thumbs/final-{n}-poster.jpg" muted loop playsinline preload="none"></video><figcaption class="cap">{n}</figcaption></figure>' for n in ("usta","ucla","galaxy","matchviewer","orfeu","radio","cycling"))}
 </div>
-</section>""")
+</section>"""]
 
 S.append(f"""<section aria-labelledby="h-time">
 <h2 id="h-time">Timeline</h2>
@@ -357,6 +367,7 @@ section > .model, section > .vid, section > .fig, section > .rows, section > .ba
 .src + .yt, .src + .vid{margin-top:12px}
 .src-vid .cap a{text-decoration:none}
 .chart .d3{width:100%}
+.pages{display:flex;gap:18px;margin:-6px 0 26px;font:12px var(--mono)}.pages a{color:var(--muted);text-decoration:none}.pages a:hover{color:var(--fg)}.pages b{font-weight:600}
 .pair{display:grid;gap:12px}
 .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:10px}.thumbs .cap{text-align:center}
 .scene iframe[data-src]:not([src]){background:var(--fill)}
@@ -371,11 +382,21 @@ section p{margin:0 0 10px;font-size:14px}
 @media (prefers-reduced-motion:reduce){.track i{transition:none}}
 """
 
-page = f"""<!doctype html><html lang="en"><head>
+PAGES = [("index", "Tennis", "Video to Motion", "How one YouTube clip becomes a body, a racket and a ball on a court. The plan, the examples, the research, where the footage comes from, and what broke and how it was fixed.", S),
+         ("environments", "Environments", "Environments", "The US Open, UCLA, the Galaxy and the Kings as live 3D scenes.", ENV),
+         ("cast", "Cast", "Cast", "The people and the goat, as interactive models.", CASTP),
+         ("films", "Films", "Films", "HyperFrames films and the home-page thumbnails.", FILMS)]
+
+def nav(cur):
+    return '<nav class="pages" aria-label="Pages">' + "".join(
+        (f'<b>{t}</b>' if k == cur else f'<a href="{"/" if k == "index" else "/" + k}">{t}</a>') for k, t, *_ in PAGES) + '</nav>'
+
+for key, tab, title, lede, parts in PAGES:
+    page = f"""<!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Video to Motion</title>
-<meta name="description" content="How tennis video became 3D motion, a racket, a ball and a person: what each step can do today, scored honestly, with every scene interactive.">
-<meta property="og:title" content="Video to Motion"><meta property="og:description" content="Tennis video to 3D motion, racket, ball and person. Every scene interactive, every result scored.">
+<title>{e(title)}</title>
+<meta name="description" content="{e(lede)}">
+<meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(lede)}">
 <style>{CSS}{EXTRA}</style>
 <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/dist/model-viewer.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
@@ -383,8 +404,9 @@ page = f"""<!doctype html><html lang="en"><head>
 </head><body>
 <main class="col">
 <div class="made"><a href="https://jerrythegoat.com/">jerrythegoat.com</a> · notes</div>
-<header><h1>Video to Motion</h1><p>How one YouTube clip becomes a body, a racket and a ball on a court. The plan, the examples, the research, where the footage comes from, and what broke and how it was fixed.</p></header>
-{''.join(S)}
+<header><h1>{e(title)}</h1><p>{e(lede)}</p></header>
+{nav(key)}
+{''.join(parts)}
 </main>
 <script>
 (function(){{
@@ -399,13 +421,6 @@ page = f"""<!doctype html><html lang="en"><head>
   var fo=new IntersectionObserver(function(es){{es.forEach(function(x){{var f=x.target;
     if(x.isIntersecting){{ if(!f.src) f.src=f.dataset.src; }} else if(f.src){{ f.removeAttribute('src'); }} }});}},{{rootMargin:'300px 0px'}});
   fr.forEach(function(f){{fo.observe(f);}});
-  setInterval(function(){{
-    document.querySelectorAll('iframe').forEach(function(f){{
-      if(f.src.indexOf('/lab/')<0) return;
-      try{{ var d=f.contentDocument, r=d.getElementById('time'), p=d.getElementById('play'), rs=d.getElementById('restart');
-        if(r&&p&&rs&&p.textContent.trim()==='Play'&&Number(r.value)>=Number(r.max)-0.05){{ rs.click(); setTimeout(function(){{ if(p.textContent.trim()==='Play') p.click(); }},120); }} }}catch(e){{}}
-    }});
-  }},1500);
   window.addEventListener('load',function(){{
     document.querySelectorAll('.d3').forEach(function(el){{
       var kind=el.dataset.chart, d=JSON.parse(el.dataset.json);
@@ -419,5 +434,6 @@ page = f"""<!doctype html><html lang="en"><head>
 </script>
 </body></html>
 """
-(ROOT / "index.html").write_text(page)
-print("wrote index.html", len(page), "bytes; missing models:", sorted(set(MISSING)))
+    (ROOT / f"{key}.html").write_text(page)
+    print("wrote", key + ".html", len(page), "bytes")
+print("missing models:", sorted(set(MISSING)))

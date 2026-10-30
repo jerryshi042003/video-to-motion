@@ -2,7 +2,7 @@
 
 How one YouTube clip of a tennis point becomes a 3D body, racket and ball on a court that a viewer can orbit. Live at https://video-to-motion.vercel.app and linked from the Notes row on jerrythegoat.com.
 
-The page is one column in the jerrythegoat.com write-up style and reads in this order:
+The site is four pages in the jerrythegoat.com write-up style, sharing one header nav: Tennis (index), Environments, Cast and Films. The Tennis page reads in this order:
 
 1. **Hero**: the Shelton serve-and-volley point in the gallery's own viewer (`scene/`): the original footage drives the 3D scene frame for frame, the camera starts where the footage camera was, one play control and a scrubber, drag to orbit, Wilson ball on the authored flights.
 2. **The plan**: clip, body (FlowHMR on Modal), racket (RacketVision plus an arm solver), ball (authored to the motion's events), person (Rodin, Meshy), scene.
@@ -11,6 +11,8 @@ The page is one column in the jerrythegoat.com write-up style and reads in this 
 5. **Where the videos come from**: one card per YouTube source (channel, camera, frame rate, what changed) with the live scene under it. Same model every time; the camera and the frame rate decide the result.
 6. **Problems and fixes**, each measured on the same points before and after, drawn with D3: racket spin per point (free-wrist fit vs arm solve), face angle at 34 labelled contacts, racket detection at 30 vs 120 fps, the serve drift behind the baseline, the authored ball, and the likeness attempts.
 7. **Scenes, cast, goat and films**, then the live environments (USTA, UCLA, LA Galaxy, LA Kings story pages embedded), the home-page thumbnails, and a timeline.
+
+![Ben Shelton serve and volley: the footage above drives the 3D scene below](media/readme-hero.jpg)
 
 ## Layout
 

@@ -1,0 +1,311 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cast</title>
+<meta name="description" content="The people and the goat, as interactive models.">
+<meta property="og:title" content="Cast"><meta property="og:description" content="The people and the goat, as interactive models.">
+<style>/* writeup.css
+   Extracted verbatim from jerrythegoat.com/orfeu/how/ and jerrythegoat.com/la-caja/
+   (both pages inline their CSS; no external stylesheet, no web-font loading).
+   Every value below is copied from the live pages (2026-10-30). Where the two pages
+   differ, the Orfeu value is used and the La Caja value is noted in a comment.
+   Source comment on the pages: "One phone-width column, centered on any screen.
+   Hairlines, one accent." / "iOS system type, hairlines, one blue." */
+
+/* ---------- 1. Tokens ---------- */
+:root {
+  --bg: #fff;            /* La Caja writes #ffffff */
+  --fg: #111114;
+  --muted: #6e6e76;
+  --line: #e4e4e8;
+  --fill: #f2f2f6;
+  --accent: #0a66d8;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: light;   /* Orfeu only; La Caja omits this line */
+}
+/* Dark: follows the OS unless html[data-theme="light"]; html[data-theme="dark"] forces it. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #000;          /* La Caja writes #000000 */
+    --fg: #f4f4f6;
+    --muted: #9a9aa2;
+    --line: #2a2a2e;
+    --fill: #1c1c1e;
+    --accent: #3d8bff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #000; --fg: #f4f4f6; --muted: #9a9aa2; --line: #2a2a2e; --fill: #1c1c1e; --accent: #3d8bff;
+  color-scheme: dark;
+}
+
+/* ---------- 2. Base ---------- */
+/* Fonts: system stack only. No Google Fonts link, no @font-face, no self-hosted files
+   are referenced by either page (the site's /fonts/ folder holds archivo-var-wdth.woff2
+   and inter-latin-wght-normal.woff2 but these write-ups do not load them). */
+* { box-sizing: border-box }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 14px/1.45 var(--sans);   /* La Caja: 14px/1.4 */
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit }             /* Orfeu only; La Caja sets color:inherit inline on its one header link */
+
+/* ---------- 3. Measure, rhythm, safe area ---------- */
+/* The whole page is ONE column, max 430px, centered. There are no media queries on
+   either page: at 1280 the column simply floats in the middle; at 390 it fills the
+   viewport with 16px gutters (or the iOS safe-area inset if larger). Sections are
+   44px apart. */
+.col {
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 20px max(16px, env(safe-area-inset-right, 0px)) 40px max(16px, env(safe-area-inset-left, 0px));
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+/* ---------- 4. Header / nav bar ---------- */
+/* There is no nav bar. The only chrome is a one-line mono "made" strap above the
+   title: centered, 11px mono, muted, +.02em tracking, link undecorated. */
+.made { font: 11px/1 var(--mono); color: var(--muted); text-align: center; letter-spacing: .02em }
+.made a { text-decoration: none }
+
+/* ---------- 5. Type scale ---------- */
+header h1 { margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -.01em }
+header p  { margin: 4px 0 0; color: var(--muted); font-size: 14px }      /* lede / deck */
+h2        { margin: 0 0 6px; font-size: 17px; font-weight: 600; letter-spacing: -.01em }   /* La Caja: 0 0 14px (see .v-lacaja) */
+h2 + .sub { margin: 0 0 16px; color: var(--muted); font-size: 13px }   /* section sub-line, Orfeu */
+/* body = 14px sans; small = 12.5px (.steps small) or 13px (.sub); mono labels 11-12px */
+
+/* Caption / eyebrow: centered 11px mono, muted. Used under every figure, flow and list. */
+.cap { font: 11px/1.4 var(--mono); color: var(--muted); text-align: center; margin: 12px 0 0 }
+      /* La Caja: font: 11px/1.35 var(--mono); margin: 0 (then style="margin-top:12px" where needed)
+         and .flow-cap { margin-top: 14px } */
+
+/* ---------- 6. Section dividers ---------- */
+/* None. No rules between sections; separation is the 44px flex gap. The only hairlines
+   are inside .rows lists (1px var(--line) top + between items). */
+
+/* ---------- 7. Left-to-right flow diagram (icon nodes joined by labelled arrows) ---------- */
+.flow { display: grid; grid-template-columns: 68px 1fr 68px 1fr 68px; align-items: start }
+      /* La Caja adds row-gap: 8px */
+.node { min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 8px }
+.ic   { width: 56px; height: 56px; border-radius: 14px; background: var(--fill); display: grid; place-items: center; color: var(--fg) }
+.ic svg { width: 26px; height: 26px }
+.ic img { width: 26px; height: 26px }          /* La Caja: logo image inside an icon tile */
+.node span { font: 11px/1.3 var(--mono); color: var(--muted); text-align: center }
+           /* La Caja adds white-space: nowrap */
+.node b { font-weight: 600; color: var(--fg) }
+.link { height: 56px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px; padding: 0 2px; min-width: 0 }
+.link span { font: 11px/1 var(--mono); white-space: nowrap }   /* La Caja adds color: var(--fg) */
+.link span i { font-style: normal; color: var(--muted) }
+.link svg { width: 100%; height: 10px }
+.link path { fill: none; stroke: var(--muted); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round }
+/* arrow SVG markup used in .link:
+   <svg viewBox="0 0 60 10" preserveAspectRatio="none"><path d="M1 5 H58 M54 1.5 L58 5 L54 8.5" vector-effect="non-scaling-stroke"/></svg> */
+
+/* ---------- 8. Top-to-bottom step list (Orfeu) ---------- */
+.steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column }
+.steps li { display: grid; grid-template-columns: 44px 1fr auto; gap: 12px; align-items: center; padding: 10px 0; position: relative }
+.steps li + li:before { content: ""; position: absolute; left: 21px; top: -6px; height: 12px; border-left: 1.4px solid var(--muted) }
+.steps .ic { width: 44px; height: 44px; border-radius: 12px }
+.steps .ic svg { width: 21px; height: 21px }
+.steps b { display: block; font-weight: 600 }
+.steps small { display: block; color: var(--muted); font-size: 12.5px; line-height: 1.35 }
+.steps code { font: 11px var(--mono); color: var(--fg); background: var(--fill); border-radius: 6px; padding: 3px 6px; white-space: nowrap }
+.steps .you code { background: var(--accent); color: #fff }   /* the one "you" step gets the accent chip */
+
+/* ---------- 9. Image / screenshot blocks ---------- */
+/* Never full-bleed: everything stays inside the 430px column. Media is narrower than
+   the column and centered. */
+/* 9a. Phone screenshot card (Orfeu): 72% of column, max 280, 22px radius, hairline, soft shadow */
+.shot { width: 72%; max-width: 280px; margin: 22px auto 0; border-radius: 22px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 10px 24px rgba(0,0,0,.18) }
+.shot img { display: block; width: 100%; height: auto }
+
+/* 9b. Three-up input tiles (La Caja): 4:5 cards, 12px radius, hairline, fill bg; logo row under each */
+.inputs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px }
+.in { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 0 }
+.in .pic { width: 100%; aspect-ratio: 4 / 5; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--fill) }
+.in .pic img { width: 100%; height: 100%; object-fit: cover; display: block }
+.in .pic img.zelle { width: 175%; height: auto; margin-top: -42%; margin-left: -2% }
+.in .pic img.venmo { object-position: 50% 10% }
+.in .logo { height: 18px; display: flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 600 }
+.in .logo img { height: 100%; width: auto; display: block }
+.in .logo img.z { height: 18px; border-radius: 3px }
+.in .logo img.v { height: 11px }
+.in .logo svg { width: 20px; height: 20px; color: var(--fg) }
+
+/* 9c. Free-drawn connector arrows between blocks (La Caja), full column width */
+.arrows { display: block; width: 100%; height: auto; overflow: visible }
+.arrows path { fill: none; stroke: var(--muted); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round }
+.arrows text { fill: var(--muted); font: 10px var(--mono) }
+
+/* 9d. Two-up "before" figures with an arrow between (La Caja) */
+.mess { display: grid; grid-template-columns: 1fr 40px 1fr; align-items: center }
+.mess figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 0 }
+.paper { width: 94%; aspect-ratio: 4 / 5; border-radius: 4px; overflow: hidden; transform: rotate(-2.5deg); box-shadow: 0 8px 20px rgba(0,0,0,.16) }
+.paper img { width: 100%; height: 100%; object-fit: cover; object-position: 68% 50%; display: block; transform: scale(1.5); transform-origin: 52% 78% }
+.roll { width: 100%; display: block }
+.mid { display: flex; justify-content: center; color: var(--muted) }
+.mid svg { width: 28px; height: 16px }
+
+/* 9e. Phone in a device frame (La Caja): 62% of column, max 250, PNG frame over the screen */
+.phone { position: relative; width: 62%; max-width: 250px; margin: 0 auto; aspect-ratio: 1406 / 2822 }
+.phone .screen { position: absolute; left: 7.25%; top: 3.54%; width: 85.78%; height: 92.91%; border-radius: 12% / 5.6%; background: #fff; object-fit: contain; object-position: 50% 100%; padding-top: 9%; display: block }
+.phone .frame { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; filter: drop-shadow(0 10px 18px rgba(0,0,0,.2)) }
+.after-fig { display: flex; flex-direction: column; gap: 10px }
+
+/* figcaption: the pages put class="cap" on <figcaption>; no separate figcaption rule. */
+
+/* ---------- 10. Hairline row lists (the "table") ---------- */
+/* No <table> on either page. Tabular data is a <ul class="rows"> with a hairline
+   above the list and under every item. */
+.rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line) }
+.rows li { border-bottom: 1px solid var(--line); font-size: 14px }
+/* 3-column linked row (Orfeu "first cloud week"): mono date | text | mono tag, baseline-aligned */
+.rows li > a, .rows li > div { display: grid; grid-template-columns: 48px 1fr auto; gap: 10px; align-items: baseline; padding: 11px 0; text-decoration: none }
+.rows time { font: 12px var(--mono); color: var(--muted) }
+.rows code { font: 11px var(--mono); color: var(--muted) }
+/* plain prose rows with an optional trailing mono tag (Orfeu .rows.plain; La Caja bare .rows) */
+.rows li:not(:has(> a, > div)) { padding: 11px 0 }                      /* = La Caja .rows li / Orfeu .plain li */
+.rows li:not(:has(> a, > div)) code { font: 12px var(--mono); color: var(--muted) }
+.plain li { padding: 11px 0 }
+.plain li code { font: 12px var(--mono); color: var(--muted) }
+
+/* ---------- 11. Stat tiles (Orfeu) ---------- */
+.stat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px }
+.stat div { background: var(--fill); border-radius: 12px; padding: 12px 10px }
+.stat b { display: block; font-size: 22px; font-weight: 700; letter-spacing: -.01em }
+.stat span { font: 11px/1.3 var(--mono); color: var(--muted) }
+
+/* ---------- 12. Links ---------- */
+/* Body links: inherit color, browser default underline (only .made and .rows a are
+   un-underlined). The call-to-action is the only accent-colored text. */
+.try { display: flex; flex-direction: column; gap: 12px }   /* La Caja: gap 14px; align-items: stretch */
+.btn  { display: block; text-align: center; background: var(--accent); color: #fff; text-decoration: none; font-weight: 600; font-size: 16px; padding: 14px; border-radius: 12px }
+.btn2 { display: block; text-align: center; font-size: 14px; color: var(--accent); text-decoration: none; padding: 6px }   /* Orfeu secondary link */
+.btn:focus-visible, .btn2:focus-visible, .rows a:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px }
+
+/* ---------- 13. Footer ---------- */
+/* The footer sits inside the last (.try) section, under the button(s): one centered
+   mono credits line. */
+footer { font: 11px/1.5 var(--mono); color: var(--muted); text-align: center }   /* La Caja: 11px/1.4 */
+
+/* ---------- 14. La Caja variant ---------- */
+/* Add class="v-lacaja" to <html> or <body> to get La Caja's three numeric differences. */
+.v-lacaja body, body.v-lacaja { line-height: 1.4 }
+.v-lacaja h2 { margin-bottom: 14px }
+.v-lacaja .cap { line-height: 1.35; margin: 0 }
+.v-lacaja .flow-cap { margin-top: 14px }
+.v-lacaja .try { gap: 14px; align-items: stretch }
+.v-lacaja footer { line-height: 1.4 }
+
+/* ---------- 15. Responsive ---------- */
+/* No breakpoints exist on either page. Behaviour by width:
+   - >= 462px: column is 430px wide, centered, 20px top / 40px bottom padding.
+   - <  462px (e.g. 390): column = viewport minus 16px each side (or safe-area inset);
+     grids (.flow 68/1fr/68/1fr/68, .inputs 3-up, .stat 3-up, .mess 1fr/40/1fr) keep
+     their column counts and simply compress; .shot/.phone stay at 72%/62% of the column.
+   Nothing reflows, hides, or changes size between 1280 and 390. */
+
+figure{margin:0}
+h3{font-size:15px;font-weight:600;margin:28px 0 8px}
+.fig img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line);background:var(--fill)}
+.vid video{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line);background:var(--fill)}
+.model model-viewer{display:block;width:100%;height:360px;border-radius:12px;border:1px solid var(--line);background:var(--fill);--poster-color:transparent}
+.scene iframe{display:block;width:100%;border:1px solid var(--line);border-radius:12px;background:var(--fill)}
+.yt a{display:block;position:relative;text-decoration:none}
+.yt img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+.yt .play{position:absolute;left:10px;bottom:10px;display:flex;align-items:center;gap:6px;font:11px var(--mono);color:#fff;background:rgba(0,0,0,.55);border-radius:999px;padding:5px 10px}
+.yt .play img{width:16px;height:16px;border:0;border-radius:0;aspect-ratio:auto}
+.src{border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:28px}
+.who{display:grid;grid-template-columns:44px 1fr 24px;gap:10px;align-items:center}
+.who>img:first-child{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.who b{display:block;font-weight:600}.who span{display:block;color:var(--muted);font-size:12.5px;line-height:1.3}
+.who .ytm{width:24px;height:24px}
+.facts{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px}
+.facts li{font:11px/1.4 var(--mono);color:var(--muted)}
+.facts li::before{content:"· "}
+.changed{margin:10px 0 0;font-size:13px}
+.bars,.mini{list-style:none;margin:0;padding:0}
+.bars li{padding:10px 0;border-bottom:1px solid var(--line)}
+.bars .row{display:flex;justify-content:space-between;align-items:baseline}
+.bars b{font-weight:600}.bars code,.mini code{font:12px var(--mono);color:var(--muted)}
+.track{height:6px;background:var(--fill);border-radius:99px;overflow:hidden;margin:6px 0}
+.track i{display:block;height:100%;width:0;background:var(--accent);border-radius:99px;transition:width .9s cubic-bezier(.2,.7,.2,1)}
+.on .track i{width:var(--w)}
+.bars small{display:block;color:var(--muted);font-size:12.5px;line-height:1.35}
+.mini{margin-top:10px}
+.mini li{display:grid;grid-template-columns:150px 1fr 28px;gap:8px;align-items:center;padding:5px 0}
+.mini span{font-size:13px}.mini .track{margin:0}.mini code{text-align:right}
+.mini small{grid-column:1/-1;color:var(--muted);font-size:12px;line-height:1.3;margin:-2px 0 2px}
+.steps .ic .n{font:12px var(--mono);color:var(--fg)}
+section > .model, section > .vid, section > .fig, section > .rows, section > .bars, section > .scene, section > .yt{margin-top:16px}
+.src + .yt, .src + .vid{margin-top:12px}
+.src-vid .cap a{text-decoration:none}
+.chart .d3{width:100%}
+.pages{display:flex;gap:18px;margin:-6px 0 26px;font:12px var(--mono)}.pages a{color:var(--muted);text-decoration:none}.pages a:hover{color:var(--fg)}.pages b{font-weight:600}
+.pair{display:grid;gap:12px}
+.thumbs{display:grid;grid-template-columns:1fr 1fr;gap:10px}.thumbs .cap{text-align:center}
+.scene iframe[data-src]:not([src]){background:var(--fill)}
+.scores{list-style:none;margin:0 0 10px;padding:0}
+.scores li{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.scores li:last-child{border-bottom:1px solid var(--line)}
+.scores img{width:64px;height:64px;object-fit:cover;border-radius:6px;background:var(--panel)}
+.scores b{display:block;font-size:14px;font-weight:600}.scores small{display:block;font-size:12px;color:var(--muted);line-height:1.4}
+.scores code{font:11px var(--mono);color:var(--muted);align-self:start;padding-top:2px}
+.hero{margin-top:-10px}
+section p{margin:0 0 10px;font-size:14px}
+@media (prefers-reduced-motion:reduce){.track i{transition:none}}
+</style>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/dist/model-viewer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script defer src="charts.js"></script>
+</head><body>
+<main class="col">
+<div class="made"><a href="https://jerrythegoat.com/">jerrythegoat.com</a> · notes</div>
+<header><h1>Cast</h1><p>The people and the goat, as interactive models.</p></header>
+<nav class="pages" aria-label="Pages"><a href="/">Tennis</a><a href="/environments">Environments</a><b>Cast</b><a href="/films">Films</a></nav>
+<section aria-label="Cast">
+<p class="sub">Meshy made the people from one reference image each; the goat is a CC0 scan reshaped in Blender. Drag to orbit.</p>
+<figure class="model"><model-viewer src="media/models/shelton-2.glb" poster="media/models/shelton-2-poster.jpg" alt="Ben Shelton (v2)" loading="lazy" reveal="auto" camera-controls touch-action="pan-y"  autoplay interaction-prompt="none" shadow-intensity="0.5" exposure="1.1" environment-image="neutral" style="height:420px" camera-orbit="25deg 80deg 3.2m" camera-target="0m 0.95m 0m" animation-name="sv"></model-viewer><figcaption class="cap">Ben Shelton · the rebuilt body on the USTA page</figcaption></figure>
+<figure class="model"><model-viewer src="media/models/rodin-shelton.glb" poster="media/models/rodin-shelton-poster.jpg" alt="Rodin body: Shelton" loading="lazy" reveal="auto" camera-controls touch-action="pan-y"  interaction-prompt="none" shadow-intensity="0.5" exposure="1.1" environment-image="neutral" style="height:420px" camera-orbit="25deg 80deg 3.2m" camera-target="0m 0.95m 0m"></model-viewer><figcaption class="cap">Ben Shelton · Rodin 2.5 body from three frames of his video</figcaption></figure>
+<figure class="model"><model-viewer src="media/models/gauff-2.glb" poster="media/models/gauff-2-poster.jpg" alt="Coco Gauff (v2)" loading="lazy" reveal="auto" camera-controls touch-action="pan-y"  autoplay interaction-prompt="none" shadow-intensity="0.5" exposure="1.1" environment-image="neutral" style="height:400px" camera-orbit="25deg 80deg 3.2m" camera-target="0m 0.95m 0m"></model-viewer><figcaption class="cap">Coco Gauff</figcaption></figure>
+<figure class="model"><model-viewer src="media/models/jerry.glb" poster="media/models/jerry-poster.jpg" alt="Jerry" loading="lazy" reveal="auto" camera-controls touch-action="pan-y"  autoplay interaction-prompt="none" shadow-intensity="0.5" exposure="1.1" environment-image="neutral" style="height:400px" camera-orbit="25deg 80deg 3.2m" camera-target="0m 0.95m 0m"></model-viewer><figcaption class="cap">Jerry · four-photo rebuild</figcaption></figure>
+<figure class="model"><model-viewer src="media/models/martin.glb" poster="media/models/martin-poster.jpg" alt="Martin" loading="lazy" reveal="auto" camera-controls touch-action="pan-y"  autoplay interaction-prompt="none" shadow-intensity="0.5" exposure="1.1" environment-image="neutral" style="height:400px" camera-orbit="25deg 80deg 3.2m" camera-target="0m 0.95m 0m"></model-viewer><figcaption class="cap">Martin</figcaption></figure>
+<figure class="model"><model-viewer src="media/models/umpire.glb" poster="media/models/umpire-poster.jpg" alt="Umpire" loading="lazy" reveal="auto" camera-controls touch-action="pan-y"  autoplay interaction-prompt="none" shadow-intensity="0.5" exposure="1.1" environment-image="neutral" style="height:400px" camera-orbit="25deg 80deg 3.2m" camera-target="0m 0.95m 0m"></model-viewer><figcaption class="cap">umpire</figcaption></figure>
+<figure class="model"><model-viewer src="media/models/sp-1.glb" poster="media/models/sp-1-poster.jpg" alt="Spectator 1" loading="lazy" reveal="auto" camera-controls touch-action="pan-y"  autoplay interaction-prompt="none" shadow-intensity="0.5" exposure="1.1" environment-image="neutral" style="height:400px" camera-orbit="25deg 80deg 3.2m" camera-target="0m 0.95m 0m"></model-viewer><figcaption class="cap">spectator</figcaption></figure>
+<figure class="model"><model-viewer src="media/models/goat-loader.glb" poster="media/models/goat-loader-poster.jpg" alt="Loader goat (reshaped ibex, rigged)" loading="lazy" reveal="auto" camera-controls touch-action="pan-y"  interaction-prompt="none" shadow-intensity="0.5" exposure="1.1" environment-image="neutral" style="height:360px" auto-rotate></model-viewer><figcaption class="cap">the home-page goat</figcaption></figure>
+<figure class="model"><model-viewer src="media/models/toy-ibex.glb" poster="media/models/toy-ibex-poster.jpg" alt="Toy ibex (rigged, web)" loading="lazy" reveal="auto" camera-controls touch-action="pan-y"  interaction-prompt="none" shadow-intensity="0.5" exposure="1.1" environment-image="neutral" style="height:360px" auto-rotate></model-viewer><figcaption class="cap">toy ibex · nano-banana still → Tripo</figcaption></figure>
+<figure class="model"><model-viewer src="media/models/toy-mountain.glb" poster="media/models/toy-mountain-poster.jpg" alt="Toy mountain (web, slimmed)" loading="lazy" reveal="auto" camera-controls touch-action="pan-y"  interaction-prompt="none" shadow-intensity="0.5" exposure="1.1" environment-image="neutral" style="height:360px" auto-rotate></model-viewer><figcaption class="cap">toy mountain</figcaption></figure>
+</section>
+</main>
+<script>
+(function(){
+  customElements.whenDefined('model-viewer').then(function(){customElements.get('model-viewer').meshoptDecoderLocation='https://cdn.jsdelivr.net/npm/meshoptimizer@0.22.0/meshopt_decoder.js';});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target);}});},{threshold:.3});
+  document.querySelectorAll('.bars li, .mini').forEach(function(el){io.observe(el);});
+  var vids=[].slice.call(document.querySelectorAll('video.auto'));
+  var vo=new IntersectionObserver(function(es){es.forEach(function(x){var v=x.target;if(x.isIntersecting){if(v.preload==='none'){v.preload='auto';v.load();}v.play().catch(function(){});}else{v.pause();}});},{rootMargin:'160px 0px'});
+  vids.forEach(function(v){vo.observe(v);});
+  // scenes and environments load only near the viewport and unload far away: one live WebGL scene at a time
+  var fr=[].slice.call(document.querySelectorAll('iframe[data-src]'));
+  var fo=new IntersectionObserver(function(es){es.forEach(function(x){var f=x.target;
+    if(x.isIntersecting){ if(!f.src) f.src=f.dataset.src; } else if(f.src){ f.removeAttribute('src'); } });},{rootMargin:'300px 0px'});
+  fr.forEach(function(f){fo.observe(f);});
+  window.addEventListener('load',function(){
+    document.querySelectorAll('.d3').forEach(function(el){
+      var kind=el.dataset.chart, d=JSON.parse(el.dataset.json);
+      if(kind==='spin') VTM.spinChart(el,d.rows);
+      else if(kind==='contact') VTM.contactChart(el,d.rows,d.band);
+      else if(kind==='bars') VTM.bars(el,d.rows,d.max,function(v){return v+(d.unit||'');});
+      else if(kind==='trace') fetch(d.src).then(function(r){return r.json();}).then(function(j){VTM.trace(el,j[d.key],d.label);});
+    });
+  });
+})();
+</script>
+</body></html>

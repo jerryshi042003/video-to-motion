@@ -1,8 +1,8 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Video to Motion</title>
-<meta name="description" content="How tennis video became 3D motion, a racket, a ball and a person: what each step can do today, scored honestly, with every scene interactive.">
-<meta property="og:title" content="Video to Motion"><meta property="og:description" content="Tennis video to 3D motion, racket, ball and person. Every scene interactive, every result scored.">
+<meta name="description" content="How one YouTube clip becomes a body, a racket and a ball on a court. The plan, the examples, the research, where the footage comes from, and what broke and how it was fixed.">
+<meta property="og:title" content="Video to Motion"><meta property="og:description" content="How one YouTube clip becomes a body, a racket and a ball on a court. The plan, the examples, the research, where the footage comes from, and what broke and how it was fixed.">
 <style>/* writeup.css
    Extracted verbatim from jerrythegoat.com/orfeu/how/ and jerrythegoat.com/la-caja/
    (both pages inline their CSS; no external stylesheet, no web-font loading).
@@ -248,6 +248,7 @@ section > .model, section > .vid, section > .fig, section > .rows, section > .ba
 .src + .yt, .src + .vid{margin-top:12px}
 .src-vid .cap a{text-decoration:none}
 .chart .d3{width:100%}
+.pages{display:flex;gap:18px;margin:-6px 0 26px;font:12px var(--mono)}.pages a{color:var(--muted);text-decoration:none}.pages a:hover{color:var(--fg)}.pages b{font-weight:600}
 .pair{display:grid;gap:12px}
 .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:10px}.thumbs .cap{text-align:center}
 .scene iframe[data-src]:not([src]){background:var(--fill)}
@@ -268,6 +269,7 @@ section p{margin:0 0 10px;font-size:14px}
 <main class="col">
 <div class="made"><a href="https://jerrythegoat.com/">jerrythegoat.com</a> · notes</div>
 <header><h1>Video to Motion</h1><p>How one YouTube clip becomes a body, a racket and a ball on a court. The plan, the examples, the research, where the footage comes from, and what broke and how it was fixed.</p></header>
+<nav class="pages" aria-label="Pages"><b>Tennis</b><a href="/environments">Environments</a><a href="/cast">Cast</a><a href="/films">Films</a></nav>
 <section aria-label="Hero" class="hero">
 <figure class="scene"><iframe data-src="scene/?m=tennis-lab-shelton-coria&amp;v=../lab/media/sources/shelton-coria.mp4&amp;court=1&amp;fov=20&amp;cp=-1.00,2.40,19.08&amp;ct=-0.97,1.0,10.77&amp;ball=auto" title="tennis-lab-shelton-coria" allow="autoplay" style="height:720px"></iframe></figure>
 <p class="cap">Ben Shelton, serve and volley · drag to orbit · the footage above drives the scene</p>
@@ -382,29 +384,6 @@ section p{margin:0 0 10px;font-size:14px}
 <figure class="model"><model-viewer src="media/models/shelton-2.glb" poster="media/models/shelton-2-poster.jpg" alt="Ben Shelton (v2)" loading="lazy" reveal="auto" camera-controls touch-action="pan-y"  autoplay interaction-prompt="none" shadow-intensity="0.5" exposure="1.1" environment-image="neutral" style="height:420px" camera-orbit="20deg 78deg 3.4m" camera-target="0m 0.95m 0m" animation-name="sv"></model-viewer><figcaption class="cap">after · the Shelton on the bike at jerrythegoat.com/usta</figcaption></figure>
 </div>
 <figure class="model"><model-viewer src="media/models/rodin-shelton.glb" poster="media/models/rodin-shelton-poster.jpg" alt="Rodin body: Shelton" loading="lazy" reveal="auto" camera-controls touch-action="pan-y"  interaction-prompt="none" shadow-intensity="0.5" exposure="1.1" environment-image="neutral" style="height:420px" camera-orbit="25deg 80deg 3.2m" camera-target="0m 0.95m 0m"></model-viewer><figcaption class="cap">Rodin 2.5 body from three frames of the same video</figcaption></figure>
-</section><section aria-labelledby="h-rest">
-<h2 id="h-rest">6 · Scenes, cast, goat and films</h2>
-<p class="sub">The venues are data, not generated images: OpenStreetMap, USGS terrain, an aerial photo, Poly Haven props. Meshy made the people. HyperFrames made the films.</p>
-<figure class="model"><model-viewer src="media/models/shelton-coria-point.glb" poster="media/models/shelton-coria-point-poster.jpg" alt="USTA: Shelton vs Coria point" loading="lazy" reveal="auto" camera-controls touch-action="pan-y"  autoplay interaction-prompt="none" shadow-intensity="0.5" exposure="1.1" environment-image="neutral" style="height:420px" camera-target="12m 1m -0.8m" camera-orbit="215deg 78deg 7m" min-camera-orbit="auto auto 2m" max-camera-orbit="auto auto 40m"></model-viewer><figcaption class="cap">the USTA opener scene · both players with the Wilson ball · live on jerrythegoat.com/usta</figcaption></figure>
-<figure class="fig"><img src="media/venues/usta-sheet.jpg" loading="lazy" alt=""><figcaption class="cap">US Open · Arthur Ashe and Flushing Meadows from OSM and code</figcaption></figure>
-<figure class="fig"><img src="media/venues/ucla-full.jpg" loading="lazy" alt=""><figcaption class="cap">UCLA · real terrain, aerial photo ground, 52k trees from its near-infrared band</figcaption></figure>
-<figure class="model"><model-viewer src="media/models/gauff-2.glb" poster="media/models/gauff-2-poster.jpg" alt="Coco Gauff (v2)" loading="lazy" reveal="auto" camera-controls touch-action="pan-y"  autoplay interaction-prompt="none" shadow-intensity="0.5" exposure="1.1" environment-image="neutral" style="height:400px" camera-orbit="25deg 80deg 3.2m" camera-target="0m 0.95m 0m"></model-viewer><figcaption class="cap">Coco Gauff · Meshy likeness</figcaption></figure>
-<figure class="model"><model-viewer src="media/models/jerry.glb" poster="media/models/jerry-poster.jpg" alt="Jerry" loading="lazy" reveal="auto" camera-controls touch-action="pan-y"  autoplay interaction-prompt="none" shadow-intensity="0.5" exposure="1.1" environment-image="neutral" style="height:400px" camera-orbit="25deg 80deg 3.2m" camera-target="0m 0.95m 0m"></model-viewer><figcaption class="cap">Jerry · four-photo Meshy rebuild</figcaption></figure>
-<figure class="model"><model-viewer src="media/models/goat-loader.glb" poster="media/models/goat-loader-poster.jpg" alt="Loader goat (reshaped ibex, rigged)" loading="lazy" reveal="auto" camera-controls touch-action="pan-y"  interaction-prompt="none" shadow-intensity="0.5" exposure="1.1" environment-image="neutral" style="height:360px" auto-rotate></model-viewer><figcaption class="cap">the home-page goat · a CC0 goat reshaped in Blender</figcaption></figure>
-<figure class="model"><model-viewer src="media/models/toy-ibex.glb" poster="media/models/toy-ibex-poster.jpg" alt="Toy ibex (rigged, web)" loading="lazy" reveal="auto" camera-controls touch-action="pan-y"  interaction-prompt="none" shadow-intensity="0.5" exposure="1.1" environment-image="neutral" style="height:360px" auto-rotate></model-viewer><figcaption class="cap">toy ibex · nano-banana still → Tripo</figcaption></figure>
-<figure class="vid"><video class="auto" src="media/hyperframes/cycling-film.mp4" poster="media/hyperframes/cycling-film-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video><figcaption class="cap">cycling film · HyperFrames, HTML rendered frame by frame</figcaption></figure>
-<figure class="vid"><video class="auto" src="media/hyperframes/reel-v3.mp4" poster="media/hyperframes/reel-v3-poster.jpg" muted loop playsinline preload="none" disablepictureinpicture></video><figcaption class="cap">sports data reel · 31 s</figcaption></figure>
-</section><section aria-labelledby="h-env">
-<h2 id="h-env">7 · Environments</h2>
-<p class="sub">The full scenes, live. Scroll inside each one.</p>
-<figure class="scene env"><iframe data-src="https://jerrythegoat.com/usta/" title="USTA" style="height:720px"></iframe><figcaption class="cap">US Open · Arthur Ashe and Flushing Meadows</figcaption></figure>
-<figure class="scene env"><iframe data-src="https://jerrythegoat.com/ucla/" title="UCLA" style="height:720px"></iframe><figcaption class="cap">UCLA · Los Angeles Tennis Center</figcaption></figure>
-<figure class="scene env"><iframe data-src="https://jerrythegoat.com/galaxy/" title="LA Galaxy" style="height:720px"></iframe><figcaption class="cap">LA Galaxy · Dignity Health Sports Park, Carson</figcaption></figure>
-<figure class="scene env"><iframe data-src="https://jerrythegoat.com/shield/" title="LA Kings" style="height:720px"></iframe><figcaption class="cap">LA Kings · the shield</figcaption></figure>
-<h3>Thumbnails</h3>
-<div class="thumbs">
-<figure class="vid"><video class="auto" src="media/thumbs/final-usta.mp4" poster="media/thumbs/final-usta-poster.jpg" muted loop playsinline preload="none"></video><figcaption class="cap">usta</figcaption></figure><figure class="vid"><video class="auto" src="media/thumbs/final-ucla.mp4" poster="media/thumbs/final-ucla-poster.jpg" muted loop playsinline preload="none"></video><figcaption class="cap">ucla</figcaption></figure><figure class="vid"><video class="auto" src="media/thumbs/final-galaxy.mp4" poster="media/thumbs/final-galaxy-poster.jpg" muted loop playsinline preload="none"></video><figcaption class="cap">galaxy</figcaption></figure><figure class="vid"><video class="auto" src="media/thumbs/final-matchviewer.mp4" poster="media/thumbs/final-matchviewer-poster.jpg" muted loop playsinline preload="none"></video><figcaption class="cap">matchviewer</figcaption></figure><figure class="vid"><video class="auto" src="media/thumbs/final-orfeu.mp4" poster="media/thumbs/final-orfeu-poster.jpg" muted loop playsinline preload="none"></video><figcaption class="cap">orfeu</figcaption></figure><figure class="vid"><video class="auto" src="media/thumbs/final-radio.mp4" poster="media/thumbs/final-radio-poster.jpg" muted loop playsinline preload="none"></video><figcaption class="cap">radio</figcaption></figure><figure class="vid"><video class="auto" src="media/thumbs/final-cycling.mp4" poster="media/thumbs/final-cycling-poster.jpg" muted loop playsinline preload="none"></video><figcaption class="cap">cycling</figcaption></figure>
-</div>
 </section><section aria-labelledby="h-time">
 <h2 id="h-time">Timeline</h2>
 <ul class="rows"><li><div><time>Sep 16</time><span>First tennis figure: Meshy 6 Lite from a generated reference</span><code>Meshy</code></div></li><li><div><time>Oct 19–21</time><span>Meshy cast, crowds and props for the story pages; Kling video fails</span><code>Meshy · fal</code></div></li><li><div><time>Oct 22</time><span>First FlowHMR run; Shelton serve accepted</span><code>Modal</code></div></li><li><div><time>Oct 23–26</time><span>Rallies, two-player point, broadcast and college benchmarks; Meshy heads rejected; rackets traced</span><code>Modal</code></div></li><li><div><time>Oct 27</time><span>Rodin bodies through fal.ai; 4K crop; face fits rejected</span><code>fal</code></div></li><li><div><time>Oct 28</time><span>16-point library; racket through the arm; 120 fps forehand; 34 contacts pinned</span><code>local</code></div></li><li><div><time>Oct 29–30</time><span>USTA opener rebuilt on the serve-and-volley point; serve kept behind the baseline; live</span><code>live</code></div></li><li><div><time>Oct 30</time><span>Own viewer with the footage driving every scene; research pass on the racket; hand-driven racket and ball-by-inference runs started</span><code>running</code></div></li></ul>
@@ -426,13 +405,6 @@ section p{margin:0 0 10px;font-size:14px}
   var fo=new IntersectionObserver(function(es){es.forEach(function(x){var f=x.target;
     if(x.isIntersecting){ if(!f.src) f.src=f.dataset.src; } else if(f.src){ f.removeAttribute('src'); } });},{rootMargin:'300px 0px'});
   fr.forEach(function(f){fo.observe(f);});
-  setInterval(function(){
-    document.querySelectorAll('iframe').forEach(function(f){
-      if(f.src.indexOf('/lab/')<0) return;
-      try{ var d=f.contentDocument, r=d.getElementById('time'), p=d.getElementById('play'), rs=d.getElementById('restart');
-        if(r&&p&&rs&&p.textContent.trim()==='Play'&&Number(r.value)>=Number(r.max)-0.05){ rs.click(); setTimeout(function(){ if(p.textContent.trim()==='Play') p.click(); },120); } }catch(e){}
-    });
-  },1500);
   window.addEventListener('load',function(){
     document.querySelectorAll('.d3').forEach(function(el){
       var kind=el.dataset.chart, d=JSON.parse(el.dataset.json);
