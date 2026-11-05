@@ -246,6 +246,33 @@ S.append(f"""<section aria-labelledby="h-fix">
 <h2 id="h-fix">5 · Problems, and how each was fixed</h2>
 <p class="sub">Every fix is measured on the same points before and after.</p>
 
+<h3>What went wrong, in pictures</h3>
+<p>The working files behind these runs were deleted to free disk space on November 5. These are the examples kept from them: one per kind of failure, with what was done about it.</p>
+
+<h4>Face and texture</h4>
+<p>The first heads were a generic head swapped onto the body at a fixed plane, with a photo of the player projected over it and a cap added. The photo smeared across the cheeks and chin, the eye sockets went dark, the cap floated above the scalp, and the new neck left a hard ledge. Projecting a photo moves texture, not shape, so it cannot make the skull, jaw or neck the player's.</p>
+{fig("media/lessons/face-photo-pasted.jpg", "Djokovic, frame 51 · left: the swapped head without photo or cap · middle: the chin and neck ledge · right: photo and cap added")}
+<p>The fix order: keep the body's original connected head and neck (first picture below), fit head shape from front, three-quarter and profile photos before any skin (MICA, second picture), and only then texture. The shape now connects to the body. It is still a generic face, which is why face likeness scores 2 above.</p>
+<div class="pair">
+{fig("media/lessons/face-original-neck.jpg", "the original connected neck, kept")}
+{fig("media/lessons/face-shape-fit.jpg", "head shape fitted from three photos · still not a likeness")}
+</div>
+
+<h4>Body motion</h4>
+<p>The motion was the part that worked. Frame for frame through the serve, the fitted body follows the footage: toss, trophy pose, contact, landing. What fails is shape: every textured version shares one generic body, so the players look alike.</p>
+{fig("media/lessons/motion-serve-frames.jpg", "serve, frame by frame · top: footage · second row: the bare fitted body · below: three textured versions on the same motion")}
+
+<h4>Player on the court</h4>
+<p>The first rally viewer put the body on a generic court with no link to where the camera was. Its own note said racket and court placement were unresolved, and over 14 seconds the player drifted. The fix is the gallery's own viewer: it starts at the footage camera, plays the footage frame for frame against the scene, and keeps the server behind the baseline (chart below).</p>
+{fig("media/lessons/court-rally-before.jpg", "before · Shelton practice rally in the first viewer · footage left, body on a generic court right")}
+
+<h4>Racket model</h4>
+<p>The first racket mesh had capped string pegs and rough frame edges. It was rebuilt with hollow string passages and a rounded frame. The motion of the racket is the separate problem covered next.</p>
+{fig("media/lessons/racket-frame-rebuild.jpg", "racket frame · left: before · right: rebuilt")}
+
+<h4>Ball</h4>
+<p>The ball's before and after is lower down: authored flights first, then detections fitted with ballistic flights through the footage camera.</p>
+
 <h3>The racket flipped at the wrist</h3>
 <p>A racket seen from behind looks the same rotated 180° about its handle, so a free-wrist fit flipped the face between frames: up to 5,400°/s. The fix solves the arm instead of the racket: forearm twist and wrist angle per frame inside anatomical limits, smoothed, spin capped at 2,500°/s, the racket following the hand where the detector sees nothing.</p>
 {chart("spin", {"rows":[{"point":p,"label":l,"before":b,"after":a} for p,l,b,a in SPIN]}, "fastest racket spin per point · red: free-wrist fit · green: solved through the arm · no frame over the cap on 15 of 16 points")}
